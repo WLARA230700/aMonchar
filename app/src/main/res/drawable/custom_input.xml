@@ -2,7 +2,11 @@
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_enabled="true" android:state_focused="true">
         <shape android:shape="rectangle">
+<<<<<<< Updated upstream
             <solid android:color="#F5F5F5"/>
+=======
+            <solid android:color="#CCCCCC"/>
+>>>>>>> Stashed changes
             <corners android:radius="10dp"/>
             <stroke android:color="#FBB231" android:width="2dp"/>
         </shape>

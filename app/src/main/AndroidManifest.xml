@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AMonchar">
         <activity
-            android:name=".act_inicio"
+            android:name=".act_registro_usuario"
             android:exported="true" />
         <activity
             android:name=".act_inicio_sesion"
@@ -19,7 +19,7 @@
             android:name=".act_bienvenida"
             android:exported="true" />
         <activity
-            android:name=".act_registro_usuario"
+            android:name=".act_inicio"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

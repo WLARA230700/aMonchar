@@ -9,11 +9,11 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="263.6dp"
-        android:layout_height="207.6dp"
+        android:layout_width="352.9dp"
+        android:layout_height="214.7dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/forma_organica" />
+        app:srcCompat="@drawable/forma_organica2" />
 
     <TextView
         android:id="@+id/textView2"

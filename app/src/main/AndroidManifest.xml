@@ -16,10 +16,10 @@
             android:name=".act_inicio_sesion"
             android:exported="true" />
         <activity
-            android:name=".act_bienvenida"
+            android:name=".act_inicio"
             android:exported="true" />
         <activity
-            android:name=".act_inicio"
+            android:name=".act_bienvenida"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

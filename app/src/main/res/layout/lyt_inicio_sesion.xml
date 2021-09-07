@@ -68,6 +68,7 @@
         android:id="@+id/lblRecoverPass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/poppins"
         android:text="Recuperar contraseña"
         android:textAlignment="textStart"
         android:textColor="#cccccc"
@@ -134,8 +135,9 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="90dp"
-        android:layout_height="21dp"
+        android:layout_width="106dp"
+        android:layout_height="24dp"
+        android:fontFamily="@font/poppins"
         android:text="Recordar sesión"
         android:textColor="#191919"
         android:textSize="12dp"

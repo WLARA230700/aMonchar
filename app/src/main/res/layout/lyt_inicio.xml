@@ -204,12 +204,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:paddingBottom="70sp"
+                android:weightSum="100">
 
                 <LinearLayout
-                    android:layout_width="170dp"
+                    android:id="@+id/recetas1"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_weight="50"
+                    android:orientation="vertical"
+                    android:paddingRight="5sp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -223,7 +228,7 @@
 
                             <ImageView
                                 android:id="@+id/imageView10"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
@@ -286,7 +291,7 @@
 
                             <ImageView
                                 android:id="@+id/imageView10"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
@@ -349,7 +354,7 @@
 
                             <ImageView
                                 android:id="@+id/imageView10"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
@@ -412,7 +417,7 @@
 
                             <ImageView
                                 android:id="@+id/imageView10"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
@@ -466,9 +471,12 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:layout_width="170dp"
+                    android:id="@+id/recetas2"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:layout_weight="50"
+                    android:orientation="vertical"
+                    android:paddingLeft="5sp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -482,7 +490,7 @@
 
                             <ImageView
                                 android:id="@+id/imageView10"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
@@ -545,7 +553,7 @@
 
                             <ImageView
                                 android:id="@+id/imageView10"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
@@ -608,7 +616,7 @@
 
                             <ImageView
                                 android:id="@+id/imageView10"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
@@ -671,7 +679,7 @@
 
                             <ImageView
                                 android:id="@+id/imageView10"
-                                android:layout_width="160dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="150dp"
                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
@@ -730,17 +738,20 @@
 
     <ImageView
         android:id="@+id/bottomNav"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="60sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="90"
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/bottom_nav" />
 
     <ImageView
         android:id="@+id/icBuscar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/icInicio"
         app:layout_constraintHorizontal_bias="0.352"
@@ -751,8 +762,8 @@
 
     <ImageView
         android:id="@+id/icInicio"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -763,8 +774,8 @@
 
     <ImageView
         android:id="@+id/icListaCompra"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="30sp"
+        android:layout_height="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.583"
@@ -772,11 +783,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.978"
         app:srcCompat="@drawable/ic_lista" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="bottomNav,icBuscar,icInicio,icListaCompra" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

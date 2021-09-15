@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AMonchar">
         <activity
+            android:name=".act_agregar_receta"
+            android:exported="true" />
+        <activity
             android:name=".act_perfil_usuario_general"
             android:exported="true" />
         <activity

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     tools:context=".act_perfil_usuario_general">
 
     <ImageView
@@ -33,6 +34,7 @@
         app:layout_constraintVertical_bias="0.038" />
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="550dp"
         app:layout_constraintBottom_toTopOf="@+id/bottomNav"
@@ -51,7 +53,7 @@
                 android:id="@+id/cardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/background_item_light_gray"
+                android:backgroundTint="#F5F5F5"
                 app:cardElevation="0dp">
 
                 <LinearLayout
@@ -152,7 +154,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingLeft="15sp"
                 android:paddingTop="50sp"
@@ -166,6 +168,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="5sp"
                     android:layout_weight="33.3"
+                    android:backgroundTint="#F5F5F5"
                     app:cardElevation="0dp">
 
                     <LinearLayout
@@ -194,18 +197,28 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10sp"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             android:paddingLeft="10sp"
                             android:paddingRight="10sp">
 
                             <TextView
-                                android:id="@+id/textView19"
-                                android:layout_width="wrap_content"
+                                android:id="@+id/textView26"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/poppins_bold"
-                                android:lineSpacingExtra="-7sp"
-                                android:text="Agregar receta"
+                                android:text="Agregar"
+                                android:textAlignment="center"
+                                android:textColor="#1A1A1A"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/textView19"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="receta"
                                 android:textAlignment="center"
                                 android:textColor="#1A1A1A"
                                 android:textSize="13sp" />
@@ -217,13 +230,13 @@
                             android:layout_marginBottom="15sp"
                             android:orientation="horizontal"
                             android:paddingLeft="20sp"
-                            android:paddingTop="20sp"
+                            android:paddingTop="10sp"
                             android:paddingRight="20sp">
 
                             <ImageView
                                 android:id="@+id/imageView6"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="23sp"
                                 android:layout_weight="1"
                                 app:srcCompat="@drawable/ic_arrow_circle_right" />
                         </LinearLayout>
@@ -236,6 +249,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="5sp"
                     android:layout_weight="33.3"
+                    android:backgroundTint="#F5F5F5"
                     app:cardElevation="0dp">
 
                     <LinearLayout
@@ -264,18 +278,30 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10sp"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             android:paddingLeft="10sp"
                             android:paddingRight="10sp">
 
                             <TextView
-                                android:id="@+id/textView19"
-                                android:layout_width="wrap_content"
+                                android:id="@+id/textView27"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/poppins_bold"
                                 android:lineSpacingExtra="-7sp"
-                                android:text="Plan Semanal"
+                                android:text="Plan"
+                                android:textAlignment="center"
+                                android:textColor="#1A1A1A"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/textView19"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_bold"
+                                android:lineSpacingExtra="-7sp"
+                                android:text="Semanal"
                                 android:textAlignment="center"
                                 android:textColor="#1A1A1A"
                                 android:textSize="13sp" />
@@ -287,13 +313,13 @@
                             android:layout_marginBottom="15sp"
                             android:orientation="horizontal"
                             android:paddingLeft="20sp"
-                            android:paddingTop="20sp"
+                            android:paddingTop="10sp"
                             android:paddingRight="20sp">
 
                             <ImageView
                                 android:id="@+id/imageView6"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="23sp"
                                 android:layout_weight="1"
                                 app:srcCompat="@drawable/ic_arrow_circle_right" />
                         </LinearLayout>
@@ -306,6 +332,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginRight="5sp"
                     android:layout_weight="33.3"
+                    android:backgroundTint="#F5F5F5"
                     app:cardElevation="0dp">
 
                     <LinearLayout
@@ -334,18 +361,30 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="10sp"
-                            android:orientation="horizontal"
+                            android:orientation="vertical"
                             android:paddingLeft="10sp"
                             android:paddingRight="10sp">
 
                             <TextView
-                                android:id="@+id/textView19"
-                                android:layout_width="wrap_content"
+                                android:id="@+id/textView28"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/poppins_bold"
                                 android:lineSpacingExtra="-7sp"
-                                android:text="Beneficios Ingredientes"
+                                android:text="Beneficios"
+                                android:textAlignment="center"
+                                android:textColor="#1A1A1A"
+                                android:textSize="13sp" />
+
+                            <TextView
+                                android:id="@+id/textView19"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_bold"
+                                android:lineSpacingExtra="-7sp"
+                                android:text="Ingredientes"
                                 android:textAlignment="center"
                                 android:textColor="#1A1A1A"
                                 android:textSize="13sp" />
@@ -357,13 +396,13 @@
                             android:layout_marginBottom="15sp"
                             android:orientation="horizontal"
                             android:paddingLeft="20sp"
-                            android:paddingTop="20sp"
+                            android:paddingTop="10sp"
                             android:paddingRight="20sp">
 
                             <ImageView
                                 android:id="@+id/imageView6"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
+                                android:layout_height="23sp"
                                 android:layout_weight="1"
                                 app:srcCompat="@drawable/ic_arrow_circle_right" />
                         </LinearLayout>

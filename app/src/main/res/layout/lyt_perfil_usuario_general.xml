@@ -413,4 +413,53 @@
         </LinearLayout>
     </ScrollView>
 
+    <FrameLayout
+        android:id="@+id/navBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/bottomNav"
+            android:layout_width="match_parent"
+            android:layout_height="60sp"
+            app:srcCompat="@drawable/bottom_nav" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:weightSum="90">
+
+            <ImageView
+                android:id="@+id/icBuscar"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="30"
+                app:srcCompat="@drawable/ic_search" />
+
+            <ImageView
+                android:id="@+id/icInicio"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="30"
+                app:srcCompat="@drawable/ic_utensils_solid" />
+
+            <ImageView
+                android:id="@+id/icListaCompra"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="30"
+                app:srcCompat="@drawable/ic_lista" />
+
+        </LinearLayout>
+    </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

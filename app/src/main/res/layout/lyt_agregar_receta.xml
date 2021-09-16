@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#F5F5F5"
     tools:context=".act_agregar_receta">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
@@ -47,12 +48,12 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:id="@+id/header"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="25sp"
                     android:paddingRight="25sp">
@@ -121,13 +122,13 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingTop="10sp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical"
                         android:paddingLeft="25sp"
                         android:paddingRight="25sp">
@@ -141,29 +142,29 @@
                             <TextView
                                 android:id="@+id/textView25"
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="5sp"
-                                android:layout_weight="50"
+                                android:layout_height="match_parent"
+                                android:layout_weight="100"
                                 android:fontFamily="@font/poppins_bold"
+                                android:paddingTop="15dp"
                                 android:text="Tiempo de preparación"
-                                android:textSize="10sp" />
+                                android:textSize="15dp" />
 
                             <LinearLayout
-                                android:layout_width="match_parent"
+                                android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_weight="30"
+                                android:layout_weight="0"
                                 android:orientation="horizontal">
 
                                 <EditText
                                     android:id="@+id/editTextNumber"
-                                    android:layout_width="70sp"
+                                    android:layout_width="30dp"
                                     android:layout_height="41sp"
                                     android:background="@drawable/custom_input"
                                     android:inputType="number" />
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
-                                    android:layout_width="match_parent"
+                                    android:layout_width="wrap_content"
                                     android:layout_height="match_parent"
                                     android:layout_gravity="right"
                                     android:paddingTop="0sp"

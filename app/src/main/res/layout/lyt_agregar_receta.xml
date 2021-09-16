@@ -56,7 +56,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="25sp"
-                    android:paddingRight="25sp">
+                    android:paddingRight="25sp"
+                    android:paddingBottom="10dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -127,11 +128,14 @@
                     android:paddingTop="10sp">
 
                     <LinearLayout
+                        android:id="@+id/tiempoPreparacion"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
-                        android:paddingLeft="25sp"
-                        android:paddingRight="25sp">
+                        android:paddingLeft="25dp"
+                        android:paddingTop="7dp"
+                        android:paddingRight="25dp"
+                        android:paddingBottom="7dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -142,12 +146,14 @@
                             <TextView
                                 android:id="@+id/textView25"
                                 android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="100"
                                 android:fontFamily="@font/poppins_bold"
-                                android:paddingTop="15dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
                                 android:text="Tiempo de preparación"
-                                android:textSize="15dp" />
+                                android:textColor="#1A1A1A"
+                                android:textSize="13dp" />
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
@@ -157,30 +163,92 @@
 
                                 <EditText
                                     android:id="@+id/editTextNumber"
-                                    android:layout_width="30dp"
-                                    android:layout_height="41sp"
+                                    android:layout_width="45dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
                                     android:background="@drawable/custom_input"
-                                    android:inputType="number" />
+                                    android:fontFamily="@font/poppins"
+                                    android:inputType="number"
+                                    android:paddingLeft="10dp"
+                                    android:paddingTop="10dp"
+                                    android:paddingRight="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="#1A1A1A" />
 
                                 <com.google.android.material.textfield.TextInputLayout
                                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_gravity="right"
-                                    android:paddingTop="0sp"
-                                    android:paddingBottom="2.5sp">
+                                    android:layout_height="wrap_content"
+                                    android:paddingTop="0dp"
+                                    android:paddingBottom="0dp">
 
                                     <AutoCompleteTextView
                                         android:id="@+id/autoCompleteTextView"
                                         android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="0dp"
+                                        android:layout_marginBottom="0dp"
+                                        android:fontFamily="@font/poppins"
                                         android:inputType="none"
                                         android:paddingTop="0sp"
                                         android:paddingBottom="0sp"
-                                        android:text="min" />
+                                        android:text="min"
+                                        android:textColor="#1A1A1A" />
                                 </com.google.android.material.textfield.TextInputLayout>
                             </LinearLayout>
 
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tiempoComida"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="25dp"
+                        android:paddingTop="7dp"
+                        android:paddingRight="25dp"
+                        android:paddingBottom="7dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView23"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="100"
+                                android:fontFamily="@font/poppins_bold"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Tiempo de comida"
+                                android:textColor="#1A1A1A"
+                                android:textSize="13dp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:paddingTop="0dp"
+                                android:paddingBottom="0dp">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/autoCompleteTextView"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="0dp"
+                                    android:layout_marginBottom="0dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:inputType="none"
+                                    android:paddingTop="0sp"
+                                    android:paddingBottom="0sp"
+                                    android:text="min"
+                                    android:textColor="#1A1A1A" />
+                            </com.google.android.material.textfield.TextInputLayout>
                         </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>

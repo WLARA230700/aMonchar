@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 public class act_perfil_usuario_general extends AppCompatActivity {
 
-    CardView btnAgregarReceta;
+    CardView btnAgregarReceta, btnPlanSemanal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +18,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         setContentView(R.layout.lyt_perfil_usuario_general);
 
         btnAgregarReceta = findViewById(R.id.btnAgregarReceta);
+        btnPlanSemanal = findViewById(R.id.btnPlanSemanal);
 
         btnAgregarReceta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,6 +26,14 @@ public class act_perfil_usuario_general extends AppCompatActivity {
                 //Toast.makeText(getApplicationContext(), "Click", Toast.LENGTH_SHORT).show();
                 Intent intento = new Intent(act_perfil_usuario_general.this, act_agregar_receta.class);
                 startActivity(intento);
+            }
+        });
+
+        btnPlanSemanal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), act_plan_semanal.class);
+                startActivity(intent);
             }
         });
     }

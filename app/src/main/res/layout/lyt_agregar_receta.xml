@@ -33,7 +33,7 @@
                 android:textSize="17sp" />
 
             <ImageView
-                android:id="@+id/imageView7"
+                android:id="@+id/btnBack"
                 android:layout_width="30sp"
                 android:layout_height="30sp"
                 android:layout_gravity="right"

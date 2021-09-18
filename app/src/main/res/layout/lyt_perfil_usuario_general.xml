@@ -354,7 +354,7 @@
                                 android:id="@+id/icReceta"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                app:srcCompat="@drawable/ic__hot_pepper" />
+                                app:srcCompat="@drawable/ic_hot_pepper" />
                         </LinearLayout>
 
                         <LinearLayout

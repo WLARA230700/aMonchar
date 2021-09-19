@@ -283,42 +283,62 @@
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
+                                android:layout_marginBottom="10dp"
                                 android:orientation="horizontal">
 
-                                <Button
-                                    android:id="@+id/button4"
+                                <RadioGroup
                                     android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginRight="2dp"
-                                    android:layout_weight="1"
-                                    android:text="Vegetariano"
-                                    android:textAllCaps="false"
-                                    android:textSize="12dp"
-                                    app:cornerRadius="30dp" />
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
 
-                                <Button
-                                    android:id="@+id/button2"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="2dp"
-                                    android:layout_marginRight="2dp"
-                                    android:layout_weight="1"
-                                    android:text="Mar"
-                                    android:textAllCaps="false"
-                                    android:textSize="12dp"
-                                    app:cornerRadius="30dp" />
+                                    <CheckBox
+                                        android:id="@+id/checkBox1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:background="@drawable/checkbox_btn_selector"
+                                        android:button="@android:color/transparent"
+                                        android:paddingLeft="15dp"
+                                        android:paddingTop="2dp"
+                                        android:paddingRight="15dp"
+                                        android:paddingBottom="2dp"
+                                        android:text="Vegetariano"
+                                        android:textAlignment="center"
+                                        android:textColor="@drawable/text_color_selector" />
 
-                                <Button
-                                    android:id="@+id/button"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="2dp"
-                                    android:layout_weight="1"
-                                    android:text="Carnes rojas"
-                                    android:textAllCaps="false"
-                                    android:textSize="12dp"
-                                    app:cornerRadius="30dp" />
+                                    <CheckBox
+                                        android:id="@+id/checkBox2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:background="@drawable/checkbox_btn_selector"
+                                        android:button="@android:color/transparent"
+                                        android:paddingLeft="15dp"
+                                        android:paddingTop="2dp"
+                                        android:paddingRight="15dp"
+                                        android:paddingBottom="2dp"
+                                        android:text="Mar"
+                                        android:textAlignment="center"
+                                        android:textColor="@drawable/text_color_selector" />
+
+                                    <CheckBox
+                                        android:id="@+id/checkBox3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:background="@drawable/checkbox_btn_selector"
+                                        android:button="@android:color/transparent"
+                                        android:paddingLeft="15dp"
+                                        android:paddingTop="2dp"
+                                        android:paddingRight="15dp"
+                                        android:paddingBottom="2dp"
+                                        android:text="Carnes rojas"
+                                        android:textAlignment="center"
+                                        android:textColor="@drawable/text_color_selector" />
+
+                                </RadioGroup>
                             </LinearLayout>
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -327,45 +347,57 @@
                             android:layout_weight="100"
                             android:orientation="vertical">
 
-                            <LinearLayout
+                            <RadioGroup
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal">
 
-                                <Button
-                                    android:id="@+id/button6"
+                                <CheckBox
+                                    android:id="@+id/checkBox4"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginRight="2dp"
-                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@drawable/checkbox_btn_selector"
+                                    android:button="@android:color/transparent"
+                                    android:paddingLeft="15dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="15dp"
+                                    android:paddingBottom="2dp"
                                     android:text="Carnes blancas"
-                                    android:textAllCaps="false"
-                                    android:textSize="12dp"
-                                    app:cornerRadius="30dp" />
+                                    android:textAlignment="center"
+                                    android:textColor="@drawable/text_color_selector"/>
 
-                                <Button
-                                    android:id="@+id/button5"
+                                <CheckBox
+                                    android:id="@+id/checkBox5"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="2dp"
-                                    android:layout_marginRight="2dp"
-                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@drawable/checkbox_btn_selector"
+                                    android:button="@android:color/transparent"
+                                    android:paddingLeft="15dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="15dp"
+                                    android:paddingBottom="2dp"
                                     android:text="Postres"
-                                    android:textAllCaps="false"
-                                    android:textSize="12dp"
-                                    app:cornerRadius="30dp" />
+                                    android:textAlignment="center"
+                                    android:textColor="@drawable/text_color_selector"/>
 
-                                <Button
-                                    android:id="@+id/button7"
+                                <CheckBox
+                                    android:id="@+id/checkBox6"
                                     android:layout_width="wrap_content"
-                                    android:layout_height="match_parent"
-                                    android:layout_marginLeft="2dp"
-                                    android:layout_weight="1"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@drawable/checkbox_btn_selector"
+                                    android:button="@android:color/transparent"
+                                    android:paddingLeft="15dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="15dp"
+                                    android:paddingBottom="2dp"
                                     android:text="Bebidas"
-                                    android:textAllCaps="false"
-                                    android:textSize="12dp"
-                                    app:cornerRadius="30dp" />
-                            </LinearLayout>
+                                    android:textAlignment="center"
+                                    android:textColor="@drawable/text_color_selector"/>
+                            </RadioGroup>
+
                         </LinearLayout>
 
                     </LinearLayout>

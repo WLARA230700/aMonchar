@@ -302,7 +302,7 @@
                                         android:paddingTop="2dp"
                                         android:paddingRight="15dp"
                                         android:paddingBottom="2dp"
-                                        android:text="Vegetariano"
+                                        android:text="@string/cat_vegetariano"
                                         android:textAlignment="center"
                                         android:textColor="@drawable/text_color_selector" />
 
@@ -317,7 +317,7 @@
                                         android:paddingTop="2dp"
                                         android:paddingRight="15dp"
                                         android:paddingBottom="2dp"
-                                        android:text="Mar"
+                                        android:text="@string/cat_mar"
                                         android:textAlignment="center"
                                         android:textColor="@drawable/text_color_selector" />
 
@@ -332,7 +332,7 @@
                                         android:paddingTop="2dp"
                                         android:paddingRight="15dp"
                                         android:paddingBottom="2dp"
-                                        android:text="Carnes rojas"
+                                        android:text="@string/cat_carnes_rojas"
                                         android:textAlignment="center"
                                         android:textColor="@drawable/text_color_selector" />
 
@@ -363,9 +363,9 @@
                                     android:paddingTop="2dp"
                                     android:paddingRight="15dp"
                                     android:paddingBottom="2dp"
-                                    android:text="Carnes blancas"
+                                    android:text="@string/cat_carnes_blancas"
                                     android:textAlignment="center"
-                                    android:textColor="@drawable/text_color_selector"/>
+                                    android:textColor="@drawable/text_color_selector" />
 
                                 <CheckBox
                                     android:id="@+id/checkBox5"
@@ -378,9 +378,9 @@
                                     android:paddingTop="2dp"
                                     android:paddingRight="15dp"
                                     android:paddingBottom="2dp"
-                                    android:text="Postres"
+                                    android:text="@string/cat_postres"
                                     android:textAlignment="center"
-                                    android:textColor="@drawable/text_color_selector"/>
+                                    android:textColor="@drawable/text_color_selector" />
 
                                 <CheckBox
                                     android:id="@+id/checkBox6"
@@ -393,9 +393,9 @@
                                     android:paddingTop="2dp"
                                     android:paddingRight="15dp"
                                     android:paddingBottom="2dp"
-                                    android:text="Bebidas"
+                                    android:text="@string/cat_bebidas"
                                     android:textAlignment="center"
-                                    android:textColor="@drawable/text_color_selector"/>
+                                    android:textColor="@drawable/text_color_selector" />
                             </RadioGroup>
 
                         </LinearLayout>

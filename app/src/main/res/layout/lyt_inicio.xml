@@ -267,7 +267,7 @@
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/lbTitulo5"
+                            android:id="@+id/lbTituloPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
@@ -276,7 +276,7 @@
                             android:textSize="12dp" />
 
                         <TextView
-                            android:id="@+id/lbUsuario"
+                            android:id="@+id/lbUsuarioPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
@@ -330,7 +330,7 @@
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/lbTitulo5"
+                            android:id="@+id/lbTituloPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
@@ -339,7 +339,7 @@
                             android:textSize="12dp" />
 
                         <TextView
-                            android:id="@+id/lbUsuario"
+                            android:id="@+id/lbUsuarioPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
@@ -393,7 +393,7 @@
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/lbTitulo5"
+                            android:id="@+id/lbTituloPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
@@ -402,7 +402,7 @@
                             android:textSize="12dp" />
 
                         <TextView
-                            android:id="@+id/lbUsuario"
+                            android:id="@+id/lbUsuarioPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
@@ -456,7 +456,7 @@
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/lbTitulo5"
+                            android:id="@+id/lbTituloPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
@@ -465,7 +465,7 @@
                             android:textSize="12dp" />
 
                         <TextView
-                            android:id="@+id/lbUsuario"
+                            android:id="@+id/lbUsuarioPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
@@ -529,7 +529,7 @@
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/lbTitulo5"
+                            android:id="@+id/lbTituloPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
@@ -538,7 +538,7 @@
                             android:textSize="12dp" />
 
                         <TextView
-                            android:id="@+id/lbUsuario"
+                            android:id="@+id/lbUsuarioPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
@@ -592,7 +592,7 @@
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/lbTitulo5"
+                            android:id="@+id/lbTituloPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
@@ -601,7 +601,7 @@
                             android:textSize="12dp" />
 
                         <TextView
-                            android:id="@+id/lbUsuario"
+                            android:id="@+id/lbUsuarioPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
@@ -655,7 +655,7 @@
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/lbTitulo5"
+                            android:id="@+id/lbTituloPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
@@ -664,7 +664,7 @@
                             android:textSize="12dp" />
 
                         <TextView
-                            android:id="@+id/lbUsuario"
+                            android:id="@+id/lbUsuarioPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"
@@ -718,7 +718,7 @@
                         </FrameLayout>
 
                         <TextView
-                            android:id="@+id/lbTitulo5"
+                            android:id="@+id/lbTituloPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
@@ -727,7 +727,7 @@
                             android:textSize="12dp" />
 
                         <TextView
-                            android:id="@+id/lbUsuario"
+                            android:id="@+id/lbUsuarioPS"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins"

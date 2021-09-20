@@ -10,7 +10,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -166,6 +167,7 @@
                             android:weightSum="100">
 
                             <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
                                 android:orientation="vertical"
@@ -183,13 +185,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icDesayunoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_desayuno" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbDesayuno"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -244,7 +246,7 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
+                                            android:id="@+id/lbTituloPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -253,7 +255,7 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
+                                            android:id="@+id/lbUsuarioPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -275,13 +277,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icAlmuerzoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_almuerzo" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbAlmuerzo"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -302,13 +304,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -316,7 +316,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -324,7 +323,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -336,7 +334,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -345,7 +342,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -367,13 +363,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icCenaL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_cena" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbCena"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -394,13 +390,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -408,7 +402,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -416,7 +409,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -428,7 +420,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -437,7 +428,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -468,13 +458,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda1L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -495,13 +484,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -509,7 +496,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -517,7 +503,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -529,7 +514,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -538,7 +522,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -560,13 +543,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda2L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -587,13 +569,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -601,7 +581,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -609,7 +588,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -621,7 +599,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -630,7 +607,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -652,13 +628,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda3L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -679,13 +654,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -693,7 +666,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -701,7 +673,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -713,7 +684,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -722,7 +692,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -755,7 +724,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical">
+                        android:orientation="vertical" >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -764,6 +733,7 @@
                             android:weightSum="100">
 
                             <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
                                 android:orientation="vertical"
@@ -781,13 +751,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icDesayunoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_desayuno" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbDesayuno"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -842,7 +812,7 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
+                                            android:id="@+id/lbTituloPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -851,7 +821,7 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
+                                            android:id="@+id/lbUsuarioPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -873,13 +843,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icAlmuerzoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_almuerzo" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbAlmuerzo"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -900,13 +870,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -914,7 +882,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -922,7 +889,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -934,7 +900,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -943,7 +908,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -965,13 +929,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icCenaL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_cena" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbCena"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -992,13 +956,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -1006,7 +968,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -1014,7 +975,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -1026,7 +986,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -1035,7 +994,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1066,13 +1024,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda1L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1093,13 +1050,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -1107,7 +1062,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -1115,7 +1069,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -1127,7 +1080,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -1136,7 +1088,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1158,13 +1109,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda2L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1185,13 +1135,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -1199,7 +1147,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -1207,7 +1154,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -1219,7 +1165,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -1228,7 +1173,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1250,13 +1194,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda3L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1277,13 +1220,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -1291,7 +1232,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -1299,7 +1239,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -1311,7 +1250,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -1320,7 +1258,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1353,7 +1290,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical">
+                        android:orientation="vertical" >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1362,6 +1299,7 @@
                             android:weightSum="100">
 
                             <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
                                 android:orientation="vertical"
@@ -1379,13 +1317,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icDesayunoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_desayuno" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbDesayuno"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1440,7 +1378,7 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
+                                            android:id="@+id/lbTituloPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -1449,7 +1387,7 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
+                                            android:id="@+id/lbUsuarioPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1471,13 +1409,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icAlmuerzoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_almuerzo" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbAlmuerzo"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1498,13 +1436,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -1512,7 +1448,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -1520,7 +1455,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -1532,7 +1466,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -1541,7 +1474,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1563,13 +1495,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icCenaL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_cena" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbCena"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1590,13 +1522,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -1604,7 +1534,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -1612,7 +1541,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -1624,7 +1552,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -1633,7 +1560,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1664,13 +1590,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda1L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1691,13 +1616,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -1705,7 +1628,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -1713,7 +1635,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -1725,7 +1646,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -1734,7 +1654,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1756,13 +1675,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda2L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1783,13 +1701,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -1797,7 +1713,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -1805,7 +1720,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -1817,7 +1731,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -1826,7 +1739,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1848,13 +1760,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda3L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1875,13 +1786,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -1889,7 +1798,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -1897,7 +1805,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -1909,7 +1816,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -1918,7 +1824,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -1951,7 +1856,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical">
+                        android:orientation="vertical" >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1960,6 +1865,7 @@
                             android:weightSum="100">
 
                             <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
                                 android:orientation="vertical"
@@ -1977,13 +1883,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icDesayunoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_desayuno" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbDesayuno"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2038,7 +1944,7 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
+                                            android:id="@+id/lbTituloPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -2047,7 +1953,7 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
+                                            android:id="@+id/lbUsuarioPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2069,13 +1975,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icAlmuerzoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_almuerzo" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbAlmuerzo"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2096,13 +2002,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -2110,7 +2014,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -2118,7 +2021,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -2130,7 +2032,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -2139,7 +2040,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2161,13 +2061,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icCenaL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_cena" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbCena"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2188,13 +2088,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -2202,7 +2100,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -2210,7 +2107,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -2222,7 +2118,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -2231,7 +2126,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2262,13 +2156,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda1L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2289,13 +2182,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -2303,7 +2194,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -2311,7 +2201,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -2323,7 +2212,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -2332,7 +2220,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2354,13 +2241,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda2L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2381,13 +2267,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -2395,7 +2279,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -2403,7 +2286,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -2415,7 +2297,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -2424,7 +2305,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2446,13 +2326,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda3L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2473,13 +2352,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -2487,7 +2364,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -2495,7 +2371,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -2507,7 +2382,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -2516,7 +2390,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2549,7 +2422,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical">
+                        android:orientation="vertical" >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2558,6 +2431,7 @@
                             android:weightSum="100">
 
                             <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
                                 android:orientation="vertical"
@@ -2575,13 +2449,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icDesayunoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_desayuno" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbDesayuno"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2636,7 +2510,7 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
+                                            android:id="@+id/lbTituloPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -2645,7 +2519,7 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
+                                            android:id="@+id/lbUsuarioPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2667,13 +2541,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icAlmuerzoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_almuerzo" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbAlmuerzo"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2694,13 +2568,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -2708,7 +2580,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -2716,7 +2587,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -2728,7 +2598,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -2737,7 +2606,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2759,13 +2627,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icCenaL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_cena" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbCena"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2786,13 +2654,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -2800,7 +2666,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -2808,7 +2673,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -2820,7 +2684,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -2829,7 +2692,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2860,13 +2722,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda1L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2887,13 +2748,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -2901,7 +2760,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -2909,7 +2767,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -2921,7 +2778,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -2930,7 +2786,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2952,13 +2807,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda2L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -2979,13 +2833,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -2993,7 +2845,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -3001,7 +2852,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -3013,7 +2863,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -3022,7 +2871,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3044,13 +2892,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda3L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3071,13 +2918,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -3085,7 +2930,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -3093,7 +2937,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -3105,7 +2948,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -3114,7 +2956,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3147,7 +2988,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical">
+                        android:orientation="vertical" >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -3156,6 +2997,7 @@
                             android:weightSum="100">
 
                             <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
                                 android:orientation="vertical"
@@ -3173,13 +3015,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icDesayunoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_desayuno" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbDesayuno"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3234,7 +3076,7 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
+                                            android:id="@+id/lbTituloPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -3243,7 +3085,7 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
+                                            android:id="@+id/lbUsuarioPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3265,13 +3107,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icAlmuerzoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_almuerzo" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbAlmuerzo"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3292,13 +3134,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -3306,7 +3146,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -3314,7 +3153,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -3326,7 +3164,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -3335,7 +3172,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3357,13 +3193,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icCenaL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_cena" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbCena"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3384,13 +3220,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -3398,7 +3232,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -3406,7 +3239,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -3418,7 +3250,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -3427,7 +3258,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3458,13 +3288,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda1L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3485,13 +3314,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -3499,7 +3326,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -3507,7 +3333,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -3519,7 +3344,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -3528,7 +3352,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3550,13 +3373,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda2L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3577,13 +3399,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -3591,7 +3411,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -3599,7 +3418,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -3611,7 +3429,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -3620,7 +3437,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3642,13 +3458,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda3L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3669,13 +3484,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -3683,7 +3496,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -3691,7 +3503,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -3703,7 +3514,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -3712,7 +3522,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3745,7 +3554,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical">
+                        android:orientation="vertical" >
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -3754,6 +3563,7 @@
                             android:weightSum="100">
 
                             <LinearLayout
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="50"
                                 android:orientation="vertical"
@@ -3771,13 +3581,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icDesayunoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_desayuno" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbDesayuno"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3832,7 +3642,7 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
+                                            android:id="@+id/lbTituloPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -3841,7 +3651,7 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
+                                            android:id="@+id/lbUsuarioPS"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3863,13 +3673,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icAlmuerzoL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_almuerzo" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbAlmuerzo"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3890,13 +3700,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -3904,7 +3712,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -3912,7 +3719,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -3924,7 +3730,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -3933,7 +3738,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3955,13 +3759,13 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icCenaL"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_cena" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
+                                            android:id="@+id/lbCena"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -3982,13 +3786,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -3996,7 +3798,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -4004,7 +3805,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -4016,7 +3816,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -4025,7 +3824,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -4056,13 +3854,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda1L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -4083,13 +3880,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -4097,7 +3892,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -4105,7 +3899,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -4117,7 +3910,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -4126,7 +3918,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -4148,13 +3939,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda2L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -4175,13 +3965,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -4189,7 +3977,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -4197,7 +3984,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -4209,7 +3995,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -4218,7 +4003,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -4240,13 +4024,12 @@
                                         android:orientation="horizontal">
 
                                         <ImageView
-                                            android:id="@+id/imageView11"
+                                            android:id="@+id/icMerienda3L"
                                             android:layout_width="wrap_content"
-                                            android:layout_height="22dp"
+                                            android:layout_height="wrap_content"
                                             app:srcCompat="@drawable/ic_merienda" />
 
                                         <TextView
-                                            android:id="@+id/textView33"
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"
@@ -4267,13 +4050,11 @@
                                             android:layout_height="match_parent">
 
                                             <ImageView
-                                                android:id="@+id/imageView10"
                                                 android:layout_width="match_parent"
                                                 android:layout_height="130dp"
                                                 app:srcCompat="@drawable/custom_foto_inicio" />
 
                                             <ImageView
-                                                android:id="@+id/imageView13"
                                                 android:layout_width="55dp"
                                                 android:layout_height="20dp"
                                                 android:layout_marginLeft="10dp"
@@ -4281,7 +4062,6 @@
                                                 app:srcCompat="@drawable/timer_background" />
 
                                             <ImageView
-                                                android:id="@+id/imageView12"
                                                 android:layout_width="10dp"
                                                 android:layout_height="10dp"
                                                 android:layout_marginLeft="15dp"
@@ -4289,7 +4069,6 @@
                                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                                             <TextView
-                                                android:id="@+id/textView17"
                                                 android:layout_width="wrap_content"
                                                 android:layout_height="wrap_content"
                                                 android:layout_marginLeft="30dp"
@@ -4301,7 +4080,6 @@
                                         </FrameLayout>
 
                                         <TextView
-                                            android:id="@+id/lbTitulo5"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins_bold"
@@ -4310,7 +4088,6 @@
                                             android:textSize="12dp" />
 
                                         <TextView
-                                            android:id="@+id/lbUsuario"
                                             android:layout_width="match_parent"
                                             android:layout_height="wrap_content"
                                             android:fontFamily="@font/poppins"

@@ -178,7 +178,7 @@
                             android:layout_width="65dp"
                             android:layout_height="65dp"
                             android:layout_gravity="center_horizontal"
-                            android:layout_margin="15sp"
+                            android:layout_margin="15dp"
                             android:background="@drawable/background_item_white"
                             android:orientation="horizontal"
                             android:padding="10dp">

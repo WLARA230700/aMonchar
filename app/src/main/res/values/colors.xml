@@ -3,4 +3,6 @@
     <color name="fondo">#F5F5F5</color>
     <color name="amarilloBase">#FBB231</color>
     <color name="amarilloBtnPlanSemanal">#FDD47B</color>
+    <color name="gris">#EAEAEA</color>
+    <color name="texto">#676767</color>
 </resources>

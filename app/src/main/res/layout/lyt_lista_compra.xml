@@ -29,7 +29,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="100"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Lista de compra"
+                android:text="@string/act_lista_compra"
                 android:textColor="#787878"
                 android:textSize="17sp" />
 

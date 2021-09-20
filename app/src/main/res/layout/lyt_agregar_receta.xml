@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="100"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Añadir receta"
+                android:text="@string/act_agregar_receta"
                 android:textColor="#787878"
                 android:textSize="17sp" />
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f5f5f5"
+    android:background="@color/fondo"
     tools:context=".act_plan_semanal">
 
     <LinearLayout
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="100"
                 android:fontFamily="@font/poppins_bold"
-                android:text="Plan Semanal"
+                android:text="@string/act_plan_semanal"
                 android:textColor="#787878"
                 android:textSize="17sp" />
 
@@ -143,10 +143,10 @@
                         android:id="@+id/btnLunes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#fdd47b"
+                        android:backgroundTint="@color/amarilloBtnPlanSemanal"
                         android:fontFamily="@font/poppins"
                         android:insetBottom="0dp"
-                        android:text="Lunes"
+                        android:text="@string/lunes"
                         android:textAlignment="textStart"
                         android:textColor="#1a1a1a"
                         app:cornerRadius="15dp" />
@@ -709,10 +709,10 @@
                         android:id="@+id/btnMartes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#fdd47b"
+                        android:backgroundTint="@color/amarilloBtnPlanSemanal"
                         android:fontFamily="@font/poppins"
                         android:insetBottom="0dp"
-                        android:text="Martes"
+                        android:text="@string/martes"
                         android:textAlignment="textStart"
                         android:textColor="#1a1a1a"
                         app:cornerRadius="15dp" />
@@ -724,7 +724,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1275,10 +1275,10 @@
                         android:id="@+id/btnMiercoles"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#fdd47b"
+                        android:backgroundTint="@color/amarilloBtnPlanSemanal"
                         android:fontFamily="@font/poppins"
                         android:insetBottom="0dp"
-                        android:text="Miércoles"
+                        android:text="@string/miercoles"
                         android:textAlignment="textStart"
                         android:textColor="#1a1a1a"
                         app:cornerRadius="15dp" />
@@ -1290,7 +1290,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -1841,10 +1841,10 @@
                         android:id="@+id/btnJueves"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#fdd47b"
+                        android:backgroundTint="@color/amarilloBtnPlanSemanal"
                         android:fontFamily="@font/poppins"
                         android:insetBottom="0dp"
-                        android:text="Jueves"
+                        android:text="@string/jueves"
                         android:textAlignment="textStart"
                         android:textColor="#1a1a1a"
                         app:cornerRadius="15dp" />
@@ -1856,7 +1856,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2407,10 +2407,10 @@
                         android:id="@+id/btnViernes"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#fdd47b"
+                        android:backgroundTint="@color/amarilloBtnPlanSemanal"
                         android:fontFamily="@font/poppins"
                         android:insetBottom="0dp"
-                        android:text="Viernes"
+                        android:text="@string/viernes"
                         android:textAlignment="textStart"
                         android:textColor="#1a1a1a"
                         app:cornerRadius="15dp" />
@@ -2422,7 +2422,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -2973,10 +2973,10 @@
                         android:id="@+id/btnSabado"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#fdd47b"
+                        android:backgroundTint="@color/amarilloBtnPlanSemanal"
                         android:fontFamily="@font/poppins"
                         android:insetBottom="0dp"
-                        android:text="Sábado"
+                        android:text="@string/sabado"
                         android:textAlignment="textStart"
                         android:textColor="#1a1a1a"
                         app:cornerRadius="15dp" />
@@ -2988,7 +2988,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -3539,10 +3539,10 @@
                         android:id="@+id/btnDomingo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#fdd47b"
+                        android:backgroundTint="@color/amarilloBtnPlanSemanal"
                         android:fontFamily="@font/poppins"
                         android:insetBottom="0dp"
-                        android:text="Domingo"
+                        android:text="@string/domingo"
                         android:textAlignment="textStart"
                         android:textColor="#1a1a1a"
                         app:cornerRadius="15dp" />
@@ -3554,7 +3554,7 @@
                         android:layout_marginLeft="15dp"
                         android:layout_marginRight="15dp"
                         android:background="@drawable/custom_list_plan_semanal_bg"
-                        android:orientation="vertical" >
+                        android:orientation="vertical">
 
                         <LinearLayout
                             android:layout_width="match_parent"

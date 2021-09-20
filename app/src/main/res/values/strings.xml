@@ -1,3 +1,34 @@
 <resources>
+    <!-- NOMBRE DE LA APLICACIÓN -->
     <string name="app_name">aMonchar!</string>
+
+    <!-- DÍAS DE LA SEMANA -->
+    <string name="lunes">Lunes</string>
+    <string name="martes">Martes</string>
+    <string name="miercoles">Miércoles</string>
+    <string name="jueves">Jueves</string>
+    <string name="viernes">Viernes</string>
+    <string name="sabado">Sábado</string>
+    <string name="domingo">Domingo</string>
+
+    <!-- TIEMPOS DE COMIDA -->
+    <string name="tc_desayunos">Desayuno</string>
+    <string name="tc_almuerzos">Almuerzo</string>
+    <string name="tc_cenas">Cena</string>
+    <string name="tc_meriendas">Merienda</string>
+
+    <!-- CATEGORÍAS -->
+    <string name="cat_vegetariano">Vegetariano</string>
+    <string name="cat_mar">Mar</string>
+    <string name="cat_carnes_rojas">Carnes Rojas</string>
+    <string name="cat_carnes_blancas">Carnes Blancas</string>
+    <string name="cat_postres">Postres</string>
+    <string name="cat_bebidas">Bebidas</string>
+
+    <!-- ACTIVIDADES -->
+    <string name="act_editar_perfil">Editar perfil</string>
+    <string name="act_agregar_receta">Agregar receta</string>
+    <string name="act_plan_semanal">Plan semanal</string>
+    <string name="act_beneficios_ingredientes">Beneficios ingredientes</string>
+    <string name="act_lista_compra">Lista de compra</string>
 </resources>

@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AMonchar">
         <activity
+            android:name=".act_beneficios_ingredientes"
+            android:exported="true" />
+        <activity
             android:name=".act_lista_compra"
             android:exported="true" />
         <activity

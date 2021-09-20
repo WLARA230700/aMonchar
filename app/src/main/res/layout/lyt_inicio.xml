@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5F5F5"
+    android:background="@color/fondo"
     tools:context=".act_inicio">
 
     <LinearLayout
@@ -97,7 +97,7 @@
                     android:fontFamily="@font/poppins_bold"
                     android:text=" sabores."
                     android:textAlignment="viewStart"
-                    android:textColor="#FBB231"
+                    android:textColor="@color/amarilloBase"
                     android:textSize="16dp" />
             </LinearLayout>
 
@@ -128,8 +128,9 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
                             android:padding="22dp"
-                            android:text="DESAYUNOS"
+                            android:text="@string/tc_desayunos"
                             android:textAlignment="center"
+                            android:textAllCaps="true"
                             android:textColor="#f5f5f5"
                             android:textSize="15dp" />
                     </FrameLayout>
@@ -151,8 +152,9 @@
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins_bold"
                             android:padding="22dp"
-                            android:text="MERIENDAS"
+                            android:text="@string/tc_meriendas"
                             android:textAlignment="center"
+                            android:textAllCaps="true"
                             android:textColor="#f5f5f5"
                             android:textSize="15dp" />
                     </FrameLayout>
@@ -174,8 +176,9 @@
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins_bold"
                             android:padding="22dp"
-                            android:text="ALMUERZOS"
+                            android:text="@string/tc_almuerzos"
                             android:textAlignment="center"
+                            android:textAllCaps="true"
                             android:textColor="#f5f5f5"
                             android:textSize="15dp" />
 
@@ -198,8 +201,9 @@
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins_bold"
                             android:padding="22dp"
-                            android:text="CENAS"
+                            android:text="@string/tc_cenas"
                             android:textAlignment="center"
+                            android:textAllCaps="true"
                             android:textColor="#f5f5f5"
                             android:textSize="15dp" />
                     </FrameLayout>

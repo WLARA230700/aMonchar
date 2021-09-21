@@ -289,52 +289,61 @@
                                 <RadioGroup
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:orientation="horizontal">
+                                    android:orientation="horizontal"
+                                    android:weightSum="10">
 
                                     <CheckBox
                                         android:id="@+id/checkBox1"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:layout_marginLeft="5dp"
+                                        android:layout_weight="3"
                                         android:background="@drawable/checkbox_btn_selector"
                                         android:button="@android:color/transparent"
+                                        android:fontFamily="@font/poppins_bold"
                                         android:paddingLeft="15dp"
                                         android:paddingTop="2dp"
                                         android:paddingRight="15dp"
                                         android:paddingBottom="2dp"
                                         android:text="@string/cat_vegetariano"
                                         android:textAlignment="center"
-                                        android:textColor="@drawable/text_color_selector" />
+                                        android:textColor="@drawable/text_color_selector"
+                                        android:textSize="13dp" />
 
                                     <CheckBox
                                         android:id="@+id/checkBox2"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="5dp"
+                                        android:layout_weight="3"
                                         android:background="@drawable/checkbox_btn_selector"
                                         android:button="@android:color/transparent"
+                                        android:fontFamily="@font/poppins_bold"
                                         android:paddingLeft="15dp"
                                         android:paddingTop="2dp"
                                         android:paddingRight="15dp"
                                         android:paddingBottom="2dp"
                                         android:text="@string/cat_mar"
                                         android:textAlignment="center"
-                                        android:textColor="@drawable/text_color_selector" />
+                                        android:textColor="@drawable/text_color_selector"
+                                        android:textSize="12dp" />
 
                                     <CheckBox
                                         android:id="@+id/checkBox3"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="5dp"
+                                        android:layout_weight="3"
                                         android:background="@drawable/checkbox_btn_selector"
                                         android:button="@android:color/transparent"
+                                        android:fontFamily="@font/poppins_bold"
                                         android:paddingLeft="15dp"
                                         android:paddingTop="2dp"
                                         android:paddingRight="15dp"
                                         android:paddingBottom="2dp"
                                         android:text="@string/cat_carnes_rojas"
                                         android:textAlignment="center"
-                                        android:textColor="@drawable/text_color_selector" />
+                                        android:textColor="@drawable/text_color_selector"
+                                        android:textSize="13dp" />
 
                                 </RadioGroup>
                             </LinearLayout>
@@ -348,24 +357,25 @@
                             android:orientation="vertical">
 
                             <RadioGroup
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <CheckBox
                                     android:id="@+id/checkBox4"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="5dp"
                                     android:background="@drawable/checkbox_btn_selector"
                                     android:button="@android:color/transparent"
+                                    android:fontFamily="@font/poppins_bold"
                                     android:paddingLeft="15dp"
                                     android:paddingTop="2dp"
                                     android:paddingRight="15dp"
                                     android:paddingBottom="2dp"
                                     android:text="@string/cat_carnes_blancas"
                                     android:textAlignment="center"
-                                    android:textColor="@drawable/text_color_selector" />
+                                    android:textColor="@drawable/text_color_selector"
+                                    android:textSize="13dp" />
 
                                 <CheckBox
                                     android:id="@+id/checkBox5"
@@ -374,13 +384,15 @@
                                     android:layout_marginLeft="5dp"
                                     android:background="@drawable/checkbox_btn_selector"
                                     android:button="@android:color/transparent"
+                                    android:fontFamily="@font/poppins_bold"
                                     android:paddingLeft="15dp"
                                     android:paddingTop="2dp"
                                     android:paddingRight="15dp"
                                     android:paddingBottom="2dp"
                                     android:text="@string/cat_postres"
                                     android:textAlignment="center"
-                                    android:textColor="@drawable/text_color_selector" />
+                                    android:textColor="@drawable/text_color_selector"
+                                    android:textSize="13dp" />
 
                                 <CheckBox
                                     android:id="@+id/checkBox6"
@@ -389,13 +401,15 @@
                                     android:layout_marginLeft="5dp"
                                     android:background="@drawable/checkbox_btn_selector"
                                     android:button="@android:color/transparent"
+                                    android:fontFamily="@font/poppins_bold"
                                     android:paddingLeft="15dp"
                                     android:paddingTop="2dp"
                                     android:paddingRight="15dp"
                                     android:paddingBottom="2dp"
                                     android:text="@string/cat_bebidas"
                                     android:textAlignment="center"
-                                    android:textColor="@drawable/text_color_selector" />
+                                    android:textColor="@drawable/text_color_selector"
+                                    android:textSize="13dp" />
                             </RadioGroup>
 
                         </LinearLayout>

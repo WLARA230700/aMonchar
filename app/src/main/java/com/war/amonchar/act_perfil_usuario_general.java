@@ -6,11 +6,13 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class act_perfil_usuario_general extends AppCompatActivity {
 
     CardView btnAgregarReceta, btnPlanSemanal, btnBeneficiosIngredientes;
+    ImageView btnListaCompra, btnInicio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,8 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         btnAgregarReceta = findViewById(R.id.btnAgregarReceta);
         btnPlanSemanal = findViewById(R.id.btnPlanSemanal);
         btnBeneficiosIngredientes = findViewById(R.id.btnBeneficiosIngredientes);
+        btnListaCompra = findViewById(R.id.icListaCompra);
+        btnInicio = findViewById(R.id.icInicio);
 
         btnAgregarReceta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,5 +49,22 @@ public class act_perfil_usuario_general extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
+
+        btnListaCompra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), act_lista_compra.class);
+                startActivity(intent);
+            }
+        });
+
+        btnInicio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), act_inicio.class);
+                startActivity(intent);
+            }
+        });
+
+    }//Fin onCreate
 }

@@ -136,7 +136,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="9"
                     android:fontFamily="@font/poppins_bold"
-                    android:padding="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
                     android:text="Por comprar"
                     android:textColor="#787878" />
 

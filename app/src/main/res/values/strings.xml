@@ -31,4 +31,16 @@
     <string name="act_plan_semanal">Plan semanal</string>
     <string name="act_beneficios_ingredientes">Beneficios ingredientes</string>
     <string name="act_lista_compra">Lista de compra</string>
+
+    <!-- ARRAY DE TIEMPOS DE COMIDA -->
+    <string-array name="array_tiempos_comida">
+        <item>Desayuno</item>
+        <item>Merienda 1</item>
+        <item>Almuerzo</item>
+        <item>Merienda 2</item>
+        <item>Cena</item>
+        <item>Merienda 3</item>
+    </string-array>
+
+    <!-- ARRAY DE DURACIÓN -->
 </resources>

@@ -440,7 +440,9 @@
                             android:layout_marginTop="10dp"
                             android:background="@drawable/custom_input"
                             android:ems="10"
-                            android:inputType="textPersonName" />
+                            android:inputType="textPersonName"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp" />
 
                         <TextView
                             android:id="@+id/textView30"
@@ -562,7 +564,9 @@
                                 android:layout_marginRight="5dp"
                                 android:layout_weight="2"
                                 android:background="@drawable/custom_input"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPersonName"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"/>
 
                             <EditText
                                 android:id="@+id/editTextTextPersonName3"
@@ -571,7 +575,9 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="7.5"
                                 android:background="@drawable/custom_input"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPersonName"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -601,7 +607,9 @@
                                 android:layout_marginRight="5dp"
                                 android:layout_weight="2"
                                 android:background="@drawable/custom_input"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPersonName"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"/>
 
                             <EditText
                                 android:id="@+id/editTextTextPersonName3"
@@ -610,7 +618,9 @@
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="7.5"
                                 android:background="@drawable/custom_input"
-                                android:inputType="textPersonName" />
+                                android:inputType="textPersonName"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp" />
                         </LinearLayout>
                     </LinearLayout>
 
@@ -731,7 +741,9 @@
                                     android:layout_weight="1"
                                     android:background="@drawable/custom_input"
                                     android:ems="10"
-                                    android:inputType="textPersonName" />
+                                    android:inputType="textPersonName"
+                                    android:paddingLeft="10dp"
+                                    android:paddingRight="10dp"/>
 
                             </LinearLayout>
                         </LinearLayout>

@@ -17,6 +17,8 @@ public class act_agregar_receta extends AppCompatActivity {
 
         btnBack = findViewById(R.id.btnBack);
 
+
+
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

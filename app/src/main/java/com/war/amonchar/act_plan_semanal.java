@@ -115,14 +115,12 @@ public class act_plan_semanal extends AppCompatActivity {
             linearLayout.setVisibility(View.GONE);
             btn.setBackgroundColor(Color.rgb(253, 212, 123));
             btn.setTextColor(Color.rgb(26, 26, 26));
-            btn.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.poppins));
             bool = false;
             return bool;
         }else{
             linearLayout.setVisibility(View.VISIBLE);
             btn.setBackgroundColor(Color.rgb(249, 179, 52));
             btn.setTextColor(Color.WHITE);
-            btn.setTypeface(ResourcesCompat.getFont(getApplicationContext(), R.font.poppins_bold));
             bool = true;
             return bool;
         }

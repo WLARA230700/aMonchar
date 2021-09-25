@@ -43,4 +43,9 @@
     </string-array>
 
     <!-- ARRAY DE DURACIÓN -->
+    <string-array name="array_duracion">
+        <item>Minutos</item>
+        <item>Horas</item>
+    </string-array>
+
 </resources>

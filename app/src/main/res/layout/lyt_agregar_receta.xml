@@ -1,0 +1,789 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".act_agregar_receta">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="25sp"
+            android:paddingTop="30sp"
+            android:paddingRight="25sp"
+            android:paddingBottom="25sp"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="100"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/act_agregar_receta"
+                android:textColor="#787878"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_close" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="25sp"
+                    android:paddingRight="25sp"
+                    android:paddingBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:weightSum="100">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="100"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textView21"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="¡Comparte tus "
+                                    android:textColor="#1A1A1A"
+                                    android:textSize="19sp" />
+
+                                <TextView
+                                    android:id="@+id/textView24"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="recetas"
+                                    android:textColor="#F9B334"
+                                    android:textSize="19sp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/textView22"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="con la comunidad!"
+                                android:textColor="#1A1A1A"
+                                android:textSize="19sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/imageView8"
+                            android:layout_width="65sp"
+                            android:layout_height="65sp"
+                            android:layout_weight="1"
+                            android:paddingLeft="15sp"
+                            android:paddingTop="7sp"
+                            android:paddingBottom="7sp"
+                            app:srcCompat="@drawable/ic_charola" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="10sp">
+
+                    <LinearLayout
+                        android:id="@+id/tiempoPreparacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:paddingLeft="25dp"
+                        android:paddingTop="7dp"
+                        android:paddingRight="25dp"
+                        android:paddingBottom="7dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="9"
+                                android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/textView34"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:paddingTop="2.5dp"
+                                    android:text="Tiempo de"
+                                    android:textColor="#1A1A1A"
+                                    android:textSize="13dp" />
+
+                                <TextView
+                                    android:id="@+id/textView25"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:paddingBottom="2.5dp"
+                                    android:text="preparación"
+                                    android:textColor="#1A1A1A"
+                                    android:textSize="13dp" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="horizontal"
+                                android:weightSum="10">
+
+                                <EditText
+                                    android:id="@+id/editTextNumber"
+                                    android:layout_width="45dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginRight="10dp"
+                                    android:layout_weight="2"
+                                    android:background="@drawable/custom_input"
+                                    android:fontFamily="@font/poppins"
+                                    android:inputType="number"
+                                    android:paddingLeft="10dp"
+                                    android:paddingTop="10dp"
+                                    android:paddingRight="10dp"
+                                    android:paddingBottom="10dp"
+                                    android:textColor="#1A1A1A" />
+
+                                <Spinner
+                                    android:id="@+id/preparacionSpinner"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="8"
+                                    android:background="@drawable/style_spinner"
+                                    android:dropDownVerticalOffset="45dp" />
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/tiempoComida"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="25dp"
+                        android:paddingTop="7dp"
+                        android:paddingRight="25dp"
+                        android:paddingBottom="7dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView23"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="100"
+                                android:fontFamily="@font/poppins_bold"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="Tiempo de comida"
+                                android:textColor="#1A1A1A"
+                                android:textSize="13dp" />
+
+                            <Spinner
+                                android:id="@+id/tiemposComidaSpinner"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/style_spinner"
+                                android:dropDownVerticalOffset="45dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/Categoria"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingLeft="25dp"
+                        android:paddingTop="7dp"
+                        android:paddingRight="25dp"
+                        android:paddingBottom="7dp">
+
+                        <TextView
+                            android:id="@+id/textView29"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="100"
+                            android:fontFamily="@font/poppins_bold"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="Categoría"
+                            android:textColor="#1A1A1A"
+                            android:textSize="13dp" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="100"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginBottom="10dp"
+                                android:orientation="horizontal">
+
+                                <RadioGroup
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="10">
+
+                                    <CheckBox
+                                        android:id="@+id/checkBox1"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="3"
+                                        android:background="@drawable/checkbox_btn_selector"
+                                        android:button="@android:color/transparent"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:paddingLeft="15dp"
+                                        android:paddingTop="2dp"
+                                        android:paddingRight="15dp"
+                                        android:paddingBottom="2dp"
+                                        android:text="@string/cat_vegetariano"
+                                        android:textAlignment="center"
+                                        android:textColor="@drawable/text_color_selector"
+                                        android:textSize="13dp" />
+
+                                    <CheckBox
+                                        android:id="@+id/checkBox2"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_weight="3"
+                                        android:background="@drawable/checkbox_btn_selector"
+                                        android:button="@android:color/transparent"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:paddingLeft="15dp"
+                                        android:paddingTop="2dp"
+                                        android:paddingRight="15dp"
+                                        android:paddingBottom="2dp"
+                                        android:text="@string/cat_mar"
+                                        android:textAlignment="center"
+                                        android:textColor="@drawable/text_color_selector"
+                                        android:textSize="12dp" />
+
+                                    <CheckBox
+                                        android:id="@+id/checkBox3"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="5dp"
+                                        android:layout_weight="3"
+                                        android:background="@drawable/checkbox_btn_selector"
+                                        android:button="@android:color/transparent"
+                                        android:fontFamily="@font/poppins_bold"
+                                        android:paddingLeft="15dp"
+                                        android:paddingTop="2dp"
+                                        android:paddingRight="15dp"
+                                        android:paddingBottom="2dp"
+                                        android:text="@string/cat_carnes_rojas"
+                                        android:textAlignment="center"
+                                        android:textColor="@drawable/text_color_selector"
+                                        android:textSize="13dp" />
+
+                                </RadioGroup>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="100"
+                            android:orientation="vertical">
+
+                            <RadioGroup
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <CheckBox
+                                    android:id="@+id/checkBox4"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/checkbox_btn_selector"
+                                    android:button="@android:color/transparent"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:paddingLeft="15dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="15dp"
+                                    android:paddingBottom="2dp"
+                                    android:text="@string/cat_carnes_blancas"
+                                    android:textAlignment="center"
+                                    android:textColor="@drawable/text_color_selector"
+                                    android:textSize="13dp" />
+
+                                <CheckBox
+                                    android:id="@+id/checkBox5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@drawable/checkbox_btn_selector"
+                                    android:button="@android:color/transparent"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:paddingLeft="15dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="15dp"
+                                    android:paddingBottom="2dp"
+                                    android:text="@string/cat_postres"
+                                    android:textAlignment="center"
+                                    android:textColor="@drawable/text_color_selector"
+                                    android:textSize="13dp" />
+
+                                <CheckBox
+                                    android:id="@+id/checkBox6"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:background="@drawable/checkbox_btn_selector"
+                                    android:button="@android:color/transparent"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:paddingLeft="15dp"
+                                    android:paddingTop="2dp"
+                                    android:paddingRight="15dp"
+                                    android:paddingBottom="2dp"
+                                    android:text="@string/cat_bebidas"
+                                    android:textAlignment="center"
+                                    android:textColor="@drawable/text_color_selector"
+                                    android:textSize="13dp" />
+                            </RadioGroup>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Titulo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="100"
+                    android:orientation="vertical"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="25dp"
+                    android:paddingBottom="7dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <EditText
+                            android:id="@+id/editTextTextPersonName"
+                            android:layout_width="match_parent"
+                            android:layout_height="41dp"
+                            android:layout_marginTop="10dp"
+                            android:background="@drawable/custom_input"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp" />
+
+                        <TextView
+                            android:id="@+id/textView30"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="25dp"
+                            android:background="#F5F5F5"
+                            android:fontFamily="@font/poppins"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:text="Nombre de la receta"
+                            android:textAllCaps="true"
+                            android:textColor="#F9B334"
+                            android:textSize="13dp" />
+                    </FrameLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/previsualizacionImagen"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="25dp"
+                    android:paddingBottom="7dp">
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="match_parent"
+                        android:layout_height="250dp"
+                        app:srcCompat="@drawable/ic_big_image" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ingredientes"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="25dp"
+                    android:paddingBottom="7dp">
+
+                    <TextView
+                        android:id="@+id/textView36"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:fontFamily="@font/poppins"
+                        android:text="Cuéntanos qué ocupamos para esta receta"
+                        android:textColor="#676767" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:id="@+id/textView37"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2.5"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Cantidad"
+                                android:textColor="#676767" />
+
+                            <TextView
+                                android:id="@+id/textView38"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Descripción"
+                                android:textColor="#676767" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/itemsIngredientes"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
+
+                        <LinearLayout
+                            android:id="@+id/ingrediente1"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:id="@+id/textView39"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:ems="1"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="1."
+                                android:textColor="#676767"
+                                android:textSize="15dp" />
+
+                            <EditText
+                                android:id="@+id/editTextTextPersonName2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="41dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="2"
+                                android:background="@drawable/custom_input"
+                                android:inputType="textPersonName"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"/>
+
+                            <EditText
+                                android:id="@+id/editTextTextPersonName3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="41dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="7.5"
+                                android:background="@drawable/custom_input"
+                                android:inputType="textPersonName"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/ingrediente2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:id="@+id/textView39"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="0.5"
+                                android:ems="1"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="2."
+                                android:textColor="#676767"
+                                android:textSize="15dp" />
+
+                            <EditText
+                                android:id="@+id/editTextTextPersonName2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="41dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="2"
+                                android:background="@drawable/custom_input"
+                                android:inputType="textPersonName"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"/>
+
+                            <EditText
+                                android:id="@+id/editTextTextPersonName3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="41dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="7.5"
+                                android:background="@drawable/custom_input"
+                                android:inputType="textPersonName"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/button8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/ic_white_button_plus"
+                                android:text="Agregar"
+                                android:textAllCaps="false"
+                                app:cornerRadius="30dp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/preparacion"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="10dp"
+                    android:paddingRight="25dp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/textView40"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Preparación"
+                        android:textColor="#1A1A1A"
+                        android:textSize="19sp" />
+
+                    <TextView
+                        android:id="@+id/textView41"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins"
+                        android:text="El paso a paso de tu receta"
+                        android:textColor="#676767" />
+
+                    <LinearLayout
+                        android:id="@+id/LinearLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:paddingTop="20dp"
+                            android:weightSum="10">
+
+                            <TextView
+                                android:id="@+id/textView37"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Paso"
+                                android:textColor="#676767" />
+
+                            <TextView
+                                android:id="@+id/textView38"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Descripción"
+                                android:textColor="#676767" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/itemsPreparacion"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical"
+                            android:paddingTop="15dp"
+                            android:paddingBottom="15dp">
+
+                            <LinearLayout
+                                android:id="@+id/paso1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/textView45"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:ems="1"
+                                    android:fontFamily="@font/poppins_bold"
+                                    android:text="1."
+                                    android:textColor="#676767" />
+
+                                <EditText
+                                    android:id="@+id/editTextTextPersonName5"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="41dp"
+                                    android:layout_weight="1"
+                                    android:background="@drawable/custom_input"
+                                    android:ems="10"
+                                    android:inputType="textPersonName"
+                                    android:paddingLeft="10dp"
+                                    android:paddingRight="10dp"/>
+
+                            </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:orientation="vertical">
+
+                            <Button
+                                android:id="@+id/button8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/ic_white_button_plus"
+                                android:text="Agregar"
+                                android:textAllCaps="false"
+                                app:cornerRadius="30dp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/guardar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="50dp">
+
+                    <Button
+                        android:id="@+id/btnGuardar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"
+                        android:text="Guardar"
+                        android:textAllCaps="false"
+                        app:cornerRadius="30dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -32,6 +32,25 @@
     <string name="act_beneficios_ingredientes">Beneficios ingredientes</string>
     <string name="act_lista_compra">Lista de compra</string>
 
+    <!-- Etiquetas para inputs -->
+    <string name="lbl_nombre">Nombre</string>
+    <string name="lbl_apellidos">Apellidos</string>
+    <string name="lbl_biografia">Biografía</string>
+    <string name="lbl_nombre_usuario">Nombre de usuario</string>
+    <string name="lbl_contrasenha">Contraseña</string>
+    <string name="lbl_correo_electronico">Correo electrónico</string>
+    <string name="lbl_recuperar_contrasenha">Recuperar contraseña</string>
+    <string name="lbl_recordar_sesion">Recordar sesión</string>
+    <string name="lbl_confirmar_contrasenha">Confirmar contraseña</string>
+    <string name="lbl_aceptar_terminos_condiciones">Aceptar términos y condiciones</string>
+    <string name="lbl_nombre_receta">Nombre de la receta</string>
+
+    <!-- Botones -->
+    <string name="btn_registrarse">Registrarse</string>
+    <string name="btn_agregar">Agregar</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_cambiar_fotografia">Cambiar Fotografía</string>
+
     <!-- ARRAY DE TIEMPOS DE COMIDA -->
     <string-array name="array_tiempos_comida">
         <item>Desayuno</item>

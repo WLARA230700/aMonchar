@@ -9,6 +9,8 @@
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/custom_input.xml" value="0.2449074074074074" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/custom_list_plan_semanal_bg.xml" value="0.2415525114155251" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_almuerzo.xml" value="0.2415525114155251" />
+        <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_buscar_gris.xml" value="0.2" />
+        <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_chile___bandeja.xml" value="0.17671232876712328" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_clipboard_regular.xml" value="0.2449074074074074" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_clock_regular.xml" value="0.2449074074074074" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_desayuno.xml" value="0.2415525114155251" />
@@ -23,11 +25,12 @@
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_agregar_receta.xml" value="0.4" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_beneficios_ingredientes.xml" value="0.264" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_bienvenida.xml" value="0.264" />
+        <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_buscar_general.xml" value="0.264" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_inicio.xml" value="0.264" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_inicio_sesion.xml" value="0.264" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_lista_compra.xml" value="0.23055555555555557" />
-        <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_perfil_usuario_general.xml" value="0.536" />
-        <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_plan_semanal.xml" value="0.4" />
+        <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_perfil_usuario_general.xml" value="0.2" />
+        <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_plan_semanal.xml" value="0.2" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_registro_usuario.xml" value="0.264" />
         <entry key="..\:/Users/abbyl/Documents/GitHub/aMonchar/app/src/main/res/layout/lyt_registro_usuario.xml" value="0.13385416666666666" />
         <entry key="..\:/Users/rjchg/Documents/GitHub/aMonchar/app/src/main/res/drawable/background_item_light_gray.xml" value="0.24444444444444444" />

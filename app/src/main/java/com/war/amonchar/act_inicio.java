@@ -9,7 +9,7 @@ import android.widget.ImageView;
 
 public class act_inicio extends AppCompatActivity {
 
-    ImageView icUsuario, icListaCompra;
+    ImageView icUsuario, icListaCompra, icBuscar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +19,7 @@ public class act_inicio extends AppCompatActivity {
 
         icUsuario = findViewById(R.id.icUsuario);
         icListaCompra = findViewById(R.id.icListaCompra);
+        icBuscar = findViewById(R.id.icBuscar);
 
         icUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +33,14 @@ public class act_inicio extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(act_inicio.this, act_lista_compra.class);
+                startActivity(intent);
+            }
+        });
+
+        icBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), act_buscar_general.class);
                 startActivity(intent);
             }
         });

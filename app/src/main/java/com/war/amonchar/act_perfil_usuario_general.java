@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 public class act_perfil_usuario_general extends AppCompatActivity {
 
     CardView btnAgregarReceta, btnPlanSemanal, btnBeneficiosIngredientes;
-    ImageView btnListaCompra, btnInicio;
+    ImageView btnListaCompra, btnInicio, icBuscar;
     LinearLayout btnPerfil;
 
     @Override
@@ -26,6 +26,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         btnListaCompra = findViewById(R.id.icListaCompra);
         btnInicio = findViewById(R.id.icInicio);
         btnPerfil = findViewById(R.id.btnPerfil);
+        icBuscar = findViewById(R.id.icBuscar);
 
         btnAgregarReceta.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +73,14 @@ public class act_perfil_usuario_general extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), act_editar_perfil.class);
+                startActivity(intent);
+            }
+        });
+
+        icBuscar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), act_buscar_general.class);
                 startActivity(intent);
             }
         });

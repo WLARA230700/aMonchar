@@ -31,6 +31,7 @@
     <string name="act_plan_semanal">Plan semanal</string>
     <string name="act_beneficios_ingredientes">Beneficios ingredientes</string>
     <string name="act_lista_compra">Lista de compra</string>
+    <string name="act_buscar_ingredientes">Buscar por ingredientes</string>
 
     <!-- Etiquetas para inputs -->
     <string name="lbl_nombre">Nombre</string>
@@ -50,6 +51,7 @@
     <string name="btn_agregar">Agregar</string>
     <string name="btn_guardar">Guardar</string>
     <string name="btn_cambiar_fotografia">Cambiar Fotografía</string>
+    <string name="btn_buscar">Buscar</string>
 
     <!-- ARRAY DE TIEMPOS DE COMIDA -->
     <string-array name="array_tiempos_comida">

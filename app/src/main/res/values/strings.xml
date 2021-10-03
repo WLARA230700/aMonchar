@@ -32,6 +32,7 @@
     <string name="act_beneficios_ingredientes">Beneficios ingredientes</string>
     <string name="act_lista_compra">Lista de compra</string>
     <string name="act_buscar_ingredientes">Buscar por ingredientes</string>
+    <string name="act_lista_recetas">Lista de recetas</string>
 
     <!-- Etiquetas para inputs -->
     <string name="lbl_nombre">Nombre</string>

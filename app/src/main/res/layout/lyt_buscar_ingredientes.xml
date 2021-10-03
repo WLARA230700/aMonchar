@@ -223,7 +223,7 @@
                     android:padding="25sp">
 
                     <Button
-                        android:id="@+id/button10"
+                        android:id="@+id/btnBuscar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="50"

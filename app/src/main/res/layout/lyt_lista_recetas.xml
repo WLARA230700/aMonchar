@@ -1,0 +1,622 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".act_lista_recetas">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="116dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="25sp"
+            android:paddingTop="30sp"
+            android:paddingRight="25sp"
+            android:paddingBottom="25sp"
+            android:weightSum="100">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="100"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/act_lista_recetas"
+                android:textColor="#787878"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_close" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="25sp"
+                    android:paddingRight="25sp"
+                    android:paddingBottom="10dp">
+
+                    <TextView
+                        android:id="@+id/textView47"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="Resultado de"
+                        android:textColor="#1A1A1A"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text='"Categoría, Tiempo de comida..."'
+                        android:textColor="@color/amarilloBase"
+                        android:textSize="19sp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingLeft="25sp"
+                    android:paddingRight="25sp"
+                    android:paddingBottom="70sp"
+                    android:weightSum="100">
+
+                    <LinearLayout
+                        android:id="@+id/recetas1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        android:paddingRight="5sp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/imageView10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp"
+                                    app:srcCompat="@drawable/custom_foto_inicio" />
+
+                                <ImageView
+                                    android:id="@+id/imageView13"
+                                    android:layout_width="55dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    app:srcCompat="@drawable/timer_background" />
+
+                                <ImageView
+                                    android:id="@+id/imageView12"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginTop="15dp"
+                                    app:srcCompat="@drawable/ic_clock_regular" />
+
+                                <TextView
+                                    android:id="@+id/textView17"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="45 min"
+                                    android:textColor="#f5f5f5"
+                                    android:textSize="8dp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/lbTituloPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Título"
+                                android:textColor="#191919"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/lbUsuarioPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@user01"
+                                android:textColor="#191919"
+                                android:textSize="8dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/imageView10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp"
+                                    app:srcCompat="@drawable/custom_foto_inicio" />
+
+                                <ImageView
+                                    android:id="@+id/imageView13"
+                                    android:layout_width="55dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    app:srcCompat="@drawable/timer_background" />
+
+                                <ImageView
+                                    android:id="@+id/imageView12"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginTop="15dp"
+                                    app:srcCompat="@drawable/ic_clock_regular" />
+
+                                <TextView
+                                    android:id="@+id/textView17"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="45 min"
+                                    android:textColor="#f5f5f5"
+                                    android:textSize="8dp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/lbTituloPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Título"
+                                android:textColor="#191919"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/lbUsuarioPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@user01"
+                                android:textColor="#191919"
+                                android:textSize="8dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/imageView10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp"
+                                    app:srcCompat="@drawable/custom_foto_inicio" />
+
+                                <ImageView
+                                    android:id="@+id/imageView13"
+                                    android:layout_width="55dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    app:srcCompat="@drawable/timer_background" />
+
+                                <ImageView
+                                    android:id="@+id/imageView12"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginTop="15dp"
+                                    app:srcCompat="@drawable/ic_clock_regular" />
+
+                                <TextView
+                                    android:id="@+id/textView17"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="45 min"
+                                    android:textColor="#f5f5f5"
+                                    android:textSize="8dp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/lbTituloPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Título"
+                                android:textColor="#191919"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/lbUsuarioPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@user01"
+                                android:textColor="#191919"
+                                android:textSize="8dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/imageView10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp"
+                                    app:srcCompat="@drawable/custom_foto_inicio" />
+
+                                <ImageView
+                                    android:id="@+id/imageView13"
+                                    android:layout_width="55dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    app:srcCompat="@drawable/timer_background" />
+
+                                <ImageView
+                                    android:id="@+id/imageView12"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginTop="15dp"
+                                    app:srcCompat="@drawable/ic_clock_regular" />
+
+                                <TextView
+                                    android:id="@+id/textView17"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="45 min"
+                                    android:textColor="#f5f5f5"
+                                    android:textSize="8dp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/lbTituloPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Título"
+                                android:textColor="#191919"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/lbUsuarioPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@user01"
+                                android:textColor="#191919"
+                                android:textSize="8dp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/recetas2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="50"
+                        android:orientation="vertical"
+                        android:paddingLeft="5sp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/imageView10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp"
+                                    app:srcCompat="@drawable/custom_foto_inicio" />
+
+                                <ImageView
+                                    android:id="@+id/imageView13"
+                                    android:layout_width="55dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    app:srcCompat="@drawable/timer_background" />
+
+                                <ImageView
+                                    android:id="@+id/imageView12"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginTop="15dp"
+                                    app:srcCompat="@drawable/ic_clock_regular" />
+
+                                <TextView
+                                    android:id="@+id/textView17"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="45 min"
+                                    android:textColor="#f5f5f5"
+                                    android:textSize="8dp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/lbTituloPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Título"
+                                android:textColor="#191919"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/lbUsuarioPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@user01"
+                                android:textColor="#191919"
+                                android:textSize="8dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/imageView10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp"
+                                    app:srcCompat="@drawable/custom_foto_inicio" />
+
+                                <ImageView
+                                    android:id="@+id/imageView13"
+                                    android:layout_width="55dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    app:srcCompat="@drawable/timer_background" />
+
+                                <ImageView
+                                    android:id="@+id/imageView12"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginTop="15dp"
+                                    app:srcCompat="@drawable/ic_clock_regular" />
+
+                                <TextView
+                                    android:id="@+id/textView17"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="45 min"
+                                    android:textColor="#f5f5f5"
+                                    android:textSize="8dp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/lbTituloPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Título"
+                                android:textColor="#191919"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/lbUsuarioPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@user01"
+                                android:textColor="#191919"
+                                android:textSize="8dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/imageView10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp"
+                                    app:srcCompat="@drawable/custom_foto_inicio" />
+
+                                <ImageView
+                                    android:id="@+id/imageView13"
+                                    android:layout_width="55dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    app:srcCompat="@drawable/timer_background" />
+
+                                <ImageView
+                                    android:id="@+id/imageView12"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginTop="15dp"
+                                    app:srcCompat="@drawable/ic_clock_regular" />
+
+                                <TextView
+                                    android:id="@+id/textView17"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="45 min"
+                                    android:textColor="#f5f5f5"
+                                    android:textSize="8dp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/lbTituloPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Título"
+                                android:textColor="#191919"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/lbUsuarioPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@user01"
+                                android:textColor="#191919"
+                                android:textSize="8dp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="10dp"
+                            android:orientation="vertical">
+
+                            <FrameLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <ImageView
+                                    android:id="@+id/imageView10"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="150dp"
+                                    app:srcCompat="@drawable/custom_foto_inicio" />
+
+                                <ImageView
+                                    android:id="@+id/imageView13"
+                                    android:layout_width="55dp"
+                                    android:layout_height="20dp"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="10dp"
+                                    app:srcCompat="@drawable/timer_background" />
+
+                                <ImageView
+                                    android:id="@+id/imageView12"
+                                    android:layout_width="10dp"
+                                    android:layout_height="10dp"
+                                    android:layout_marginLeft="15dp"
+                                    android:layout_marginTop="15dp"
+                                    app:srcCompat="@drawable/ic_clock_regular" />
+
+                                <TextView
+                                    android:id="@+id/textView17"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginTop="15dp"
+                                    android:fontFamily="@font/poppins"
+                                    android:text="45 min"
+                                    android:textColor="#f5f5f5"
+                                    android:textSize="8dp" />
+                            </FrameLayout>
+
+                            <TextView
+                                android:id="@+id/lbTituloPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="Título"
+                                android:textColor="#191919"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/lbUsuarioPS"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins"
+                                android:text="@user01"
+                                android:textColor="#191919"
+                                android:textSize="8dp" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

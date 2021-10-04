@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 public class act_inicio extends AppCompatActivity {
 
     ImageView icUsuario, icListaCompra, icBuscar;
+    LinearLayout receta1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +22,7 @@ public class act_inicio extends AppCompatActivity {
         icUsuario = findViewById(R.id.icUsuario);
         icListaCompra = findViewById(R.id.icListaCompra);
         icBuscar = findViewById(R.id.icBuscar);
+        receta1 = findViewById(R.id.receta1);
 
         icUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,6 +44,14 @@ public class act_inicio extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), act_buscar_general.class);
+                startActivity(intent);
+            }
+        });
+
+        receta1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
                 startActivity(intent);
             }
         });

@@ -15,7 +15,10 @@
     <string name="tc_desayunos">Desayuno</string>
     <string name="tc_almuerzos">Almuerzo</string>
     <string name="tc_cenas">Cena</string>
-    <string name="tc_meriendas">Merienda</string>
+    <string name="tc_merienda1">Merienda 1</string>
+    <string name="tc_merienda2">Merienda 2</string>
+    <string name="tc_merienda3">Merienda 3</string>
+    <string name="tc_meriendas">Meriendas</string>
 
     <!-- CATEGORÍAS -->
     <string name="cat_vegetariano">Vegetariano</string>
@@ -34,7 +37,7 @@
     <string name="act_buscar_ingredientes">Buscar por ingredientes</string>
     <string name="act_lista_recetas">Lista de recetas</string>
 
-    <!-- Etiquetas para inputs -->
+    <!-- Etiquetas -->
     <string name="lbl_nombre">Nombre</string>
     <string name="lbl_apellidos">Apellidos</string>
     <string name="lbl_biografia">Biografía</string>
@@ -46,6 +49,8 @@
     <string name="lbl_confirmar_contrasenha">Confirmar contraseña</string>
     <string name="lbl_aceptar_terminos_condiciones">Aceptar términos y condiciones</string>
     <string name="lbl_nombre_receta">Nombre de la receta</string>
+    <string name="lbl_ingredientes">Ingredientes</string>
+    <string name="lbl_preparacion">Preparación</string>
 
     <!-- Botones -->
     <string name="btn_registrarse">Registrarse</string>
@@ -53,6 +58,7 @@
     <string name="btn_guardar">Guardar</string>
     <string name="btn_cambiar_fotografia">Cambiar Fotografía</string>
     <string name="btn_buscar">Buscar</string>
+    <string name="btn_anhadir_a_plan_semanal">Añadir a mi plan semanal</string>
 
     <!-- ARRAY DE TIEMPOS DE COMIDA -->
     <string-array name="array_tiempos_comida">

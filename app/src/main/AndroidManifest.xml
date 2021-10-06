@@ -10,6 +10,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AMonchar">
         <activity
+            android:name=".act_detalle_receta"
+            android:exported="true" />
+        <activity
+            android:name=".act_lista_recetas"
+            android:exported="true" />
+        <activity
+            android:name=".act_buscar_ingredientes"
+            android:exported="true" />
+        <activity
+            android:name=".act_buscar_general"
+            android:exported="true" />
+        <activity
+            android:name=".act_editar_perfil"
+            android:exported="true" />
+        <activity
             android:name=".act_beneficios_ingredientes"
             android:exported="true" />
         <activity

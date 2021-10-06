@@ -227,6 +227,7 @@
                     android:paddingRight="5sp">
 
                     <LinearLayout
+                        android:id="@+id/receta1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="10dp"

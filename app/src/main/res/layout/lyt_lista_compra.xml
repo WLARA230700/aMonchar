@@ -111,7 +111,7 @@
                     android:paddingLeft="15sp"
                     android:paddingTop="7sp"
                     android:paddingBottom="7sp"
-                    app:srcCompat="@drawable/ic_shopping_cart" />
+                    app:srcCompat="@drawable/ic_yellow_shopping_cart" />
             </LinearLayout>
         </LinearLayout>
 

@@ -1,9 +1,9 @@
 package com.war.amonchar;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.res.ResourcesCompat;
 
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,7 +24,7 @@ public class act_plan_semanal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_plan_semanal);
 
-        contenidoLunes = findViewById(R.id.contenidoLunes);
+        contenidoLunes = findViewById(R.id.planSemanal);
         contenidoMartes = findViewById(R.id.contenidoMartes);
         contenidoMiercoles = findViewById(R.id.contenidoMiercoles);
         contenidoJueves = findViewById(R.id.contenidoJueves);
@@ -115,12 +115,18 @@ public class act_plan_semanal extends AppCompatActivity {
             linearLayout.setVisibility(View.GONE);
             btn.setBackgroundColor(Color.rgb(253, 212, 123));
             btn.setTextColor(Color.rgb(26, 26, 26));
+            Drawable drawable = getDrawable(R.drawable.ic_down);
+            drawable.setTint(Color.BLACK);
+            btn.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
             bool = false;
             return bool;
         }else{
             linearLayout.setVisibility(View.VISIBLE);
             btn.setBackgroundColor(Color.rgb(249, 179, 52));
             btn.setTextColor(Color.WHITE);
+            Drawable drawable = getDrawable(R.drawable.ic_up);
+            drawable.setTint(Color.WHITE);
+            btn.setCompoundDrawablesWithIntrinsicBounds(null, null, drawable, null);
             bool = true;
             return bool;
         }

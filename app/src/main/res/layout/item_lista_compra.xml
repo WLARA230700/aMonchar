@@ -7,36 +7,35 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:paddingLeft="25dp"
+        android:paddingTop="10dp"
+        android:paddingRight="25dp"
+        android:paddingBottom="10dp"
+        android:weightSum="10"
+        android:descendantFocusability="blocksDescendants">
 
-        <LinearLayout
+        <CheckBox
+            android:id="@+id/checkComprado"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:buttonTint="@color/amarilloBase"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <EditText
+            android:id="@+id/txtIngrediente"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingLeft="25dp"
-            android:paddingTop="10dp"
-            android:paddingRight="25dp"
-            android:paddingBottom="10dp"
-            android:weightSum="10">
-
-            <CheckBox
-                android:id="@+id/checkBox3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <EditText
-                android:id="@+id/editTextTextPersonName4"
-                android:layout_width="match_parent"
-                android:layout_height="41dp"
-                android:layout_weight="9"
-                android:background="@drawable/invisible_input"
-                android:drawableRight="@drawable/ic_trash"
-                android:drawablePadding="5dp"
-                android:inputType="textPersonName"
-                android:paddingLeft="7dp" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:background="@drawable/invisible_input"
+            android:drawablePadding="5dp"
+            android:focusable="true"
+            android:inputType="textPersonName"
+            android:paddingLeft="7dp"
+            android:textColor="@color/texto"
+            android:textSize="18sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

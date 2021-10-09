@@ -219,22 +219,24 @@ public class BD extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
 
         if (ingrediente != null){
-            int id = ingrediente.getId();
-            String nombre = ingrediente.getNombre();
-            boolean compradoB = ingrediente.isComprado();
+            if (!ingrediente.getNombre().equals("")){
+                int id = ingrediente.getId();
+                String nombre = ingrediente.getNombre();
+                boolean compradoB = ingrediente.isComprado();
 
-            int comprado = 0;
+                int comprado = 0;
 
-            if (compradoB){
-                comprado = 1;
-            }else {
-                comprado = 0;
-            }
+                if (compradoB){
+                    comprado = 1;
+                }else {
+                    comprado = 0;
+                }
 
-            if (db != null){
-                db.execSQL("INSERT INTO "+tbListacompra+"(NOMBRE, COMPRADO) VALUES ('"+nombre+"', '"+comprado+"')");
-                db.close();
-                return true;
+                if (db != null){
+                    db.execSQL("INSERT INTO "+tbListacompra+"(NOMBRE, COMPRADO) VALUES ('"+nombre+"', '"+comprado+"')");
+                    db.close();
+                    return true;
+                }
             }
         }
         return false;
@@ -242,7 +244,7 @@ public class BD extends SQLiteOpenHelper {
 //--------------------------------------------------------------------------------------------------
 
     // MODIFICAR INGREDIENTE
-    public boolean modificarUsuario(Ingrediente ingrediente){
+    public boolean modificarIngrediente(Ingrediente ingrediente){
 
         SQLiteDatabase db = getReadableDatabase();
 
@@ -279,7 +281,7 @@ public class BD extends SQLiteOpenHelper {
             }
         }
         return false;
-    }// Fin de modificarUsuario
+    }// Fin de modificarIngrediente
 
 //--------------------------------------------------------------------------------------------------
 

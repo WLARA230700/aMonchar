@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <LinearLayout
@@ -117,7 +117,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingLeft="25dp"
             android:paddingRight="25dp">
@@ -142,6 +142,7 @@
                     android:textColor="#787878" />
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/btnAgregarIngrediente"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -170,57 +171,21 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:paddingLeft="25dp"
-                        android:paddingTop="10dp"
-                        android:paddingRight="25dp"
-                        android:paddingBottom="10dp"
-                        android:weightSum="10">
-
-                        <CheckBox
-                            android:id="@+id/checkBox3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-
-                        <EditText
-                            android:id="@+id/editTextTextPersonName4"
-                            android:layout_width="match_parent"
-                            android:layout_height="41dp"
-                            android:layout_weight="9"
-                            android:background="@drawable/invisible_input"
-                            android:drawableRight="@drawable/ic_trash"
-                            android:drawablePadding="5dp"
-                            android:hint="Digite ingrediente"
-                            android:inputType="textPersonName"
-                            android:paddingLeft="7dp" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
                 <ListView
+                    android:id="@+id/listPorComprar"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="260dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="25dp"
                     android:paddingRight="25dp">
@@ -245,46 +210,10 @@
 
                 </LinearLayout>
 
-                <LinearLayout
+                <ListView
+                    android:id="@+id/listComprado"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:paddingLeft="25dp"
-                        android:paddingTop="10dp"
-                        android:paddingRight="25dp"
-                        android:paddingBottom="10dp"
-                        android:weightSum="10">
-
-                        <CheckBox
-                            android:id="@+id/checkBox3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1" />
-
-                        <EditText
-                            android:id="@+id/editTextTextPersonName4"
-                            android:layout_width="match_parent"
-                            android:layout_height="41dp"
-                            android:layout_weight="9"
-                            android:background="@drawable/invisible_input"
-                            android:drawableRight="@drawable/ic_trash"
-                            android:drawablePadding="5dp"
-                            android:hint="Digite ingrediente"
-                            android:inputType="textPersonName"
-                            android:paddingLeft="7dp" />
-
-                    </LinearLayout>
-
-                    <ListView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </LinearLayout>
+                    android:layout_height="260dp" />
             </LinearLayout>
         </ScrollView>
 

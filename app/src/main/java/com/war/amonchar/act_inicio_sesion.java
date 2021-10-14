@@ -60,5 +60,5 @@ public class act_inicio_sesion extends AppCompatActivity {
             }
         });
 
-    }
-}
+    }//Fin onCreate
+}//Fin clase act_inicio_sesion

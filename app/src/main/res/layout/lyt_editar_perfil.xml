@@ -51,6 +51,7 @@
             app:cardElevation="0dp">
 
             <LinearLayout
+                android:id="@+id/btnFotografia"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="40dp"
@@ -117,7 +118,7 @@
             android:paddingBottom="15dp">
 
             <TextView
-                android:id="@+id/textView33"
+                android:id="@+id/lblNombreUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
@@ -141,7 +142,7 @@
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/txtNombre"
                     android:layout_width="match_parent"
                     android:layout_height="41dp"
                     android:layout_marginTop="10dp"
@@ -183,7 +184,7 @@
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/editTextTextPersonName"
+                    android:id="@+id/txtApellidos"
                     android:layout_width="match_parent"
                     android:layout_height="41dp"
                     android:layout_marginTop="10dp"
@@ -225,7 +226,7 @@
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/editTextTextMultiLine2"
+                    android:id="@+id/txtBiografia"
                     android:layout_width="match_parent"
                     android:layout_height="41dp"
                     android:layout_marginTop="10dp"
@@ -259,7 +260,7 @@
             android:orientation="vertical">
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/btnSave"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/btn_guardar"

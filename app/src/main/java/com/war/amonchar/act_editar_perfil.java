@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
-import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.war.amonchar.BaseDeDatos.BD;
+import com.war.amonchar.Modelo.GlobalVariables;
 import com.war.amonchar.Modelo.Usuario;
 
 import java.util.concurrent.Executor;
@@ -30,6 +30,7 @@ public class act_editar_perfil extends AppCompatActivity {
     private ImageView imgUsuario;
     private Uri imgUsuarioTemp;
     private TextView lblNombreUsuario;
+    private Usuario usuarioLog = null;
 
     private Executor executor;
     private BiometricPrompt biometricPrompt;
@@ -41,6 +42,7 @@ public class act_editar_perfil extends AppCompatActivity {
         setContentView(R.layout.lyt_editar_perfil);
 
         final BD bd = new BD(getApplicationContext());
+        usuarioLog = ((GlobalVariables) getApplication()).getUsuarioLogueado();
 
         btnBack = findViewById(R.id.btnBack);
         btnSave = findViewById(R.id.btnSave);
@@ -51,12 +53,14 @@ public class act_editar_perfil extends AppCompatActivity {
         imgUsuario = findViewById(R.id.imgUsuario);
         lblNombreUsuario = findViewById(R.id.lblNombreUsuario);
 
+        actualizarCampos();
+
         executor = ContextCompat.getMainExecutor(this);
         biometricPrompt = new BiometricPrompt(act_editar_perfil.this, executor, new BiometricPrompt.AuthenticationCallback() {
             @Override
             public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
                 super.onAuthenticationError(errorCode, errString);
-                Toast.makeText(getApplicationContext(), "Error al autenticar" + errString, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Error al autenticar", Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -64,8 +68,29 @@ public class act_editar_perfil extends AppCompatActivity {
                 super.onAuthenticationSucceeded(result);
 
                 //modificar datos
+                Usuario usuario = usuarioLog;
 
-                Toast.makeText(getApplicationContext(), "Autenticación exitosa", Toast.LENGTH_SHORT).show();
+                if(!txtNombre.getText().toString().isEmpty()) {
+                    usuario.setNombre(txtNombre.getText().toString());
+                }
+
+                if(!txtApellidos.getText().toString().isEmpty()) {
+                    usuario.setApellidos(txtApellidos.getText().toString());
+                }
+
+                if(!txtBiografia.getText().toString().isEmpty()){
+                    usuario.setBiografia(txtBiografia.getText().toString());
+                }
+
+
+                if(bd.modificarUsuario(usuario)){
+                    Toast.makeText(getApplicationContext(), "Perfil modificado", Toast.LENGTH_SHORT).show();
+                    limpiar();
+                    actualizarCampos();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Hubo un problema al guardar", Toast.LENGTH_SHORT).show();
+                }
+
             }
 
             @Override
@@ -103,4 +128,20 @@ public class act_editar_perfil extends AppCompatActivity {
         });
 
     }//Fin onCreate
+
+    public void actualizarCampos(){
+        lblNombreUsuario.setText(usuarioLog.getNombreUsuario());
+
+        txtNombre.setHint(usuarioLog.getNombre());
+        txtApellidos.setHint(usuarioLog.getApellidos());
+        txtBiografia.setHint(usuarioLog.getBiografia());
+
+    }//Fin actualizarCampos
+
+    public void limpiar(){
+        txtNombre.setText("");
+        txtApellidos.setText("");
+        txtBiografia.setText("");
+    }//Fin limpiar
+
 }//Fin clase act_editar_perfil

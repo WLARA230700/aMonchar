@@ -12,13 +12,16 @@ import android.widget.LinearLayout;
 public class act_perfil_usuario_general extends AppCompatActivity {
 
     CardView btnAgregarReceta, btnPlanSemanal, btnBeneficiosIngredientes;
-    ImageView btnListaCompra, btnInicio, icBuscar;
+    ImageView btnListaCompra, btnInicio, icBuscar, imgUsuario;
     LinearLayout btnPerfil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_perfil_usuario_general);
+
+        imgUsuario = findViewById(R.id.imgUsuario);
+       // imgUsuario.setImageURI();
 
         btnAgregarReceta = findViewById(R.id.btnAgregarReceta);
         btnPlanSemanal = findViewById(R.id.btnPlanSemanal);

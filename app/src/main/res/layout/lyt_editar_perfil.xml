@@ -70,7 +70,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/textView13"
+                        android:id="@+id/txtCambiarFotografia"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -95,12 +95,24 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/imgUsuario"
+                    <androidx.cardview.widget.CardView
                         android:layout_width="150sp"
                         android:layout_height="150sp"
-                        app:srcCompat="@drawable/custom_foto_usuario" />
+                        android:layout_centerInParent="true"
+                        android:innerRadius="1dp"
+                        android:shape="ring"
+                        app:cardCornerRadius="80dp">
+
+                        <ImageView
+                            android:id="@+id/imgUsuario"
+                            tools:ignore="ContentDescription"
+                            android:scaleType="centerCrop"
+                            android:layout_width="150dp"
+                            android:layout_height="150dp"/>
+                            //app:srcCompat="@drawable/custom_foto_usuario"
+
+
+                    </androidx.cardview.widget.CardView>
 
                 </FrameLayout>
 
@@ -142,7 +154,9 @@
                 android:layout_height="match_parent">
 
                 <EditText
+
                     android:id="@+id/txtNombre"
+
                     android:layout_width="match_parent"
                     android:layout_height="41dp"
                     android:layout_marginTop="10dp"

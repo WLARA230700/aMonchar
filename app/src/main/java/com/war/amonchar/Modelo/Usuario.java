@@ -33,6 +33,15 @@ public class Usuario {
         this.biografia = "";
         this.fotografia = Uri.parse("");
     }
+    public Usuario(String nombreUsuario, String apellidos, String biografia, Uri fotografia) {
+        this.nombreUsuario = nombreUsuario;
+        this.correo = "";
+        this.contrasenia = "";
+        this.nombre = "";
+        this.apellidos = apellidos ;
+        this.biografia = biografia;
+        this.fotografia = fotografia;
+    }
     public Usuario() {
         this.nombreUsuario = "";
         this.correo = "";

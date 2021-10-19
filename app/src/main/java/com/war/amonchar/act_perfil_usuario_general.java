@@ -15,19 +15,26 @@ import com.war.amonchar.Modelo.Usuario;
 
 public class act_perfil_usuario_general extends AppCompatActivity {
 
+
     private CardView btnAgregarReceta, btnPlanSemanal, btnBeneficiosIngredientes;
-    private ImageView btnListaCompra, btnInicio, icBuscar;
+    private ImageView btnListaCompra, btnInicio, icBuscar, imgUsuario;
     private LinearLayout btnPerfil;
     private TextView lblBiografia, lblNombreUsuario, lblNombre;
 
     private Usuario usuarioLog = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_perfil_usuario_general);
 
+
         usuarioLog = ((GlobalVariables) getApplication()).getUsuarioLogueado();
+
+        imgUsuario = findViewById(R.id.imgUsuario);
+       // imgUsuario.setImageURI();
+
 
         btnAgregarReceta = findViewById(R.id.btnAgregarReceta);
         btnPlanSemanal = findViewById(R.id.btnPlanSemanal);

@@ -146,8 +146,8 @@ public class act_editar_perfil extends AppCompatActivity {
     }// fin del onActivityResult
 
 
-    public void actualizarUsuario(){
+    /*public void actualizarUsuario(){
 
-    }
+    }*/
 
 }// Fin de act_editar_perfil

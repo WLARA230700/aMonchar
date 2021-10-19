@@ -125,6 +125,114 @@ public class BD extends SQLiteOpenHelper {
         return false;
     }// Fin de modificarUsuario
 
+    //OBTENER UN USUARIO A PARTIR DE UN NOMBRE DE USUARIO
+    public Usuario getUsuario(String nombreUsuario){
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        Usuario usuario;
+
+        Cursor cursor = db.rawQuery("SELECT * FROM "+ tbUsuarios +" WHERE NOMBRE_USUARIO = '"+ nombreUsuario +"'", null);
+        cursor.moveToFirst();
+
+        try{
+
+            usuario = new Usuario();
+            usuario.setNombreUsuario(cursor.getString(0));
+            usuario.setCorreo(cursor.getString(1));
+            usuario.setContrasenia(cursor.getString(2));
+            usuario.setNombre(cursor.getString(3));
+            usuario.setApellidos(cursor.getString(4));
+            usuario.setBiografia(cursor.getString(5));
+            usuario.setFotografia(Uri.parse(cursor.getString(6)));
+            int log = cursor.getInt(7);
+            if(log == 0){
+                usuario.setLogueado(false);
+            }else {
+                usuario.setLogueado(true);
+            }
+
+        }catch (Exception e){
+
+            usuario = null;
+
+        }
+
+        return usuario;
+    }//Fin getUsuario
+
+    //OBTENER UN USUARIO A PARTIR DE STATUS LOGUEADO
+    /*public Usuario getUsuario(int logueado){
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        Usuario usuario;
+
+        Cursor cursor = db.rawQuery("SELECT * FROM "+ tbUsuarios +" WHERE LOGUEADO = '"+ logueado +"'", null);
+        cursor.moveToFirst();
+
+        try{
+
+            usuario = new Usuario();
+            usuario.setNombreUsuario(cursor.getString(0));
+            usuario.setCorreo(cursor.getString(1));
+            usuario.setContrasenia(cursor.getString(2));
+            usuario.setNombre(cursor.getString(3));
+            usuario.setApellidos(cursor.getString(4));
+            usuario.setBiografia(cursor.getString(5));
+            usuario.setFotografia(Uri.parse(cursor.getString(6)));
+            int log = cursor.getInt(7);
+            if(log == 0){
+                usuario.setLogueado(false);
+            }else {
+                usuario.setLogueado(true);
+            }
+
+        }catch (Exception e){
+
+            usuario = null;
+
+        }
+
+        return usuario;
+    }*///Fin getUsuario
+
+    //OBTENER UN USUARIO A PARTIR DE UN CORREO ELECTRÓNICO
+    public Usuario getUsuarioCorreo(String email){
+
+        SQLiteDatabase db = getReadableDatabase();
+
+        Usuario usuario;
+
+        Cursor cursor = db.rawQuery("SELECT * FROM "+ tbUsuarios +" WHERE CORREO = '"+ email +"'", null);
+        cursor.moveToFirst();
+
+        try{
+
+            usuario = new Usuario();
+            usuario.setNombreUsuario(cursor.getString(0));
+            usuario.setCorreo(cursor.getString(1));
+            usuario.setContrasenia(cursor.getString(2));
+            usuario.setNombre(cursor.getString(3));
+            usuario.setApellidos(cursor.getString(4));
+            usuario.setBiografia(cursor.getString(5));
+            usuario.setFotografia(Uri.parse(cursor.getString(6)));
+            int log = cursor.getInt(7);
+            if(log == 0){
+                usuario.setLogueado(false);
+            }else {
+                usuario.setLogueado(true);
+            }
+
+        }catch (Exception e){
+
+            usuario = null;
+
+        }
+
+        return usuario;
+    }//Fin getUsuario
+
 //--------------------------------------------------------------------------------------------------
 
     // OBTENER ARRAY DE USUARIOS

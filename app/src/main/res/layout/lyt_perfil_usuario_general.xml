@@ -21,7 +21,7 @@
             app:srcCompat="@drawable/ic_amonchar" />
 
         <TextView
-            android:id="@+id/textView12"
+            android:id="@+id/lblNombreUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -73,7 +73,9 @@
                         android:orientation="vertical">
 
                         <TextView
-                            android:id="@+id/txtCambiarFotografia"
+
+                            android:id="@+id/lblNombre"
+
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
@@ -86,34 +88,14 @@
                             android:textSize="20dp" />
 
                         <TextView
-                            android:id="@+id/textView16"
+                            android:id="@+id/lblBiografia"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:fontFamily="@font/poppins"
+                            android:paddingLeft="50dp"
+                            android:paddingRight="50dp"
                             android:text="Me gusta la pizza y la pasta"
-                            android:textAlignment="center"
-                            android:textColor="#1A1A1A"
-                            android:textSize="13dp" />
-
-                        <TextView
-                            android:id="@+id/textView15"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/poppins"
-                            android:text="Soy Italiano"
-                            android:textAlignment="center"
-                            android:textColor="#1A1A1A"
-                            android:textSize="13dp" />
-
-                        <TextView
-                            android:id="@+id/textView18"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/poppins"
-                            android:text="#PizzaLover"
                             android:textAlignment="center"
                             android:textColor="#1A1A1A"
                             android:textSize="13dp" />

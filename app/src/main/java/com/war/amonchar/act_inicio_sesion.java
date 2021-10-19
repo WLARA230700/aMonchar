@@ -11,6 +11,8 @@ import android.widget.Switch;
 import android.widget.Toast;
 
 import com.war.amonchar.BaseDeDatos.BD;
+import com.war.amonchar.Modelo.GlobalVariables;
+import com.war.amonchar.Modelo.Usuario;
 
 public class act_inicio_sesion extends AppCompatActivity {
 
@@ -19,6 +21,8 @@ public class act_inicio_sesion extends AppCompatActivity {
     EditText txtEmail, txtPassword;
 
     Switch swtRecordarSesion;
+
+    //private Usuario usuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,13 +56,21 @@ public class act_inicio_sesion extends AppCompatActivity {
                 }else if (!db.validarUsuario(txtEmail.getText().toString(), txtPassword.getText().toString(), logueado)){
                     Toast.makeText(getApplicationContext(), "Correo o contraseña inválidos", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
-                    Toast.makeText(getApplicationContext(), String.valueOf(db.getUsuarios().get(0).isLogueado()), Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), act_inicio.class);
-                    startActivity(intent);
+                    //Toast.makeText(getApplicationContext(), String.valueOf(db.getUsuarios().get(0).isLogueado()), Toast.LENGTH_SHORT).show();
+
+                    //Usuario usuario = getApplication().
+                    ((GlobalVariables) getApplication()).setUsuarioLogueado(db.getUsuarioCorreo(txtEmail.getText().toString()));
+
+                    if(((GlobalVariables) getApplication()).getUsuarioLogueado() != null){
+                        Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), act_inicio.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(getApplicationContext(), "Hubo un problema al iniciar sesión", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
 
-    }
-}
+    }//Fin onCreate
+}//Fin clase act_inicio_sesion

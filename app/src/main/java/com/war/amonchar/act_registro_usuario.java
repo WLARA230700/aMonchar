@@ -54,7 +54,7 @@ public class act_registro_usuario extends AppCompatActivity {
                 }else if (!switchTerminos.isChecked()){
                     Toast.makeText(getApplicationContext(), "Debe aceptar los términos y condiciones", Toast.LENGTH_SHORT).show();
                 }else{
-                    Usuario usuario = new Usuario(txtNombreUsuario.getText().toString(), txtEmail.getText().toString(),
+                    Usuario usuario = new Usuario("@"+txtNombreUsuario.getText().toString(), txtEmail.getText().toString(),
                             txtContrasenia.getText().toString());
 
                     if (db.agregarUsuario(usuario)){

@@ -8,20 +8,33 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.war.amonchar.Modelo.GlobalVariables;
+import com.war.amonchar.Modelo.Usuario;
 
 public class act_perfil_usuario_general extends AppCompatActivity {
 
-    CardView btnAgregarReceta, btnPlanSemanal, btnBeneficiosIngredientes;
-    ImageView btnListaCompra, btnInicio, icBuscar, imgUsuario;
-    LinearLayout btnPerfil;
+
+    private CardView btnAgregarReceta, btnPlanSemanal, btnBeneficiosIngredientes;
+    private ImageView btnListaCompra, btnInicio, icBuscar, imgUsuario;
+    private LinearLayout btnPerfil;
+    private TextView lblBiografia, lblNombreUsuario, lblNombre;
+
+    private Usuario usuarioLog = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_perfil_usuario_general);
 
+
+        usuarioLog = ((GlobalVariables) getApplication()).getUsuarioLogueado();
+
         imgUsuario = findViewById(R.id.imgUsuario);
        // imgUsuario.setImageURI();
+
 
         btnAgregarReceta = findViewById(R.id.btnAgregarReceta);
         btnPlanSemanal = findViewById(R.id.btnPlanSemanal);
@@ -30,6 +43,13 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         btnInicio = findViewById(R.id.icInicio);
         btnPerfil = findViewById(R.id.btnPerfil);
         icBuscar = findViewById(R.id.icBuscar);
+        lblNombreUsuario = findViewById(R.id.lblNombreUsuario);
+        lblBiografia = findViewById(R.id.lblBiografia);
+        lblNombre = findViewById(R.id.lblNombre);
+
+        lblNombreUsuario.setText(usuarioLog.getNombreUsuario());
+        lblNombre.setText(usuarioLog.getNombre());
+        lblBiografia.setText(usuarioLog.getBiografia());
 
         btnAgregarReceta.setOnClickListener(new View.OnClickListener() {
             @Override

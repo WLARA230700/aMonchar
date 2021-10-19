@@ -51,6 +51,7 @@
             app:cardElevation="0dp">
 
             <LinearLayout
+                android:id="@+id/btnFotografia"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="40dp"
@@ -129,7 +130,7 @@
             android:paddingBottom="15dp">
 
             <TextView
-                android:id="@+id/textView33"
+                android:id="@+id/lblNombreUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_bold"
@@ -153,15 +154,19 @@
                 android:layout_height="match_parent">
 
                 <EditText
-                    android:id="@+id/txtApellidos"
+
+                    android:id="@+id/txtNombre"
+
                     android:layout_width="match_parent"
                     android:layout_height="41dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_input"
                     android:ems="10"
+                    android:hint="Carlos"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp" />
+                    android:paddingRight="10dp"
+                    android:textColorHint="#CCCCCC" />
 
                 <TextView
                     android:id="@+id/textView30"
@@ -201,9 +206,11 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_input"
                     android:ems="10"
+                    android:hint="Valverde Chavarría"
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp" />
+                    android:paddingRight="10dp"
+                    android:textColorHint="#CCCCCC" />
 
                 <TextView
                     android:id="@+id/textView30"
@@ -239,14 +246,19 @@
                 <EditText
                     android:id="@+id/txtBiografia"
                     android:layout_width="match_parent"
-                    android:layout_height="41dp"
+                    android:layout_height="81dp"
                     android:layout_marginTop="10dp"
                     android:background="@drawable/custom_input"
                     android:ems="10"
                     android:gravity="start|top"
+                    android:hint="Me gusta la pizza"
                     android:inputType="textMultiLine"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp" />
+                    android:paddingTop="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:singleLine="false"
+                    android:textColorHint="#CCCCCC" />
 
                 <TextView
                     android:id="@+id/textView30"

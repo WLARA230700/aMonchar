@@ -1,11 +1,19 @@
 package com.war.amonchar;
 
+
+import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AlertDialog;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
+
 
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -14,45 +22,113 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.war.amonchar.BaseDeDatos.BD;
+import com.war.amonchar.Modelo.GlobalVariables;
+import com.war.amonchar.Modelo.Usuario;
+
+import java.util.concurrent.Executor;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-import com.war.amonchar.BaseDeDatos.BD;
-import com.war.amonchar.Modelo.Usuario;
-
 public class act_editar_perfil extends AppCompatActivity {
 
-    private static final int GALLERY_REQUEST_CODE = 100;
-
-    ImageView btnBack, imgUsuario;
-    TextView txtCambiarFotografia;
-    EditText txtNombre, txtApellidos, txtBiografia;
+    private ImageView btnBack;
     private Button btnSave;
+    private EditText txtNombre, txtApellidos, txtBiografia;
+    private ImageView imgUsuario;
+    TextView txtCambiarFotografia;
     Uri fotoTemp;
+    
+    private TextView lblNombreUsuario;
+    private Usuario usuarioLog = null;
+
+    private Executor executor;
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
 
     private final int Galeria = 1;
     private final int Camara = 2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_editar_perfil);
 
-        final BD db = new BD(getApplicationContext());
+
+        final BD bd = new BD(getApplicationContext());
+        usuarioLog = ((GlobalVariables) getApplication()).getUsuarioLogueado();
 
         btnBack = findViewById(R.id.btnBack);
         btnSave = findViewById(R.id.btnSave);
-        imgUsuario = findViewById(R.id.imgUsuario);
-        txtCambiarFotografia = findViewById(R.id.txtCambiarFotografia);
-        txtNombre = findViewById(R.id.txtApellidos);
+        txtNombre = findViewById(R.id.txtNombre);
         txtApellidos = findViewById(R.id.txtApellidos);
         txtBiografia = findViewById(R.id.txtBiografia);
+        imgUsuario = findViewById(R.id.imgUsuario);
+        lblNombreUsuario = findViewById(R.id.lblNombreUsuario);
+        txtCambiarFotografia = findViewById(R.id.txtCambiarFotografia);
+
+        actualizarCampos();
+
+        executor = ContextCompat.getMainExecutor(this);
+        biometricPrompt = new BiometricPrompt(act_editar_perfil.this, executor, new BiometricPrompt.AuthenticationCallback() {
+            @Override
+            public void onAuthenticationError(int errorCode, @NonNull CharSequence errString) {
+                super.onAuthenticationError(errorCode, errString);
+                Toast.makeText(getApplicationContext(), "Error al autenticar", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAuthenticationSucceeded(@NonNull BiometricPrompt.AuthenticationResult result) {
+                super.onAuthenticationSucceeded(result);
+
+                //modificar datos
+                Usuario usuario = usuarioLog;
+
+                if(!txtNombre.getText().toString().isEmpty()) {
+                    usuario.setNombre(txtNombre.getText().toString());
+                }
+
+                if(!txtApellidos.getText().toString().isEmpty()) {
+                    usuario.setApellidos(txtApellidos.getText().toString());
+                }
+
+                if(!txtBiografia.getText().toString().isEmpty()){
+                    usuario.setBiografia(txtBiografia.getText().toString());
+                }
+
+
+                if(bd.modificarUsuario(usuario)){
+                    Toast.makeText(getApplicationContext(), "Perfil modificado", Toast.LENGTH_SHORT).show();
+                    limpiar();
+                    actualizarCampos();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Hubo un problema al guardar", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onAuthenticationFailed() {
+                super.onAuthenticationFailed();
+                Toast.makeText(getApplicationContext(), "Intente de nuevo", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        promptInfo = new BiometricPrompt.PromptInfo.Builder()
+                .setTitle(getString(R.string.lbl_titulo_autenticacion))
+                .setSubtitle(getString(R.string.lbl_subtitulo_autenticacion))
+                .setNegativeButtonText(getString(R.string.btn_cancelar_autenticacion))
+                .build();
+
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,13 +140,15 @@ public class act_editar_perfil extends AppCompatActivity {
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                biometricPrompt.authenticate(promptInfo);
                 Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
                 db.modificarUsuario(usuario);
                 Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
             }
         });
 
-        txtCambiarFotografia.setOnClickListener(new View.OnClickListener() {
+      txtCambiarFotografia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder alertDialog = new AlertDialog.Builder(act_editar_perfil.this);
@@ -102,8 +180,24 @@ public class act_editar_perfil extends AppCompatActivity {
             }
         });
 
-    }//Fin del Oncreate
+    }//Fin onCreate
 
+    public void actualizarCampos(){
+        lblNombreUsuario.setText(usuarioLog.getNombreUsuario());
+
+        txtNombre.setHint(usuarioLog.getNombre());
+        txtApellidos.setHint(usuarioLog.getApellidos());
+        txtBiografia.setHint(usuarioLog.getBiografia());
+
+    }//Fin actualizarCampos
+
+    public void limpiar(){
+        txtNombre.setText("");
+        txtApellidos.setText("");
+        txtBiografia.setText("");
+    }//Fin limpiar
+
+  
     public void onActivityResult(int rqCode, int resCode, Intent data) {
 
         super.onActivityResult(rqCode, resCode, data);
@@ -151,3 +245,4 @@ public class act_editar_perfil extends AppCompatActivity {
     }*/
 
 }// Fin de act_editar_perfil
+

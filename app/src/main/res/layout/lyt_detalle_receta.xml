@@ -155,7 +155,7 @@
                         android:drawableRight="@drawable/ic_yellow_arrow_down"
                         android:fontFamily="@font/poppins_bold"
                         android:insetBottom="0dp"
-                        android:text="@string/btn_anhadir_a_plan_semanal"
+                        android:text="@string/btn_aniadir_a_plan_semanal"
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
                         android:textColor="#F8B133"

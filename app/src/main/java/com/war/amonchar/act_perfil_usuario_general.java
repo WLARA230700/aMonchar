@@ -48,7 +48,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         lblNombre = findViewById(R.id.lblNombre);
 
         lblNombreUsuario.setText(usuarioLog.getNombreUsuario());
-        lblNombre.setText(usuarioLog.getNombre());
+        lblNombre.setText(usuarioLog.getNombre() + " " + usuarioLog.getApellidos());
         lblBiografia.setText(usuarioLog.getBiografia());
 
         btnAgregarReceta.setOnClickListener(new View.OnClickListener() {

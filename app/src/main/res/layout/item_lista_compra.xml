@@ -12,28 +12,24 @@
         android:paddingTop="10dp"
         android:paddingRight="25dp"
         android:paddingBottom="10dp"
-        android:weightSum="10"
-        android:descendantFocusability="blocksDescendants">
+        android:weightSum="10">
 
-        <CheckBox
-            android:id="@+id/checkComprado"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/txtNumero"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:buttonTint="@color/amarilloBase"
-            android:clickable="true"
-            android:focusable="true" />
+            android:fontFamily="@font/poppins_bold"
+            android:text="1"
+            android:textColor="@color/texto"
+            android:textSize="18sp" />
 
-        <EditText
+        <TextView
             android:id="@+id/txtIngrediente"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="9"
-            android:background="@drawable/invisible_input"
-            android:drawablePadding="5dp"
-            android:focusable="true"
-            android:inputType="textPersonName"
-            android:paddingLeft="7dp"
+            android:text="TextView"
             android:textColor="@color/texto"
             android:textSize="18sp" />
 

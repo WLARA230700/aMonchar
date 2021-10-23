@@ -30,7 +30,7 @@ public class BD extends SQLiteOpenHelper {
 
     // LISTA DE COMPRA
     private static final String TABLA_LISTACOMPRA = "CREATE TABLE "+tbListacompra+" (ID INTEGER PRIMARY KEY AUTOINCREMENT,"
-            +" NOMBRE TEXT NOT NULL, COMPRADO INT NOT NULL)";
+            +" NOMBRE TEXT NOT NULL)";
 
 //-------------------------------------- CONSTRUCTOR -----------------------------------------------
 
@@ -330,18 +330,9 @@ public class BD extends SQLiteOpenHelper {
             if (!ingrediente.getNombre().equals("")){
                 int id = ingrediente.getId();
                 String nombre = ingrediente.getNombre();
-                boolean compradoB = ingrediente.isComprado();
-
-                int comprado = 0;
-
-                if (compradoB){
-                    comprado = 1;
-                }else {
-                    comprado = 0;
-                }
 
                 if (db != null){
-                    db.execSQL("INSERT INTO "+tbListacompra+"(NOMBRE, COMPRADO) VALUES ('"+nombre+"', '"+comprado+"')");
+                    db.execSQL("INSERT INTO "+tbListacompra+"(NOMBRE) VALUES ('"+nombre+"')");
                     db.close();
                     return true;
                 }
@@ -359,7 +350,6 @@ public class BD extends SQLiteOpenHelper {
         if (ingrediente != null){
             int id = ingrediente.getId();
             String nombre = ingrediente.getNombre();
-            boolean comprado = ingrediente.isComprado();
 
             if (db != null){
                 Cursor cursor = db.rawQuery("SELECT * FROM "+tbListacompra+" WHERE ID = '"+id+"'", null);
@@ -367,25 +357,20 @@ public class BD extends SQLiteOpenHelper {
 
                 Ingrediente ingredienteBD = new Ingrediente();
 
-                int compradoInt = 0;
-
                 if (cursor.getCount() != 0){
                     ingredienteBD.setId(cursor.getInt(0));
                     ingredienteBD.setNombre(cursor.getString(1));
-                    compradoInt = cursor.getInt(2);
 
-                    if (compradoInt == 0){
-                        ingredienteBD.setComprado(false);
-                    }else {
-                        ingredienteBD.setComprado(true);
+                    if (id == ingredienteBD.getId()){
+                        db = getWritableDatabase();
+                        db.execSQL("UPDATE "+tbListacompra+" SET NOMBRE = '"+nombre+"' WHERE ID = '"+id+"'");
+                        db.close();
+                        return true;
                     }
+                }else{
+                    agregarIngrediente(ingrediente);
                 }
-                if (id == ingredienteBD.getId()){
-                    db = getWritableDatabase();
-                    db.execSQL("UPDATE "+tbListacompra+" SET NOMBRE = '"+nombre+"',  COMPRADO = '"+compradoInt+"' WHERE ID = '"+id+"'");
-                    db.close();
-                    return true;
-                }
+
             }
         }
         return false;
@@ -404,20 +389,10 @@ public class BD extends SQLiteOpenHelper {
 
         ArrayList<Ingrediente> list = new ArrayList<>();
 
-        int compradoInt = 0;
-
         while (!cursor.isAfterLast()){
             Ingrediente ingrediente = new Ingrediente();
             ingrediente.setId(cursor.getInt(0));
             ingrediente.setNombre(cursor.getString(1));
-
-            compradoInt = cursor.getInt(2);
-
-            if (compradoInt == 0){
-                ingrediente.setComprado(false);
-            }else {
-                ingrediente.setComprado(true);
-            }
             list.add(ingrediente);
             cursor.moveToNext();
         }// Fin del while

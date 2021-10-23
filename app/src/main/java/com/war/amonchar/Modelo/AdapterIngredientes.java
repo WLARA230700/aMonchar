@@ -19,6 +19,7 @@ public class AdapterIngredientes extends BaseAdapter {
 
     Context context;
     ArrayList<Ingrediente> lista;
+    int contadorIngredientes = 0;
 
     public AdapterIngredientes(Context context, ArrayList<Ingrediente> lista) {
         this.context = context;
@@ -51,17 +52,12 @@ public class AdapterIngredientes extends BaseAdapter {
             view = layoutInflater.inflate(R.layout.item_lista_compra, null);
         }
 
-        EditText txtIngrediente = view.findViewById(R.id.txtIngrediente);
-        CheckBox checkComprado = view.findViewById(R.id.checkComprado);
+        TextView txtIngrediente = view.findViewById(R.id.txtIngrediente);
+        TextView txtNumero = view.findViewById(R.id.txtNumero);
 
         txtIngrediente.setText(lista.get(i).getNombre());
-
-
-        if (lista.get(i).isComprado()){
-            checkComprado.setChecked(true);
-        }else{
-            checkComprado.setChecked(false);
-        }
+        contadorIngredientes++;
+        txtNumero.setText(contadorIngredientes+". ");
 
         return view;
     }

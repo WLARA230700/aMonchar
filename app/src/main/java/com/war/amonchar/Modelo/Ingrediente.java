@@ -5,25 +5,21 @@ public class Ingrediente {
     // VARIABLES
     private int id;
     private String nombre;
-    private boolean comprado = false;
 
     // CONSTRUCTORES
-    public Ingrediente(int id, String nombre, boolean comprado) {
+    public Ingrediente(int id, String nombre) {
         this.id = id;
         this.nombre = nombre;
-        this.comprado = comprado;
     }
 
     public Ingrediente(String nombre) {
         this.id = 0;
         this.nombre = nombre;
-        this.comprado = false;
     }
 
     public Ingrediente() {
         this.id = 0;
         this.nombre = "";
-        this.comprado = false;
     }
 
     // GETTER AND SETTER
@@ -43,18 +39,9 @@ public class Ingrediente {
         this.nombre = nombre;
     }
 
-    public boolean isComprado() {
-        return comprado;
-    }
-
-    public void setComprado(boolean comprado) {
-        this.comprado = comprado;
-    }
-
     // TO STRING
     @Override
     public String toString() {
-        return "Nombre: " + nombre +
-                ", Comprado: " + comprado;
+        return "Nombre: " + nombre;
     }
 }

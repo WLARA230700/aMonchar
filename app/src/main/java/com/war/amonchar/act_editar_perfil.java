@@ -143,7 +143,7 @@ public class act_editar_perfil extends AppCompatActivity {
 
                 biometricPrompt.authenticate(promptInfo);
                 Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
-                db.modificarUsuario(usuario);
+                bd.modificarUsuario(usuario);
                 Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
             }
         });

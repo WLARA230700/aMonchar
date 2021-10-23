@@ -125,6 +125,54 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/background_item_light_gray"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:weightSum="10">
+
+                <EditText
+                    android:id="@+id/txtAgregarIngrediente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:ems="10"
+                    android:hint="Añade ingredientes"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/texto"
+                    android:textColorHint="@color/texto"
+                    android:textSize="15sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnAgregarIngrediente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:backgroundTint="#F5F5F5"
+                    app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background_item_yellow"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:padding="5dp"
+                            app:srcCompat="@drawable/ic_white_plus" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:orientation="horizontal"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
@@ -138,32 +186,8 @@
                     android:fontFamily="@font/poppins_bold"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Por comprar"
+                    android:text="Tu lista"
                     android:textColor="#787878" />
-
-                <androidx.cardview.widget.CardView
-                    android:id="@+id/btnAgregarIngrediente"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:backgroundTint="#F5F5F5"
-                    app:cardElevation="0dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="@drawable/background_item_yellow"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:id="@+id/imageView9"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:padding="5dp"
-                            app:srcCompat="@drawable/ic_white_plus" />
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
             </LinearLayout>
 
@@ -179,41 +203,10 @@
                 android:orientation="vertical">
 
                 <ListView
-                    android:id="@+id/listPorComprar"
+                    android:id="@+id/listaCompra"
                     android:layout_width="match_parent"
-                    android:layout_height="260dp" />
+                    android:layout_height="535dp" />
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="25dp"
-                    android:paddingRight="25dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        android:weightSum="10">
-
-                        <TextView
-                            android:id="@+id/textView42"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/poppins_bold"
-                            android:text="Comprado"
-                            android:textColor="#787878" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <ListView
-                    android:id="@+id/listComprado"
-                    android:layout_width="match_parent"
-                    android:layout_height="260dp" />
             </LinearLayout>
         </ScrollView>
 

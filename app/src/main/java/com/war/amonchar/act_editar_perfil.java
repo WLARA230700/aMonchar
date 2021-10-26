@@ -10,11 +10,15 @@ import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
 
+import android.app.Activity;
+import android.app.KeyguardManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 
+import android.hardware.fingerprint.FingerprintManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -38,7 +42,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class act_editar_perfil extends AppCompatActivity {
+public class act_editar_perfil extends AppCompatActivity{
 
     private ImageView btnBack;
     private Button btnSave;
@@ -56,6 +60,12 @@ public class act_editar_perfil extends AppCompatActivity {
 
     private final int Galeria = 1;
     private final int Camara = 2;
+    private final int auth = 3;
+
+    private FingerprintManager fingerprintManager;
+    private KeyguardManager keyguardManager;
+
+    private BD globalDB;
 
 
     @Override
@@ -65,6 +75,7 @@ public class act_editar_perfil extends AppCompatActivity {
 
 
         final BD bd = new BD(getApplicationContext());
+        globalDB = bd;
         usuarioLog = ((GlobalVariables) getApplication()).getUsuarioLogueado();
 
         btnBack = findViewById(R.id.btnBack);
@@ -75,6 +86,9 @@ public class act_editar_perfil extends AppCompatActivity {
         imgUsuario = findViewById(R.id.imgUsuario);
         lblNombreUsuario = findViewById(R.id.lblNombreUsuario);
         txtCambiarFotografia = findViewById(R.id.txtCambiarFotografia);
+
+        fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
+        keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
 
         actualizarCampos();
 
@@ -91,29 +105,7 @@ public class act_editar_perfil extends AppCompatActivity {
                 super.onAuthenticationSucceeded(result);
 
                 //modificar datos
-                Usuario usuario = usuarioLog;
-
-                if(!txtNombre.getText().toString().isEmpty()) {
-                    usuario.setNombre(txtNombre.getText().toString());
-                }
-
-                if(!txtApellidos.getText().toString().isEmpty()) {
-                    usuario.setApellidos(txtApellidos.getText().toString());
-                }
-
-                if(!txtBiografia.getText().toString().isEmpty()){
-                    usuario.setBiografia(txtBiografia.getText().toString());
-                }
-
-
-                if(bd.modificarUsuario(usuario)){
-                    Toast.makeText(getApplicationContext(), "Perfil modificado", Toast.LENGTH_SHORT).show();
-                    limpiar();
-                    actualizarCampos();
-                    ((GlobalVariables)getApplication()).setUsuarioLogueado(usuario);
-                }else{
-                    Toast.makeText(getApplicationContext(), "Hubo un problema al guardar", Toast.LENGTH_SHORT).show();
-                }
+                modificarDatos();
 
             }
 
@@ -126,7 +118,7 @@ public class act_editar_perfil extends AppCompatActivity {
 
         promptInfo = new BiometricPrompt.PromptInfo.Builder()
                 .setTitle(getString(R.string.lbl_titulo_autenticacion))
-                .setSubtitle(getString(R.string.lbl_subtitulo_autenticacion))
+                .setSubtitle(getString(R.string.lbl_subtitulo_autenticacion_fingerprint))
                 .setNegativeButtonText(getString(R.string.btn_cancelar_autenticacion))
                 .build();
 
@@ -142,10 +134,29 @@ public class act_editar_perfil extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                biometricPrompt.authenticate(promptInfo);
-                Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
-                bd.modificarUsuario(usuario);
-                Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
+                if(fingerprintManager.isHardwareDetected()){
+
+                    if(fingerprintManager.hasEnrolledFingerprints()){
+                        biometricPrompt.authenticate(promptInfo);
+                        Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
+                        globalDB.modificarUsuario(usuario);
+                        Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
+                    }else{
+                        if(keyguardManager.isDeviceSecure()){
+                            showPasswordScreen();
+                        }else{
+                            modificarDatos();
+                        }
+                    }
+
+                }else{
+                    if(keyguardManager.isDeviceSecure()){
+                        showPasswordScreen();
+                    }else{
+                        modificarDatos();
+                    }
+                }
+
             }
         });
 
@@ -232,6 +243,11 @@ public class act_editar_perfil extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Exito camara", Toast.LENGTH_SHORT).show();
                     }
                     break;
+                case auth:
+
+                    modificarDatos();
+
+                    break;
             }
 
         }else{
@@ -244,6 +260,53 @@ public class act_editar_perfil extends AppCompatActivity {
     /*public void actualizarUsuario(){
 
     }*/
+
+    public void showPasswordScreen(){
+
+        KeyguardManager keyguardManager = ContextCompat
+                .getSystemService(this, KeyguardManager.class);
+        if (keyguardManager != null
+                || android.os.Build.VERSION.SDK_INT > android.os.Build.VERSION_CODES.LOLLIPOP) {
+
+            if (keyguardManager.isKeyguardSecure()) {
+                Intent intent = keyguardManager
+                        .createConfirmDeviceCredentialIntent(getString(R.string.lbl_titulo_autenticacion), getString(R.string.lbl_subtitulo_autenticacion_pincode));
+                this.startActivityForResult(intent, auth);
+            } else {
+                finishAffinity();
+            }
+
+        }
+
+    }//Fin metodo showPasswordScreen
+
+    public void modificarDatos(){
+
+        Usuario usuario = usuarioLog;
+
+        if(!txtNombre.getText().toString().isEmpty()) {
+            usuario.setNombre(txtNombre.getText().toString());
+        }
+
+        if(!txtApellidos.getText().toString().isEmpty()) {
+            usuario.setApellidos(txtApellidos.getText().toString());
+        }
+
+        if(!txtBiografia.getText().toString().isEmpty()){
+            usuario.setBiografia(txtBiografia.getText().toString());
+        }
+
+
+        if(globalDB.modificarUsuario(usuario)){
+            Toast.makeText(getApplicationContext(), "Perfil modificado", Toast.LENGTH_SHORT).show();
+            limpiar();
+            actualizarCampos();
+            ((GlobalVariables)getApplication()).setUsuarioLogueado(usuario);
+        }else{
+            Toast.makeText(getApplicationContext(), "Hubo un problema al guardar", Toast.LENGTH_SHORT).show();
+        }
+
+    }//Fin metodo modificarDatos
 
 }// Fin de act_editar_perfil
 

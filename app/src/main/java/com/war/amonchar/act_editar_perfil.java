@@ -57,6 +57,7 @@ public class act_editar_perfil extends AppCompatActivity {
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
 
+    //  CONSTANTES
     private final int Galeria = 1;
     private final int Camara = 2;
 

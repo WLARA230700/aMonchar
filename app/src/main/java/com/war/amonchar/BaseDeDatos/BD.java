@@ -4,7 +4,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.util.Base64;
 
 import com.war.amonchar.Modelo.Ingrediente;
 import com.war.amonchar.Modelo.Usuario;
@@ -110,7 +113,7 @@ public class BD extends SQLiteOpenHelper {
                     usuarioBD.setNombre(cursor.getString(3));
                     usuarioBD.setApellidos(cursor.getString(4));
                     usuarioBD.setBiografia(cursor.getString(5));
-                    usuarioBD.setFotografia(cursor.getString(6));
+                    usuarioBD.setFotografia(stringToBitmap(cursor.getString(6)));
                 }
                 if (nombreUsuario.equals(usuarioBD.getNombreUsuario())){
                     db = getWritableDatabase();
@@ -144,7 +147,8 @@ public class BD extends SQLiteOpenHelper {
             usuario.setNombre(cursor.getString(3));
             usuario.setApellidos(cursor.getString(4));
             usuario.setBiografia(cursor.getString(5));
-            usuario.setFotografia(cursor.getString(6));
+            usuario.setFotografia(stringToBitmap(cursor.getString(6)));
+
             int log = cursor.getInt(7);
             if(log == 0){
                 usuario.setLogueado(false);
@@ -216,7 +220,8 @@ public class BD extends SQLiteOpenHelper {
             usuario.setNombre(cursor.getString(3));
             usuario.setApellidos(cursor.getString(4));
             usuario.setBiografia(cursor.getString(5));
-            usuario.setFotografia((cursor.getString(6));
+            usuario.setFotografia(stringToBitmap(cursor.getString(6)));
+            //usuario.setFotografia(Uri.parse(cursor.getString(6)));
             int log = cursor.getInt(7);
             if(log == 0){
                 usuario.setLogueado(false);
@@ -254,7 +259,7 @@ public class BD extends SQLiteOpenHelper {
             usuario.setNombre(cursor.getString(3));
             usuario.setApellidos(cursor.getString(4));
             usuario.setBiografia(cursor.getString(5));
-            usuario.setFotografia(cursor.getString(6));
+            usuario.setFotografia(stringToBitmap(cursor.getString(6)));
             int log = cursor.getInt(7);
             if (log == 0){
                 usuario.setLogueado(false);
@@ -290,7 +295,7 @@ public class BD extends SQLiteOpenHelper {
                 usuarioBD.setNombre(cursor.getString(3));
                 usuarioBD.setApellidos(cursor.getString(4));
                 usuarioBD.setBiografia(cursor.getString(5));
-                usuarioBD.setFotografia(cursor.getString(6));
+                usuarioBD.setFotografia(stringToBitmap(cursor.getString(6)));
                 int log = cursor.getInt(7);
                 if (log == 0){
                     usuarioBD.setLogueado(false);
@@ -422,7 +427,18 @@ public class BD extends SQLiteOpenHelper {
         }
         return false;
     }// Fin de eliminarIngrediente
+//--------------------------------------------------------------------------------------------------
 
+    //STRING A BITMAP
+    private static Bitmap stringToBitmap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            return BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
+    }
 
 
 }// Fin de la clase

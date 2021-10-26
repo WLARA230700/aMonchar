@@ -2,6 +2,7 @@ package com.war.amonchar.Modelo;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
@@ -18,6 +19,10 @@ public class Usuario {
     private String fotografia;
     private boolean logueado = false;
 
+    //CONSTANTES
+    private static final float PREFERRED_WIDTH = 250;
+    private static final float PREFERRED_HEIGHT = 250;
+
     // CONSTRUCTORES
     public Usuario(String nombreUsuario, String correo, String contrasenia, String nombre, String apellidos, String biografia, Bitmap fotografia) {
         this.nombreUsuario = nombreUsuario;
@@ -26,7 +31,7 @@ public class Usuario {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.biografia = biografia;
-        this.fotografia = bitmapToString(fotografia);
+        this.fotografia = bitmapToString(resizeBitmap(fotografia));
     }
     public Usuario(String nombreUsuario, String correo, String contrasenia) {
         this.nombreUsuario = nombreUsuario;
@@ -44,7 +49,7 @@ public class Usuario {
         this.nombre = "";
         this.apellidos = apellidos ;
         this.biografia = biografia;
-        this.fotografia = bitmapToString(fotografia);
+        this.fotografia = bitmapToString(resizeBitmap(fotografia));
     }
     public Usuario() {
         this.nombreUsuario = "";
@@ -124,9 +129,10 @@ public class Usuario {
     // CAMBIAR DE BITMAP A STRING || STRING A BITMAP
     private static String bitmapToString(Bitmap bitmap) {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        boolean compress = bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
         byte[] b = baos.toByteArray();
         return Base64.encodeToString(b, Base64.DEFAULT);
+
     }
     private static Bitmap stringToBitmap(String encodedString) {
         try {
@@ -136,6 +142,19 @@ public class Usuario {
             e.getMessage();
             return null;
         }
+    }
+
+    // CAMBIAR EL TAMAÑO DE LA IMAGEN
+    public static Bitmap resizeBitmap(Bitmap bitmap) {
+        int width = bitmap.getWidth();
+        int height = bitmap.getHeight();
+        float scaleWidth = PREFERRED_WIDTH / width;
+        float scaleHeight = PREFERRED_HEIGHT / height;
+        Matrix matrix = new Matrix();
+        matrix.postScale(scaleWidth, scaleHeight);
+        Bitmap resizedBitmap = Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, false);
+        bitmap.recycle();
+        return resizedBitmap;
     }
 
     // TO STRING

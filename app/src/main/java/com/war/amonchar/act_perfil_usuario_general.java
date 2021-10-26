@@ -33,7 +33,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         usuarioLog = ((GlobalVariables) getApplication()).getUsuarioLogueado();
 
         imgUsuario = findViewById(R.id.imgUsuario);
-       // imgUsuario.setImageURI();
+        imgUsuario.setImageBitmap(usuarioLog.getFotografia());
 
 
         btnAgregarReceta = findViewById(R.id.btnAgregarReceta);

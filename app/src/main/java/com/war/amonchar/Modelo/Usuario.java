@@ -1,6 +1,10 @@
 package com.war.amonchar.Modelo;
 
-import android.net.Uri;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
+
+import java.io.ByteArrayOutputStream;
 
 public class Usuario {
 
@@ -11,18 +15,18 @@ public class Usuario {
     private String nombre;
     private String apellidos;
     private String biografia;
-    private Uri fotografia;
+    private String fotografia;
     private boolean logueado = false;
 
     // CONSTRUCTORES
-    public Usuario(String nombreUsuario, String correo, String contrasenia, String nombre, String apellidos, String biografia, Uri fotografia) {
+    public Usuario(String nombreUsuario, String correo, String contrasenia, String nombre, String apellidos, String biografia, Bitmap fotografia) {
         this.nombreUsuario = nombreUsuario;
         this.correo = correo;
         this.contrasenia = contrasenia;
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.biografia = biografia;
-        this.fotografia = fotografia;
+        this.fotografia = bitmapToString(fotografia);
     }
     public Usuario(String nombreUsuario, String correo, String contrasenia) {
         this.nombreUsuario = nombreUsuario;
@@ -31,16 +35,16 @@ public class Usuario {
         this.nombre = "";
         this.apellidos = "";
         this.biografia = "";
-        this.fotografia = Uri.parse("");
+        this.fotografia = "";
     }
-    public Usuario(String nombreUsuario, String apellidos, String biografia, Uri fotografia) {
+    public Usuario(String nombreUsuario, String apellidos, String biografia, Bitmap fotografia) {
         this.nombreUsuario = nombreUsuario;
         this.correo = "";
         this.contrasenia = "";
         this.nombre = "";
         this.apellidos = apellidos ;
         this.biografia = biografia;
-        this.fotografia = fotografia;
+        this.fotografia = bitmapToString(fotografia);
     }
     public Usuario() {
         this.nombreUsuario = "";
@@ -49,7 +53,7 @@ public class Usuario {
         this.nombre = "";
         this.apellidos = "";
         this.biografia = "";
-        this.fotografia = Uri.parse("");
+        this.fotografia = "";
     }
 
     // GETTER AND SETTER
@@ -101,12 +105,12 @@ public class Usuario {
         this.biografia = biografia;
     }
 
-    public Uri getFotografia() {
-        return fotografia;
+    public Bitmap getFotografia() {
+        return stringToBitmap(this.fotografia);
     }
 
-    public void setFotografia(Uri fotografia) {
-        this.fotografia = fotografia;
+    public void setFotografia(Bitmap fotografia) {
+        this.fotografia = bitmapToString(fotografia);
     }
 
     public boolean isLogueado() {
@@ -115,6 +119,23 @@ public class Usuario {
 
     public void setLogueado(boolean logueado) {
         this.logueado = logueado;
+    }
+
+    // CAMBIAR DE BITMAP A STRING || STRING A BITMAP
+    private static String bitmapToString(Bitmap bitmap) {
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
+        byte[] b = baos.toByteArray();
+        return Base64.encodeToString(b, Base64.DEFAULT);
+    }
+    private static Bitmap stringToBitmap(String encodedString) {
+        try {
+            byte[] encodeByte = Base64.decode(encodedString, Base64.DEFAULT);
+            return BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.length);
+        } catch (Exception e) {
+            e.getMessage();
+            return null;
+        }
     }
 
     // TO STRING

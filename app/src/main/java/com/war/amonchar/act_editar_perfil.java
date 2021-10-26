@@ -14,6 +14,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -31,6 +33,7 @@ import com.war.amonchar.BaseDeDatos.BD;
 import com.war.amonchar.Modelo.GlobalVariables;
 import com.war.amonchar.Modelo.Usuario;
 
+import java.io.InputStream;
 import java.util.concurrent.Executor;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -142,9 +145,11 @@ public class act_editar_perfil extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                biometricPrompt.authenticate(promptInfo);
-                Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
-                bd.modificarUsuario(usuario);
+                /****biometricPrompt.authenticate(promptInfo);******/
+                Bitmap image = ((BitmapDrawable)imgUsuario.getDrawable()).getBitmap();
+                Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), image);
+
+                /****bd.modificarUsuario(usuario);****/
                 Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
             }
         });
@@ -173,7 +178,10 @@ public class act_editar_perfil extends AppCompatActivity {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        startActivityForResult(intent, Camara);
+                        if (intent.resolveActivity(getPackageManager()) != null){
+                            startActivityForResult(intent, Camara);
+                        }
+
                     }
                 });
 
@@ -205,13 +213,23 @@ public class act_editar_perfil extends AppCompatActivity {
         if (resCode == RESULT_OK){
             switch (rqCode){
                 case Galeria:
-                    fotoTemp = data.getData();
-                    imgUsuario.setImageURI(fotoTemp);
-                    Toast.makeText(getApplicationContext(), "Imagen cargada correctamente", Toast.LENGTH_SHORT).show();
+                    try{
+                        fotoTemp = data.getData();
+                        InputStream imageStream = getContentResolver().openInputStream(fotoTemp);
+                        imgUsuario.setImageBitmap(BitmapFactory.decodeStream(imageStream));
+                        Toast.makeText(getApplicationContext(), "Imagen cargada correctamente", Toast.LENGTH_SHORT).show();
+                    }
+                    catch (IOException exception){
+                        exception.printStackTrace();
+                    }
                     break;
                 case Camara:
                     if(data != null){
-                        Bitmap thumball = (Bitmap)data.getExtras().get("data");
+                        Bundle extras = data.getExtras();
+                        Bitmap image = (Bitmap)extras.get("data");
+                        imgUsuario.setImageBitmap(image);
+
+                        /*Bitmap thumball = (Bitmap)data.getExtras().get("data");
                         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                         thumball.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
                         File destination = new File(Environment.getExternalStorageDirectory(), System.currentTimeMillis()+".jpg");
@@ -229,7 +247,7 @@ public class act_editar_perfil extends AppCompatActivity {
                         imgUsuario.setImageBitmap(thumball);
                         //error de la cámara
                         fotoTemp = data.getData();
-                        Toast.makeText(getApplicationContext(), "Exito camara", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "Exito camara", Toast.LENGTH_SHORT).show();*/
                     }
                     break;
             }

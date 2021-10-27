@@ -134,13 +134,23 @@ public class act_editar_perfil extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
-                if(fingerprintManager.isHardwareDetected()){
+                if(fingerprintManager != null){
 
-                    if(fingerprintManager.hasEnrolledFingerprints()){
-                        biometricPrompt.authenticate(promptInfo);
-                        Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
-                        globalDB.modificarUsuario(usuario);
-                        Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
+                    if(fingerprintManager.isHardwareDetected()){
+
+                        if(fingerprintManager.hasEnrolledFingerprints()){
+                            biometricPrompt.authenticate(promptInfo);
+                            Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
+                            globalDB.modificarUsuario(usuario);
+                            Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
+                        }else{
+                            if(keyguardManager.isDeviceSecure()){
+                                showPasswordScreen();
+                            }else{
+                                modificarDatos();
+                            }
+                        }
+
                     }else{
                         if(keyguardManager.isDeviceSecure()){
                             showPasswordScreen();
@@ -150,13 +160,8 @@ public class act_editar_perfil extends AppCompatActivity{
                     }
 
                 }else{
-                    if(keyguardManager.isDeviceSecure()){
-                        showPasswordScreen();
-                    }else{
-                        modificarDatos();
-                    }
+                    Toast.makeText(getApplicationContext(), "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
 

@@ -24,6 +24,16 @@ public class Usuario {
         this.biografia = biografia;
         this.fotografia = fotografia;
     }
+    public Usuario(String nombreUsuario, String correo, String contrasenia, String nombre, String apellidos, String biografia, Uri fotografia, boolean logueado) {
+        this.nombreUsuario = nombreUsuario;
+        this.correo = correo;
+        this.contrasenia = contrasenia;
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.biografia = biografia;
+        this.fotografia = fotografia;
+        this.logueado = logueado;
+    }
     public Usuario(String nombreUsuario, String correo, String contrasenia) {
         this.nombreUsuario = nombreUsuario;
         this.correo = correo;

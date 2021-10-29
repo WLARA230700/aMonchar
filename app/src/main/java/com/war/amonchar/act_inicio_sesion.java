@@ -60,7 +60,7 @@ public class act_inicio_sesion extends AppCompatActivity {
                     //Toast.makeText(getApplicationContext(), String.valueOf(db.getUsuarios().get(0).isLogueado()), Toast.LENGTH_SHORT).show();
 
                     //Usuario usuario = getApplication().
-                    ((GlobalVariables) getApplication()).setUsuarioLogueado(db.getUsuario(txtNombreUsuario.getText().toString()));
+                    ((GlobalVariables) getApplication()).setUsuarioLogueado(db.getUsuario("@"+txtNombreUsuario.getText().toString()));
 
                     if(((GlobalVariables) getApplication()).getUsuarioLogueado() != null){
                         Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();

@@ -12,37 +12,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/tituloPagina"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingLeft="25sp"
-            android:paddingTop="30sp"
-            android:paddingRight="25sp"
-            android:paddingBottom="25sp"
-            android:weightSum="100">
-
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="100"
-                android:fontFamily="@font/poppins_bold"
-                android:text="@string/act_editar_perfil"
-                android:textColor="#787878"
-                android:textSize="17sp" />
-
-            <ImageView
-                android:id="@+id/btnBack"
-                android:layout_width="30sp"
-                android:layout_height="30sp"
-                android:layout_gravity="right"
-                android:layout_weight="1"
-                app:srcCompat="@drawable/ic_close" />
-
-        </LinearLayout>
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
@@ -95,34 +64,17 @@
                 <FrameLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="150sp"
-                        android:layout_height="150sp"
-                        android:layout_centerInParent="true"
-                        android:innerRadius="1dp"
-                        android:shape="ring"
-                        app:cardCornerRadius="80dp">
 
-                        <!--<ImageView
-                            android:id="@+id/imgUsuario"
-                            tools:ignore="ContentDescription"
-                            android:scaleType="centerCrop"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp" />
-                        app:srcCompat="@drawable/custom_foto_usuario"-->
-
-                        <de.hdodenhof.circleimageview.CircleImageView
-                            android:id="@+id/imgUsuario"
-                            android:layout_width="150dp"
-                            android:layout_height="150dp"
-                            android:layout_centerHorizontal="true"
-                            android:src="@drawable/custom_foto_usuario"
-                            app:civ_border_color="@color/colorGray1"
-                            app:civ_border_overlay="true"
-                            app:civ_border_width="1dp"
-                            tools:ignore="MissingConstraints" />
-
-                    </androidx.cardview.widget.CardView>
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/imgUsuario"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/ic_perfil"
+                        app:civ_border_color="@color/colorGray1"
+                        app:civ_border_overlay="true"
+                        app:civ_border_width="0dp"
+                        tools:ignore="MissingConstraints" />
 
                 </FrameLayout>
 

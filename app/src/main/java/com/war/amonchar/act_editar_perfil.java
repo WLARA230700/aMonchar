@@ -152,12 +152,12 @@ public class act_editar_perfil extends AppCompatActivity{
                 .build();
 
 
-        btnBack.setOnClickListener(new View.OnClickListener() {
+       /* btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
-        });
+        });*/
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override

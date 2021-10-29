@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -48,8 +50,10 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         lblNombre = findViewById(R.id.lblNombre);
 
         imgUsuario = findViewById(R.id.imgUsuario);
-
-        imgUsuario.setImageURI(usuarioLog.getFotografia());
+        imgUsuario.setImageDrawable(getDrawable(R.drawable.ic_perfil));
+        if(!usuarioLog.getFotografia().toString().equals("")){
+            imgUsuario.setImageURI(usuarioLog.getFotografia());
+        }
         lblNombreUsuario.setText(usuarioLog.getNombreUsuario());
         lblNombre.setText(usuarioLog.getNombre() + " " + usuarioLog.getApellidos());
         lblBiografia.setText(usuarioLog.getBiografia());

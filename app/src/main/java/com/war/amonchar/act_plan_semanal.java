@@ -23,6 +23,7 @@ public class act_plan_semanal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_plan_semanal);
+        getSupportActionBar().hide();
 
         contenidoLunes = findViewById(R.id.planSemanal);
         contenidoMartes = findViewById(R.id.contenidoMartes);

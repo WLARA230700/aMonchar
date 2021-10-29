@@ -25,7 +25,7 @@ public class act_registro_usuario extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_registro_usuario);
-
+        getSupportActionBar().hide();
         btnRegistrarse = findViewById(R.id.btnRegistrarse);
 
         txtNombreUsuario = findViewById(R.id.txtNombreUsuario);

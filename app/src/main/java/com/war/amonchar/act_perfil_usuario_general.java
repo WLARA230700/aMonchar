@@ -32,13 +32,9 @@ public class act_perfil_usuario_general extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_perfil_usuario_general);
-
+        getSupportActionBar().hide();
 
         usuarioLog = ((GlobalVariables) getApplication()).getUsuarioLogueado();
-
-        imgUsuario = findViewById(R.id.imgUsuario);
-        imgUsuario.setImageURI(usuarioLog.getFotografia());
-
 
         btnAgregarReceta = findViewById(R.id.btnAgregarReceta);
         btnPlanSemanal = findViewById(R.id.btnPlanSemanal);
@@ -51,6 +47,9 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         lblBiografia = findViewById(R.id.lblBiografia);
         lblNombre = findViewById(R.id.lblNombre);
 
+        imgUsuario = findViewById(R.id.imgUsuario);
+
+        imgUsuario.setImageURI(usuarioLog.getFotografia());
         lblNombreUsuario.setText(usuarioLog.getNombreUsuario());
         lblNombre.setText(usuarioLog.getNombre() + " " + usuarioLog.getApellidos());
         lblBiografia.setText(usuarioLog.getBiografia());

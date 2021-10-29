@@ -21,6 +21,7 @@ public class act_buscar_general extends AppCompatActivity {
         icInicio = findViewById(R.id.icInicio);
         icListaCompra = findViewById(R.id.icListaCompra);
         btnBuscarIngredientes = findViewById(R.id.btnBuscarIngredientes);
+        getSupportActionBar().hide();
 
         icInicio.setOnClickListener(new View.OnClickListener() {
             @Override

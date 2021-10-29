@@ -59,6 +59,7 @@ public class act_editar_perfil extends AppCompatActivity{
     private Button btnSave;
     private EditText txtNombre, txtApellidos, txtBiografia;
     private CircleImageView imgUsuario;
+    private String  nombreUsuario, correo, contrasenia, nombre, apellidos, biografia;
     TextView txtCambiarFotografia;
     Uri fotoTemp;
 
@@ -161,6 +162,7 @@ public class act_editar_perfil extends AppCompatActivity{
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //inputData();
 
                 if(fingerprintManager != null){
 
@@ -168,9 +170,9 @@ public class act_editar_perfil extends AppCompatActivity{
 
                         if(fingerprintManager.hasEnrolledFingerprints()){
                             biometricPrompt.authenticate(promptInfo);
-                            Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
-                            globalDB.modificarUsuario(usuario);
-                            Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
+
+
+                            //Toast.makeText(getApplicationContext(), "" + globalDB.getUsuario(usuarioLog.getNombreUsuario()).toString(), Toast.LENGTH_LONG).show();
                         }else{
                             if(keyguardManager.isDeviceSecure()){
                                 showPasswordScreen();
@@ -203,6 +205,13 @@ public class act_editar_perfil extends AppCompatActivity{
         });
 
     }//Fin onCreate
+
+    private void inputData(){
+        //guarda en la base de datos
+        Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
+        globalDB.modificarUsuario(usuario);
+        Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
+    }
 
     private void imagePickDialog(){
         // opciones para mostrar en el diálogo
@@ -370,7 +379,8 @@ public class act_editar_perfil extends AppCompatActivity{
                     Uri resultUri = result.getUri();
                     fotoTemp = resultUri;
                     //set Image
-                    imgUsuario.setImageURI(resultUri);
+                    imgUsuario.setImageURI(fotoTemp);
+                    Toast.makeText(this, ""+imgUsuario, Toast.LENGTH_SHORT).show();
                 }
                 else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
                     //ERROR
@@ -435,6 +445,9 @@ public class act_editar_perfil extends AppCompatActivity{
             usuario.setBiografia(txtBiografia.getText().toString());
         }
 
+        if(fotoTemp != null){
+            usuario.setFotografia(fotoTemp);
+        }
 
         if(globalDB.modificarUsuario(usuario)){
             Toast.makeText(getApplicationContext(), "Perfil modificado", Toast.LENGTH_SHORT).show();

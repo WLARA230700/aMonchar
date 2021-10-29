@@ -20,6 +20,7 @@ public class act_buscar_ingredientes extends AppCompatActivity {
 
         btnBack = findViewById(R.id.btnBack);
         btnBuscar = findViewById(R.id.btnBuscar);
+        getSupportActionBar().hide();
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

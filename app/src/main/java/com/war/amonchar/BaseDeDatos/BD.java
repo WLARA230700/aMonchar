@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
+import android.widget.Toast;
 
 import com.war.amonchar.Modelo.Ingrediente;
 import com.war.amonchar.Modelo.Usuario;
@@ -118,6 +119,7 @@ public class BD extends SQLiteOpenHelper {
                             "CONTRASENIA = '"+contrasenia+"',  NOMBRE = '"+nombre+"',  APELLIDOS = '"+apellidos+"',  BIOGRAFIA = '"+biografia+"'" +
                             ", FOTOGRAFIA = '"+fotografia+"' WHERE NOMBRE_USUARIO = '"+nombreUsuario+"'");
                     db.close();
+
                     return true;
                 }
             }

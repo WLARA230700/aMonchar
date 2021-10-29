@@ -28,7 +28,7 @@ public class act_inicio_sesion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_inicio_sesion);
-
+        getSupportActionBar().hide();
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
 
         txtEmail = findViewById(R.id.txtEmail);

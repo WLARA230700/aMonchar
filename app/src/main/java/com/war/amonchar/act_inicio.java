@@ -18,6 +18,7 @@ public class act_inicio extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_inicio);
+        getSupportActionBar().hide();
 
         icUsuario = findViewById(R.id.icUsuario);
         icListaCompra = findViewById(R.id.icListaCompra);

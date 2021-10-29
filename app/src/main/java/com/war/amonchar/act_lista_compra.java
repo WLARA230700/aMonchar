@@ -37,6 +37,7 @@ public class act_lista_compra extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_lista_compra);
+        getSupportActionBar().hide();
 
         btnBack = findViewById(R.id.btnBack);
         listaCompra = findViewById(R.id.listaCompra);

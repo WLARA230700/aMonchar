@@ -31,6 +31,7 @@ public class act_agregar_receta extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         preparacionSpinner = findViewById(R.id.preparacionSpinner);
         tiemposComidaSpinner = findViewById(R.id.tiemposComidaSpinner);
+        getSupportActionBar().hide();
 
         asignarSpinner();
 

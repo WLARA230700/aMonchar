@@ -22,6 +22,7 @@ public class act_detalle_receta extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_detalle_receta);
+        getSupportActionBar().hide();
 
         btnBack = findViewById(R.id.btnBack);
         planSemanal = findViewById(R.id.planSemanal);

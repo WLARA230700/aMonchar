@@ -15,6 +15,7 @@ public class act_lista_recetas extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_lista_recetas);
 
+        getSupportActionBar().hide();
         btnBack = findViewById(R.id.btnBack);
 
 

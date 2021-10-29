@@ -19,6 +19,7 @@ public class act_bienvenida extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_bienvenida);
+        getSupportActionBar().hide();
 
         this.btnUsarCorreo = findViewById(R.id.btnUsarCorreo);
         this.txtIniciarSesion = findViewById(R.id.txtIniciarSesion);

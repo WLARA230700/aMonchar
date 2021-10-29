@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -13,28 +15,28 @@ import android.widget.TextView;
 import com.war.amonchar.Modelo.GlobalVariables;
 import com.war.amonchar.Modelo.Usuario;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class act_perfil_usuario_general extends AppCompatActivity {
 
 
     private CardView btnAgregarReceta, btnPlanSemanal, btnBeneficiosIngredientes;
-    private ImageView btnListaCompra, btnInicio, icBuscar, imgUsuario;
+    private ImageView btnListaCompra, btnInicio, icBuscar;
+    private CircleImageView imgUsuario;
     private LinearLayout btnPerfil;
     private TextView lblBiografia, lblNombreUsuario, lblNombre;
 
     private Usuario usuarioLog = null;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_perfil_usuario_general);
-
+        getSupportActionBar().hide();
 
         usuarioLog = ((GlobalVariables) getApplication()).getUsuarioLogueado();
-
-        imgUsuario = findViewById(R.id.imgUsuario);
-       // imgUsuario.setImageURI();
-
 
         btnAgregarReceta = findViewById(R.id.btnAgregarReceta);
         btnPlanSemanal = findViewById(R.id.btnPlanSemanal);
@@ -46,7 +48,12 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         lblNombreUsuario = findViewById(R.id.lblNombreUsuario);
         lblBiografia = findViewById(R.id.lblBiografia);
         lblNombre = findViewById(R.id.lblNombre);
+        imgUsuario = findViewById(R.id.imgUsuario);
 
+        imgUsuario.setImageDrawable(getDrawable(R.drawable.ic_perfil));
+        if(!usuarioLog.getFotografia().toString().equals("")){
+            imgUsuario.setImageURI(usuarioLog.getFotografia());
+        }
         lblNombreUsuario.setText(usuarioLog.getNombreUsuario());
         lblNombre.setText(usuarioLog.getNombre() + " " + usuarioLog.getApellidos());
         lblBiografia.setText(usuarioLog.getBiografia());
@@ -109,4 +116,16 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         });
 
     }//Fin onCreate
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        imgUsuario.setImageDrawable(getDrawable(R.drawable.ic_perfil));
+        if(!usuarioLog.getFotografia().toString().equals("")){
+            imgUsuario.setImageURI(usuarioLog.getFotografia());
+        }
+        lblNombreUsuario.setText(usuarioLog.getNombreUsuario());
+        lblNombre.setText(usuarioLog.getNombre() + " " + usuarioLog.getApellidos());
+        lblBiografia.setText(usuarioLog.getBiografia());
+    }
 }

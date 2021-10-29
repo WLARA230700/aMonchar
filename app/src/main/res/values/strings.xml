@@ -1,3 +1,83 @@
 <resources>
-    <string name="app_name">aMonchar</string>
+    <!-- NOMBRE DE LA APLICACIÓN -->
+    <string name="app_name">aMonchar!</string>
+
+    <!-- DÍAS DE LA SEMANA -->
+    <string name="lunes">Lunes</string>
+    <string name="martes">Martes</string>
+    <string name="miercoles">Miércoles</string>
+    <string name="jueves">Jueves</string>
+    <string name="viernes">Viernes</string>
+    <string name="sabado">Sábado</string>
+    <string name="domingo">Domingo</string>
+
+    <!-- TIEMPOS DE COMIDA -->
+    <string name="tc_desayunos">Desayuno</string>
+    <string name="tc_almuerzos">Almuerzo</string>
+    <string name="tc_cenas">Cena</string>
+    <string name="tc_merienda1">Merienda 1</string>
+    <string name="tc_merienda2">Merienda 2</string>
+    <string name="tc_merienda3">Merienda 3</string>
+    <string name="tc_meriendas">Meriendas</string>
+
+    <!-- CATEGORÍAS -->
+    <string name="cat_vegetariano">Vegetariano</string>
+    <string name="cat_mar">Mar</string>
+    <string name="cat_carnes_rojas">Carnes Rojas</string>
+    <string name="cat_carnes_blancas">Carnes Blancas</string>
+    <string name="cat_postres">Postres</string>
+    <string name="cat_bebidas">Bebidas</string>
+
+    <!-- ACTIVIDADES -->
+    <string name="act_editar_perfil">Editar perfil</string>
+    <string name="act_agregar_receta">Agregar receta</string>
+    <string name="act_plan_semanal">Plan semanal</string>
+    <string name="act_beneficios_ingredientes">Beneficios ingredientes</string>
+    <string name="act_lista_compra">Lista de compra</string>
+    <string name="act_buscar_ingredientes">Buscar por ingredientes</string>
+    <string name="act_lista_recetas">Lista de recetas</string>
+
+    <!-- Etiquetas -->
+    <string name="lbl_nombre">Nombre</string>
+    <string name="lbl_apellidos">Apellidos</string>
+    <string name="lbl_biografia">Biografía</string>
+    <string name="lbl_nombre_usuario">Nombre de usuario</string>
+    <string name="lbl_contrasenha">Contraseña</string>
+    <string name="lbl_correo_electronico">Correo electrónico</string>
+    <string name="lbl_recuperar_contrasenha">Recuperar contraseña</string>
+    <string name="lbl_recordar_sesion">Recordar sesión</string>
+    <string name="lbl_confirmar_contrasenha">Confirmar contraseña</string>
+    <string name="lbl_aceptar_terminos_condiciones">Aceptar términos y condiciones</string>
+    <string name="lbl_nombre_receta">Nombre de la receta</string>
+    <string name="lbl_ingredientes">Ingredientes</string>
+    <string name="lbl_preparacion">Preparación</string>
+    <string name="lbl_titulo_autenticacion">Verifique su identidad</string>
+    <string name="lbl_subtitulo_autenticacion_fingerprint">Coloque su huella en el lector</string>
+    <string name="lbl_subtitulo_autenticacion_pincode">Ingrese el pin de pantalla de bloqueo</string>
+
+    <!-- Botones -->
+    <string name="btn_registrarse">Registrarse</string>
+    <string name="btn_agregar">Agregar</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="btn_cambiar_fotografia">Cambiar Fotografía</string>
+    <string name="btn_buscar">Buscar</string>
+    <string name="btn_aniadir_a_plan_semanal">Añadir a mi plan semanal</string>
+    <string name="btn_cancelar_autenticacion">Cancelar</string>
+
+    <!-- ARRAY DE TIEMPOS DE COMIDA -->
+    <string-array name="array_tiempos_comida">
+        <item>Desayuno</item>
+        <item>Merienda 1</item>
+        <item>Almuerzo</item>
+        <item>Merienda 2</item>
+        <item>Cena</item>
+        <item>Merienda 3</item>
+    </string-array>
+
+    <!-- ARRAY DE DURACIÓN -->
+    <string-array name="array_duracion">
+        <item>Minutos</item>
+        <item>Horas</item>
+    </string-array>
+
 </resources>

@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".act_lista_compra">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/tituloPagina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="25sp"
+            android:paddingTop="30sp"
+            android:paddingRight="25sp"
+            android:paddingBottom="25sp"
+            android:weightSum="100">
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="100"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/act_lista_compra"
+                android:textColor="#787878"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/btnBack"
+                android:layout_width="30sp"
+                android:layout_height="30sp"
+                android:layout_gravity="right"
+                android:layout_weight="1"
+                app:srcCompat="@drawable/ic_close" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="25sp"
+            android:paddingRight="25sp"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="100">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/textView21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="¡No olvides"
+                            android:textColor="#1A1A1A"
+                            android:textSize="19sp" />
+
+                        <TextView
+                            android:id="@+id/textView24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="comprar"
+                            android:textColor="#F9B334"
+                            android:textSize="19sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/poppins_bold"
+                        android:text="tus ingredientes!"
+                        android:textColor="#1A1A1A"
+                        android:textSize="19sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="65sp"
+                    android:layout_height="65sp"
+                    android:layout_weight="1"
+                    android:paddingLeft="15sp"
+                    android:paddingTop="7sp"
+                    android:paddingBottom="7sp"
+                    app:srcCompat="@drawable/ic_yellow_shopping_cart" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_item_light_gray"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:weightSum="10">
+
+                <EditText
+                    android:id="@+id/txtAgregarIngrediente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:ems="10"
+                    android:hint="Añade ingredientes"
+                    android:inputType="textPersonName"
+                    android:textColor="@color/texto"
+                    android:textColorHint="@color/texto"
+                    android:textSize="15sp" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btnAgregarIngrediente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:backgroundTint="#F5F5F5"
+                    app:cardBackgroundColor="@color/cardview_shadow_end_color"
+                    app:cardElevation="0dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background_item_yellow"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/imageView9"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_gravity="center_horizontal|center_vertical"
+                            android:padding="5dp"
+                            app:srcCompat="@drawable/ic_white_plus" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:weightSum="10">
+
+                <TextView
+                    android:id="@+id/textView42"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="9"
+                    android:fontFamily="@font/poppins_bold"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="Tu lista"
+                    android:textColor="#787878" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/listaCompra"
+                    android:layout_width="match_parent"
+                    android:layout_height="535dp" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -168,7 +168,7 @@ public class act_editar_perfil extends AppCompatActivity{
 
                         if(fingerprintManager.hasEnrolledFingerprints()){
                             biometricPrompt.authenticate(promptInfo);
-                            Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), ""+ fotoTemp);
+                            Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
                             globalDB.modificarUsuario(usuario);
                             Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
                         }else{

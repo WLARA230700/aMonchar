@@ -13,16 +13,19 @@ import android.widget.TextView;
 import com.war.amonchar.Modelo.GlobalVariables;
 import com.war.amonchar.Modelo.Usuario;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class act_perfil_usuario_general extends AppCompatActivity {
 
 
     private CardView btnAgregarReceta, btnPlanSemanal, btnBeneficiosIngredientes;
-    private ImageView btnListaCompra, btnInicio, icBuscar, imgUsuario;
+    private ImageView btnListaCompra, btnInicio, icBuscar;
+    private CircleImageView imgUsuario;
     private LinearLayout btnPerfil;
     private TextView lblBiografia, lblNombreUsuario, lblNombre;
 
     private Usuario usuarioLog = null;
-    private String imagen;
+
 
 
     @Override
@@ -34,8 +37,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         usuarioLog = ((GlobalVariables) getApplication()).getUsuarioLogueado();
 
         imgUsuario = findViewById(R.id.imgUsuario);
-        imagen = usuarioLog.getFotografia();
-        imgUsuario.setImageURI(imagen);
+        imgUsuario.setImageURI(usuarioLog.getFotografia());
 
 
         btnAgregarReceta = findViewById(R.id.btnAgregarReceta);

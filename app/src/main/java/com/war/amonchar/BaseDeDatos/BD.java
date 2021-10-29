@@ -69,7 +69,7 @@ public class BD extends SQLiteOpenHelper {
             String nombre = usuario.getNombre();
             String apellidos = usuario.getApellidos();
             String biografia = usuario.getBiografia();
-            String fotografia = usuario.getFotografia();
+            String fotografia = String.valueOf(usuario.getFotografia());
 
             if (db != null){
                 db.execSQL("INSERT INTO "+tbUsuarios+" VALUES ('"+nombreUsuario+"', '"+correo+"', '"+contrasenia+"', '"+nombre+"', '"
@@ -95,7 +95,7 @@ public class BD extends SQLiteOpenHelper {
             String nombre = usuario.getNombre();
             String apellidos = usuario.getApellidos();
             String biografia = usuario.getBiografia();
-            String fotografia = usuario.getFotografia();
+            String fotografia = String.valueOf(usuario.getFotografia());
 
             if (db != null){
                 Cursor cursor = db.rawQuery("SELECT * FROM "+tbUsuarios+" WHERE NOMBRE_USUARIO = '"+nombreUsuario+"'", null);
@@ -110,7 +110,7 @@ public class BD extends SQLiteOpenHelper {
                     usuarioBD.setNombre(cursor.getString(3));
                     usuarioBD.setApellidos(cursor.getString(4));
                     usuarioBD.setBiografia(cursor.getString(5));
-                    usuarioBD.setFotografia(cursor.getString(6));
+                    usuarioBD.setFotografia(Uri.parse(cursor.getString(6)));
                 }
                 if (nombreUsuario.equals(usuarioBD.getNombreUsuario())){
                     db = getWritableDatabase();
@@ -144,7 +144,7 @@ public class BD extends SQLiteOpenHelper {
             usuario.setNombre(cursor.getString(3));
             usuario.setApellidos(cursor.getString(4));
             usuario.setBiografia(cursor.getString(5));
-            usuario.setFotografia (cursor.getString(6));
+            usuario.setFotografia(Uri.parse(cursor.getString(6)));
             int log = cursor.getInt(7);
             if(log == 0){
                 usuario.setLogueado(false);
@@ -216,7 +216,7 @@ public class BD extends SQLiteOpenHelper {
             usuario.setNombre(cursor.getString(3));
             usuario.setApellidos(cursor.getString(4));
             usuario.setBiografia(cursor.getString(5));
-            usuario.setFotografia(cursor.getString(6));
+            usuario.setFotografia(Uri.parse(cursor.getString(6)));
             int log = cursor.getInt(7);
             if(log == 0){
                 usuario.setLogueado(false);
@@ -254,7 +254,7 @@ public class BD extends SQLiteOpenHelper {
             usuario.setNombre(cursor.getString(3));
             usuario.setApellidos(cursor.getString(4));
             usuario.setBiografia(cursor.getString(5));
-            usuario.setFotografia(cursor.getString(6));
+            usuario.setFotografia(Uri.parse(cursor.getString(6)));
             int log = cursor.getInt(7);
             if (log == 0){
                 usuario.setLogueado(false);
@@ -290,7 +290,7 @@ public class BD extends SQLiteOpenHelper {
                 usuarioBD.setNombre(cursor.getString(3));
                 usuarioBD.setApellidos(cursor.getString(4));
                 usuarioBD.setBiografia(cursor.getString(5));
-                usuarioBD.setFotografia(cursor.getString(6));
+                usuarioBD.setFotografia(Uri.parse(cursor.getString(6)));
                 int log = cursor.getInt(7);
                 if (log == 0){
                     usuarioBD.setLogueado(false);

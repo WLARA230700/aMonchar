@@ -14,6 +14,7 @@ public class act_beneficios_ingredientes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_beneficios_ingredientes);
+        getSupportActionBar().hide();
 
         btnBack = findViewById(R.id.btnBack);
 

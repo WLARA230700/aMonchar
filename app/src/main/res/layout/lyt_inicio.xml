@@ -29,12 +29,22 @@
         </LinearLayout>
 
         <ImageView
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginRight="15dp"
+            android:layout_weight="100"
+            app:srcCompat="@drawable/ic_power" />
+
+        <ImageView
             android:id="@+id/icUsuario"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginTop="10dp"
             android:layout_weight="0"
             app:srcCompat="@drawable/ic_user" />
+
     </LinearLayout>
 
     <ScrollView

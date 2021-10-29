@@ -51,6 +51,9 @@
     <string name="lbl_nombre_receta">Nombre de la receta</string>
     <string name="lbl_ingredientes">Ingredientes</string>
     <string name="lbl_preparacion">Preparación</string>
+    <string name="lbl_titulo_autenticacion">Verifique su identidad</string>
+    <string name="lbl_subtitulo_autenticacion_fingerprint">Coloque su huella en el lector</string>
+    <string name="lbl_subtitulo_autenticacion_pincode">Ingrese el pin de pantalla de bloqueo</string>
 
     <!-- Botones -->
     <string name="btn_registrarse">Registrarse</string>
@@ -58,7 +61,8 @@
     <string name="btn_guardar">Guardar</string>
     <string name="btn_cambiar_fotografia">Cambiar Fotografía</string>
     <string name="btn_buscar">Buscar</string>
-    <string name="btn_anhadir_a_plan_semanal">Añadir a mi plan semanal</string>
+    <string name="btn_aniadir_a_plan_semanal">Añadir a mi plan semanal</string>
+    <string name="btn_cancelar_autenticacion">Cancelar</string>
 
     <!-- ARRAY DE TIEMPOS DE COMIDA -->
     <string-array name="array_tiempos_comida">

@@ -5,4 +5,8 @@
     <color name="amarilloBtnPlanSemanal">#FDD47B</color>
     <color name="gris">#EAEAEA</color>
     <color name="texto">#676767</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorWhite">#fff</color>
+    <color name="colorGray">#e4e4e4</color>
+    <color name="colorGray1">#C0B6B6</color>
 </resources>

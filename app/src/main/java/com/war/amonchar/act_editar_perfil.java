@@ -3,17 +3,22 @@ package com.war.amonchar;
 
 import androidx.annotation.NonNull;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.biometric.BiometricPrompt;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.KeyguardManager;
+import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 
 import android.hardware.fingerprint.FingerprintManager;
@@ -31,6 +36,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 import com.war.amonchar.BaseDeDatos.BD;
 import com.war.amonchar.Modelo.GlobalVariables;
 import com.war.amonchar.Modelo.Usuario;
@@ -58,8 +65,18 @@ public class act_editar_perfil extends AppCompatActivity{
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
 
-    private final int Galeria = 1;
-    private final int Camara = 2;
+    /*private final int Galeria = 1;
+    private final int Camara = 2;*/
+
+    //Permiso de la clase Constants
+    private  static final int CAMERA_REQUEST_CODE = 100;
+    private static final int STORAGE_REQUEST_CODE = 101;
+    //selección de imagen Constants
+    private static final int IMAGE_PICK_CAMERA_CODE = 102;
+    private static final int IMAGE_PICK_GALLERY_CODE = 103;
+    // matrices de permisos
+    private String[] cameraPermissions; // cámara y almacenamiento
+    private String [] storagePermissions;// solo almacenamiento
     private final int auth = 3;
 
     private FingerprintManager fingerprintManager;
@@ -89,6 +106,10 @@ public class act_editar_perfil extends AppCompatActivity{
 
         fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
         keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
+
+        //Inicializamos Permisos arrays
+        cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+        storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
         actualizarCampos();
 
@@ -168,36 +189,194 @@ public class act_editar_perfil extends AppCompatActivity{
       txtCambiarFotografia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder alertDialog = new AlertDialog.Builder(act_editar_perfil.this);
-                alertDialog.setTitle("Seleccione una imagen para su perfil");
-                alertDialog.setMessage("¿Que desea utilizar?");
-                //alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
-                alertDialog.setIcon(android.R.drawable.btn_default);
-                alertDialog.setCancelable(false);
 
-                alertDialog.setPositiveButton("Galeria", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent();
-                        intent.setType("image/*");
-                        intent.setAction(Intent.ACTION_GET_CONTENT);
-                        //Se busca y se inserta una imagen mediante el llamado al metodo de startActivityForResult
-                        startActivityForResult(Intent.createChooser(intent, "Seleccionar foto"), Galeria);
-                    }
-                });
-                alertDialog.setNegativeButton("Camara", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        startActivityForResult(intent, Camara);
-                    }
-                });
-
-                alertDialog.show();
+                // muestra el cuadro de diálogo de selección de imagen
+                imagePickDialog();
             }
         });
 
     }//Fin onCreate
+
+    private void imagePickDialog(){
+        // opciones para mostrar en el diálogo
+        String[] options = {"Camara", "Galeria"};
+        //dialogo
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        //Titulo
+        builder.setTitle("Seleccionar imagen");
+        // establecer elementos / opciones
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // manejar clicks
+                if (which==0){
+                    //click en camara
+                    if (!checkCameraPermission()){
+                        requestCameraPermission();
+                    }
+                    else{
+                        // permiso ya otorgado
+                        PickFromCamera();
+                    }
+
+                }
+                else if (which==1){
+                    if (!checkStoragePermission()){
+                        requestStoragePermission();
+                    }
+                    else{
+                        // permiso ya otorgado
+                        PickFromGallery();
+                    }
+                }
+            }
+        });
+
+        // Crear / mostrar diálogo
+        builder.create().show();
+    }// Fin imagePickDialog
+
+    private void PickFromGallery() {
+        // intento de elegir la imagen de la galería, la imagen se devolverá en el método onActivityResult
+        Intent galleryIntent = new Intent(Intent.ACTION_PICK);
+        galleryIntent.setType("image/*");
+        startActivityForResult(galleryIntent, IMAGE_PICK_GALLERY_CODE);
+    } //Fin PickFromGallery
+
+    private void PickFromCamera() {
+        ContentValues values = new ContentValues();
+        values.put(MediaStore.Images.Media.TITLE, "Titulo de la Imagen");
+        values.put(MediaStore.Images.Media.DESCRIPTION, "Descripción de la imagen");
+        //put image Uri
+        imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        // Intento de abrir la cámara para la imagen
+        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_CODE);
+    }// Fin PickFromCamera
+
+    private boolean checkStoragePermission(){
+        //comprobar si el permiso de almacenamiento está habilitado o no
+        boolean result = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
+
+        return result;
+    }// Fin checkStoragePermission
+
+    private  void requestStoragePermission(){
+        // solicita el permiso de almacenamiento
+        ActivityCompat.requestPermissions(this, storagePermissions, STORAGE_REQUEST_CODE);
+    }//FIn requestStoragePermission
+
+    private boolean checkCameraPermission(){
+        // verifica si el permiso de la cámara está habilitado o no
+        boolean result = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED);
+        boolean result1 = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
+
+        return result && result1;
+    }//Fin checkCameraPermission
+
+    private void requestCameraPermission(){
+        // solicita el permiso de la cámara
+        ActivityCompat.requestPermissions(this, cameraPermissions, CAMERA_REQUEST_CODE);
+    }//Fin requestCameraPermission
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        onBackPressed(); //regrese haciendo clic en el botón de barra de acción
+        return super.onSupportNavigateUp();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        // resultado del permiso permitido / denegado
+
+        switch (requestCode){
+            case CAMERA_REQUEST_CODE:{
+                if (grantResults.length>0){
+
+                    boolean cameraAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    boolean storageAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+
+                    if(cameraAccepted && storageAccepted){
+                        // ambos permisos permitidos
+                        PickFromCamera();
+                    }
+                    else{
+                        Toast.makeText(this, "Se requieren permisos de cámara y almacenamiento", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+            break;
+            case STORAGE_REQUEST_CODE:{
+                if (grantResults.length>0){
+
+                    // si se permite devolver verdadero de lo contrario falso
+                    boolean storageAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    if (storageAccepted){
+                        // permiso de almacenamiento permitido
+                        PickFromGallery();
+                    }
+                    else{
+                        Toast.makeText(this, "Se requiere permiso de almacenamiento", Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+            }
+            break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        //image picked from camera or gallery will be received hare
+        if (resultCode == RESULT_OK){
+            //Image is picked
+            if(requestCode == IMAGE_PICK_GALLERY_CODE){
+                //Picked from gallery
+
+                //crop image
+                CropImage.activity(data.getData())
+                        .setGuidelines(CropImageView.Guidelines.ON)
+                        .setAspectRatio(1, 1)
+                        .start(this);
+
+            }
+            else if(requestCode == IMAGE_PICK_CAMERA_CODE){
+                //Picked from camera
+                //crop Image
+                CropImage.activity(imageUri)
+                        .setGuidelines(CropImageView.Guidelines.ON)
+                        .setAspectRatio(1, 1)
+                        .start(this);
+
+            }
+            else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+                //Croped image received
+                CropImage.ActivityResult result = CropImage.getActivityResult(data);
+                if (resultCode == RESULT_OK){
+                    Uri resultUri = result.getUri();
+                    imageUri = resultUri;
+                    //set Image
+                    profileIv.setImageURI(resultUri);
+                }
+                else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
+                    //ERROR
+                    Exception error = result.getError();
+                    Toast.makeText(this, ""+error, Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     public void actualizarCampos(){
         lblNombreUsuario.setText(usuarioLog.getNombreUsuario());
@@ -213,58 +392,6 @@ public class act_editar_perfil extends AppCompatActivity{
         txtApellidos.setText("");
         txtBiografia.setText("");
     }//Fin limpiar
-
-  
-    public void onActivityResult(int rqCode, int resCode, Intent data) {
-
-        super.onActivityResult(rqCode, resCode, data);
-        if (resCode == RESULT_OK){
-            switch (rqCode){
-                case Galeria:
-                    fotoTemp = data.getData();
-                    imgUsuario.setImageURI(fotoTemp);
-                    Toast.makeText(getApplicationContext(), "Imagen cargada correctamente", Toast.LENGTH_SHORT).show();
-                    break;
-                case Camara:
-                    if(data != null){
-                        Bitmap thumball = (Bitmap)data.getExtras().get("data");
-                        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                        thumball.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
-                        File destination = new File(Environment.getExternalStorageDirectory(), System.currentTimeMillis()+".jpg");
-                        FileOutputStream fo;
-                        try{
-                            destination.createNewFile();
-                            fo = new FileOutputStream(destination);
-                            fo.write(bytes.toByteArray());
-                            fo.close();
-                        }catch (FileNotFoundException e){
-                            e.printStackTrace();
-                        }catch (IOException ex){
-                            ex.printStackTrace();
-                        }
-                        imgUsuario.setImageBitmap(thumball);
-                        //error de la cámara
-                        fotoTemp = data.getData();
-                        Toast.makeText(getApplicationContext(), "Exito camara", Toast.LENGTH_SHORT).show();
-                    }
-                    break;
-                case auth:
-
-                    modificarDatos();
-
-                    break;
-            }
-
-        }else{
-            Toast.makeText(getApplicationContext(), "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
-        }
-
-    }// fin del onActivityResult
-
-
-    /*public void actualizarUsuario(){
-
-    }*/
 
     public void showPasswordScreen(){
 

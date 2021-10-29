@@ -58,13 +58,16 @@ public class act_registro_usuario extends AppCompatActivity {
                             txtContrasenia.getText().toString());
 
                     if(db.getUsuario("@"+txtNombreUsuario.getText().toString()) == null){
-                        if (db.agregarUsuario(usuario)){
-                            Toast.makeText(getApplicationContext(), "Usuario agregado correctamente", Toast.LENGTH_SHORT).show();
-                            limpiar();
-                            finish();
-
+                        if(db.getUsuarioCorreo(txtEmail.getText().toString()) == null){
+                            if (db.agregarUsuario(usuario)){
+                                Toast.makeText(getApplicationContext(), "Usuario agregado correctamente", Toast.LENGTH_SHORT).show();
+                                limpiar();
+                                finish();
+                            }else{
+                                Toast.makeText(getApplicationContext(), "Error al agregar el usuario", Toast.LENGTH_SHORT).show();
+                            }
                         }else{
-                            Toast.makeText(getApplicationContext(), "Error al agregar el usuario", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Error: Correo electrónico ya registrado", Toast.LENGTH_SHORT).show();
                         }
                     }else {
                         Toast.makeText(getApplicationContext(), "Error: Nombre de usuario ya existe", Toast.LENGTH_SHORT).show();

@@ -12,13 +12,12 @@ import android.widget.Toast;
 
 import com.war.amonchar.BaseDeDatos.BD;
 import com.war.amonchar.Modelo.GlobalVariables;
-import com.war.amonchar.Modelo.Usuario;
 
 public class act_inicio_sesion extends AppCompatActivity {
 
     Button btnIniciarSesion;
 
-    EditText txtNombreUsuario, txtPassword;
+    EditText txtEmail, txtPassword;
 
     Switch swtRecordarSesion;
 
@@ -32,7 +31,7 @@ public class act_inicio_sesion extends AppCompatActivity {
         getSupportActionBar().hide();
         btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
 
-        txtNombreUsuario = findViewById(R.id.txtNombreUsuario);
+        txtEmail = findViewById(R.id.txtEmail);
         txtPassword = findViewById(R.id.txtPassword);
 
         swtRecordarSesion = findViewById(R.id.swtRecordarSesion);
@@ -50,17 +49,17 @@ public class act_inicio_sesion extends AppCompatActivity {
                     logueado = false;
                 }
 
-                if (txtNombreUsuario.getText().toString().isEmpty()){
-                    txtNombreUsuario.setError("Campo requerido");
+                if (txtEmail.getText().toString().isEmpty()){
+                    txtEmail.setError("Campo requerido");
                 } else if (txtPassword.getText().toString().isEmpty()){
                     txtPassword.setError("Campo requerido");
-                }else if (!db.validarUsuario(txtNombreUsuario.getText().toString(), txtPassword.getText().toString(), logueado)){
+                }else if (!db.validarUsuario(txtEmail.getText().toString(), txtPassword.getText().toString(), logueado)){
                     Toast.makeText(getApplicationContext(), "Correo o contraseña inválidos", Toast.LENGTH_SHORT).show();
                 }else{
                     //Toast.makeText(getApplicationContext(), String.valueOf(db.getUsuarios().get(0).isLogueado()), Toast.LENGTH_SHORT).show();
 
                     //Usuario usuario = getApplication().
-                    ((GlobalVariables) getApplication()).setUsuarioLogueado(db.getUsuario("@"+txtNombreUsuario.getText().toString()));
+                    ((GlobalVariables) getApplication()).setUsuarioLogueado(db.getUsuarioCorreo(txtEmail.getText().toString()));
 
                     if(((GlobalVariables) getApplication()).getUsuarioLogueado() != null){
                         Toast.makeText(getApplicationContext(), "Sesión iniciada", Toast.LENGTH_SHORT).show();

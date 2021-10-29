@@ -166,7 +166,7 @@ public class BD extends SQLiteOpenHelper {
     }//Fin getUsuario
 
     //OBTENER UN USUARIO A PARTIR DE STATUS LOGUEADO
-    /*public Usuario getUsuario(int logueado){
+    public Usuario getUsuarioLogueado(int logueado){
 
         SQLiteDatabase db = getReadableDatabase();
 
@@ -199,7 +199,7 @@ public class BD extends SQLiteOpenHelper {
         }
 
         return usuario;
-    }*///Fin getUsuario
+    }//Fin getUsuario
 
     //OBTENER UN USUARIO A PARTIR DE UN CORREO ELECTRÓNICO
     public Usuario getUsuarioCorreo(String email){

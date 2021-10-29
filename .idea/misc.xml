@@ -17,6 +17,8 @@
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_down.xml" value="0.13333333333333333" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_list_alt_regular.xml" value="0.2449074074074074" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_lista.xml" value="0.2449074074074074" />
+        <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_perfil.xml" value="0.2449074074074074" />
+        <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_power.xml" value="0.2449074074074074" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_search.xml" value="0.2449074074074074" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_star_solid.xml" value="0.2449074074074074" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/drawable/ic_user.xml" value="0.2449074074074074" />
@@ -29,6 +31,7 @@
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_bienvenida.xml" value="0.264" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_buscar_general.xml" value="0.264" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_buscar_ingredientes.xml" value="0.264" />
+        <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_editar_perfil.xml" value="0.23055555555555557" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_inicio.xml" value="0.264" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_inicio_sesion.xml" value="0.264" />
         <entry key="..\:/GitHub/aMonchar/app/src/main/res/layout/lyt_lista_compra.xml" value="0.264" />

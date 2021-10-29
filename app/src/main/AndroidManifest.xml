@@ -48,13 +48,15 @@
             android:exported="true" />
         <activity
             android:name=".act_registro_usuario"
-            android:exported="true" />
+            android:exported="true"
+            android:noHistory="true"/>
         <activity
             android:name=".act_inicio_sesion"
-            android:exported="true" />
+            android:exported="true"
+            android:noHistory="true"/>
         <activity
             android:name=".act_inicio"
-            android:exported="true" />
+            android:exported="true"/>
         <activity
             android:name=".act_bienvenida"
             android:exported="true">

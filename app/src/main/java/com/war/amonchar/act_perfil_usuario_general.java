@@ -48,8 +48,8 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         lblNombreUsuario = findViewById(R.id.lblNombreUsuario);
         lblBiografia = findViewById(R.id.lblBiografia);
         lblNombre = findViewById(R.id.lblNombre);
-
         imgUsuario = findViewById(R.id.imgUsuario);
+
         imgUsuario.setImageDrawable(getDrawable(R.drawable.ic_perfil));
         if(!usuarioLog.getFotografia().toString().equals("")){
             imgUsuario.setImageURI(usuarioLog.getFotografia());
@@ -116,4 +116,16 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         });
 
     }//Fin onCreate
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        imgUsuario.setImageDrawable(getDrawable(R.drawable.ic_perfil));
+        if(!usuarioLog.getFotografia().toString().equals("")){
+            imgUsuario.setImageURI(usuarioLog.getFotografia());
+        }
+        lblNombreUsuario.setText(usuarioLog.getNombreUsuario());
+        lblNombre.setText(usuarioLog.getNombre() + " " + usuarioLog.getApellidos());
+        lblBiografia.setText(usuarioLog.getBiografia());
+    }
 }

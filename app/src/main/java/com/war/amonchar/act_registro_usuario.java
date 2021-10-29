@@ -57,16 +57,20 @@ public class act_registro_usuario extends AppCompatActivity {
                     Usuario usuario = new Usuario("@"+txtNombreUsuario.getText().toString(), txtEmail.getText().toString(),
                             txtContrasenia.getText().toString());
 
-                    if (db.agregarUsuario(usuario)){
-                        Toast.makeText(getApplicationContext(), "Usuario agregado correctamente", Toast.LENGTH_SHORT).show();
-                        limpiar();
-                    }else{
-                        Toast.makeText(getApplicationContext(), "Error al agregar el usuario", Toast.LENGTH_SHORT).show();
+                    if(db.getUsuario("@"+txtNombreUsuario.getText().toString()) == null){
+                        if (db.agregarUsuario(usuario)){
+                            Toast.makeText(getApplicationContext(), "Usuario agregado correctamente", Toast.LENGTH_SHORT).show();
+                            limpiar();
+                            finish();
+
+                        }else{
+                            Toast.makeText(getApplicationContext(), "Error al agregar el usuario", Toast.LENGTH_SHORT).show();
+                        }
+                    }else {
+                        Toast.makeText(getApplicationContext(), "Error: Nombre de usuario ya existe", Toast.LENGTH_SHORT).show();
                     }
                 }
 
-                //Intent intent = new Intent(getApplicationContext(), act_inicio.class);
-                //startActivity(intent);
             }
         });
 

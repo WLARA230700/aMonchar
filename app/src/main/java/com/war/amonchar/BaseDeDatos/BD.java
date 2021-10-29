@@ -132,33 +132,35 @@ public class BD extends SQLiteOpenHelper {
 
         SQLiteDatabase db = getReadableDatabase();
 
-        Usuario usuario;
+        Usuario usuario = null;
 
         Cursor cursor = db.rawQuery("SELECT * FROM "+ tbUsuarios +" WHERE NOMBRE_USUARIO = '"+ nombreUsuario +"'", null);
-        cursor.moveToFirst();
+        if(cursor != null){
+            cursor.moveToFirst();
+            try{
 
-        try{
+                usuario = new Usuario();
+                usuario.setNombreUsuario(cursor.getString(0));
+                usuario.setCorreo(cursor.getString(1));
+                usuario.setContrasenia(cursor.getString(2));
+                usuario.setNombre(cursor.getString(3));
+                usuario.setApellidos(cursor.getString(4));
+                usuario.setBiografia(cursor.getString(5));
+                usuario.setFotografia(Uri.parse(cursor.getString(6)));
+                int log = cursor.getInt(7);
+                if(log == 0){
+                    usuario.setLogueado(false);
+                }else {
+                    usuario.setLogueado(true);
+                }
 
-            usuario = new Usuario();
-            usuario.setNombreUsuario(cursor.getString(0));
-            usuario.setCorreo(cursor.getString(1));
-            usuario.setContrasenia(cursor.getString(2));
-            usuario.setNombre(cursor.getString(3));
-            usuario.setApellidos(cursor.getString(4));
-            usuario.setBiografia(cursor.getString(5));
-            usuario.setFotografia(Uri.parse(cursor.getString(6)));
-            int log = cursor.getInt(7);
-            if(log == 0){
-                usuario.setLogueado(false);
-            }else {
-                usuario.setLogueado(true);
+            }catch (Exception e){
+
+                usuario = null;
+
             }
-
-        }catch (Exception e){
-
-            usuario = null;
-
         }
+
 
         return usuario;
     }//Fin getUsuario

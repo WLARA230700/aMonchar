@@ -112,6 +112,11 @@ public class act_editar_perfil extends AppCompatActivity{
         lblNombreUsuario = findViewById(R.id.lblNombreUsuario);
         txtCambiarFotografia = findViewById(R.id.txtCambiarFotografia);
 
+        imgUsuario.setImageDrawable(getDrawable(R.drawable.ic_perfil));
+        if(!usuarioLog.getFotografia().toString().equals("")){
+            imgUsuario.setImageURI(usuarioLog.getFotografia());
+        }
+
         fingerprintManager = (FingerprintManager) getSystemService(FINGERPRINT_SERVICE);
         keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
 
@@ -152,17 +157,11 @@ public class act_editar_perfil extends AppCompatActivity{
                 .build();
 
 
-       /* btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });*/
+
 
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //inputData();
 
                 if(fingerprintManager != null){
 
@@ -170,9 +169,6 @@ public class act_editar_perfil extends AppCompatActivity{
 
                         if(fingerprintManager.hasEnrolledFingerprints()){
                             biometricPrompt.authenticate(promptInfo);
-
-
-                            //Toast.makeText(getApplicationContext(), "" + globalDB.getUsuario(usuarioLog.getNombreUsuario()).toString(), Toast.LENGTH_LONG).show();
                         }else{
                             if(keyguardManager.isDeviceSecure()){
                                 showPasswordScreen();
@@ -205,13 +201,6 @@ public class act_editar_perfil extends AppCompatActivity{
         });
 
     }//Fin onCreate
-
-    private void inputData(){
-        //guarda en la base de datos
-        Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
-        globalDB.modificarUsuario(usuario);
-        Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
-    }
 
     private void imagePickDialog(){
         // opciones para mostrar en el diálogo
@@ -454,9 +443,12 @@ public class act_editar_perfil extends AppCompatActivity{
             limpiar();
             actualizarCampos();
             ((GlobalVariables)getApplication()).setUsuarioLogueado(usuario);
+            finish();
         }else{
             Toast.makeText(getApplicationContext(), "Hubo un problema al guardar", Toast.LENGTH_SHORT).show();
         }
+
+
 
     }//Fin metodo modificarDatos
 

@@ -22,6 +22,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
     private TextView lblBiografia, lblNombreUsuario, lblNombre;
 
     private Usuario usuarioLog = null;
+    private String imagen;
 
 
     @Override
@@ -33,7 +34,8 @@ public class act_perfil_usuario_general extends AppCompatActivity {
         usuarioLog = ((GlobalVariables) getApplication()).getUsuarioLogueado();
 
         imgUsuario = findViewById(R.id.imgUsuario);
-       // imgUsuario.setImageURI();
+        imagen = usuarioLog.getFotografia();
+        imgUsuario.setImageURI(imagen);
 
 
         btnAgregarReceta = findViewById(R.id.btnAgregarReceta);

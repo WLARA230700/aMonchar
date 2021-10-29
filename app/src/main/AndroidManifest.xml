@@ -67,7 +67,7 @@
         <!--IMAGEN CROPPER ACTIVITY-->
         <activity
         android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
-        android:theme="@Style/AppTheme" />
+            android:theme="@style/Theme.AMonchar" />
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

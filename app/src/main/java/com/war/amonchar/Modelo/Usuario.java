@@ -11,11 +11,11 @@ public class Usuario {
     private String nombre;
     private String apellidos;
     private String biografia;
-    private Uri fotografia;
+    private String fotografia;
     private boolean logueado = false;
 
     // CONSTRUCTORES
-    public Usuario(String nombreUsuario, String correo, String contrasenia, String nombre, String apellidos, String biografia, Uri fotografia) {
+    public Usuario(String nombreUsuario, String correo, String contrasenia, String nombre, String apellidos, String biografia, String fotografia) {
         this.nombreUsuario = nombreUsuario;
         this.correo = correo;
         this.contrasenia = contrasenia;
@@ -31,9 +31,9 @@ public class Usuario {
         this.nombre = "";
         this.apellidos = "";
         this.biografia = "";
-        this.fotografia = Uri.parse("");
+        this.fotografia = "";
     }
-    public Usuario(String nombreUsuario, String apellidos, String biografia, Uri fotografia) {
+    public Usuario(String nombreUsuario, String apellidos, String biografia, String fotografia) {
         this.nombreUsuario = nombreUsuario;
         this.correo = "";
         this.contrasenia = "";
@@ -49,7 +49,7 @@ public class Usuario {
         this.nombre = "";
         this.apellidos = "";
         this.biografia = "";
-        this.fotografia = Uri.parse("");
+        this.fotografia = "";
     }
 
     // GETTER AND SETTER
@@ -101,11 +101,11 @@ public class Usuario {
         this.biografia = biografia;
     }
 
-    public Uri getFotografia() {
+    public String getFotografia() {
         return fotografia;
     }
 
-    public void setFotografia(Uri fotografia) {
+    public void setFotografia(String fotografia) {
         this.fotografia = fotografia;
     }
 

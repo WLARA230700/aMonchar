@@ -4,6 +4,7 @@ package com.war.amonchar;
 import androidx.annotation.NonNull;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -49,24 +50,24 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class act_editar_perfil extends AppCompatActivity{
 
+    private ActionBar actionBar;
     private ImageView btnBack;
     private Button btnSave;
     private EditText txtNombre, txtApellidos, txtBiografia;
-    private ImageView imgUsuario;
+    private CircleImageView imgUsuario;
     TextView txtCambiarFotografia;
     Uri fotoTemp;
-    
+
     private TextView lblNombreUsuario;
     private Usuario usuarioLog = null;
 
     private Executor executor;
     private BiometricPrompt biometricPrompt;
     private BiometricPrompt.PromptInfo promptInfo;
-
-    /*private final int Galeria = 1;
-    private final int Camara = 2;*/
 
     //Permiso de la clase Constants
     private  static final int CAMERA_REQUEST_CODE = 100;
@@ -90,6 +91,12 @@ public class act_editar_perfil extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.lyt_editar_perfil);
 
+        actionBar = getSupportActionBar();
+        //Titulo
+        actionBar.setTitle("Editar Perfil");
+        //Boton Negro
+        actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.setDisplayShowHomeEnabled(true);
 
         final BD bd = new BD(getApplicationContext());
         globalDB = bd;
@@ -161,7 +168,7 @@ public class act_editar_perfil extends AppCompatActivity{
 
                         if(fingerprintManager.hasEnrolledFingerprints()){
                             biometricPrompt.authenticate(promptInfo);
-                            Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), fotoTemp);
+                            Usuario usuario = new Usuario(txtNombre.getText().toString(), txtApellidos.getText().toString(), txtBiografia.getText().toString(), ""+ fotoTemp);
                             globalDB.modificarUsuario(usuario);
                             Toast.makeText(getApplicationContext(), "Cambios guardados", Toast.LENGTH_SHORT).show();
                         }else{
@@ -248,10 +255,10 @@ public class act_editar_perfil extends AppCompatActivity{
         values.put(MediaStore.Images.Media.TITLE, "Titulo de la Imagen");
         values.put(MediaStore.Images.Media.DESCRIPTION, "Descripción de la imagen");
         //put image Uri
-        imageUri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+        fotoTemp = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
         // Intento de abrir la cámara para la imagen
         Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, fotoTemp);
         startActivityForResult(cameraIntent, IMAGE_PICK_CAMERA_CODE);
     }// Fin PickFromCamera
 
@@ -350,7 +357,7 @@ public class act_editar_perfil extends AppCompatActivity{
             else if(requestCode == IMAGE_PICK_CAMERA_CODE){
                 //Picked from camera
                 //crop Image
-                CropImage.activity(imageUri)
+                CropImage.activity(fotoTemp)
                         .setGuidelines(CropImageView.Guidelines.ON)
                         .setAspectRatio(1, 1)
                         .start(this);
@@ -361,9 +368,9 @@ public class act_editar_perfil extends AppCompatActivity{
                 CropImage.ActivityResult result = CropImage.getActivityResult(data);
                 if (resultCode == RESULT_OK){
                     Uri resultUri = result.getUri();
-                    imageUri = resultUri;
+                    fotoTemp = resultUri;
                     //set Image
-                    profileIv.setImageURI(resultUri);
+                    imgUsuario.setImageURI(resultUri);
                 }
                 else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
                     //ERROR

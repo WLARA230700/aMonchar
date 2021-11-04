@@ -9,18 +9,21 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -32,10 +35,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 import com.war.amonchar.Modelo.AdapterDropdownItem;
+import com.war.amonchar.Modelo.AdapterPreparacion;
+import com.war.amonchar.Modelo.Adapter_Ingredientes_agregar_receta;
 import com.war.amonchar.Modelo.GlobalVariables;
+import com.war.amonchar.Modelo.Ingrediente;
+import com.war.amonchar.Modelo.PasoPreparacion;
+import com.war.amonchar.Modelo.Receta;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.UUID;
 
 public class act_agregar_receta extends AppCompatActivity {
 
@@ -43,10 +52,10 @@ public class act_agregar_receta extends AppCompatActivity {
     private ImageView btnBack, imgReceta;
     private EditText txtTiempoPreparacion, txtNombreReceta,txtCantidadIngrediente1, txtDescripcionIngrediente1, txtDescripcionPaso1;
     private TextView lblNumeroIngrediente, lblPaso1;
-    private ListView ingredientesExtra, pasosExtra;
     private CheckBox catVegetariano, catMar, catCarnesRojas, catCarnesBlancas, catPostres, catBebidas;
     private Button btnAgregarCampoIngrediente, btnAgregarCampoPaso, btnGuardar;
     private Spinner preparacionSpinner, tiemposComidaSpinner;
+    private LinearLayout ingredientesAgregados, pasosAgregados;
 
     // Arrays de opciones para los spinner
     private String[] tiempoPreparacion = {"Minutos", "Horas"};
@@ -67,11 +76,26 @@ public class act_agregar_receta extends AppCompatActivity {
     private static final int IMAGE_PICK_CAMERA_CODE = 102;
     private static final int IMAGE_PICK_GALLERY_CODE = 103;
 
+    // Constante de cantidad categorías
+    private static final int QUANTITY_CATEGORIES = 6;
+
     // Vectores para permisos de cámara y almacenamiento
     private String[] cameraPermissions; // cámara y almacenamiento
     private String [] storagePermissions;// solo almacenamiento
 
     private Uri imgRecetaTemp;
+
+    private ArrayList<CheckBox> listaCategorias = new ArrayList<>();
+
+    private ArrayList<Ingrediente> listaIngredientes = new ArrayList<>();
+
+    private ArrayList<PasoPreparacion> listaPasos = new ArrayList<>();
+
+    private Adapter_Ingredientes_agregar_receta adapterIngredientes;
+
+    private AdapterPreparacion adapterPreparacion;
+
+    private int contadorPasos = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,11 +130,13 @@ public class act_agregar_receta extends AppCompatActivity {
         preparacionSpinner = findViewById(R.id.preparacionSpinner);
         tiemposComidaSpinner = findViewById(R.id.tiemposComidaSpinner);
 
-        ingredientesExtra = findViewById(R.id.ingredientesExtra);
-        pasosExtra = findViewById(R.id.pasosExtra);
+        ingredientesAgregados = findViewById(R.id.ingredientesAgregados);
+        pasosAgregados = findViewById(R.id.pasosAgregados);
 
         // Asignar opciones a los spinner
         asignarSpinner();
+
+        inicializarArrayCategorias();
 
         //Inicializa los permisos en los vectores
         cameraPermissions = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -130,7 +156,7 @@ public class act_agregar_receta extends AppCompatActivity {
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                guardarReceta();
             }
         });
 
@@ -144,7 +170,32 @@ public class act_agregar_receta extends AppCompatActivity {
             }
         });
 
+        btnAgregarCampoIngrediente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                guardarIngrediente();
+            }
+        });
+
+        btnAgregarCampoPaso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                guardarPasos();
+            }
+        });
+
     }// Fin método onCreate
+
+    public void inicializarArrayCategorias(){
+
+        listaCategorias.add(catVegetariano);
+        listaCategorias.add(catMar);
+        listaCategorias.add(catCarnesRojas);
+        listaCategorias.add(catCarnesBlancas);
+        listaCategorias.add(catPostres);
+        listaCategorias.add(catBebidas);
+
+    }//Fin método guardarCategorias
 
     public void obtenerFotografía(){
 
@@ -213,10 +264,177 @@ public class act_agregar_receta extends AppCompatActivity {
 
     }// Fin método asignarSpinner
 
+    public void guardarIngrediente(){
+
+        int contador = 0;
+
+        if(!txtDescripcionIngrediente1.getText().toString().equals("") && !txtCantidadIngrediente1.getText().toString().equals("")){
+
+            float cantidadIngrediente = Float.parseFloat(txtCantidadIngrediente1.getText().toString());
+
+            if(cantidadIngrediente != 0){
+                Ingrediente ingrediente = new Ingrediente(txtDescripcionIngrediente1.getText().toString(),
+                        Float.parseFloat(txtCantidadIngrediente1.getText().toString()));
+
+                listaIngredientes.add(ingrediente);
+
+                adapterIngredientes = new Adapter_Ingredientes_agregar_receta(getApplicationContext(), listaIngredientes);
+
+                if(ingredientesAgregados.getChildCount() > 0){
+                    contador = ingredientesAgregados.getChildCount();
+                }
+
+                for(int i = contador; i < adapterIngredientes.getCount(); i++){
+                    View view = adapterIngredientes.getView(i, null, ingredientesAgregados);
+                    ingredientesAgregados.addView(view);
+                }
+
+                limpiarCamposIngredientes();
+            }else{
+                Toast.makeText(getApplicationContext(), "El campo de cantidad debe ser superior a 0", Toast.LENGTH_SHORT).show();
+            }
+
+        }else{
+            Toast.makeText(getApplicationContext(), "Debe rellenar ambos espacios", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public void limpiarCamposIngredientes(){
+        txtCantidadIngrediente1.setText("");
+        txtDescripcionIngrediente1.setText("");
+    }
+
+    public void guardarPasos(){
+
+        int contador = 0;
+
+        if(!txtDescripcionPaso1.getText().toString().equals("")){
+
+            PasoPreparacion paso = new PasoPreparacion(Integer.parseInt(lblPaso1.getText().toString()),
+                    txtDescripcionPaso1.getText().toString());
+
+            listaPasos.add(paso);
+
+            adapterPreparacion = new AdapterPreparacion(getApplicationContext(), listaPasos);
+
+            if(pasosAgregados.getChildCount() > 0){
+                contador = pasosAgregados.getChildCount();
+            }
+
+            for(int i = contador; i < adapterPreparacion.getCount(); i++){
+                View view = adapterPreparacion.getView(i, null, pasosAgregados);
+                pasosAgregados.addView(view);
+            }
+
+            contadorPasos++;
+            lblPaso1.setText(contadorPasos+"");
+
+            txtDescripcionPaso1.setText("");
+        }else{
+            Toast.makeText(getApplicationContext(), "Debe rellenar la descripción del paso", Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+    public ArrayList<String> getCategoriasSeleccionadas(){
+
+        ArrayList<String> categorias = new ArrayList<>();
+
+        for (int i = 0; i < listaCategorias.size(); i++){
+            if(listaCategorias.get(i).isChecked()){
+                categorias.add(listaCategorias.get(i).getText().toString());
+            }
+        }
+
+        return categorias;
+    }// Fin método getCategoriasSeleccionadas
+
+    public ArrayList<Float> getCantidadIngredientes(){
+
+        ArrayList<Float> cantIngredientes = new ArrayList<>();
+
+        if(!listaIngredientes.isEmpty()){
+
+            for (int i = 0; i < listaIngredientes.size(); i++){
+
+                cantIngredientes.add(listaIngredientes.get(i).getCantidad());
+
+            }
+
+        }else{
+            if(!txtCantidadIngrediente1.getText().equals("")){
+                cantIngredientes.add(Float.parseFloat(txtCantidadIngrediente1.getText().toString()));
+            }
+        }
+
+        return cantIngredientes;
+    }// Fin método getCantidadIngredientes
+
+    public ArrayList<String> getIngredientes(){
+
+        ArrayList<String> ingredientes = new ArrayList<>();
+
+        if(!listaIngredientes.isEmpty()){
+            for (int i = 0; i < listaIngredientes.size(); i++){
+
+                ingredientes.add(listaIngredientes.get(i).getNombre());
+
+            }
+        }else{
+            if(!txtDescripcionIngrediente1.getText().equals("")){
+                ingredientes.add(txtDescripcionIngrediente1.getText().toString());
+            }
+        }
+
+        return ingredientes;
+    }
+
+    public ArrayList<String> getPasos(){
+
+        ArrayList<String> pasos = new ArrayList<>();
+
+        if(!listaPasos.isEmpty()){
+            for (int i = 0; i < listaPasos.size(); i++){
+
+                pasos.add(listaPasos.get(i).getDescripcion());
+
+            }
+        }else{
+            if(!txtDescripcionPaso1.getText().equals("")){
+                pasos.add(txtDescripcionPaso1.getText().toString());
+            }
+        }
+
+        return pasos;
+    }
+
     public void guardarReceta(){
 
         //Se verifica que los campos necesarios estén llenos
         if(validar()){
+
+            if(!getCantidadIngredientes().isEmpty() || !getIngredientes().isEmpty() || !getPasos().isEmpty()){
+
+                Receta receta = new Receta(
+                    UUID.randomUUID().toString(),
+                    Integer.parseInt(txtTiempoPreparacion.getText().toString()),
+                    tiemposComidaSpinner.getSelectedItem().toString(),
+                    getCategoriasSeleccionadas(),
+                    txtNombreReceta.getText().toString(),
+                    imgRecetaTemp,
+                    getCantidadIngredientes(),
+                    getIngredientes(),
+                    getPasos());
+
+                //Toast.makeText(getApplicationContext(), receta.toString(), Toast.LENGTH_SHORT).show();
+
+                //databaseReference.child("Recetas").child(receta.getId()).setValue(receta);
+                Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
+
+            }else{
+                Toast.makeText(getApplicationContext(), getString(R.string.msg_campos_requeridos), Toast.LENGTH_SHORT).show();
+            }
 
         }else{
             Toast.makeText(getApplicationContext(), getString(R.string.msg_campos_requeridos), Toast.LENGTH_SHORT).show();
@@ -226,10 +444,17 @@ public class act_agregar_receta extends AppCompatActivity {
 
     public boolean validar(){
 
+        if(txtTiempoPreparacion.getText().equals("") ||
+                getCategoriasSeleccionadas().isEmpty() ||
+                txtNombreReceta.getText().equals("") ||
+                imgRecetaTemp == null ||
+                listaIngredientes.isEmpty() ||
+                listaPasos.isEmpty()){
+            return false;
+        }else{
+            return true;
+        }
 
-
-
-        return true;
     }// Fin método validar
 
     private void PickFromGallery() {

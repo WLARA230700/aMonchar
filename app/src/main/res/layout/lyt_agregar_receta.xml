@@ -472,7 +472,7 @@
                 <LinearLayout
                     android:id="@+id/ingredientes"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="25dp"
                     android:paddingTop="10dp"
@@ -538,17 +538,6 @@
                             android:paddingBottom="10dp"
                             android:weightSum="10">
 
-                            <TextView
-                                android:id="@+id/lblNumeroIngrediente"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:ems="1"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="1."
-                                android:textColor="#676767"
-                                android:textSize="15dp" />
-
                             <EditText
                                 android:id="@+id/txtCantidadIngrediente1"
                                 android:layout_width="wrap_content"
@@ -556,7 +545,7 @@
                                 android:layout_marginRight="5dp"
                                 android:layout_weight="2"
                                 android:background="@drawable/custom_input"
-                                android:inputType="textPersonName"
+                                android:inputType="numberDecimal"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"/>
 
@@ -571,11 +560,6 @@
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp" />
                         </LinearLayout>
-
-                        <ListView
-                            android:id="@+id/ingredientesExtra"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"/>
 
                     </LinearLayout>
 
@@ -601,12 +585,19 @@
                         </LinearLayout>
 
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ingredientesAgregados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/preparacion"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="25dp"
                     android:paddingTop="10dp"
@@ -686,7 +677,7 @@
                                     android:layout_weight="1"
                                     android:ems="1"
                                     android:fontFamily="@font/poppins_bold"
-                                    android:text="1."
+                                    android:text="1"
                                     android:textColor="#676767" />
 
                                 <EditText
@@ -701,11 +692,6 @@
                                     android:paddingRight="10dp" />
 
                             </LinearLayout>
-
-                            <ListView
-                                android:id="@+id/pasosExtra"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content" />
 
                         </LinearLayout>
 
@@ -732,6 +718,12 @@
                                 android:textAllCaps="false"
                                 app:cornerRadius="30dp" />
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/pasosAgregados"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"/>
 
                     </LinearLayout>
                 </LinearLayout>

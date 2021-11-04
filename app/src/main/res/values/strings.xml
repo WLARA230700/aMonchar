@@ -67,10 +67,11 @@
     <string name="btn_capturar_Fotografia_camara">Cámara</string>
     <string name="btn_capturar_Fotografia_galeria">Galería</string>
 
-    <!-- MENSAJES DE ADVERTENCIA -->
+    <!-- MENSAJES -->
     <string name="msg_permiso_camara_almacenamiento_requerido">Se requieren permisos de cámara y almacenamiento</string>
     <string name="msg_permiso_almacenamiento_requerido">Se requiere permiso de almacenamiento</string>
     <string name="msg_campos_requeridos">Debe rellenar todos los campos</string>
+    <string name="msg_agregado_correctamente">Agregado correctamente</string>
 
     <!-- ARRAY DE TIEMPOS DE COMIDA -->
     <string-array name="array_tiempos_comida">

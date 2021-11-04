@@ -429,7 +429,7 @@ public class act_agregar_receta extends AppCompatActivity {
 
                 //Toast.makeText(getApplicationContext(), receta.toString(), Toast.LENGTH_SHORT).show();
 
-                //databaseReference.child("Recetas").child(receta.getId()).setValue(receta);
+                databaseReference.child("Receta").child(receta.getId()).setValue(receta);
                 Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
 
             }else{
@@ -585,7 +585,7 @@ public class act_agregar_receta extends AppCompatActivity {
                 //crop Image
                 CropImage.activity(imgRecetaTemp)
                         .setGuidelines(CropImageView.Guidelines.ON)
-                        .setAspectRatio(16, 9)
+                        .setAspectRatio(1, 1)
                         .start(this);
 
             }else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){

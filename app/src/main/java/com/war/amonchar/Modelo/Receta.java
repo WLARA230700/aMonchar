@@ -30,6 +30,17 @@ public class Receta {
         this.pasos = pasos;
     }
 
+    public Receta(String id, int tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, ArrayList<Float> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
+        this.id = id;
+        this.tiempo_preparacion = tiempo_preparacion;
+        this.tiempo_comida = tiempo_comida;
+        this.categorias = categorias;
+        this.nombre_receta = nombre_receta;
+        this.cantidad_ingredientes = cantidad_ingredientes;
+        this.ingredientes = ingredientes;
+        this.pasos = pasos;
+    }
+
     public Receta() {
         this.id = "";
         this.tiempo_preparacion = 0;

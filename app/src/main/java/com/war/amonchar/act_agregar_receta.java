@@ -16,6 +16,7 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -30,8 +31,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 import com.war.amonchar.Modelo.AdapterDropdownItem;
@@ -416,7 +420,7 @@ public class act_agregar_receta extends AppCompatActivity {
 
             if(!getCantidadIngredientes().isEmpty() || !getIngredientes().isEmpty() || !getPasos().isEmpty()){
 
-                Receta receta = new Receta(
+                /*Receta receta = new Receta(
                     UUID.randomUUID().toString(),
                     Integer.parseInt(txtTiempoPreparacion.getText().toString()),
                     tiemposComidaSpinner.getSelectedItem().toString(),
@@ -425,7 +429,17 @@ public class act_agregar_receta extends AppCompatActivity {
                     imgRecetaTemp,
                     getCantidadIngredientes(),
                     getIngredientes(),
-                    getPasos());
+                    getPasos());*/
+
+                Receta receta = new Receta(
+                        UUID.randomUUID().toString(),
+                        Integer.parseInt(txtTiempoPreparacion.getText().toString()),
+                        tiemposComidaSpinner.getSelectedItem().toString(),
+                        getCategoriasSeleccionadas(),
+                        txtNombreReceta.getText().toString(),
+                        getCantidadIngredientes(),
+                        getIngredientes(),
+                        getPasos());
 
                 //Toast.makeText(getApplicationContext(), receta.toString(), Toast.LENGTH_SHORT).show();
 

@@ -72,6 +72,8 @@
     <string name="msg_permiso_almacenamiento_requerido">Se requiere permiso de almacenamiento</string>
     <string name="msg_campos_requeridos">Debe rellenar todos los campos</string>
     <string name="msg_agregado_correctamente">Agregado correctamente</string>
+    <string name="msg_agregado_incorrectamente">Ha ocurrido un error al agregar</string>
+    <string name="msg_error_upload_fotografia">Ha ocurrido un error al guardar la fotografía</string>
 
     <!-- ARRAY DE TIEMPOS DE COMIDA -->
     <string-array name="array_tiempos_comida">

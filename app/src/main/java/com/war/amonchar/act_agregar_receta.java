@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.storage.StorageManager;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,12 +31,20 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 import com.war.amonchar.Modelo.AdapterDropdownItem;
@@ -48,6 +57,8 @@ import com.war.amonchar.Modelo.Receta;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Objects;
 import java.util.UUID;
 
 public class act_agregar_receta extends AppCompatActivity {
@@ -88,6 +99,7 @@ public class act_agregar_receta extends AppCompatActivity {
     private String [] storagePermissions;// solo almacenamiento
 
     private Uri imgRecetaTemp;
+    private Uri imgRecetaSubida;
 
     private ArrayList<CheckBox> listaCategorias = new ArrayList<>();
 
@@ -420,18 +432,72 @@ public class act_agregar_receta extends AppCompatActivity {
 
             if(!getCantidadIngredientes().isEmpty() || !getIngredientes().isEmpty() || !getPasos().isEmpty()){
 
-                /*Receta receta = new Receta(
-                    UUID.randomUUID().toString(),
-                    Integer.parseInt(txtTiempoPreparacion.getText().toString()),
-                    tiemposComidaSpinner.getSelectedItem().toString(),
-                    getCategoriasSeleccionadas(),
-                    txtNombreReceta.getText().toString(),
-                    imgRecetaTemp,
-                    getCantidadIngredientes(),
-                    getIngredientes(),
-                    getPasos());*/
+                String id = UUID.randomUUID().toString();
 
-                Receta receta = new Receta(
+                String nombreReceta = txtNombreReceta.getText().toString();
+
+                StorageReference storage = FirebaseStorage.getInstance().getReference();
+
+                StorageReference images = storage.child("Fotografia_Recetas");
+
+                final StorageReference nombre_archivo = images.child("foto_"+nombreReceta+"_"+id+"_"+imgRecetaTemp.getLastPathSegment());
+
+                UploadTask uploadTask = nombre_archivo.putFile(imgRecetaTemp);
+
+                uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        if (taskSnapshot.getMetadata() != null) {
+                            if (taskSnapshot.getMetadata().getReference() != null) {
+
+                                Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+
+                            }
+                        }
+                    }
+                });
+
+                Task<Uri> uriTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                    @Override
+                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+
+                        if(!task.isSuccessful()){
+                            throw task.getException();
+                        }
+
+                        return images.getDownloadUrl();
+                    }
+                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Uri> task) {
+
+                        if(task.isSuccessful()){
+
+                            imgRecetaSubida = task.getResult();
+
+                        }
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("Fallo continuación task upload","Resultado del fallo: " + e);
+                    }
+                });
+
+                /*nombre_archivo.putFile(imgRecetaTemp).addOnSuccessListener(taskSnapshot -> nombre_archivo.getDownloadUrl().addOnSuccessListener(uri ->
+
+                        HashMap<String, String> hash = new HashMap<>();
+                hash.put("link", String.valueOf(uri));
+
+                Bundle bundle = new Bundle();
+                bundle.put();
+
+                        //HashMap <String, String> hash = new HashMap<>()
+
+                        ));*/
+
+                /*Receta receta = new Receta(
                         UUID.randomUUID().toString(),
                         Integer.parseInt(txtTiempoPreparacion.getText().toString()),
                         tiemposComidaSpinner.getSelectedItem().toString(),
@@ -439,12 +505,24 @@ public class act_agregar_receta extends AppCompatActivity {
                         txtNombreReceta.getText().toString(),
                         getCantidadIngredientes(),
                         getIngredientes(),
-                        getPasos());
+                        getPasos());*/
 
                 //Toast.makeText(getApplicationContext(), receta.toString(), Toast.LENGTH_SHORT).show();
 
+                Receta receta = new Receta(
+                                    id,
+                                    Integer.parseInt(txtTiempoPreparacion.getText().toString()),
+                                    tiemposComidaSpinner.getSelectedItem().toString(),
+                                    getCategoriasSeleccionadas(),
+                                    nombreReceta,
+                                    imgRecetaSubida,
+                                    getCantidadIngredientes(),
+                                    getIngredientes(),
+                                    getPasos());
+
                 databaseReference.child("Receta").child(receta.getId()).setValue(receta);
                 Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), imgRecetaSubida+"", Toast.LENGTH_LONG).show();
 
             }else{
                 Toast.makeText(getApplicationContext(), getString(R.string.msg_campos_requeridos), Toast.LENGTH_SHORT).show();
@@ -461,7 +539,7 @@ public class act_agregar_receta extends AppCompatActivity {
         if(txtTiempoPreparacion.getText().equals("") ||
                 getCategoriasSeleccionadas().isEmpty() ||
                 txtNombreReceta.getText().equals("") ||
-                imgRecetaTemp == null ||
+                imgRecetaTemp == Uri.EMPTY ||
                 listaIngredientes.isEmpty() ||
                 listaPasos.isEmpty()){
             return false;

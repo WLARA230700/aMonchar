@@ -42,6 +42,8 @@ dependencies {
     //Forma Circular ImagenView
     implementation 'de.hdodenhof:circleimageview:3.1.0'
     implementation 'com.google.firebase:firebase-database:20.0.2'
+    // Librería de Firebase Storage
+    implementation 'com.google.firebase:firebase-storage:20.0.0'
 
 
     testImplementation 'junit:junit:4.+'

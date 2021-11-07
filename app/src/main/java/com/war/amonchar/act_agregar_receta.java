@@ -443,7 +443,7 @@ public class act_agregar_receta extends AppCompatActivity {
 
                 StorageReference imagesRef = storageReference.child("Fotografia_Recetas");
 
-                final StorageReference nombre_archivo = imagesRef.child(nombreReceta+"_"+idReceta+"_"+imgRecetaTemp.getLastPathSegment());
+                final StorageReference nombre_archivo = imagesRef.child(nombreReceta+"_"+idReceta);
 
                 UploadTask uploadTask = nombre_archivo.putFile(imgRecetaTemp);
 
@@ -475,7 +475,7 @@ public class act_agregar_receta extends AppCompatActivity {
                             }
                         }
                     }
-                });*/
+                });
 
                 uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -510,6 +510,8 @@ public class act_agregar_receta extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
                             //Toast.makeText(getApplicationContext(), imgRecetaSubida+"", Toast.LENGTH_LONG).show();
 
+                        }else{
+
                         }
 
                     }
@@ -518,7 +520,24 @@ public class act_agregar_receta extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         Log.d("Fallo continuación task upload","Resultado del fallo: " + e);
                     }
-                });
+                });*/
+
+                Receta receta = new Receta(
+                        idReceta,
+                        Integer.parseInt(txtTiempoPreparacion.getText().toString()),
+                        tiemposComidaSpinner.getSelectedItem().toString(),
+                        getCategoriasSeleccionadas(),
+                        nombreReceta,
+                        getCantidadIngredientes(),
+                        getIngredientes(),
+                        getPasos());
+
+                //String url = nombre_archivo.getDownloadUrl().getResult().toString();
+
+                databaseReference.child("Receta").child(receta.getId()).setValue(receta);
+                //databaseReference.child("Receta").child(receta.getId()).child("direccion").setValue(url);
+                Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), imgRecetaSubida+"", Toast.LENGTH_LONG).show();
 
             }else{
                 Toast.makeText(getApplicationContext(), getString(R.string.msg_campos_requeridos), Toast.LENGTH_SHORT).show();

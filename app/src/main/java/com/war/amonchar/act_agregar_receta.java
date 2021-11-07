@@ -83,6 +83,9 @@ public class act_agregar_receta extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
 
+    // Miembros de clase para la conexión con Firebase Storage
+    private StorageReference storageReference;
+
     // Constantes de verificación de permisos
     private  static final int CAMERA_REQUEST_CODE = 100;
     private static final int STORAGE_REQUEST_CODE = 101;
@@ -265,6 +268,8 @@ public class act_agregar_receta extends AppCompatActivity {
 
         // Se obtiene la referencia de la instancia de la base de datos de firebase
         databaseReference = firebaseDatabase.getReference();
+
+        storageReference = FirebaseStorage.getInstance().getReference();
     }// Fin método inicializarFirebase
 
     public void asignarSpinner(){
@@ -432,32 +437,47 @@ public class act_agregar_receta extends AppCompatActivity {
 
             if(!getCantidadIngredientes().isEmpty() || !getIngredientes().isEmpty() || !getPasos().isEmpty()){
 
-                String id = UUID.randomUUID().toString();
+                String idReceta = UUID.randomUUID().toString();
 
                 String nombreReceta = txtNombreReceta.getText().toString();
 
-                StorageReference storage = FirebaseStorage.getInstance().getReference();
+                StorageReference imagesRef = storageReference.child("Fotografia_Recetas");
 
-                StorageReference images = storage.child("Fotografia_Recetas");
-
-                final StorageReference nombre_archivo = images.child("foto_"+nombreReceta+"_"+id+"_"+imgRecetaTemp.getLastPathSegment());
+                final StorageReference nombre_archivo = imagesRef.child(nombreReceta+"_"+idReceta+"_"+imgRecetaTemp.getLastPathSegment());
 
                 UploadTask uploadTask = nombre_archivo.putFile(imgRecetaTemp);
 
-                uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                /*uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         if (taskSnapshot.getMetadata() != null) {
                             if (taskSnapshot.getMetadata().getReference() != null) {
 
-                                Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+                                //Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+
+                                //imgRecetaSubida = nombre_archivo.getDownloadUrl().getResult();
+
+                                Receta receta = new Receta(
+                                        id,
+                                        Integer.parseInt(txtTiempoPreparacion.getText().toString()),
+                                        tiemposComidaSpinner.getSelectedItem().toString(),
+                                        getCategoriasSeleccionadas(),
+                                        nombreReceta,
+                                        nombre_archivo.getDownloadUrl(),
+                                        getCantidadIngredientes(),
+                                        getIngredientes(),
+                                        getPasos());
+
+                                databaseReference.child("Receta").child(receta.getId()).setValue(receta);
+                                Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), imgRecetaSubida+"", Toast.LENGTH_LONG).show();
 
                             }
                         }
                     }
-                });
+                });*/
 
-                Task<Uri> uriTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
                     public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
 
@@ -465,7 +485,7 @@ public class act_agregar_receta extends AppCompatActivity {
                             throw task.getException();
                         }
 
-                        return images.getDownloadUrl();
+                        return nombre_archivo.getDownloadUrl();
                     }
                 }).addOnCompleteListener(new OnCompleteListener<Uri>() {
                     @Override
@@ -474,6 +494,21 @@ public class act_agregar_receta extends AppCompatActivity {
                         if(task.isSuccessful()){
 
                             imgRecetaSubida = task.getResult();
+
+                            Receta receta = new Receta(
+                                    idReceta,
+                                    Integer.parseInt(txtTiempoPreparacion.getText().toString()),
+                                    tiemposComidaSpinner.getSelectedItem().toString(),
+                                    getCategoriasSeleccionadas(),
+                                    nombreReceta,
+                                    imgRecetaSubida,
+                                    getCantidadIngredientes(),
+                                    getIngredientes(),
+                                    getPasos());
+
+                            databaseReference.child("Receta").child(receta.getId()).setValue(receta);
+                            Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(getApplicationContext(), imgRecetaSubida+"", Toast.LENGTH_LONG).show();
 
                         }
 
@@ -484,45 +519,6 @@ public class act_agregar_receta extends AppCompatActivity {
                         Log.d("Fallo continuación task upload","Resultado del fallo: " + e);
                     }
                 });
-
-                /*nombre_archivo.putFile(imgRecetaTemp).addOnSuccessListener(taskSnapshot -> nombre_archivo.getDownloadUrl().addOnSuccessListener(uri ->
-
-                        HashMap<String, String> hash = new HashMap<>();
-                hash.put("link", String.valueOf(uri));
-
-                Bundle bundle = new Bundle();
-                bundle.put();
-
-                        //HashMap <String, String> hash = new HashMap<>()
-
-                        ));*/
-
-                /*Receta receta = new Receta(
-                        UUID.randomUUID().toString(),
-                        Integer.parseInt(txtTiempoPreparacion.getText().toString()),
-                        tiemposComidaSpinner.getSelectedItem().toString(),
-                        getCategoriasSeleccionadas(),
-                        txtNombreReceta.getText().toString(),
-                        getCantidadIngredientes(),
-                        getIngredientes(),
-                        getPasos());*/
-
-                //Toast.makeText(getApplicationContext(), receta.toString(), Toast.LENGTH_SHORT).show();
-
-                Receta receta = new Receta(
-                                    id,
-                                    Integer.parseInt(txtTiempoPreparacion.getText().toString()),
-                                    tiemposComidaSpinner.getSelectedItem().toString(),
-                                    getCategoriasSeleccionadas(),
-                                    nombreReceta,
-                                    imgRecetaSubida,
-                                    getCantidadIngredientes(),
-                                    getIngredientes(),
-                                    getPasos());
-
-                databaseReference.child("Receta").child(receta.getId()).setValue(receta);
-                Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(getApplicationContext(), imgRecetaSubida+"", Toast.LENGTH_LONG).show();
 
             }else{
                 Toast.makeText(getApplicationContext(), getString(R.string.msg_campos_requeridos), Toast.LENGTH_SHORT).show();

@@ -8,6 +8,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.app.ProgressDialog;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -71,6 +72,8 @@ public class act_agregar_receta extends AppCompatActivity {
     private Button btnAgregarCampoIngrediente, btnAgregarCampoPaso, btnGuardar;
     private Spinner preparacionSpinner, tiemposComidaSpinner;
     private LinearLayout ingredientesAgregados, pasosAgregados;
+
+    private ProgressDialog progressDialog;
 
     // Arrays de opciones para los spinner
     private String[] tiempoPreparacion = {"Minutos", "Horas"};
@@ -155,6 +158,8 @@ public class act_agregar_receta extends AppCompatActivity {
         // Asignar opciones a los spinner
         asignarSpinner();
 
+        progressDialog = new ProgressDialog(this);
+
         inicializarArrayCategorias();
 
         //Inicializa los permisos en los vectores
@@ -204,6 +209,13 @@ public class act_agregar_receta extends AppCompatActivity {
         });
 
     }// Fin método onCreate
+
+    public void crearProgressDialog(){
+        progressDialog.setTitle("Subiendo receta...");
+        progressDialog.setMessage("No cierre la aplicación mientras se muestra este mensaje");
+        progressDialog.setCancelable(false);
+        progressDialog.show();
+    }
 
     public void inicializarArrayCategorias(){
 
@@ -291,11 +303,11 @@ public class act_agregar_receta extends AppCompatActivity {
 
         if(!txtDescripcionIngrediente1.getText().toString().equals("") && !txtCantidadIngrediente1.getText().toString().equals("")){
 
-            float cantidadIngrediente = Float.parseFloat(txtCantidadIngrediente1.getText().toString());
+            String cantidadIngrediente = txtCantidadIngrediente1.getText().toString();
 
-            if(cantidadIngrediente != 0){
+            if(!cantidadIngrediente.equals("0")){
                 Ingrediente ingrediente = new Ingrediente(txtDescripcionIngrediente1.getText().toString(),
-                        Float.parseFloat(txtCantidadIngrediente1.getText().toString()));
+                        txtCantidadIngrediente1.getText().toString());
 
                 listaIngredientes.add(ingrediente);
 
@@ -371,9 +383,9 @@ public class act_agregar_receta extends AppCompatActivity {
         return categorias;
     }// Fin método getCategoriasSeleccionadas
 
-    public ArrayList<Float> getCantidadIngredientes(){
+    public ArrayList<String> getCantidadIngredientes(){
 
-        ArrayList<Float> cantIngredientes = new ArrayList<>();
+        ArrayList<String> cantIngredientes = new ArrayList<>();
 
         if(!listaIngredientes.isEmpty()){
 
@@ -385,7 +397,7 @@ public class act_agregar_receta extends AppCompatActivity {
 
         }else{
             if(!txtCantidadIngrediente1.getText().equals("")){
-                cantIngredientes.add(Float.parseFloat(txtCantidadIngrediente1.getText().toString()));
+                cantIngredientes.add(txtCantidadIngrediente1.getText().toString());
             }
         }
 
@@ -437,6 +449,8 @@ public class act_agregar_receta extends AppCompatActivity {
 
             if(!getCantidadIngredientes().isEmpty() || !getIngredientes().isEmpty() || !getPasos().isEmpty()){
 
+                crearProgressDialog();
+
                 String idReceta = UUID.randomUUID().toString();
 
                 String nombreReceta = txtNombreReceta.getText().toString();
@@ -446,36 +460,6 @@ public class act_agregar_receta extends AppCompatActivity {
                 final StorageReference nombre_archivo = imagesRef.child(nombreReceta+"_"+idReceta);
 
                 UploadTask uploadTask = nombre_archivo.putFile(imgRecetaTemp);
-
-                /*uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        if (taskSnapshot.getMetadata() != null) {
-                            if (taskSnapshot.getMetadata().getReference() != null) {
-
-                                //Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
-
-                                //imgRecetaSubida = nombre_archivo.getDownloadUrl().getResult();
-
-                                Receta receta = new Receta(
-                                        id,
-                                        Integer.parseInt(txtTiempoPreparacion.getText().toString()),
-                                        tiemposComidaSpinner.getSelectedItem().toString(),
-                                        getCategoriasSeleccionadas(),
-                                        nombreReceta,
-                                        nombre_archivo.getDownloadUrl(),
-                                        getCantidadIngredientes(),
-                                        getIngredientes(),
-                                        getPasos());
-
-                                databaseReference.child("Receta").child(receta.getId()).setValue(receta);
-                                Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
-                                //Toast.makeText(getApplicationContext(), imgRecetaSubida+"", Toast.LENGTH_LONG).show();
-
-                            }
-                        }
-                    }
-                });
 
                 uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
                     @Override
@@ -501,17 +485,21 @@ public class act_agregar_receta extends AppCompatActivity {
                                     tiemposComidaSpinner.getSelectedItem().toString(),
                                     getCategoriasSeleccionadas(),
                                     nombreReceta,
-                                    imgRecetaSubida,
+                                    imgRecetaSubida.toString(),
                                     getCantidadIngredientes(),
                                     getIngredientes(),
                                     getPasos());
 
                             databaseReference.child("Receta").child(receta.getId()).setValue(receta);
+
+                            progressDialog.dismiss();
+
                             Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
-                            //Toast.makeText(getApplicationContext(), imgRecetaSubida+"", Toast.LENGTH_LONG).show();
+
+                            finish();
 
                         }else{
-
+                            Toast.makeText(getApplicationContext(), getString(R.string.msg_error_upload_fotografia), Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -520,24 +508,7 @@ public class act_agregar_receta extends AppCompatActivity {
                     public void onFailure(@NonNull Exception e) {
                         Log.d("Fallo continuación task upload","Resultado del fallo: " + e);
                     }
-                });*/
-
-                Receta receta = new Receta(
-                        idReceta,
-                        Integer.parseInt(txtTiempoPreparacion.getText().toString()),
-                        tiemposComidaSpinner.getSelectedItem().toString(),
-                        getCategoriasSeleccionadas(),
-                        nombreReceta,
-                        getCantidadIngredientes(),
-                        getIngredientes(),
-                        getPasos());
-
-                //String url = nombre_archivo.getDownloadUrl().getResult().toString();
-
-                databaseReference.child("Receta").child(receta.getId()).setValue(receta);
-                //databaseReference.child("Receta").child(receta.getId()).child("direccion").setValue(url);
-                Toast.makeText(getApplicationContext(), getString(R.string.msg_agregado_correctamente), Toast.LENGTH_SHORT).show();
-                //Toast.makeText(getApplicationContext(), imgRecetaSubida+"", Toast.LENGTH_LONG).show();
+                });
 
             }else{
                 Toast.makeText(getApplicationContext(), getString(R.string.msg_campos_requeridos), Toast.LENGTH_SHORT).show();

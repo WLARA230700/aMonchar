@@ -545,7 +545,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="41dp"
                                 android:background="@drawable/custom_input"
-                                android:inputType="textPersonName"
+                                android:inputType="textShortMessage"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp"
                                 android:layout_weight=".8"
@@ -727,7 +727,7 @@
                                     android:layout_weight="1"
                                     android:background="@drawable/custom_input"
                                     android:ems="10"
-                                    android:inputType="textPersonName"
+                                    android:inputType="textLongMessage"
                                     android:paddingLeft="10dp"
                                     android:paddingRight="10dp" />
 

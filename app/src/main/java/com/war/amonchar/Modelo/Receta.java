@@ -13,12 +13,12 @@ public class Receta {
     private String tiempo_comida;
     private ArrayList<String> categorias;
     private String nombre_receta;
-    private Uri imagen;
-    private ArrayList<Float> cantidad_ingredientes;
+    private String imagen;
+    private ArrayList<String> cantidad_ingredientes;
     private ArrayList<String> ingredientes;
     private ArrayList<String> pasos;
 
-    public Receta(String id, int tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, Uri imagen, ArrayList<Float> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
+    public Receta(String id, int tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, String imagen, ArrayList<String> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
         this.id = id;
         this.tiempo_preparacion = tiempo_preparacion;
         this.tiempo_comida = tiempo_comida;
@@ -30,7 +30,7 @@ public class Receta {
         this.pasos = pasos;
     }
 
-    public Receta(String id, int tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, ArrayList<Float> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
+    public Receta(String id, int tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, ArrayList<String> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
         this.id = id;
         this.tiempo_preparacion = tiempo_preparacion;
         this.tiempo_comida = tiempo_comida;
@@ -47,7 +47,7 @@ public class Receta {
         this.tiempo_comida = "";
         this.categorias = null;
         this.nombre_receta = "";
-        this.imagen = Uri.EMPTY;
+        this.imagen = "";
         this.cantidad_ingredientes = null;
         this.ingredientes = null;
         this.pasos = null;
@@ -93,19 +93,19 @@ public class Receta {
         this.nombre_receta = nombre_receta;
     }
 
-    public Uri getImagen() {
+    public String getImagen() {
         return imagen;
     }
 
-    public void setImagen(Uri imagen) {
+    public void setImagen(String imagen) {
         this.imagen = imagen;
     }
 
-    public ArrayList<Float> getCantidad_ingredientes() {
+    public ArrayList<String> getCantidad_ingredientes() {
         return cantidad_ingredientes;
     }
 
-    public void setCantidad_ingredientes(ArrayList<Float> cantidad_ingredientes) {
+    public void setCantidad_ingredientes(ArrayList<String> cantidad_ingredientes) {
         this.cantidad_ingredientes = cantidad_ingredientes;
     }
 

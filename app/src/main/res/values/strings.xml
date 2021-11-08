@@ -37,7 +37,7 @@
     <string name="act_buscar_ingredientes">Buscar por ingredientes</string>
     <string name="act_lista_recetas">Lista de recetas</string>
 
-    <!-- Etiquetas -->
+    <!-- ETIQUETAS -->
     <string name="lbl_nombre">Nombre</string>
     <string name="lbl_apellidos">Apellidos</string>
     <string name="lbl_biografia">Biografía</string>
@@ -54,8 +54,9 @@
     <string name="lbl_titulo_autenticacion">Verifique su identidad</string>
     <string name="lbl_subtitulo_autenticacion_fingerprint">Coloque su huella en el lector</string>
     <string name="lbl_subtitulo_autenticacion_pincode">Ingrese el pin de pantalla de bloqueo</string>
+    <string name="lbl_titulo_alertDialog_cargar_fotografia">¿Cómo desea cargar su fotografía?</string>
 
-    <!-- Botones -->
+    <!-- BOTONES -->
     <string name="btn_registrarse">Registrarse</string>
     <string name="btn_agregar">Agregar</string>
     <string name="btn_guardar">Guardar</string>
@@ -63,6 +64,16 @@
     <string name="btn_buscar">Buscar</string>
     <string name="btn_aniadir_a_plan_semanal">Añadir a mi plan semanal</string>
     <string name="btn_cancelar_autenticacion">Cancelar</string>
+    <string name="btn_capturar_Fotografia_camara">Cámara</string>
+    <string name="btn_capturar_Fotografia_galeria">Galería</string>
+
+    <!-- MENSAJES -->
+    <string name="msg_permiso_camara_almacenamiento_requerido">Se requieren permisos de cámara y almacenamiento</string>
+    <string name="msg_permiso_almacenamiento_requerido">Se requiere permiso de almacenamiento</string>
+    <string name="msg_campos_requeridos">Debe rellenar todos los campos</string>
+    <string name="msg_agregado_correctamente">Agregado correctamente</string>
+    <string name="msg_agregado_incorrectamente">Ha ocurrido un error al agregar</string>
+    <string name="msg_error_upload_fotografia">Ha ocurrido un error al guardar la fotografía</string>
 
     <!-- ARRAY DE TIEMPOS DE COMIDA -->
     <string-array name="array_tiempos_comida">

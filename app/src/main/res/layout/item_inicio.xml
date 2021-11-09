@@ -19,43 +19,50 @@
             android:layout_marginBottom="10dp"
             android:orientation="vertical">
 
-            <FrameLayout
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="0dp">
 
-                <ImageView
-                    android:id="@+id/imgReceta"
+                <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    app:srcCompat="@drawable/custom_foto_inicio" />
+                    android:layout_height="match_parent">
 
-                <ImageView
-                    android:id="@+id/bgTimer"
-                    android:layout_width="55dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    app:srcCompat="@drawable/timer_background" />
+                    <ImageView
+                        android:id="@+id/imgReceta"
+                        android:layout_width="match_parent"
+                        android:layout_height="150dp"
+                        app:srcCompat="@color/texto" />
 
-                <ImageView
-                    android:id="@+id/imgTimer"
-                    android:layout_width="10dp"
-                    android:layout_height="10dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="15dp"
-                    app:srcCompat="@drawable/ic_clock_regular" />
+                    <ImageView
+                        android:id="@+id/bgTimer"
+                        android:layout_width="55dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        app:srcCompat="@drawable/timer_background" />
 
-                <TextView
-                    android:id="@+id/lbTiempoPreparacion"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="30dp"
-                    android:layout_marginTop="15dp"
-                    android:fontFamily="@font/poppins"
-                    android:text="45 min"
-                    android:textColor="#f5f5f5"
-                    android:textSize="8dp" />
-            </FrameLayout>
+                    <ImageView
+                        android:id="@+id/imgTimer"
+                        android:layout_width="10dp"
+                        android:layout_height="10dp"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        app:srcCompat="@drawable/ic_clock_regular" />
+
+                    <TextView
+                        android:id="@+id/lbTiempoPreparacion"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/poppins"
+                        android:text="45 min"
+                        android:textColor="#f5f5f5"
+                        android:textSize="8dp" />
+                </FrameLayout>
+            </androidx.cardview.widget.CardView>
 
             <TextView
                 android:id="@+id/lbTituloPS"

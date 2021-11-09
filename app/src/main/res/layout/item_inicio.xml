@@ -6,7 +6,7 @@
 
     <LinearLayout
         android:id="@+id/receta"
-        android:layout_width="200dp"
+        android:layout_width="197sp"
         android:layout_height="wrap_content"
         android:layout_columnWeight="50"
         android:orientation="vertical"

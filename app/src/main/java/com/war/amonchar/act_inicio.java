@@ -1,5 +1,6 @@
 package com.war.amonchar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,13 +8,27 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.GenericTypeIndicator;
+import com.google.firebase.database.ValueEventListener;
 import com.war.amonchar.BaseDeDatos.BD;
+import com.war.amonchar.Modelo.AdapterRecetas;
+import com.war.amonchar.Modelo.Adapter_Ingredientes_agregar_receta;
 import com.war.amonchar.Modelo.GlobalVariables;
+import com.war.amonchar.Modelo.Receta;
+
+import java.util.ArrayList;
 
 public class act_inicio extends AppCompatActivity {
 
@@ -21,6 +36,14 @@ public class act_inicio extends AppCompatActivity {
     TextView lbHolaUsuario;
     LinearLayout receta1;
     BD db;
+    GridLayout gridRecetas;
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    ArrayList<Receta> recetas  = new ArrayList<>();
+    Receta receta;
+
+    AdapterRecetas adapterRecetas;
 
     @Override
     public void onBackPressed() {
@@ -38,11 +61,14 @@ public class act_inicio extends AppCompatActivity {
 
         db = new BD(getApplicationContext());
 
+        inicializarFirebase();
+        cargarRecetas();
+
         icUsuario = findViewById(R.id.icUsuario);
         icListaCompra = findViewById(R.id.icListaCompra);
         icBuscar = findViewById(R.id.icBuscar);
-        receta1 = findViewById(R.id.receta1);
         btnCerrarSesion = findViewById(R.id.btnCerrarSesion);
+        gridRecetas = findViewById(R.id.gridRecetas);
 
         lbHolaUsuario = findViewById(R.id.lbHolaUsuario);
         lbHolaUsuario.setText("¡Hola " + ((GlobalVariables) getApplication()).getUsuarioLogueado().getNombreUsuario() + "!");
@@ -78,15 +104,76 @@ public class act_inicio extends AppCompatActivity {
             }
         });
 
-        receta1.setOnClickListener(new View.OnClickListener() {
+    }//Fin onCreate
+
+    private void inicializarFirebase() {
+        FirebaseApp.initializeApp(this);
+        firebaseDatabase = FirebaseDatabase.getInstance(); // Obtengo la instancia de firebase
+        databaseReference = firebaseDatabase.getReference(); // Obtengo la referencia a utilizar en la base de datos
+    }//fin inicializarFirebase
+
+    public void cargarRecetas(){
+        databaseReference.child("Receta").addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
-                startActivity(intent);
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                recetas.clear();
+                for(DataSnapshot obtSnapshot : snapshot.getChildren()){
+                    //receta = obtSnapshot.getValue(Receta.class);
+
+                    GenericTypeIndicator<ArrayList<String>> x = new GenericTypeIndicator<ArrayList<String>>(){};
+
+
+                    String id = obtSnapshot.child("id").getValue(String.class);
+                    int tiempo_preparacion = obtSnapshot.child("tiempo_preparacion").getValue(int.class);
+                    String tiempo_comida = obtSnapshot.child("tiempo_comida").getValue(String.class);
+                    ArrayList<String> categorias = obtSnapshot.child("categorias").getValue(x);
+                    String nombre_receta = obtSnapshot.child("nombre_receta").getValue(String.class);
+                    String imagen = obtSnapshot.child("imagen").getValue(String.class);
+                    ArrayList<String> cantidad_ingredientes = obtSnapshot.child("cantidad_ingredientes").getValue(x);
+                    ArrayList<String> ingredientes = obtSnapshot.child("ingredientes").getValue(x);
+                    ArrayList<String> pasos = obtSnapshot.child("pasos").getValue(x);
+
+                    receta = new Receta(id, tiempo_preparacion, tiempo_comida, categorias, nombre_receta, imagen, cantidad_ingredientes, ingredientes, pasos);
+
+                    recetas.add(receta);
+
+                    //arrayAdapter = new ArrayAdapter<Persona>(MainActivity.this, android.R.layout.simple_list_item_1, personas);
+                    //lstPersonas.setAdapter(arrayAdapter);
+
+                }
+
+                int contador = 0;
+
+                adapterRecetas = new AdapterRecetas(getApplicationContext(), recetas);
+
+
+                if(gridRecetas.getChildCount() > 0){
+                    contador = gridRecetas.getChildCount();
+                }
+
+                for(int i = contador; i < recetas.size(); i++){
+                    View view = adapterRecetas.getView(i, null, gridRecetas);
+
+                    int posReceta = i;
+                    view.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
+                            intent.putExtra("idReceta", recetas.get(posReceta).getId());
+                            startActivity(intent);
+                        }
+                    });
+                    gridRecetas.addView(view);
+                }
+                int children = gridRecetas.getChildCount();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
-
-    }//Fin onCreate
+    }
 
     private void cerrarSesion(BD db) {
 
@@ -111,29 +198,5 @@ public class act_inicio extends AppCompatActivity {
         });
 
         alertDialog.show();
-        /*
-
-        // opciones para mostrar en el diálogo
-        String[] options = {"Sí"};
-        //dialogo
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //Titulo
-        builder.setTitle("¿Seguro que desea cerrar sesión?");
-        // establecer elementos / opciones
-        builder.setItems(options, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                // manejar clicks
-                if (which==0){
-                    ((GlobalVariables) getApplication()).getUsuarioLogueado().setLogueado(false);
-                    db.modificarUsuario(((GlobalVariables) getApplication()).getUsuarioLogueado());
-                    Toast.makeText(getApplicationContext(), "Sesión Cerrada", Toast.LENGTH_SHORT).show();
-                    finish();
-                }
-            }
-        });
-
-        // Crear / mostrar diálogo
-        builder.create().show();*/
     }
 }

@@ -25,8 +25,11 @@ import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.war.amonchar.Modelo.AdapterPreparacion;
 import com.war.amonchar.Modelo.Adapter_Ingredientes_agregar_receta;
 import com.war.amonchar.Modelo.Adapter_categoria_detalle_receta;
+import com.war.amonchar.Modelo.Ingrediente;
+import com.war.amonchar.Modelo.PasoPreparacion;
 
 import java.util.ArrayList;
 
@@ -41,6 +44,8 @@ public class act_detalle_receta extends AppCompatActivity {
     ImageView img_fotografia;
     ListView lista_ingredientes, lista_pasos;
     Adapter_categoria_detalle_receta adapter_categoria_detalle_receta;
+    Adapter_Ingredientes_agregar_receta adapter_ingredientes_agregar_receta;
+    AdapterPreparacion adapterPreparacion;
 
     String recetaId = "";
 
@@ -48,6 +53,8 @@ public class act_detalle_receta extends AppCompatActivity {
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
     Boolean estadoPlanSemanal = false;
+    Ingrediente ingredienteFor;
+    PasoPreparacion pasoFor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,8 +101,29 @@ public class act_detalle_receta extends AppCompatActivity {
                 if (dataSnapshot.exists()){
                         GenericTypeIndicator<ArrayList<String>> x = new GenericTypeIndicator<ArrayList<String>>(){};
                         ArrayList<String> categorias = dataSnapshot.child("categorias").getValue(x);
+                        ArrayList<String> cantidad_ingredientes = dataSnapshot.child("cantidad_ingredientes").getValue(x);
+                        ArrayList<String> nombreIngredientes = dataSnapshot.child("ingredientes").getValue(x);
+                        ArrayList<String> numero_pasos_db = dataSnapshot.child("pasos").getValue(x);
 
-                    adapter_categoria_detalle_receta = new Adapter_categoria_detalle_receta(getApplicationContext(), categorias);
+                        ArrayList<Ingrediente> ingredientes = new ArrayList<>();
+                        ArrayList<PasoPreparacion> pasos = new ArrayList<>();
+
+                        for(int i = 0; i < cantidad_ingredientes.size(); i++){
+                            ingredienteFor = new Ingrediente(nombreIngredientes.get(i), cantidad_ingredientes.get(i));
+                            ingredientes.add(ingredienteFor);
+                        }
+
+                        for(int i = 0; i < numero_pasos_db.size(); i++){
+                            pasoFor = new PasoPreparacion(i + 1, numero_pasos_db.get(i));
+                            pasos.add(pasoFor);
+                        }
+
+                        adapter_categoria_detalle_receta = new Adapter_categoria_detalle_receta(getApplicationContext(), categorias);
+                        adapter_ingredientes_agregar_receta = new Adapter_Ingredientes_agregar_receta(getApplicationContext(), ingredientes);
+                        adapterPreparacion = new AdapterPreparacion(getApplicationContext(), pasos);
+
+                        lista_ingredientes.setAdapter(adapter_ingredientes_agregar_receta);
+                        lista_pasos.setAdapter(adapterPreparacion);
 
                     for(int i = 0; i < adapter_categoria_detalle_receta.getCount(); i++){
                         View view = adapter_categoria_detalle_receta.getView(i, null, contenedorCategorias);
@@ -103,14 +131,8 @@ public class act_detalle_receta extends AppCompatActivity {
                     }
 
                         String nombreReceta = dataSnapshot.child("nombre_receta").getValue().toString();
-                        //String categoria = dataSnapshot.child("categorias").getValue().toString();
-
-                        //String ingredientes = dataSnapshot.child("ingredientes").getValue().toString();
-                        //String pasos = dataSnapshot.child("pasos").getValue().toString();
-
-
                         txt_nombre_receta.setText(nombreReceta);
-                       // btn_categoria1.setText(categoria);
+
 
 
 

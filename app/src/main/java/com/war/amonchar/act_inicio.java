@@ -160,6 +160,7 @@ public class act_inicio extends AppCompatActivity {
                         public void onClick(View v) {
                             Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
                             intent.putExtra("idReceta", recetas.get(posReceta).getId());
+                            intent.putExtra("nombreReceta", recetas.get(posReceta).getNombre_receta());
                             startActivity(intent);
                         }
                     });

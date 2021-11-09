@@ -36,17 +36,17 @@ import java.util.ArrayList;
 public class act_detalle_receta extends AppCompatActivity {
 
     ImageView btnBack;
-    LinearLayout planSemanal, contenedorCategorias;
+    LinearLayout planSemanal, contenedorCategorias, listaIngrediente, listaPasos;
     Button btnPlanSemanal;
 
     TextView txt_nombre_receta;
     Button btn_categoria1, btn_categoria2;
     ImageView img_fotografia;
-    ListView lista_ingredientes, lista_pasos;
     Adapter_categoria_detalle_receta adapter_categoria_detalle_receta;
     Adapter_Ingredientes_agregar_receta adapter_ingredientes_agregar_receta;
     AdapterPreparacion adapterPreparacion;
 
+    String direccionReceta = "";
     String recetaId = "";
 
     private DatabaseReference mDatabse;
@@ -62,6 +62,12 @@ public class act_detalle_receta extends AppCompatActivity {
         setContentView(R.layout.lyt_detalle_receta);
         getSupportActionBar().hide();
 
+        Bundle bundle = getIntent().getExtras();
+        if(bundle != null){
+            direccionReceta = bundle.getString("nombreReceta")+ "_" + bundle.getString("idReceta");
+            recetaId = bundle.getString("idReceta");
+        }
+
         btnBack = findViewById(R.id.btnBack);
         planSemanal = findViewById(R.id.planSemanal);
         btnPlanSemanal = findViewById(R.id.btnPlanSemanal);
@@ -69,8 +75,9 @@ public class act_detalle_receta extends AppCompatActivity {
         txt_nombre_receta = findViewById(R.id.txt_nombre_receta);
         contenedorCategorias = findViewById(R.id.contenedorCategorias);
         img_fotografia = findViewById(R.id.img_fotografia);
-        lista_ingredientes = findViewById(R.id.lista_ingredientes);
-        lista_pasos = findViewById(R.id.lista_pasos);
+        listaIngrediente = findViewById(R.id.listaIngrediente);
+        listaPasos = findViewById(R.id.listaPasos);
+
 
         planSemanal.setVisibility(View.GONE);
 
@@ -88,13 +95,14 @@ public class act_detalle_receta extends AppCompatActivity {
             }
         });
 
-        //Extracción de datos de la BD
+       //Inisializar
         mDatabse = FirebaseDatabase.getInstance().getReference();
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
 
-        recetaId = "64bf9c07-a316-4cd9-bc42-6e9921722b58";
+        //recetaId = "64bf9c07-a316-4cd9-bc42-6e9921722b58";
 
+        //Extracción de datos de la BD
         mDatabse.child("Receta").child(recetaId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -113,6 +121,7 @@ public class act_detalle_receta extends AppCompatActivity {
                             ingredientes.add(ingredienteFor);
                         }
 
+
                         for(int i = 0; i < numero_pasos_db.size(); i++){
                             pasoFor = new PasoPreparacion(i + 1, numero_pasos_db.get(i));
                             pasos.add(pasoFor);
@@ -122,8 +131,15 @@ public class act_detalle_receta extends AppCompatActivity {
                         adapter_ingredientes_agregar_receta = new Adapter_Ingredientes_agregar_receta(getApplicationContext(), ingredientes);
                         adapterPreparacion = new AdapterPreparacion(getApplicationContext(), pasos);
 
-                        lista_ingredientes.setAdapter(adapter_ingredientes_agregar_receta);
-                        lista_pasos.setAdapter(adapterPreparacion);
+                    for(int i = 0; i < adapter_ingredientes_agregar_receta.getCount(); i++){
+                        View view = adapter_ingredientes_agregar_receta.getView(i, null, listaIngrediente);
+                        listaIngrediente.addView(view);
+                    }
+
+                    for(int i = 0; i < adapterPreparacion.getCount(); i++){
+                        View view = adapterPreparacion.getView(i, null, listaPasos);
+                        listaPasos.addView(view);
+                    }
 
                     for(int i = 0; i < adapter_categoria_detalle_receta.getCount(); i++){
                         View view = adapter_categoria_detalle_receta.getView(i, null, contenedorCategorias);
@@ -132,10 +148,6 @@ public class act_detalle_receta extends AppCompatActivity {
 
                         String nombreReceta = dataSnapshot.child("nombre_receta").getValue().toString();
                         txt_nombre_receta.setText(nombreReceta);
-
-
-
-
                 }
             }
 
@@ -151,7 +163,7 @@ public class act_detalle_receta extends AppCompatActivity {
     //Método para descargar URL de la base de datos
     public void descargarViaUrl(){
 
-        StorageReference imageRef = storageReference.child("Fotografia_Recetas/gelato_64bf9c07-a316-4cd9-bc42-6e9921722b58");
+        StorageReference imageRef = storageReference.child("Fotografia_Recetas/"+ direccionReceta);
 
         imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
@@ -159,6 +171,7 @@ public class act_detalle_receta extends AppCompatActivity {
                 //Cargar una imagen URI usando Glide
                 Glide.with(act_detalle_receta.this)
                         .load(uri)
+                        .centerCrop()
                         .error(R.drawable.ic_launcher_background)
                         .into(img_fotografia);
             }

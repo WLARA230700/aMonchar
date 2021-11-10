@@ -118,27 +118,32 @@ public class act_inicio extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 recetas.clear();
                 for(DataSnapshot obtSnapshot : snapshot.getChildren()){
-                    //receta = obtSnapshot.getValue(Receta.class);
 
-                    GenericTypeIndicator<ArrayList<String>> x = new GenericTypeIndicator<ArrayList<String>>(){};
-
+                    GenericTypeIndicator<ArrayList<String>> indicator = new GenericTypeIndicator<ArrayList<String>>(){};
 
                     String id = obtSnapshot.child("id").getValue(String.class);
                     int tiempo_preparacion = obtSnapshot.child("tiempo_preparacion").getValue(int.class);
+                    String medida_tiempo_preparacion = obtSnapshot.child("medida_tiempo_preparacion").getValue(String.class);
                     String tiempo_comida = obtSnapshot.child("tiempo_comida").getValue(String.class);
-                    ArrayList<String> categorias = obtSnapshot.child("categorias").getValue(x);
+                    ArrayList<String> categorias = obtSnapshot.child("categorias").getValue(indicator);
                     String nombre_receta = obtSnapshot.child("nombre_receta").getValue(String.class);
                     String imagen = obtSnapshot.child("imagen").getValue(String.class);
-                    ArrayList<String> cantidad_ingredientes = obtSnapshot.child("cantidad_ingredientes").getValue(x);
-                    ArrayList<String> ingredientes = obtSnapshot.child("ingredientes").getValue(x);
-                    ArrayList<String> pasos = obtSnapshot.child("pasos").getValue(x);
+                    ArrayList<String> cantidad_ingredientes = obtSnapshot.child("cantidad_ingredientes").getValue(indicator);
+                    ArrayList<String> ingredientes = obtSnapshot.child("ingredientes").getValue(indicator);
+                    ArrayList<String> pasos = obtSnapshot.child("pasos").getValue(indicator);
 
-                    receta = new Receta(id, tiempo_preparacion, tiempo_comida, categorias, nombre_receta, imagen, cantidad_ingredientes, ingredientes, pasos);
+                    receta = new Receta(id,
+                            tiempo_preparacion,
+                            medida_tiempo_preparacion,
+                            tiempo_comida,
+                            categorias,
+                            nombre_receta,
+                            imagen,
+                            cantidad_ingredientes,
+                            ingredientes,
+                            pasos);
 
                     recetas.add(receta);
-
-                    //arrayAdapter = new ArrayAdapter<Persona>(MainActivity.this, android.R.layout.simple_list_item_1, personas);
-                    //lstPersonas.setAdapter(arrayAdapter);
 
                 }
 

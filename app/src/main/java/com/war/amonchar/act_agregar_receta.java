@@ -482,6 +482,7 @@ public class act_agregar_receta extends AppCompatActivity {
                             Receta receta = new Receta(
                                     idReceta,
                                     Integer.parseInt(txtTiempoPreparacion.getText().toString()),
+                                    preparacionSpinner.getSelectedItem().toString(),
                                     tiemposComidaSpinner.getSelectedItem().toString(),
                                     getCategoriasSeleccionadas(),
                                     nombreReceta,
@@ -522,9 +523,9 @@ public class act_agregar_receta extends AppCompatActivity {
 
     public boolean validar(){
 
-        if(txtTiempoPreparacion.getText().equals("") ||
+        if(txtTiempoPreparacion.getText().toString().isEmpty() ||
                 getCategoriasSeleccionadas().isEmpty() ||
-                txtNombreReceta.getText().equals("") ||
+                txtNombreReceta.getText().toString().isEmpty() ||
                 imgRecetaTemp == Uri.EMPTY ||
                 listaIngredientes.isEmpty() ||
                 listaPasos.isEmpty()){

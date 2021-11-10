@@ -39,8 +39,7 @@ public class act_detalle_receta extends AppCompatActivity {
     LinearLayout planSemanal, contenedorCategorias, listaIngrediente, listaPasos;
     Button btnPlanSemanal;
 
-    TextView txt_nombre_receta;
-    Button btn_categoria1, btn_categoria2;
+    TextView txt_nombre_receta, lblTiempoPreparacion;
     ImageView img_fotografia;
     Adapter_categoria_detalle_receta adapter_categoria_detalle_receta;
     Adapter_Ingredientes_agregar_receta adapter_ingredientes_agregar_receta;
@@ -78,6 +77,7 @@ public class act_detalle_receta extends AppCompatActivity {
         listaIngrediente = findViewById(R.id.listaIngrediente);
         listaPasos = findViewById(R.id.listaPasos);
 
+        lblTiempoPreparacion = findViewById(R.id.lblTiempoPreparacion);
 
         planSemanal.setVisibility(View.GONE);
 
@@ -100,36 +100,40 @@ public class act_detalle_receta extends AppCompatActivity {
         firebaseStorage = FirebaseStorage.getInstance();
         storageReference = firebaseStorage.getReference();
 
-        //recetaId = "64bf9c07-a316-4cd9-bc42-6e9921722b58";
-
         //Extracción de datos de la BD
         mDatabse.child("Receta").child(recetaId).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
-                        GenericTypeIndicator<ArrayList<String>> x = new GenericTypeIndicator<ArrayList<String>>(){};
-                        ArrayList<String> categorias = dataSnapshot.child("categorias").getValue(x);
-                        ArrayList<String> cantidad_ingredientes = dataSnapshot.child("cantidad_ingredientes").getValue(x);
-                        ArrayList<String> nombreIngredientes = dataSnapshot.child("ingredientes").getValue(x);
-                        ArrayList<String> numero_pasos_db = dataSnapshot.child("pasos").getValue(x);
 
-                        ArrayList<Ingrediente> ingredientes = new ArrayList<>();
-                        ArrayList<PasoPreparacion> pasos = new ArrayList<>();
+                    GenericTypeIndicator<ArrayList<String>> indicator = new GenericTypeIndicator<ArrayList<String>>(){};
 
-                        for(int i = 0; i < cantidad_ingredientes.size(); i++){
-                            ingredienteFor = new Ingrediente(nombreIngredientes.get(i), cantidad_ingredientes.get(i));
-                            ingredientes.add(ingredienteFor);
-                        }
+                    int tiempo_preparacion = dataSnapshot.child("tiempo_preparacion").getValue(int.class);
+                    String medida_tiempo_preparacion = dataSnapshot.child("medida_tiempo_preparacion").getValue(String.class);
+                    String nombreReceta = dataSnapshot.child("nombre_receta").getValue().toString();
+
+                    ArrayList<String> categorias = dataSnapshot.child("categorias").getValue(indicator);
+                    ArrayList<String> cantidad_ingredientes = dataSnapshot.child("cantidad_ingredientes").getValue(indicator);
+                    ArrayList<String> nombreIngredientes = dataSnapshot.child("ingredientes").getValue(indicator);
+                    ArrayList<String> numero_pasos_db = dataSnapshot.child("pasos").getValue(indicator);
+
+                    ArrayList<Ingrediente> ingredientes = new ArrayList<>();
+                    ArrayList<PasoPreparacion> pasos = new ArrayList<>();
+
+                    for(int i = 0; i < cantidad_ingredientes.size(); i++){
+                        ingredienteFor = new Ingrediente(nombreIngredientes.get(i), cantidad_ingredientes.get(i));
+                        ingredientes.add(ingredienteFor);
+                    }
 
 
-                        for(int i = 0; i < numero_pasos_db.size(); i++){
-                            pasoFor = new PasoPreparacion(i + 1, numero_pasos_db.get(i));
-                            pasos.add(pasoFor);
-                        }
+                    for(int i = 0; i < numero_pasos_db.size(); i++){
+                        pasoFor = new PasoPreparacion(i + 1, numero_pasos_db.get(i));
+                        pasos.add(pasoFor);
+                    }
 
-                        adapter_categoria_detalle_receta = new Adapter_categoria_detalle_receta(getApplicationContext(), categorias);
-                        adapter_ingredientes_agregar_receta = new Adapter_Ingredientes_agregar_receta(getApplicationContext(), ingredientes);
-                        adapterPreparacion = new AdapterPreparacion(getApplicationContext(), pasos);
+                    adapter_categoria_detalle_receta = new Adapter_categoria_detalle_receta(getApplicationContext(), categorias);
+                    adapter_ingredientes_agregar_receta = new Adapter_Ingredientes_agregar_receta(getApplicationContext(), ingredientes);
+                    adapterPreparacion = new AdapterPreparacion(getApplicationContext(), pasos);
 
                     for(int i = 0; i < adapter_ingredientes_agregar_receta.getCount(); i++){
                         View view = adapter_ingredientes_agregar_receta.getView(i, null, listaIngrediente);
@@ -146,8 +150,8 @@ public class act_detalle_receta extends AppCompatActivity {
                         contenedorCategorias.addView(view);
                     }
 
-                        String nombreReceta = dataSnapshot.child("nombre_receta").getValue().toString();
-                        txt_nombre_receta.setText(nombreReceta);
+                    txt_nombre_receta.setText(nombreReceta);
+                    lblTiempoPreparacion.setText(tiempo_preparacion + " "+ medida_tiempo_preparacion);
                 }
             }
 

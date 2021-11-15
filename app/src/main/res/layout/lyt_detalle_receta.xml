@@ -164,7 +164,7 @@
                                 android:paddingBottom="5sp">
 
                                 <CheckBox
-                                    android:id="@+id/checkBox7"
+                                    android:id="@+id/lunes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -172,7 +172,7 @@
                                     android:text="@string/lunes" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox8"
+                                    android:id="@+id/martes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -180,7 +180,7 @@
                                     android:text="@string/martes" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox9"
+                                    android:id="@+id/miercoles"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -188,7 +188,7 @@
                                     android:text="@string/miercoles" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox10"
+                                    android:id="@+id/jueves"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -196,7 +196,7 @@
                                     android:text="@string/jueves" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox11"
+                                    android:id="@+id/viernes"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -204,7 +204,7 @@
                                     android:text="@string/viernes" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox12"
+                                    android:id="@+id/sabado"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -212,7 +212,7 @@
                                     android:text="@string/sabado" />
 
                                 <CheckBox
-                                    android:id="@+id/checkComprado"
+                                    android:id="@+id/domingo"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -231,7 +231,7 @@
                                 android:paddingBottom="5dp">
 
                                 <CheckBox
-                                    android:id="@+id/checkBox13"
+                                    android:id="@+id/desayuno"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -239,7 +239,7 @@
                                     android:text="Desayuno" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox14"
+                                    android:id="@+id/merienda1"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -247,7 +247,7 @@
                                     android:text="@string/tc_merienda1" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox15"
+                                    android:id="@+id/almuerzo"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -255,7 +255,7 @@
                                     android:text="@string/tc_almuerzos" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox16"
+                                    android:id="@+id/merienda2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -263,7 +263,7 @@
                                     android:text="@string/tc_merienda2" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox17"
+                                    android:id="@+id/cena"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
@@ -271,12 +271,20 @@
                                     android:text="@string/tc_cenas" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox18"
+                                    android:id="@+id/merienda3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
                                     android:text="@string/tc_merienda3" />
+
+                                <Button
+                                    android:id="@+id/btnAgregarPlanSemanal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/btn_aniadir_a_plan_semanal"
+                                    android:textAllCaps="false"
+                                    app:cornerRadius="30dp" />
 
                             </LinearLayout>
 

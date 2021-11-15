@@ -62,7 +62,7 @@
     <string name="btn_guardar">Guardar</string>
     <string name="btn_cambiar_fotografia">Cambiar Fotografía</string>
     <string name="btn_buscar">Buscar</string>
-    <string name="btn_aniadir_a_plan_semanal">Añadir a mi plan semanal</string>
+    <string name="btn_aniadir_a_plan_semanal">Añadir a plan semanal</string>
     <string name="btn_cancelar_autenticacion">Cancelar</string>
     <string name="btn_capturar_Fotografia_camara">Cámara</string>
     <string name="btn_capturar_Fotografia_galeria">Galería</string>

@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -35,12 +37,13 @@ import java.util.ArrayList;
 
 public class act_detalle_receta extends AppCompatActivity {
 
-    ImageView btnBack;
+    ImageView btnBack, img_fotografia;
     LinearLayout planSemanal, contenedorCategorias, listaIngrediente, listaPasos;
-    Button btnPlanSemanal;
-
+    Button btnPlanSemanal, btnAgregarPlanSemanal;
     TextView txt_nombre_receta, lblTiempoPreparacion;
-    ImageView img_fotografia;
+    CheckBox lunes, martes, miercoles, jueves, viernes, sabado, domingo;
+    CheckBox desayuno, merienda1, almuerzo, merienda2, cena, merienda3;
+
     Adapter_categoria_detalle_receta adapter_categoria_detalle_receta;
     Adapter_Ingredientes_agregar_receta adapter_ingredientes_agregar_receta;
     AdapterPreparacion adapterPreparacion;
@@ -55,6 +58,12 @@ public class act_detalle_receta extends AppCompatActivity {
     Ingrediente ingredienteFor;
     PasoPreparacion pasoFor;
 
+    private boolean daySelected = false;
+    private boolean timeSelected = false;
+
+    private ArrayList<CheckBox> diasSemana = new ArrayList<>();
+    private ArrayList<CheckBox> tiempoComida = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,23 +72,44 @@ public class act_detalle_receta extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
         if(bundle != null){
-            direccionReceta = bundle.getString("nombreReceta")+ "_" + bundle.getString("idReceta");
+            direccionReceta = bundle.getString("nombreReceta") + "_" + bundle.getString("idReceta");
             recetaId = bundle.getString("idReceta");
         }
 
+        lunes = findViewById(R.id.lunes);
+        martes = findViewById(R.id.martes);
+        miercoles = findViewById(R.id.miercoles);
+        jueves = findViewById(R.id.jueves);
+        viernes = findViewById(R.id.viernes);
+        sabado = findViewById(R.id.sabado);
+        domingo = findViewById(R.id.domingo);
+
+        desayuno = findViewById(R.id.desayuno);
+        merienda1 = findViewById(R.id.merienda1);
+        almuerzo = findViewById(R.id.almuerzo);
+        merienda2 = findViewById(R.id.merienda2);
+        cena = findViewById(R.id.cena);
+        merienda3 = findViewById(R.id.merienda3);
+
         btnBack = findViewById(R.id.btnBack);
-        planSemanal = findViewById(R.id.planSemanal);
         btnPlanSemanal = findViewById(R.id.btnPlanSemanal);
+        btnAgregarPlanSemanal = findViewById(R.id.btnAgregarPlanSemanal);
 
         txt_nombre_receta = findViewById(R.id.txt_nombre_receta);
+
         contenedorCategorias = findViewById(R.id.contenedorCategorias);
-        img_fotografia = findViewById(R.id.img_fotografia);
+        planSemanal = findViewById(R.id.planSemanal);
         listaIngrediente = findViewById(R.id.listaIngrediente);
         listaPasos = findViewById(R.id.listaPasos);
 
         lblTiempoPreparacion = findViewById(R.id.lblTiempoPreparacion);
 
+        img_fotografia = findViewById(R.id.img_fotografia);
+
         planSemanal.setVisibility(View.GONE);
+
+        cargarDiasSemana();
+        cargarTiemposComida();
 
         btnPlanSemanal.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,6 +124,16 @@ public class act_detalle_receta extends AppCompatActivity {
                 finish();
             }
         });
+
+        btnAgregarPlanSemanal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                agregarPlanSemanal();
+            }
+        });
+
+        initListenerDiasSemana();
+        initListenerTiempoComida();
 
        //Inisializar
         mDatabse = FirebaseDatabase.getInstance().getReference();
@@ -163,6 +203,95 @@ public class act_detalle_receta extends AppCompatActivity {
 
         descargarViaUrl();
     }//Fin onCreate
+
+    public void cargarDiasSemana(){
+        diasSemana.add(lunes);
+        diasSemana.add(martes);
+        diasSemana.add(miercoles);
+        diasSemana.add(jueves);
+        diasSemana.add(viernes);
+        diasSemana.add(sabado);
+        diasSemana.add(domingo);
+    }
+
+    public void cargarTiemposComida(){
+        tiempoComida.add(desayuno);
+        tiempoComida.add(merienda1);
+        tiempoComida.add(almuerzo);
+        tiempoComida.add(merienda2);
+        tiempoComida.add(cena);
+        tiempoComida.add(merienda3);
+    }
+
+    public void initListenerDiasSemana(){
+
+        for(int i = 0; i < diasSemana.size(); i++){
+            int pos = i;
+            diasSemana.get(i).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    //getDiaSemana(pos, b);
+                    Toast.makeText(getApplicationContext(), getDiaSemana(pos, b), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+
+    }
+
+    public String getDiaSemana(int pos, boolean checked){
+        String dia;
+        if(checked){
+            daySelected = true;
+            dia = diasSemana.get(pos).getText().toString();
+        }else{
+            daySelected = false;
+            dia = "";
+        }
+
+        for(int i = 0; i < diasSemana.size(); i++){
+            if(checked && i != pos){
+                diasSemana.get(i).setEnabled(false);
+            }else if(checked == false && i != pos){
+                diasSemana.get(i).setEnabled(true);
+            }
+        }
+
+        return dia;
+    }
+
+    public void initListenerTiempoComida(){
+
+        for(int i = 0; i < tiempoComida.size(); i++){
+            int pos = i;
+            tiempoComida.get(i).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                    getTiempoComida(pos, b);
+                }
+            });
+        }
+
+    }
+
+    public void getTiempoComida(int pos, boolean checked){
+        for(int i = 0; i < tiempoComida.size(); i++){
+            if(checked){
+                timeSelected = true;
+            }else{
+                timeSelected = false;
+            }
+
+            if(checked && i != pos){
+                tiempoComida.get(i).setEnabled(false);
+            }else if(checked == false && i != pos){
+                tiempoComida.get(i).setEnabled(true);
+            }
+        }
+    }
+
+    public void agregarPlanSemanal() {
+        //code
+    }
 
     //Método para descargar URL de la base de datos
     public void descargarViaUrl(){

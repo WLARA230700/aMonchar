@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="25dp"
+        android:paddingLeft="0dp"
         android:paddingTop="10dp"
         android:paddingRight="25dp"
         android:paddingBottom="10dp"
@@ -18,20 +18,21 @@
             android:id="@+id/txtNumero"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:fontFamily="@font/poppins_bold"
             android:text="1"
+            android:textAlignment="center"
             android:textColor="@color/texto"
-            android:textSize="18sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txtIngrediente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="9"
+            android:layout_weight="8"
             android:text="TextView"
             android:textColor="@color/texto"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

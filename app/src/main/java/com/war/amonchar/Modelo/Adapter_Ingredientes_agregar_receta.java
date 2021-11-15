@@ -11,19 +11,22 @@ import com.war.amonchar.R;
 
 import java.util.ArrayList;
 
-public class AdapterPreparacion extends BaseAdapter {
+public class Adapter_Ingredientes_agregar_receta extends BaseAdapter {
 
     Context context;
-    ArrayList<PasoPreparacion> lista;
+    ArrayList<Ingrediente> lista;
 
-    public AdapterPreparacion(Context context, ArrayList<PasoPreparacion> lista) {
+    public Adapter_Ingredientes_agregar_receta(Context context, ArrayList<Ingrediente> lista) {
         this.context = context;
         this.lista = lista;
     }
 
     @Override
     public int getCount() {
-        return lista.size();
+        if (lista != null){
+            return lista.size();
+        }
+        return 0;
     }
 
     @Override
@@ -41,14 +44,14 @@ public class AdapterPreparacion extends BaseAdapter {
 
         if (view == null){
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.item_pasos_preparacion, null);
+            view = layoutInflater.inflate(R.layout.item_lista_compra, null);
         }
 
-        TextView lblNumeroPaso = view.findViewById(R.id.lblNumeroPaso);
-        TextView lblDescripcion = view.findViewById(R.id.lblDescripcion);
+        TextView txtIngrediente = view.findViewById(R.id.txtIngrediente);
+        TextView txtNumero = view.findViewById(R.id.txtNumero);
 
-        lblNumeroPaso.setText(lista.get(i).getNumero()+"");
-        lblDescripcion.setText(lista.get(i).getDescripcion());
+        txtIngrediente.setText(lista.get(i).getNombre());
+        txtNumero.setText(lista.get(i).getCantidad()+"");
 
         return view;
     }

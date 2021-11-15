@@ -117,7 +117,7 @@
                                     app:srcCompat="@drawable/custom_foto_inicio" />
 
                                 <ImageView
-                                    android:id="@+id/imageView13"
+                                    android:id="@+id/bgTimer"
                                     android:layout_width="55dp"
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="10dp"
@@ -125,7 +125,7 @@
                                     app:srcCompat="@drawable/timer_background" />
 
                                 <ImageView
-                                    android:id="@+id/imageView12"
+                                    android:id="@+id/imgTimer"
                                     android:layout_width="10dp"
                                     android:layout_height="10dp"
                                     android:layout_marginLeft="15dp"
@@ -180,7 +180,7 @@
                                     app:srcCompat="@drawable/custom_foto_inicio" />
 
                                 <ImageView
-                                    android:id="@+id/imageView13"
+                                    android:id="@+id/bgTimer"
                                     android:layout_width="55dp"
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="10dp"
@@ -188,7 +188,7 @@
                                     app:srcCompat="@drawable/timer_background" />
 
                                 <ImageView
-                                    android:id="@+id/imageView12"
+                                    android:id="@+id/imgTimer"
                                     android:layout_width="10dp"
                                     android:layout_height="10dp"
                                     android:layout_marginLeft="15dp"
@@ -243,7 +243,7 @@
                                     app:srcCompat="@drawable/custom_foto_inicio" />
 
                                 <ImageView
-                                    android:id="@+id/imageView13"
+                                    android:id="@+id/bgTimer"
                                     android:layout_width="55dp"
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="10dp"
@@ -251,7 +251,7 @@
                                     app:srcCompat="@drawable/timer_background" />
 
                                 <ImageView
-                                    android:id="@+id/imageView12"
+                                    android:id="@+id/imgTimer"
                                     android:layout_width="10dp"
                                     android:layout_height="10dp"
                                     android:layout_marginLeft="15dp"
@@ -306,7 +306,7 @@
                                     app:srcCompat="@drawable/custom_foto_inicio" />
 
                                 <ImageView
-                                    android:id="@+id/imageView13"
+                                    android:id="@+id/bgTimer"
                                     android:layout_width="55dp"
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="10dp"
@@ -314,7 +314,7 @@
                                     app:srcCompat="@drawable/timer_background" />
 
                                 <ImageView
-                                    android:id="@+id/imageView12"
+                                    android:id="@+id/imgTimer"
                                     android:layout_width="10dp"
                                     android:layout_height="10dp"
                                     android:layout_marginLeft="15dp"
@@ -379,7 +379,7 @@
                                     app:srcCompat="@drawable/custom_foto_inicio" />
 
                                 <ImageView
-                                    android:id="@+id/imageView13"
+                                    android:id="@+id/bgTimer"
                                     android:layout_width="55dp"
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="10dp"
@@ -387,7 +387,7 @@
                                     app:srcCompat="@drawable/timer_background" />
 
                                 <ImageView
-                                    android:id="@+id/imageView12"
+                                    android:id="@+id/imgTimer"
                                     android:layout_width="10dp"
                                     android:layout_height="10dp"
                                     android:layout_marginLeft="15dp"
@@ -442,7 +442,7 @@
                                     app:srcCompat="@drawable/custom_foto_inicio" />
 
                                 <ImageView
-                                    android:id="@+id/imageView13"
+                                    android:id="@+id/bgTimer"
                                     android:layout_width="55dp"
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="10dp"
@@ -450,7 +450,7 @@
                                     app:srcCompat="@drawable/timer_background" />
 
                                 <ImageView
-                                    android:id="@+id/imageView12"
+                                    android:id="@+id/imgTimer"
                                     android:layout_width="10dp"
                                     android:layout_height="10dp"
                                     android:layout_marginLeft="15dp"
@@ -505,7 +505,7 @@
                                     app:srcCompat="@drawable/custom_foto_inicio" />
 
                                 <ImageView
-                                    android:id="@+id/imageView13"
+                                    android:id="@+id/bgTimer"
                                     android:layout_width="55dp"
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="10dp"
@@ -513,7 +513,7 @@
                                     app:srcCompat="@drawable/timer_background" />
 
                                 <ImageView
-                                    android:id="@+id/imageView12"
+                                    android:id="@+id/imgTimer"
                                     android:layout_width="10dp"
                                     android:layout_height="10dp"
                                     android:layout_marginLeft="15dp"
@@ -568,7 +568,7 @@
                                     app:srcCompat="@drawable/custom_foto_inicio" />
 
                                 <ImageView
-                                    android:id="@+id/imageView13"
+                                    android:id="@+id/bgTimer"
                                     android:layout_width="55dp"
                                     android:layout_height="20dp"
                                     android:layout_marginLeft="10dp"
@@ -576,7 +576,7 @@
                                     app:srcCompat="@drawable/timer_background" />
 
                                 <ImageView
-                                    android:id="@+id/imageView12"
+                                    android:id="@+id/imgTimer"
                                     android:layout_width="10dp"
                                     android:layout_height="10dp"
                                     android:layout_marginLeft="15dp"

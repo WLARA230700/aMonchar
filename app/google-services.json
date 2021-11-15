@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "605839801328",
+    "project_id": "amonchar-c2e18",
+    "storage_bucket": "amonchar-c2e18.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:605839801328:android:0c4b851221d708f35fbb35",
+        "android_client_info": {
+          "package_name": "com.war.amonchar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "605839801328-6rq0dgqhlk59r7gnkppfom4o9jipjlua.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGv9lX7zl9Hr80m94vKiitYsdXuueDK6M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "605839801328-6rq0dgqhlk59r7gnkppfom4o9jipjlua.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -23,7 +23,7 @@
             android:weightSum="100">
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/txt_nombre_receta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="100"
@@ -178,7 +178,7 @@
                                 android:weightSum="10">
 
                                 <EditText
-                                    android:id="@+id/editTextNumber"
+                                    android:id="@+id/txtTiempoPreparacion"
                                     android:layout_width="45dp"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="10dp"
@@ -283,7 +283,7 @@
                                     android:weightSum="10">
 
                                     <CheckBox
-                                        android:id="@+id/checkBox1"
+                                        android:id="@+id/catVegetariano"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_weight="3"
@@ -300,7 +300,7 @@
                                         android:textSize="13dp" />
 
                                     <CheckBox
-                                        android:id="@+id/checkBox2"
+                                        android:id="@+id/catMar"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="5dp"
@@ -318,7 +318,7 @@
                                         android:textSize="12dp" />
 
                                     <CheckBox
-                                        android:id="@+id/checkComprado"
+                                        android:id="@+id/catCarnesRojas"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:layout_marginLeft="5dp"
@@ -352,7 +352,7 @@
                                 android:orientation="horizontal">
 
                                 <CheckBox
-                                    android:id="@+id/checkBox4"
+                                    android:id="@+id/catCarnesBlancas"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:background="@drawable/checkbox_btn_selector"
@@ -368,7 +368,7 @@
                                     android:textSize="13dp" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox5"
+                                    android:id="@+id/catPostres"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="5dp"
@@ -385,7 +385,7 @@
                                     android:textSize="13dp" />
 
                                 <CheckBox
-                                    android:id="@+id/checkBox6"
+                                    android:id="@+id/catBebidas"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="5dp"
@@ -463,7 +463,7 @@
                     android:paddingBottom="7dp">
 
                     <ImageView
-                        android:id="@+id/imageView4"
+                        android:id="@+id/imgReceta"
                         android:layout_width="match_parent"
                         android:layout_height="250dp"
                         app:srcCompat="@drawable/ic_big_image" />
@@ -472,7 +472,7 @@
                 <LinearLayout
                     android:id="@+id/ingredientes"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="25dp"
                     android:paddingTop="10dp"
@@ -521,100 +521,87 @@
 
                     </LinearLayout>
 
-                    <LinearLayout
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                        <TableRow
+                            android:layout_weight="1"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:paddingRight="5dp">
+                            <EditText
+                                android:id="@+id/txtCantidadIngrediente1"
+                                android:layout_width="match_parent"
+                                android:layout_height="41dp"
+                                android:background="@drawable/custom_input"
+                                android:inputType="textPersonName"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:layout_weight=".2"
+                                android:layout_marginRight="5dp"/>
+
+                            <EditText
+                                android:id="@+id/txtDescripcionIngrediente1"
+                                android:layout_width="match_parent"
+                                android:layout_height="41dp"
+                                android:background="@drawable/custom_input"
+                                android:inputType="textShortMessage"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp"
+                                android:layout_weight=".8"
+                                android:layout_marginLeft="5dp"/>
+                        </TableRow>
+                    </TableLayout>
+
+                    <!--<LinearLayout
                         android:id="@+id/itemsIngredientes"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
                         android:paddingTop="10dp"
-                        android:paddingBottom="10dp">
+                        android:paddingBottom="10dp"
+                        android:weightSum="10">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_weight="2"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:paddingRight="5dp">
+
+                            <EditText
+                                android:id="@+id/txtCantidadIngrediente1"
+                                android:layout_width="match_parent"
+                                android:layout_height="41dp"
+                                android:background="@drawable/custom_input"
+                                android:inputType="textPersonName"
+                                android:paddingLeft="10dp"
+                                android:paddingRight="10dp" />
+                        </LinearLayout>
 
                         <LinearLayout
                             android:id="@+id/ingrediente1"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
                             android:orientation="horizontal"
                             android:paddingTop="10dp"
                             android:paddingBottom="10dp"
-                            android:weightSum="10">
-
-                            <TextView
-                                android:id="@+id/textView39"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:ems="1"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="1."
-                                android:textColor="#676767"
-                                android:textSize="15dp" />
+                            android:paddingLeft="5dp">
 
                             <EditText
-                                android:id="@+id/editTextTextPersonName2"
-                                android:layout_width="wrap_content"
+                                android:id="@+id/txtDescripcionIngrediente1"
+                                android:layout_width="match_parent"
                                 android:layout_height="41dp"
-                                android:layout_marginRight="5dp"
-                                android:layout_weight="2"
-                                android:background="@drawable/custom_input"
-                                android:inputType="textPersonName"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"/>
-
-                            <EditText
-                                android:id="@+id/editTextTextPersonName3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="41dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_weight="7.5"
                                 android:background="@drawable/custom_input"
                                 android:inputType="textPersonName"
                                 android:paddingLeft="10dp"
                                 android:paddingRight="10dp" />
                         </LinearLayout>
 
-                        <LinearLayout
-                            android:id="@+id/ingrediente2"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:weightSum="10">
-
-                            <TextView
-                                android:id="@+id/textView39"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="0.5"
-                                android:ems="1"
-                                android:fontFamily="@font/poppins_bold"
-                                android:text="2."
-                                android:textColor="#676767"
-                                android:textSize="15dp" />
-
-                            <EditText
-                                android:id="@+id/editTextTextPersonName2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="41dp"
-                                android:layout_marginRight="5dp"
-                                android:layout_weight="2"
-                                android:background="@drawable/custom_input"
-                                android:inputType="textPersonName"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"/>
-
-                            <EditText
-                                android:id="@+id/editTextTextPersonName3"
-                                android:layout_width="wrap_content"
-                                android:layout_height="41dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_weight="7.5"
-                                android:background="@drawable/custom_input"
-                                android:inputType="textPersonName"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp" />
-                        </LinearLayout>
-                    </LinearLayout>
+                    </LinearLayout>-->
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -628,7 +615,7 @@
                             android:orientation="vertical">
 
                             <Button
-                                android:id="@+id/button8"
+                                android:id="@+id/btnAgregarCampoIngrediente"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawableRight="@drawable/ic_white_button_plus"
@@ -638,12 +625,19 @@
                         </LinearLayout>
 
                     </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ingredientesAgregados"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"/>
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/preparacion"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="25dp"
                     android:paddingTop="10dp"
@@ -713,32 +707,34 @@
                             <LinearLayout
                                 android:id="@+id/paso1"
                                 android:layout_width="match_parent"
-                                android:layout_height="match_parent"
+                                android:layout_height="wrap_content"
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/textView45"
+                                    android:id="@+id/lblPaso1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:ems="1"
                                     android:fontFamily="@font/poppins_bold"
-                                    android:text="1."
+                                    android:text="1"
                                     android:textColor="#676767" />
 
                                 <EditText
-                                    android:id="@+id/editTextTextPersonName5"
+                                    android:id="@+id/txtDescripcionPaso1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="41dp"
                                     android:layout_weight="1"
                                     android:background="@drawable/custom_input"
                                     android:ems="10"
-                                    android:inputType="textPersonName"
+                                    android:inputType="textLongMessage"
                                     android:paddingLeft="10dp"
-                                    android:paddingRight="10dp"/>
+                                    android:paddingRight="10dp" />
 
                             </LinearLayout>
+
                         </LinearLayout>
+
                     </LinearLayout>
 
                     <LinearLayout
@@ -754,7 +750,7 @@
                             android:orientation="vertical">
 
                             <Button
-                                android:id="@+id/button8"
+                                android:id="@+id/btnAgregarCampoPaso"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:drawableRight="@drawable/ic_white_button_plus"
@@ -762,6 +758,12 @@
                                 android:textAllCaps="false"
                                 app:cornerRadius="30dp" />
                         </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/pasosAgregados"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"/>
 
                     </LinearLayout>
                 </LinearLayout>

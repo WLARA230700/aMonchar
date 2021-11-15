@@ -26,7 +26,7 @@
             android:weightSum="100">
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/txt_nombre_receta"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="100"
@@ -55,33 +55,12 @@
                 android:orientation="vertical">
 
                 <LinearLayout
+                    android:id="@+id/contenedorCategorias"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="20dp"
                     android:orientation="horizontal"
-                    android:weightSum="10">
-
-                    <Button
-                        android:id="@+id/button7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="25dp"
-                        android:layout_weight="2"
-                        android:text="@string/cat_vegetariano"
-                        android:textAllCaps="false"
-                        app:cornerRadius="30dp" />
-
-                    <Button
-                        android:id="@+id/button9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginBottom="25dp"
-                        android:layout_weight="2"
-                        android:text="@string/tc_meriendas"
-                        android:textAllCaps="false"
-                        app:cornerRadius="30dp" />
-                </LinearLayout>
+                    android:weightSum="10" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -100,11 +79,10 @@
                             app:cardElevation="0dp">
 
                             <ImageView
-                                android:id="@+id/imageView14"
+                                android:id="@+id/img_fotografia"
                                 android:layout_width="wrap_content"
-                                android:layout_height="200dp"
-                                android:scaleType="centerCrop"
-                                app:srcCompat="@drawable/fotografia_tajin" />
+                                android:layout_height="300dp"
+                                android:scaleType="centerCrop" />
 
                         </androidx.cardview.widget.CardView>
 
@@ -125,7 +103,7 @@
                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                             <TextView
-                                android:id="@+id/textView48"
+                                android:id="@+id/lblTiempoPreparacion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right|center_vertical"
@@ -322,10 +300,13 @@
                         android:textColor="#191919"
                         android:textSize="17sp" />
 
-                    <ListView
+                    <LinearLayout
+                        android:id="@+id/listaIngrediente"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="100" />
+                        android:layout_weight="100"
+                        android:orientation="vertical"></LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
@@ -344,10 +325,13 @@
                         android:textColor="#191919"
                         android:textSize="17sp" />
 
-                    <ListView
+                    <LinearLayout
+                        android:id="@+id/listaPasos"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="100" />
+                        android:layout_weight="100"
+                        android:orientation="vertical"></LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
         </ScrollView>

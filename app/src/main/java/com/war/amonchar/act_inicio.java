@@ -33,7 +33,7 @@ import java.util.ArrayList;
 public class act_inicio extends AppCompatActivity {
 
     ImageView icUsuario, icListaCompra, icBuscar, btnCerrarSesion;
-    TextView lbHolaUsuario;
+    TextView lbHolaUsuario, txtCatDesayuno, txtCatMeriendas, txtCatAlmuerzo, txtCatCena;
     LinearLayout receta1;
     BD db;
     GridLayout gridRecetas;
@@ -69,6 +69,10 @@ public class act_inicio extends AppCompatActivity {
         icBuscar = findViewById(R.id.icBuscar);
         btnCerrarSesion = findViewById(R.id.btnCerrarSesion);
         gridRecetas = findViewById(R.id.gridRecetas);
+        txtCatDesayuno = findViewById(R.id.txtCatDesayuno);
+        txtCatMeriendas = findViewById(R.id.txtCatMeriendas);
+        txtCatAlmuerzo = findViewById(R.id.txtCatAlmuerzo);
+        txtCatCena = findViewById(R.id.txtCatCena);
 
         lbHolaUsuario = findViewById(R.id.lbHolaUsuario);
         lbHolaUsuario.setText("¡Hola " + ((GlobalVariables) getApplication()).getUsuarioLogueado().getNombreUsuario() + "!");

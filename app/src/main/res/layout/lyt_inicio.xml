@@ -126,17 +126,19 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/imgTiemposComida"
+                            android:id="@+id/imgDesayuno"
                             android:layout_width="200dp"
                             android:layout_height="70dp"
                             android:layout_marginRight="5dp"
-                            app:srcCompat="@drawable/custom_foto_inicio" />
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/desayuno" />
 
                         <TextView
-                            android:id="@+id/textView14"
+                            android:id="@+id/txtCatDesayuno"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_bold"
+                            android:background="#99000000"
                             android:padding="22dp"
                             android:text="@string/tc_desayunos"
                             android:textAlignment="center"
@@ -150,18 +152,20 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/imgTiemposComida"
+                            android:id="@+id/imgMeriendas"
                             android:layout_width="200dp"
                             android:layout_height="70dp"
                             android:layout_marginRight="5dp"
-                            app:srcCompat="@drawable/custom_foto_inicio" />
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/meriendas" />
 
                         <TextView
-                            android:id="@+id/textView14"
+                            android:id="@+id/txtCatMeriendas"
                             android:layout_width="200dp"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins_bold"
                             android:padding="22dp"
+                            android:background="#99000000"
                             android:text="@string/tc_meriendas"
                             android:textAlignment="center"
                             android:textAllCaps="true"
@@ -174,18 +178,20 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/imgTiemposComida"
+                            android:id="@+id/imgAlmuerzo"
                             android:layout_width="200dp"
                             android:layout_height="70dp"
                             android:layout_marginRight="5dp"
-                            app:srcCompat="@drawable/custom_foto_inicio" />
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/almuerzo"/>
 
                         <TextView
-                            android:id="@+id/textView14"
+                            android:id="@+id/txtCatAlmuerzo"
                             android:layout_width="200dp"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins_bold"
                             android:padding="22dp"
+                            android:background="#99000000"
                             android:text="@string/tc_almuerzos"
                             android:textAlignment="center"
                             android:textAllCaps="true"
@@ -199,18 +205,20 @@
                         android:layout_height="match_parent">
 
                         <ImageView
-                            android:id="@+id/imgTiemposComida"
+                            android:id="@+id/imgCena"
                             android:layout_width="200dp"
                             android:layout_height="70dp"
                             android:layout_marginRight="5dp"
-                            app:srcCompat="@drawable/custom_foto_inicio" />
+                            android:scaleType="centerCrop"
+                            app:srcCompat="@drawable/cena" />
 
                         <TextView
-                            android:id="@+id/textView14"
+                            android:id="@+id/txtCatCena"
                             android:layout_width="200dp"
                             android:layout_height="match_parent"
                             android:fontFamily="@font/poppins_bold"
                             android:padding="22dp"
+                            android:background="#99000000"
                             android:text="@string/tc_cenas"
                             android:textAlignment="center"
                             android:textAllCaps="true"

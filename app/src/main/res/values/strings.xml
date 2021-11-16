@@ -74,6 +74,10 @@
     <string name="msg_agregado_correctamente">Agregado correctamente</string>
     <string name="msg_agregado_incorrectamente">Ha ocurrido un error al agregar</string>
     <string name="msg_error_upload_fotografia">Ha ocurrido un error al guardar la fotografía</string>
+    <string name="msg_seleccionar_tiempo_comida_plan_semanal">Debe seleccionar un tiempo de comida</string>
+    <string name="msg_seleccionar_dia_plan_semanal">Debe seleccionar un día de la semana</string>
+    <string name="msg_agregado_plan_semanal">Agregado correctamente a tu plan semanal</string>
+    <string name="msg_error_seleccionar_dia_plan_semanal">Error al guardar. Vuelve a intentar</string>
 
     <!-- ARRAY DE TIEMPOS DE COMIDA -->
     <string-array name="array_tiempos_comida">

@@ -278,14 +278,6 @@
                                     android:buttonTint="#F9B334"
                                     android:text="@string/tc_merienda3" />
 
-                                <Button
-                                    android:id="@+id/btnAgregarPlanSemanal"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/btn_aniadir_a_plan_semanal"
-                                    android:textAllCaps="false"
-                                    app:cornerRadius="30dp" />
-
                             </LinearLayout>
 
                         </LinearLayout>

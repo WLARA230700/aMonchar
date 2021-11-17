@@ -232,21 +232,21 @@ public class act_detalle_receta extends AppCompatActivity {
 
         //DatabaseReference planSemanalRef = mDatabse.child("PlanSemanal");
 
-        //planSemanalRef.orderByChild("correoUsuario").equalTo(((GlobalVariables)getApplication()).getUsuarioLogueado().getCorreo());
-
-        mDatabse.child("PlanSemanal").orderByChild("idReceta").equalTo(recetaId).addValueEventListener(new ValueEventListener() {
+        mDatabse.child("PlanSemanal").orderByChild("correoUsuario").equalTo(((GlobalVariables)getApplication()).getUsuarioLogueado().getCorreo()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                 if(snapshot.exists()){
 
-                    btnAgregarPlanSemanal.setText(getString(R.string.btn_actualizar_a_plan_semanal));
-
                     for(DataSnapshot obtSnapshot : snapshot.getChildren()){
 
-                        objPlanSemanal = obtSnapshot.getValue(PlanSemanal.class);
+                        if(obtSnapshot.getValue(PlanSemanal.class).getIdReceta().equals(recetaId)){
 
-                        Log.d("Resultado: ", objPlanSemanal.toString());
+                            btnAgregarPlanSemanal.setText(getString(R.string.btn_actualizar_a_plan_semanal));
+                            objPlanSemanal = obtSnapshot.getValue(PlanSemanal.class);
+
+                        }
+
                     }
 
                     if(objPlanSemanal != null){
@@ -278,7 +278,7 @@ public class act_detalle_receta extends AppCompatActivity {
 
             }
         });
-    }
+    }// Fin método verificarPlanSemanal
 
     public void cargarDiasSemana(){
         diasSemana.add(lunes);
@@ -288,7 +288,7 @@ public class act_detalle_receta extends AppCompatActivity {
         diasSemana.add(viernes);
         diasSemana.add(sabado);
         diasSemana.add(domingo);
-    }
+    }// Fin método cargarDiasSemana
 
     public void cargarTiemposComida(){
         tiemposComida.add(desayuno);
@@ -297,7 +297,7 @@ public class act_detalle_receta extends AppCompatActivity {
         tiemposComida.add(merienda2);
         tiemposComida.add(cena);
         tiemposComida.add(merienda3);
-    }
+    }// Fin método cargarTiemposComida
 
     public void initListenerDiasSemana(){
 
@@ -319,7 +319,7 @@ public class act_detalle_receta extends AppCompatActivity {
             });
         }
 
-    }
+    }// Fin método initListenerDiasSemana
 
     public void getDiaSemana(int pos, boolean checked){
         if(checked){
@@ -337,7 +337,7 @@ public class act_detalle_receta extends AppCompatActivity {
                 diasSemana.get(i).setEnabled(true);
             }
         }
-    }
+    }// Fin método getDiaSemana
 
     public void initListenerTiempoComida(){
 
@@ -359,7 +359,7 @@ public class act_detalle_receta extends AppCompatActivity {
             });
         }
 
-    }
+    }// Fin método initListenerTiempoComida
 
     public void getTiempoComida(int pos, boolean checked){
         if(checked){
@@ -377,12 +377,9 @@ public class act_detalle_receta extends AppCompatActivity {
                 tiemposComida.get(i).setEnabled(true);
             }
         }
-    }
+    }// Fin método getTiempoComida
 
     public void agregarPlanSemanal(String dia, String tiempoComida, String correo) {
-        //Toast.makeText(getApplicationContext(), dia + " : " + tiempoComida + " : " + correo, Toast.LENGTH_SHORT).show();
-
-        //String[] correoDividido = correo.split("[.]+");
 
         if(btnAgregarPlanSemanal.getText().toString().equals(getString(R.string.btn_actualizar_a_plan_semanal))){
 
@@ -405,8 +402,6 @@ public class act_detalle_receta extends AppCompatActivity {
                 }
             });
 
-            //Toast.makeText(getApplicationContext(), "actualizado", Toast.LENGTH_SHORT).show();
-
         }else if(btnAgregarPlanSemanal.getText().toString().equals(getString(R.string.btn_aniadir_a_plan_semanal))){
             String idPlanSemanal = UUID.randomUUID().toString();
 
@@ -424,7 +419,6 @@ public class act_detalle_receta extends AppCompatActivity {
                 }
             });
 
-            //Toast.makeText(getApplicationContext(), "añadido", Toast.LENGTH_SHORT).show();
         }
     }// Fin método agregarPlanSemanal
 

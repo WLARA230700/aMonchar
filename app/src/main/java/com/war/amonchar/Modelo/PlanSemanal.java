@@ -1,5 +1,8 @@
 package com.war.amonchar.Modelo;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class PlanSemanal {
     private String id;
     private String dia;
@@ -21,6 +24,17 @@ public class PlanSemanal {
         this.tiempoComida = "";
         this.correoUsuario = "";
         this.idReceta = "";
+    }
+
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("id", id);
+        result.put("dia", dia);
+        result.put("tiempoComida", tiempoComida);
+        result.put("correoUsuario", correoUsuario);
+        result.put("idReceta", idReceta);
+
+        return result;
     }
 
     public String getId() {

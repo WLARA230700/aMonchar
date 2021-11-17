@@ -133,7 +133,7 @@
                         android:drawableRight="@drawable/ic_yellow_arrow_down"
                         android:fontFamily="@font/poppins_bold"
                         android:insetBottom="0dp"
-                        android:text="@string/btn_aniadir_a_plan_semanal"
+                        android:text="@string/btn_expandir_plan_semanal"
                         android:textAlignment="textStart"
                         android:textAllCaps="false"
                         android:textColor="#F8B133"
@@ -277,6 +277,15 @@
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
                                     android:text="@string/tc_merienda3" />
+
+                                <Button
+                                    android:id="@+id/btnAgregarPlanSemanal"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:textAllCaps="false"
+                                    app:cornerRadius="30dp"
+                                    android:text="@string/btn_aniadir_a_plan_semanal"/>
 
                             </LinearLayout>
 

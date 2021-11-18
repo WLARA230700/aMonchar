@@ -118,24 +118,40 @@
                         app:cornerRadius="20dp" />
                 </LinearLayout>
 
-                <EditText
-                    android:id="@+id/txtBuscarReceta"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/background_item_light_gray"
-                    android:drawableLeft="@drawable/ic_buscar_gris"
-                    android:drawablePadding="15dp"
-                    android:ems="10"
-                    android:fontFamily="@font/poppins"
-                    android:hint="Buscar receta"
-                    android:inputType="textPersonName"
-                    android:padding="15dp"
-                    android:textColor="@color/texto"
-                    android:textColorHint="@color/texto"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <EditText
+                        android:id="@+id/txtBuscarReceta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="90"
+                        android:background="@drawable/background_item_light_gray"
+                        android:drawablePadding="15dp"
+                        android:ems="10"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Buscar receta"
+                        android:inputType="textPersonName"
+                        android:padding="15dp"
+                        android:textColor="@color/texto"
+                        android:textColorHint="@color/texto"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btnBuscarTexto"
+                        android:layout_width="65dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="10"
+                        android:drawableRight="@drawable/ic_buscar_gris"
+                        android:gravity="center_vertical" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/header"

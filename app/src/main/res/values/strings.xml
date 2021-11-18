@@ -55,6 +55,7 @@
     <string name="lbl_subtitulo_autenticacion_fingerprint">Coloque su huella en el lector</string>
     <string name="lbl_subtitulo_autenticacion_pincode">Ingrese el pin de pantalla de bloqueo</string>
     <string name="lbl_titulo_alertDialog_cargar_fotografia">¿Cómo desea cargar su fotografía?</string>
+    <string name="lbl_container_plan_semanal">Nada registrado</string>
 
     <!-- BOTONES -->
     <string name="btn_registrarse">Registrarse</string>

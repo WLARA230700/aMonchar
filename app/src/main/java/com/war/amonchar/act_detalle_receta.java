@@ -1,7 +1,6 @@
 package com.war.amonchar;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.drawable.Drawable;
@@ -14,14 +13,12 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -228,11 +225,9 @@ public class act_detalle_receta extends AppCompatActivity {
 
     private void verificarPlanSemanal() {
 
-        //String[] correoDividido = ((GlobalVariables) getApplication()).getUsuarioLogueado().getCorreo().split("[.]+");
-
-        //DatabaseReference planSemanalRef = mDatabse.child("PlanSemanal");
-
-        mDatabse.child("PlanSemanal").orderByChild("correoUsuario").equalTo(((GlobalVariables)getApplication()).getUsuarioLogueado().getCorreo()).addValueEventListener(new ValueEventListener() {
+        mDatabse.child("PlanSemanal").orderByChild("correoUsuario")
+                .equalTo(((GlobalVariables)getApplication()).getUsuarioLogueado().getCorreo())
+                .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 

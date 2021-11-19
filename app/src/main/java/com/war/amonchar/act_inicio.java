@@ -46,6 +46,7 @@ public class act_inicio extends AppCompatActivity {
     Receta receta;
 
     AdapterRecetas adapterRecetas;
+    ArrayList<String> idRecetas;
 
     @Override
     public void onBackPressed() {
@@ -65,6 +66,7 @@ public class act_inicio extends AppCompatActivity {
 
         inicializarFirebase();
         cargarRecetas();
+        idRecetas = new ArrayList<>();
 
         icUsuario = findViewById(R.id.icUsuario);
         icListaCompra = findViewById(R.id.icListaCompra);
@@ -113,10 +115,15 @@ public class act_inicio extends AppCompatActivity {
         txtCatDesayuno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //cargarRecetasDeayuno();
-                recetas.clear();
-                gridRecetas.clearChildFocus(view);
-                Toast.makeText(getApplicationContext(), "Limpiando grid", Toast.LENGTH_SHORT).show();
+
+                idRecetas.clear();
+
+                bucarRecetasDesayuno();
+
+                Intent intent = new Intent(getApplicationContext(), act_lista_recetas.class);
+                intent.putExtra("idRecetas", idRecetas);
+                intent.putExtra("buscado", "Desayuno");
+                startActivity(intent);
             }
         });
 
@@ -184,9 +191,6 @@ public class act_inicio extends AppCompatActivity {
                             pasos);
                     recetas.add(receta);
 
-                    //arrayAdapter = new ArrayAdapter<Persona>(MainActivity.this, android.R.layout.simple_list_item_1, personas);
-                    //lstPersonas.setAdapter(arrayAdapter);
-
                 }
 
                 int contador = 0;
@@ -224,70 +228,37 @@ public class act_inicio extends AppCompatActivity {
         });
     }
 
-    public void cargarRecetasDeayuno(){
-
-        databaseReference.orderByChild("tiempo_comida").equalTo("Desayuno").addListenerForSingleValueEvent(new ValueEventListener() {
+    public void bucarRecetasDesayuno(){
+              databaseReference.child("Receta").orderByChild("tiempo_comida").equalTo("Desayuno").addChildEventListener(new ChildEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                recetas.clear();
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                //Toast.makeText(getApplicationContext(), previousChildName, Toast.LENGTH_SHORT).show();
+
                 for(DataSnapshot obtSnapshot : snapshot.getChildren()){
-                    //receta = obtSnapshot.getValue(Receta.class);
+                    if(obtSnapshot.getKey().equals("id")){
+                        //Toast.makeText(getApplicationContext(), obtSnapshot.getValue().toString(), Toast.LENGTH_SHORT).show();
 
-                    GenericTypeIndicator<ArrayList<String>> indicator = new GenericTypeIndicator<ArrayList<String>>(){};
+                        String id = obtSnapshot.getValue().toString();
 
-                    String id = obtSnapshot.child("id").getValue(String.class);
-                    int tiempo_preparacion = obtSnapshot.child("tiempo_preparacion").getValue(int.class);
-                    String medida_tiempo_preparacion = obtSnapshot.child("medida_tiempo_preparacion").getValue(String.class);
-                    String tiempo_comida = obtSnapshot.child("tiempo_comida").getValue(String.class);
-                    ArrayList<String> categorias = obtSnapshot.child("categorias").getValue(indicator);
-                    String nombre_receta = obtSnapshot.child("nombre_receta").getValue(String.class);
-                    String imagen = obtSnapshot.child("imagen").getValue(String.class);
-                    ArrayList<String> cantidad_ingredientes = obtSnapshot.child("cantidad_ingredientes").getValue(indicator);
-                    ArrayList<String> ingredientes = obtSnapshot.child("ingredientes").getValue(indicator);
-                    ArrayList<String> pasos = obtSnapshot.child("pasos").getValue(indicator);
-
-                    receta = new Receta(id,
-                            tiempo_preparacion,
-                            medida_tiempo_preparacion,
-                            tiempo_comida,
-                            categorias,
-                            nombre_receta,
-                            imagen,
-                            cantidad_ingredientes,
-                            ingredientes,
-                            pasos);
-                    recetas.add(receta);
-
-                    //arrayAdapter = new ArrayAdapter<Persona>(MainActivity.this, android.R.layout.simple_list_item_1, personas);
-                    //lstPersonas.setAdapter(arrayAdapter);
-
+                        idRecetas.add(id);
+                    }
                 }
+            }
 
-                int contador = 0;
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                adapterRecetas = new AdapterRecetas(getApplicationContext(), recetas);
+            }
 
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
 
-                if(gridRecetas.getChildCount() > 0){
-                    contador = gridRecetas.getChildCount();
-                }
+            }
 
-                for(int i = contador; i < recetas.size(); i++){
-                    View view = adapterRecetas.getView(i, null, gridRecetas);
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                    int posReceta = i;
-                    view.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
-                            intent.putExtra("idReceta", recetas.get(posReceta).getId());
-                            intent.putExtra("nombreReceta", recetas.get(posReceta).getNombre_receta());
-                            startActivity(intent);
-                        }
-                    });
-                    gridRecetas.addView(view);
-                }
-                int children = gridRecetas.getChildCount();
             }
 
             @Override
@@ -295,6 +266,7 @@ public class act_inicio extends AppCompatActivity {
 
             }
         });
+
     }
 
     private void cerrarSesion(BD db) {

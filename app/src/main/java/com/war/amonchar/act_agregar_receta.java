@@ -482,6 +482,7 @@ public class act_agregar_receta extends AppCompatActivity {
                             Receta receta = new Receta(
                                     idReceta,
                                     Integer.parseInt(txtTiempoPreparacion.getText().toString()),
+                                    preparacionSpinner.getSelectedItem().toString(),
                                     tiemposComidaSpinner.getSelectedItem().toString(),
                                     getCategoriasSeleccionadas(),
                                     nombreReceta,

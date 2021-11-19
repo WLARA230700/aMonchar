@@ -10,6 +10,7 @@ public class Receta {
 
     private String id;
     private int tiempo_preparacion;
+    private String medida_tiempo_preparacion;
     private String tiempo_comida;
     private ArrayList<String> categorias;
     private String nombre_receta;
@@ -18,9 +19,10 @@ public class Receta {
     private ArrayList<String> ingredientes;
     private ArrayList<String> pasos;
 
-    public Receta(String id, int tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, String imagen, ArrayList<String> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
+    public Receta(String id, int tiempo_preparacion, String medida_tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, String imagen, ArrayList<String> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
         this.id = id;
         this.tiempo_preparacion = tiempo_preparacion;
+        this.medida_tiempo_preparacion = medida_tiempo_preparacion;
         this.tiempo_comida = tiempo_comida;
         this.categorias = categorias;
         this.nombre_receta = nombre_receta;
@@ -30,9 +32,10 @@ public class Receta {
         this.pasos = pasos;
     }
 
-    public Receta(String id, int tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, ArrayList<String> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
+    public Receta(String id, int tiempo_preparacion, String medida_tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, ArrayList<String> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
         this.id = id;
         this.tiempo_preparacion = tiempo_preparacion;
+        this.medida_tiempo_preparacion = medida_tiempo_preparacion;
         this.tiempo_comida = tiempo_comida;
         this.categorias = categorias;
         this.nombre_receta = nombre_receta;
@@ -44,6 +47,7 @@ public class Receta {
     public Receta() {
         this.id = "";
         this.tiempo_preparacion = 0;
+        this.medida_tiempo_preparacion = "";
         this.tiempo_comida = "";
         this.categorias = null;
         this.nombre_receta = "";
@@ -67,6 +71,14 @@ public class Receta {
 
     public void setTiempo_preparacion(int tiempo_preparacion) {
         this.tiempo_preparacion = tiempo_preparacion;
+    }
+
+    public String getMedida_tiempo_preparacion() {
+        return medida_tiempo_preparacion;
+    }
+
+    public void setMedida_tiempo_preparacion(String medida_tiempo_preparacion) {
+        this.medida_tiempo_preparacion = medida_tiempo_preparacion;
     }
 
     public String getTiempo_comida() {
@@ -130,13 +142,15 @@ public class Receta {
         return "Receta{" +
                 "id='" + id + '\'' +
                 ", tiempo_preparacion=" + tiempo_preparacion +
+                ", medida_tiempo_preparacion='" + medida_tiempo_preparacion + '\'' +
                 ", tiempo_comida='" + tiempo_comida + '\'' +
                 ", categorias=" + categorias +
                 ", nombre_receta='" + nombre_receta + '\'' +
-                ", imagen=" + imagen +
+                ", imagen='" + imagen + '\'' +
                 ", cantidad_ingredientes=" + cantidad_ingredientes +
                 ", ingredientes=" + ingredientes +
                 ", pasos=" + pasos +
                 '}';
     }
 }
+

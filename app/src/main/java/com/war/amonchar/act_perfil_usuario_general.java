@@ -171,9 +171,10 @@ public class act_perfil_usuario_general extends AppCompatActivity {
 
                                 String dia = obtSnapshot.getValue(PlanSemanal.class).getDia();
                                 String idReceta = obtSnapshot.getValue(PlanSemanal.class).getIdReceta();
+                                String idPlanSemanal = obtSnapshot.getValue(PlanSemanal.class).getId();
                                 String tiempoComida = obtSnapshot.getValue(PlanSemanal.class).getTiempoComida();
 
-                                cargarReceta(idReceta, dia, tiempoComida);
+                                cargarReceta(idReceta, idPlanSemanal, dia, tiempoComida);
 
                             }
 
@@ -189,7 +190,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
 
     }
 
-    public void cargarReceta(String idReceta, String dia, String tiempoComida){
+    public void cargarReceta(String idReceta, String idPlanSemanal, String dia, String tiempoComida){
         databaseReference.child("Receta").child(idReceta).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -203,6 +204,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
                         switch (dia){
                             case "Lunes":
                                 receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setIdPlanSemanal(idPlanSemanal);
                                 receta.setDia(dia);
                                 receta.setTiempoComidaPlanSemanal(tiempoComida);
                                 recetasLunes.add(receta);
@@ -210,6 +212,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
 
                             case "Martes":
                                 receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setIdPlanSemanal(idPlanSemanal);
                                 receta.setDia(dia);
                                 receta.setTiempoComidaPlanSemanal(tiempoComida);
                                 recetasMartes.add(receta);
@@ -217,6 +220,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
 
                             case "Miércoles":
                                 receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setIdPlanSemanal(idPlanSemanal);
                                 receta.setDia(dia);
                                 receta.setTiempoComidaPlanSemanal(tiempoComida);
                                 recetasMiercoles.add(receta);
@@ -224,6 +228,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
 
                             case "Jueves":
                                 receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setIdPlanSemanal(idPlanSemanal);
                                 receta.setDia(dia);
                                 receta.setTiempoComidaPlanSemanal(tiempoComida);
                                 recetasJueves.add(receta);
@@ -231,6 +236,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
 
                             case "Viernes":
                                 receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setIdPlanSemanal(idPlanSemanal);
                                 receta.setDia(dia);
                                 receta.setTiempoComidaPlanSemanal(tiempoComida);
                                 recetasViernes.add(receta);
@@ -238,6 +244,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
 
                             case "Sábado":
                                 receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setIdPlanSemanal(idPlanSemanal);
                                 receta.setDia(dia);
                                 receta.setTiempoComidaPlanSemanal(tiempoComida);
                                 recetasSabado.add(receta);
@@ -245,6 +252,7 @@ public class act_perfil_usuario_general extends AppCompatActivity {
 
                             case "Domingo":
                                 receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setIdPlanSemanal(idPlanSemanal);
                                 receta.setDia(dia);
                                 receta.setTiempoComidaPlanSemanal(tiempoComida);
                                 recetasDomingo.add(receta);

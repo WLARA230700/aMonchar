@@ -11,6 +11,7 @@ import java.util.Arrays;
 public class RecetaPlanSemanal implements Parcelable {
 
     private String id;
+    private String idPlanSemanal;
     private int tiempo_preparacion;
     private String medida_tiempo_preparacion;
     private String tiempo_comida;
@@ -36,8 +37,9 @@ public class RecetaPlanSemanal implements Parcelable {
         this.pasos = pasos;
     }
 
-    public RecetaPlanSemanal(String id, int tiempo_preparacion, String medida_tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, String imagen, ArrayList<String> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos, String dia, String tiempoComidaPlanSemanal) {
+    public RecetaPlanSemanal(String id, String idPlanSemanal, int tiempo_preparacion, String medida_tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, String imagen, ArrayList<String> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos, String dia, String tiempoComidaPlanSemanal) {
         this.id = id;
+        this.idPlanSemanal = idPlanSemanal;
         this.tiempo_preparacion = tiempo_preparacion;
         this.medida_tiempo_preparacion = medida_tiempo_preparacion;
         this.tiempo_comida = tiempo_comida;
@@ -53,6 +55,7 @@ public class RecetaPlanSemanal implements Parcelable {
 
     public RecetaPlanSemanal() {
         this.id = "";
+        this.idPlanSemanal = "";
         this.tiempo_preparacion = 0;
         this.medida_tiempo_preparacion = "";
         this.tiempo_comida = "";
@@ -68,6 +71,7 @@ public class RecetaPlanSemanal implements Parcelable {
 
     protected RecetaPlanSemanal(Parcel in) {
         id = in.readString();
+        idPlanSemanal = in.readString();
         tiempo_preparacion = in.readInt();
         medida_tiempo_preparacion = in.readString();
         tiempo_comida = in.readString();
@@ -99,6 +103,14 @@ public class RecetaPlanSemanal implements Parcelable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getIdPlanSemanal() {
+        return idPlanSemanal;
+    }
+
+    public void setIdPlanSemanal(String idPlanSemanal) {
+        this.idPlanSemanal = idPlanSemanal;
     }
 
     public int getTiempo_preparacion() {
@@ -198,6 +210,7 @@ public class RecetaPlanSemanal implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
 
         parcel.writeString(id);
+        parcel.writeString(idPlanSemanal);
         parcel.writeInt(tiempo_preparacion);
         parcel.writeString(medida_tiempo_preparacion);
         parcel.writeString(tiempo_comida);

@@ -9,13 +9,17 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -38,9 +42,11 @@ public class act_plan_semanal extends AppCompatActivity {
     LinearLayout contenidoLunes, contenidoMartes, contenidoMiercoles, contenidoJueves, contenidoViernes, contenidoSabado, contenidoDomingo;
     Button btnLunes, btnMartes, btnMiercoles, btnJueves, btnViernes, btnSabado, btnDomingo;
 
+    TextView msgVacio;
+
     ImageView btnBack;
 
-    GridLayout gridLunes, gridMartes;
+    GridLayout gridLunes, gridMartes, gridMiercoles, gridJueves, gridViernes, gridSabado, gridDomingo;
 
     Boolean lunes = false, martes = false, miercoles = false, jueves = false, viernes = false, sabado = false, domingo = false;
 
@@ -73,7 +79,7 @@ public class act_plan_semanal extends AppCompatActivity {
         recetasSabado = getIntent().getParcelableArrayListExtra("recetasSabado");
         recetasDomingo = getIntent().getParcelableArrayListExtra("recetasDomingo");
 
-        //inicializarFirebase();
+        inicializarFirebase();
         //cargarPlanSemanal();
 
         contenidoLunes = findViewById(R.id.planSemanal);
@@ -94,8 +100,15 @@ public class act_plan_semanal extends AppCompatActivity {
 
         btnBack = findViewById(R.id.btnBack);
 
+        msgVacio = findViewById(R.id.msgVacio);
+
         gridLunes = findViewById(R.id.gridLunes);
         gridMartes = findViewById(R.id.gridMartes);
+        gridMiercoles = findViewById(R.id.gridMiercoles);
+        gridJueves = findViewById(R.id.gridJueves);
+        gridViernes = findViewById(R.id.gridViernes);
+        gridSabado = findViewById(R.id.gridSabado);
+        gridDomingo = findViewById(R.id.gridDomingo);
 
         contenidoLunes.setVisibility(View.GONE);
         contenidoMartes.setVisibility(View.GONE);
@@ -104,9 +117,9 @@ public class act_plan_semanal extends AppCompatActivity {
         contenidoViernes.setVisibility(View.GONE);
         contenidoSabado.setVisibility(View.GONE);
         contenidoDomingo.setVisibility(View.GONE);
+        msgVacio.setVisibility(View.GONE);
 
         insertarReceta();
-
 
         btnLunes.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,23 +177,33 @@ public class act_plan_semanal extends AppCompatActivity {
             }
         });
 
-        //Toast.makeText(getApplicationContext(), planes.size(), Toast.LENGTH_SHORT).show();
-
     }//Fin del onCreate
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-        //insertarReceta();
-    }
-
-    /*private void inicializarFirebase() {
+    private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance(); // Obtengo la instancia de firebase
         databaseReference = firebaseDatabase.getReference(); // Obtengo la referencia a utilizar en la base de datos
     }//fin inicializarFirebase
 
-    public void cargarPlanSemanal(){
+    public void eliminarDePlanSemanal(String idPlanSemanal){
+
+        databaseReference.child("PlanSemanal").child(idPlanSemanal)
+                .removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+            @Override
+            public void onSuccess(Void unused) {
+                Toast.makeText(getApplicationContext(), "Eliminado correctamente", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getApplicationContext(), "Ha ocurrido un problema al eliminar", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }// Fin método eliminarDePlanSemanal
+
+    /*public void cargarPlanSemanal(){
 
         databaseReference.child("PlanSemanal").orderByChild("correoUsuario")
                 .equalTo(((GlobalVariables)getApplication()).getUsuarioLogueado().getCorreo())
@@ -285,56 +308,301 @@ public class act_plan_semanal extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        gridLunes.removeAllViews();
-        gridMartes.removeAllViews();
+        //gridLunes.removeAllViews();
+        //gridMartes.removeAllViews();
         insertarReceta();
     }
 
     public void insertarReceta(){
 
         // Cargar recetas Lunes
-        gridLunes.removeAllViews();
-        adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasLunes);
+        if(recetasLunes.size() != 0){
+            gridLunes.removeAllViews();
+            adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasLunes);
 
-        for(int i = 0; i < recetasLunes.size(); i++){
-            View view = adapterPlanSemanal.getView(i, null, gridLunes);
+            for(int i = 0; i < recetasLunes.size(); i++){
+                View view = adapterPlanSemanal.getView(i, null, gridLunes);
 
-            int posReceta = i;
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
-                    intent.putExtra("idReceta", recetasLunes.get(posReceta).getId());
-                    intent.putExtra("nombreReceta", recetasLunes.get(posReceta).getNombre_receta());
-                    startActivity(intent);
-                }
-            });
+                int posReceta = i;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
+                        intent.putExtra("idReceta", recetasLunes.get(posReceta).getId());
+                        intent.putExtra("nombreReceta", recetasLunes.get(posReceta).getNombre_receta());
+                        startActivity(intent);
+                    }
+                });
 
-            gridLunes.addView(view);
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        eliminarDePlanSemanal(recetasLunes.get(posReceta).getIdPlanSemanal());
+                        gridLunes.removeView(view);
+                        recetasLunes.remove(posReceta);
+
+                        if(gridLunes.getChildCount() == 0){
+                            TextView txt = msgVacio;
+                            txt.setVisibility(View.VISIBLE);
+                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            gridLunes.addView(txt);
+                        }
+
+                        return true;
+                    }
+                });
+
+                gridLunes.addView(view, posReceta);
+            }
         }
 
         // Cargar recetas Martes
-        gridMartes.removeAllViews();
-        adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasMartes);
+        if(recetasMartes.size() != 0){
+            gridMartes.removeAllViews();
+            adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasMartes);
 
-        for(int i = 0; i < recetasMartes.size(); i++){
-            View view = adapterPlanSemanal.getView(i, null, gridMartes);
+            for(int i = 0; i < recetasMartes.size(); i++){
+                View view = adapterPlanSemanal.getView(i, null, gridMartes);
 
-            int posReceta = i;
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
-                    intent.putExtra("idReceta", recetasMartes.get(posReceta).getId());
-                    intent.putExtra("nombreReceta", recetasMartes.get(posReceta).getNombre_receta());
-                    startActivity(intent);
-                }
-            });
+                int posReceta = i;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
+                        intent.putExtra("idReceta", recetasMartes.get(posReceta).getId());
+                        intent.putExtra("nombreReceta", recetasMartes.get(posReceta).getNombre_receta());
+                        startActivity(intent);
+                    }
+                });
 
-            gridMartes.addView(view);
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        eliminarDePlanSemanal(recetasMartes.get(posReceta).getIdPlanSemanal());
+                        gridMartes.removeView(view);
+                        recetasMartes.remove(posReceta);
+
+                        if(gridMartes.getChildCount() == 0){
+                            TextView txt = msgVacio;
+                            txt.setVisibility(View.VISIBLE);
+                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            gridMartes.addView(txt);
+                        }
+
+                        return true;
+                    }
+                });
+
+                gridMartes.addView(view, posReceta);
+            }
         }
 
-    }
+        // Cargar recetas Miércoles
+        if(recetasMiercoles.size() != 0){
+            gridMiercoles.removeAllViews();
+            adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasMiercoles);
+
+            for(int i = 0; i < recetasMiercoles.size(); i++){
+                View view = adapterPlanSemanal.getView(i, null, gridMiercoles);
+
+                int posReceta = i;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
+                        intent.putExtra("idReceta", recetasMiercoles.get(posReceta).getId());
+                        intent.putExtra("nombreReceta", recetasMiercoles.get(posReceta).getNombre_receta());
+                        startActivity(intent);
+                    }
+                });
+
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        eliminarDePlanSemanal(recetasMiercoles.get(posReceta).getIdPlanSemanal());
+                        gridMiercoles.removeView(view);
+                        recetasMiercoles.remove(posReceta);
+
+                        if(gridMiercoles.getChildCount() == 0){
+                            TextView txt = msgVacio;
+                            txt.setVisibility(View.VISIBLE);
+                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            gridMiercoles.addView(txt);
+                        }
+
+                        return true;
+                    }
+                });
+
+                gridMiercoles.addView(view, posReceta);
+            }
+        }
+
+        // Cargar recetas Jueves
+        if(recetasJueves.size() != 0){
+            gridJueves.removeAllViews();
+            adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasJueves);
+
+            for(int i = 0; i < recetasJueves.size(); i++){
+                View view = adapterPlanSemanal.getView(i, null, gridJueves);
+
+                int posReceta = i;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
+                        intent.putExtra("idReceta", recetasJueves.get(posReceta).getId());
+                        intent.putExtra("nombreReceta", recetasJueves.get(posReceta).getNombre_receta());
+                        startActivity(intent);
+                    }
+                });
+
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        eliminarDePlanSemanal(recetasJueves.get(posReceta).getIdPlanSemanal());
+                        gridJueves.removeView(view);
+                        recetasJueves.remove(posReceta);
+
+                        if(gridJueves.getChildCount() == 0){
+                            TextView txt = msgVacio;
+                            txt.setVisibility(View.VISIBLE);
+                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            gridJueves.addView(txt);
+                        }
+
+                        return true;
+                    }
+                });
+
+                gridJueves.addView(view, posReceta);
+            }
+        }
+
+        // Cargar recetas Viernes
+        if(recetasViernes.size() != 0){
+            gridViernes.removeAllViews();
+            adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasViernes);
+
+            for(int i = 0; i < recetasViernes.size(); i++){
+                View view = adapterPlanSemanal.getView(i, null, gridViernes);
+
+                int posReceta = i;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
+                        intent.putExtra("idReceta", recetasViernes.get(posReceta).getId());
+                        intent.putExtra("nombreReceta", recetasViernes.get(posReceta).getNombre_receta());
+                        startActivity(intent);
+                    }
+                });
+
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        eliminarDePlanSemanal(recetasViernes.get(posReceta).getIdPlanSemanal());
+                        gridViernes.removeView(view);
+                        recetasViernes.remove(posReceta);
+
+                        if(gridViernes.getChildCount() == 0){
+                            TextView txt = msgVacio;
+                            txt.setVisibility(View.VISIBLE);
+                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            gridViernes.addView(txt);
+                        }
+
+                        return true;
+                    }
+                });
+
+                gridViernes.addView(view, posReceta);
+            }
+        }
+
+        // Cargar recetas Sábado
+        if(recetasSabado.size() != 0){
+            gridSabado.removeAllViews();
+            adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasSabado);
+
+            for(int i = 0; i < recetasSabado.size(); i++){
+                View view = adapterPlanSemanal.getView(i, null, gridSabado);
+
+                int posReceta = i;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
+                        intent.putExtra("idReceta", recetasSabado.get(posReceta).getId());
+                        intent.putExtra("nombreReceta", recetasSabado.get(posReceta).getNombre_receta());
+                        startActivity(intent);
+                    }
+                });
+
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        eliminarDePlanSemanal(recetasSabado.get(posReceta).getIdPlanSemanal());
+                        gridSabado.removeView(view);
+                        recetasSabado.remove(posReceta);
+
+                        if(gridSabado.getChildCount() == 0){
+                            TextView txt = msgVacio;
+                            txt.setVisibility(View.VISIBLE);
+                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            gridSabado.addView(txt);
+                        }
+
+                        return true;
+                    }
+                });
+
+                gridSabado.addView(view, posReceta);
+            }
+        }
+
+        // Cargar recetas Domingo
+        if(recetasDomingo.size() != 0){
+            gridDomingo.removeAllViews();
+            adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasDomingo);
+
+            for(int i = 0; i < recetasDomingo.size(); i++){
+                View view = adapterPlanSemanal.getView(i, null, gridDomingo);
+
+                int posReceta = i;
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
+                        intent.putExtra("idReceta", recetasDomingo.get(posReceta).getId());
+                        intent.putExtra("nombreReceta", recetasDomingo.get(posReceta).getNombre_receta());
+                        startActivity(intent);
+                    }
+                });
+
+                view.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        eliminarDePlanSemanal(recetasDomingo.get(posReceta).getIdPlanSemanal());
+                        gridLunes.removeView(view);
+                        recetasDomingo.remove(posReceta);
+
+                        if(gridDomingo.getChildCount() == 0){
+                            TextView txt = msgVacio;
+                            txt.setVisibility(View.VISIBLE);
+                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            gridDomingo.addView(txt);
+                        }
+
+                        return true;
+                    }
+                });
+
+                gridDomingo.addView(view, posReceta);
+            }
+        }
+
+    }// Fin método insertarReceta
 
     public boolean cambiarEstado(LinearLayout linearLayout, Button btn, Boolean bool){
         if (bool){

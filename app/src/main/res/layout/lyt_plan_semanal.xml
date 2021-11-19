@@ -13,6 +13,16 @@
         android:orientation="vertical"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/msgVacio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:lineSpacingExtra="0dp"
+            android:text="@string/lbl_container_plan_semanal"
+            android:textAlignment="center"
+            android:textColor="@color/amarilloBase" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -137,7 +147,8 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:paddingLeft="20dp"
-                    android:paddingRight="20dp">
+                    android:paddingRight="20dp"
+                    android:layout_marginBottom="10dp">
 
                     <Button
                         android:id="@+id/btnLunes"
@@ -172,13 +183,12 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="100"
-                                android:columnCount="2">
+                                android:columnCount="2"
+                                android:padding="20dp">
 
                                 <TextView
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:layout_marginBottom="20dp"
                                     android:fontFamily="@font/poppins"
                                     android:lineSpacingExtra="0dp"
                                     android:text="@string/lbl_container_plan_semanal"
@@ -217,13 +227,12 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_weight="100"
-                            android:columnCount="2">
+                            android:columnCount="2"
+                            android:padding="20dp">
 
                             <TextView
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginTop="20dp"
-                                android:layout_marginBottom="20dp"
                                 android:fontFamily="@font/poppins"
                                 android:lineSpacingExtra="0dp"
                                 android:text="@string/lbl_container_plan_semanal"
@@ -262,312 +271,24 @@
                             android:orientation="horizontal"
                             android:weightSum="100">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
+                            <GridLayout
+                                android:id="@+id/gridMiercoles"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="50"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_weight="100"
+                                android:columnCount="2"
+                                android:padding="20dp">
 
-                                <LinearLayout
+                                <TextView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:lineSpacingExtra="0dp"
+                                    android:text="@string/lbl_container_plan_semanal"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/amarilloBase" />
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icDesayunoL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_desayuno" />
-
-                                        <TextView
-                                            android:id="@+id/lbDesayuno"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Desayuno"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerDesayuno"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icAlmuerzoL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_almuerzo" />
-
-                                        <TextView
-                                            android:id="@+id/lbAlmuerzo"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Almuerzo"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerAlmuerzo"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icCenaL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_cena" />
-
-                                        <TextView
-                                            android:id="@+id/lbCena"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Cena"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerCena"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="50"
-                                android:orientation="vertical"
-                                android:padding="10dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda1L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 1"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda2L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 2"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda3L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 3"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
+                            </GridLayout>
 
                         </LinearLayout>
                     </LinearLayout>
@@ -600,313 +321,24 @@
                             android:orientation="horizontal"
                             android:weightSum="100">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
+                            <GridLayout
+                                android:id="@+id/gridJueves"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="50"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_weight="100"
+                                android:columnCount="2"
+                                android:padding="20dp">
 
-                                <LinearLayout
+                                <TextView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:lineSpacingExtra="0dp"
+                                    android:text="@string/lbl_container_plan_semanal"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/amarilloBase" />
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icDesayunoL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_desayuno" />
-
-                                        <TextView
-                                            android:id="@+id/lbDesayuno"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Desayuno"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerDesayuno"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView13"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icAlmuerzoL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_almuerzo" />
-
-                                        <TextView
-                                            android:id="@+id/lbAlmuerzo"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Almuerzo"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerAlmuerzo"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icCenaL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_cena" />
-
-                                        <TextView
-                                            android:id="@+id/lbCena"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Cena"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerCena"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="50"
-                                android:orientation="vertical"
-                                android:padding="10dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda1L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 1"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda2L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 2"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda3L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 3"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
+                            </GridLayout>
 
                         </LinearLayout>
                     </LinearLayout>
@@ -939,313 +371,24 @@
                             android:orientation="horizontal"
                             android:weightSum="100">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
+                            <GridLayout
+                                android:id="@+id/gridViernes"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="50"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_weight="100"
+                                android:columnCount="2"
+                                android:padding="20dp">
 
-                                <LinearLayout
+                                <TextView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:lineSpacingExtra="0dp"
+                                    android:text="@string/lbl_container_plan_semanal"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/amarilloBase" />
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icDesayunoL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_desayuno" />
-
-                                        <TextView
-                                            android:id="@+id/lbDesayuno"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Desayuno"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerDesayuno"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView13"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icAlmuerzoL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_almuerzo" />
-
-                                        <TextView
-                                            android:id="@+id/lbAlmuerzo"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Almuerzo"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerAlmuerzo"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icCenaL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_cena" />
-
-                                        <TextView
-                                            android:id="@+id/lbCena"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Cena"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerCena"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="50"
-                                android:orientation="vertical"
-                                android:padding="10dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda1L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 1"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda2L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 2"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda3L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 3"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
+                            </GridLayout>
 
                         </LinearLayout>
                     </LinearLayout>
@@ -1278,313 +421,24 @@
                             android:orientation="horizontal"
                             android:weightSum="100">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
+                            <GridLayout
+                                android:id="@+id/gridSabado"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="50"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_weight="100"
+                                android:columnCount="2"
+                                android:padding="20dp">
 
-                                <LinearLayout
+                                <TextView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:lineSpacingExtra="0dp"
+                                    android:text="@string/lbl_container_plan_semanal"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/amarilloBase" />
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icDesayunoL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_desayuno" />
-
-                                        <TextView
-                                            android:id="@+id/lbDesayuno"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Desayuno"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerDesayuno"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView13"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icAlmuerzoL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_almuerzo" />
-
-                                        <TextView
-                                            android:id="@+id/lbAlmuerzo"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Almuerzo"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerAlmuerzo"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icCenaL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_cena" />
-
-                                        <TextView
-                                            android:id="@+id/lbCena"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Cena"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerCena"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="50"
-                                android:orientation="vertical"
-                                android:padding="10dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda1L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 1"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda2L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 2"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda3L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 3"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
+                            </GridLayout>
 
                         </LinearLayout>
                     </LinearLayout>
@@ -1617,313 +471,24 @@
                             android:orientation="horizontal"
                             android:weightSum="100">
 
-                            <LinearLayout
-                                android:layout_width="0dp"
+                            <GridLayout
+                                android:id="@+id/gridDomingo"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="50"
-                                android:orientation="vertical"
-                                android:padding="10dp">
+                                android:layout_weight="100"
+                                android:columnCount="2"
+                                android:padding="20dp">
 
-                                <LinearLayout
+                                <TextView
                                     android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/poppins"
+                                    android:lineSpacingExtra="0dp"
+                                    android:text="@string/lbl_container_plan_semanal"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/amarilloBase" />
 
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icDesayunoL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_desayuno" />
-
-                                        <TextView
-                                            android:id="@+id/lbDesayuno"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Desayuno"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerDesayuno"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView13"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icAlmuerzoL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_almuerzo" />
-
-                                        <TextView
-                                            android:id="@+id/lbAlmuerzo"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Almuerzo"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerAlmuerzo"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icCenaL"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_cena" />
-
-                                        <TextView
-                                            android:id="@+id/lbCena"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Cena"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerCena"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="0dp"
-                                android:layout_height="wrap_content"
-                                android:layout_weight="50"
-                                android:orientation="vertical"
-                                android:padding="10dp">
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda1L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 1"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda1"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda2L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 2"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda2"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="match_parent"
-                                    android:layout_height="match_parent"
-                                    android:orientation="vertical">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:gravity="center"
-                                        android:orientation="horizontal">
-
-                                        <ImageView
-                                            android:id="@+id/icMerienda3L"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            app:srcCompat="@drawable/ic_merienda" />
-
-                                        <TextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:fontFamily="@font/poppins"
-                                            android:paddingLeft="5dp"
-                                            android:text="Merienda 3"
-                                            android:textAlignment="center"
-                                            android:textColor="#000000" />
-                                    </LinearLayout>
-
-                                    <LinearLayout
-                                        android:id="@+id/containerMerienda3"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:layout_marginBottom="10dp"
-                                        android:orientation="vertical">
-
-                                        <TextView
-                                            android:id="@+id/textView15"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:layout_marginTop="5dp"
-                                            android:layout_marginBottom="20dp"
-                                            android:fontFamily="@font/poppins"
-                                            android:lineSpacingExtra="0dp"
-                                            android:text="@string/lbl_container_plan_semanal"
-                                            android:textAlignment="center"
-                                            android:textColor="@color/amarilloBase" />
-                                    </LinearLayout>
-                                </LinearLayout>
-                            </LinearLayout>
+                            </GridLayout>
 
                         </LinearLayout>
                     </LinearLayout>

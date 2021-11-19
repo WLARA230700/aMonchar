@@ -302,6 +302,7 @@ public class act_detalle_receta extends AppCompatActivity {
                 @Override
                 public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                     getDiaSemana(pos, b);
+                    bloquearTiemposOcupados();
 
                     if(b){
                         if(timeSelected && daySelected){
@@ -315,6 +316,10 @@ public class act_detalle_receta extends AppCompatActivity {
         }
 
     }// Fin método initListenerDiasSemana
+
+    public void bloquearTiemposOcupados(){
+
+    }// Fin método bloquearTiemposOcupados
 
     public void getDiaSemana(int pos, boolean checked){
         if(checked){

@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,6 +29,7 @@ import com.war.amonchar.Modelo.AdapterRecetas;
 import com.war.amonchar.Modelo.GlobalVariables;
 import com.war.amonchar.Modelo.PlanSemanal;
 import com.war.amonchar.Modelo.Receta;
+import com.war.amonchar.Modelo.RecetaPlanSemanal;
 
 import java.util.ArrayList;
 
@@ -43,9 +46,16 @@ public class act_plan_semanal extends AppCompatActivity {
 
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
-    ArrayList<Receta> recetas  = new ArrayList<>();
-    Receta receta;
-    ArrayList<PlanSemanal> planes = new ArrayList<>();
+    RecetaPlanSemanal receta;
+    //ArrayList<PlanSemanal> planes = new ArrayList<>();
+
+    ArrayList<RecetaPlanSemanal> recetasLunes  = new ArrayList<>();
+    ArrayList<RecetaPlanSemanal> recetasMartes  = new ArrayList<>();
+    ArrayList<RecetaPlanSemanal> recetasMiercoles  = new ArrayList<>();
+    ArrayList<RecetaPlanSemanal> recetasJueves  = new ArrayList<>();
+    ArrayList<RecetaPlanSemanal> recetasViernes  = new ArrayList<>();
+    ArrayList<RecetaPlanSemanal> recetasSabado  = new ArrayList<>();
+    ArrayList<RecetaPlanSemanal> recetasDomingo  = new ArrayList<>();
 
     AdapterPlanSemanal adapterPlanSemanal;
 
@@ -55,8 +65,16 @@ public class act_plan_semanal extends AppCompatActivity {
         setContentView(R.layout.lyt_plan_semanal);
         getSupportActionBar().hide();
 
-        inicializarFirebase();
-        cargarPlanSemanal();
+        recetasLunes = getIntent().getParcelableArrayListExtra("recetasLunes");
+        recetasMartes = getIntent().getParcelableArrayListExtra("recetasMartes");
+        recetasMiercoles = getIntent().getParcelableArrayListExtra("recetasMiercoles");
+        recetasJueves = getIntent().getParcelableArrayListExtra("recetasJueves");
+        recetasViernes = getIntent().getParcelableArrayListExtra("recetasViernes");
+        recetasSabado = getIntent().getParcelableArrayListExtra("recetasSabado");
+        recetasDomingo = getIntent().getParcelableArrayListExtra("recetasDomingo");
+
+        //inicializarFirebase();
+        //cargarPlanSemanal();
 
         contenidoLunes = findViewById(R.id.planSemanal);
         contenidoMartes = findViewById(R.id.contenidoMartes);
@@ -86,6 +104,8 @@ public class act_plan_semanal extends AppCompatActivity {
         contenidoViernes.setVisibility(View.GONE);
         contenidoSabado.setVisibility(View.GONE);
         contenidoDomingo.setVisibility(View.GONE);
+
+        insertarReceta();
 
 
         btnLunes.setOnClickListener(new View.OnClickListener() {
@@ -148,7 +168,13 @@ public class act_plan_semanal extends AppCompatActivity {
 
     }//Fin del onCreate
 
-    private void inicializarFirebase() {
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //insertarReceta();
+    }
+
+    /*private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);
         firebaseDatabase = FirebaseDatabase.getInstance(); // Obtengo la instancia de firebase
         databaseReference = firebaseDatabase.getReference(); // Obtengo la referencia a utilizar en la base de datos
@@ -161,25 +187,19 @@ public class act_plan_semanal extends AppCompatActivity {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                //Toast.makeText(getApplicationContext(), "gg", Toast.LENGTH_SHORT).show();
 
                 if(snapshot.exists()){
 
                     for(DataSnapshot obtSnapshot : snapshot.getChildren()){
-
-                        //planes.add(snapshot.getValue(PlanSemanal.class));
-                        //Toast.makeText(getApplicationContext(), obtSnapshot.getValue(PlanSemanal.class).getIdReceta(), Toast.LENGTH_SHORT).show();
 
                         String dia = obtSnapshot.getValue(PlanSemanal.class).getDia();
                         String idReceta = obtSnapshot.getValue(PlanSemanal.class).getIdReceta();
+                        String tiempoComida = obtSnapshot.getValue(PlanSemanal.class).getTiempoComida();
 
-                        //Toast.makeText(getApplicationContext(), idReceta, Toast.LENGTH_SHORT).show();
-                        Log.d("idReceta: ", idReceta);
-
-                        cargarReceta(idReceta);
-                        //insertarReceta(dia);
+                        cargarReceta(idReceta, dia, tiempoComida);
 
                     }
+
                 }
 
             }
@@ -192,86 +212,128 @@ public class act_plan_semanal extends AppCompatActivity {
 
     }
 
-    public void cargarReceta(String idReceta){
-        //Toast.makeText(getApplicationContext(), idReceta, Toast.LENGTH_SHORT).show();
-        databaseReference.child("Receta").child(idReceta).addListenerForSingleValueEvent(new ValueEventListener() {
+    public void cargarReceta(String idReceta, String dia, String tiempoComida){
+        databaseReference.child("Receta").child(idReceta).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                recetas.clear();
-                if(snapshot.exists()){
-                    for(DataSnapshot obtSnapshot : snapshot.getChildren()){
-                        if(obtSnapshot.hasChildren()){
-                            GenericTypeIndicator<ArrayList<String>> indicator = new GenericTypeIndicator<ArrayList<String>>(){};
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                //recetas.clear();
+                if(task.isComplete()){
 
-                            //Toast.makeText(getApplicationContext(), obtSnapshot.child("nombre_receta").getValue(String.class), Toast.LENGTH_SHORT).show();
-                            Log.d("Receta", obtSnapshot.child("nombre_receta").getValue(String.class)+" gg");
-                        /*String id = obtSnapshot.child("id").getValue(String.class);
-                        int tiempo_preparacion = obtSnapshot.child("tiempo_preparacion").getValue(int.class);
-                        String medida_tiempo_preparacion = obtSnapshot.child("medida_tiempo_preparacion").getValue(String.class);
-                        String tiempo_comida = obtSnapshot.child("tiempo_comida").getValue(String.class);
-                        ArrayList<String> categorias = obtSnapshot.child("categorias").getValue(indicator);
-                        String nombre_receta = obtSnapshot.child("nombre_receta").getValue(String.class);
-                        String imagen = obtSnapshot.child("imagen").getValue(String.class);
-                        ArrayList<String> cantidad_ingredientes = obtSnapshot.child("cantidad_ingredientes").getValue(indicator);
-                        ArrayList<String> ingredientes = obtSnapshot.child("ingredientes").getValue(indicator);
-                        ArrayList<String> pasos = obtSnapshot.child("pasos").getValue(indicator);
+                    DataSnapshot snapshot = task.getResult();
 
-                        receta = new Receta(id,
-                                tiempo_preparacion,
-                                medida_tiempo_preparacion,
-                                tiempo_comida,
-                                categorias,
-                                nombre_receta,
-                                imagen,
-                                cantidad_ingredientes,
-                                ingredientes,
-                                pasos);
+                    if(snapshot.exists()){
 
-                        receta = obtSnapshot.getValue(Receta.class);
+                        switch (dia){
+                            case "Lunes":
+                                receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setDia(dia);
+                                receta.setTiempoComidaPlanSemanal(tiempoComida);
+                                recetasLunes.add(receta);
+                                break;
 
-                        recetas.add(receta);*/
+                            case "Martes":
+                                receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setDia(dia);
+                                receta.setTiempoComidaPlanSemanal(tiempoComida);
+                                recetasMartes.add(receta);
+                                break;
+
+                            case "Miércoles":
+                                receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setDia(dia);
+                                receta.setTiempoComidaPlanSemanal(tiempoComida);
+                                recetasMiercoles.add(receta);
+                                break;
+
+                            case "Jueves":
+                                receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setDia(dia);
+                                receta.setTiempoComidaPlanSemanal(tiempoComida);
+                                recetasJueves.add(receta);
+                                break;
+
+                            case "Viernes":
+                                receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setDia(dia);
+                                receta.setTiempoComidaPlanSemanal(tiempoComida);
+                                recetasViernes.add(receta);
+                                break;
+
+                            case "Sábado":
+                                receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setDia(dia);
+                                receta.setTiempoComidaPlanSemanal(tiempoComida);
+                                recetasSabado.add(receta);
+                                break;
+
+                            case "Domingo":
+                                receta = snapshot.getValue(RecetaPlanSemanal.class);
+                                receta.setDia(dia);
+                                receta.setTiempoComidaPlanSemanal(tiempoComida);
+                                recetasDomingo.add(receta);
+                                break;
                         }
+
+                        //insertarReceta(dia, tiempoComida);
                     }
 
                 }
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
+    }*/
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        gridLunes.removeAllViews();
+        gridMartes.removeAllViews();
+        insertarReceta();
     }
 
-    public void insertarReceta(String dia){
-        switch (dia){
-            case "Lunes":
-                gridLunes.removeAllViews();
-                gridLunes.setColumnCount(2);
-                Log.d(dia + " : ",receta.getNombre_receta());
-                break;
+    public void insertarReceta(){
 
-            case "Martes":
-                gridMartes.removeAllViews();
-                gridMartes.setColumnCount(2);
-                break;
+        // Cargar recetas Lunes
+        gridLunes.removeAllViews();
+        adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasLunes);
 
-            case "Miércoles":
-                break;
+        for(int i = 0; i < recetasLunes.size(); i++){
+            View view = adapterPlanSemanal.getView(i, null, gridLunes);
 
-            case "Jueves":
-                break;
+            int posReceta = i;
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
+                    intent.putExtra("idReceta", recetasLunes.get(posReceta).getId());
+                    intent.putExtra("nombreReceta", recetasLunes.get(posReceta).getNombre_receta());
+                    startActivity(intent);
+                }
+            });
 
-            case "Viernes":
-                break;
-
-            case "Sábado":
-                break;
-
-            case "Domingo":
-                break;
+            gridLunes.addView(view);
         }
+
+        // Cargar recetas Martes
+        gridMartes.removeAllViews();
+        adapterPlanSemanal = new AdapterPlanSemanal(getApplicationContext(), recetasMartes);
+
+        for(int i = 0; i < recetasMartes.size(); i++){
+            View view = adapterPlanSemanal.getView(i, null, gridMartes);
+
+            int posReceta = i;
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), act_detalle_receta.class);
+                    intent.putExtra("idReceta", recetasMartes.get(posReceta).getId());
+                    intent.putExtra("nombreReceta", recetasMartes.get(posReceta).getNombre_receta());
+                    startActivity(intent);
+                }
+            });
+
+            gridMartes.addView(view);
+        }
+
     }
 
     public boolean cambiarEstado(LinearLayout linearLayout, Button btn, Boolean bool){
@@ -295,5 +357,11 @@ public class act_plan_semanal extends AppCompatActivity {
             return bool;
         }
     }//Fin de cambiarEstado
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        insertarReceta();
+    }
 
 }//Fin de la clase

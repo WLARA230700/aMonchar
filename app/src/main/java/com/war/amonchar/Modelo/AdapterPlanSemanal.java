@@ -24,17 +24,15 @@ import java.util.ArrayList;
 
 public class AdapterPlanSemanal extends BaseAdapter {
     Context context;
-    ArrayList<Receta> lista;
-    String tiempoComida;
+    ArrayList<RecetaPlanSemanal> lista;
 
     private DatabaseReference mDatabase;
     FirebaseStorage firebaseStorage;
     StorageReference storageReference;
 
-    public AdapterPlanSemanal(Context context, ArrayList<Receta> lista, String tiempoComida) {
+    public AdapterPlanSemanal(Context context, ArrayList<RecetaPlanSemanal> lista) {
         this.context = context;
         this.lista = lista;
-        this.tiempoComida = tiempoComida;
 
         //Inicializar la BD
         mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -96,7 +94,9 @@ public class AdapterPlanSemanal extends BaseAdapter {
 
         lbTituloPS.setText(lista.get(i).getNombre_receta());
         lbTiempoPreparacion.setText(lista.get(i).getTiempo_preparacion()+" " + lista.get(i).getMedida_tiempo_preparacion());
+        lblTiempoComida.setText(lista.get(i).getTiempoComidaPlanSemanal());
         imgTimer.setImageResource(R.drawable.ic_clock_regular);
+        icTiempoComida.setImageResource(R.drawable.ic_desayuno);
 
         return view;
     }

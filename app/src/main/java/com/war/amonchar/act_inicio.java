@@ -64,7 +64,7 @@ public class act_inicio extends AppCompatActivity {
         db = new BD(getApplicationContext());
 
         inicializarFirebase();
-        //cargarRecetas();
+        cargarRecetas();
 
         icUsuario = findViewById(R.id.icUsuario);
         icListaCompra = findViewById(R.id.icListaCompra);
@@ -113,7 +113,10 @@ public class act_inicio extends AppCompatActivity {
         txtCatDesayuno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                cargarRecetasDeayuno();
+                //cargarRecetasDeayuno();
+                recetas.clear();
+                gridRecetas.clearChildFocus(view);
+                Toast.makeText(getApplicationContext(), "Limpiando grid", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -200,6 +203,7 @@ public class act_inicio extends AppCompatActivity {
                         }
                     });
                     gridRecetas.addView(view);
+
                 }
                 int children = gridRecetas.getChildCount();
             }

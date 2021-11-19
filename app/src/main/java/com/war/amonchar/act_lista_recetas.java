@@ -49,7 +49,7 @@ public class act_lista_recetas extends AppCompatActivity {
         txtBuscado = findViewById(R.id.txtBuscado);
 
         idRecetas = getIntent().getStringArrayListExtra("idRecetas");
-        //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
 
         buscado = getIntent().getStringExtra("buscado");
 

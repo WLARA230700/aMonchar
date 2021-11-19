@@ -66,6 +66,7 @@ public class act_inicio extends AppCompatActivity {
 
         inicializarFirebase();
         cargarRecetas();
+        bucarRecetasDesayuno();
         idRecetas = new ArrayList<>();
 
         icUsuario = findViewById(R.id.icUsuario);
@@ -115,15 +116,14 @@ public class act_inicio extends AppCompatActivity {
         txtCatDesayuno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                idRecetas.clear();
-
-                bucarRecetasDesayuno();
+                //bucarRecetasDesayuno();
 
                 Intent intent = new Intent(getApplicationContext(), act_lista_recetas.class);
                 intent.putExtra("idRecetas", idRecetas);
                 intent.putExtra("buscado", "Desayuno");
                 startActivity(intent);
+
+                idRecetas.clear();
             }
         });
 
@@ -229,12 +229,12 @@ public class act_inicio extends AppCompatActivity {
     }
 
     public void bucarRecetasDesayuno(){
+
               databaseReference.child("Receta").orderByChild("tiempo_comida").equalTo("Desayuno").addChildEventListener(new ChildEventListener() {
+
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
                 //Toast.makeText(getApplicationContext(), previousChildName, Toast.LENGTH_SHORT).show();
-
                 for(DataSnapshot obtSnapshot : snapshot.getChildren()){
                     if(obtSnapshot.getKey().equals("id")){
                         //Toast.makeText(getApplicationContext(), obtSnapshot.getValue().toString(), Toast.LENGTH_SHORT).show();
@@ -244,6 +244,7 @@ public class act_inicio extends AppCompatActivity {
                         idRecetas.add(id);
                     }
                 }
+
             }
 
             @Override

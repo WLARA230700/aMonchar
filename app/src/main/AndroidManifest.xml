@@ -39,7 +39,8 @@
             android:exported="true" />
         <activity
             android:name=".act_plan_semanal"
-            android:exported="true" />
+            android:exported="true"
+            android:noHistory="true"/>
         <activity
             android:name=".act_agregar_receta"
             android:exported="true" />

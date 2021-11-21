@@ -66,7 +66,8 @@ public class act_inicio extends AppCompatActivity {
 
         inicializarFirebase();
         cargarRecetas();
-        bucarRecetasDesayuno();
+
+
         idRecetas = new ArrayList<>();
 
         icUsuario = findViewById(R.id.icUsuario);
@@ -116,12 +117,36 @@ public class act_inicio extends AppCompatActivity {
         txtCatDesayuno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //bucarRecetasDesayuno();
+                databaseReference.child("Receta").orderByChild("tiempo_comida").equalTo("Desayuno").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                Intent intent = new Intent(getApplicationContext(), act_lista_recetas.class);
-                intent.putExtra("idRecetas", idRecetas);
-                intent.putExtra("buscado", "Desayuno");
-                startActivity(intent);
+                        for(DataSnapshot obtSnapshot : snapshot.getChildren()){
+                            if(obtSnapshot.getKey().equals("id")){
+
+                                String id = obtSnapshot.getValue().toString();
+                                idRecetas.add(id);
+                            }
+                        }
+                        Intent intent = new Intent(getApplicationContext(), act_lista_recetas_inicio.class);
+                        intent.putExtra("idRecetas", idRecetas);
+                        intent.putExtra("buscado", "Desayuno");
+                        startActivity(intent);
+
+                    }
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) { }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) { }
+
+                });
 
                 idRecetas.clear();
             }
@@ -130,21 +155,108 @@ public class act_inicio extends AppCompatActivity {
         txtCatMeriendas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                databaseReference.child("Receta").orderByChild("tiempo_comida").startAt("Merienda").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
+                        for(DataSnapshot obtSnapshot : snapshot.getChildren()){
+                            if(obtSnapshot.getKey().equals("id")){
+                                String id = obtSnapshot.getValue().toString();
+                                idRecetas.add(id);
+                            }
+                        }
+                        Intent intent = new Intent(getApplicationContext(), act_lista_recetas_inicio.class);
+                        intent.putExtra("idRecetas", idRecetas);
+                        intent.putExtra("buscado", "Meriendas");
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) { }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) { }
+                });
+
+                idRecetas.clear();
             }
         });
 
         txtCatAlmuerzo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                databaseReference.child("Receta").orderByChild("tiempo_comida").equalTo("Almuerzo").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
+                        for(DataSnapshot obtSnapshot : snapshot.getChildren()){
+                            if(obtSnapshot.getKey().equals("id")){
+                                String id = obtSnapshot.getValue().toString();
+                                idRecetas.add(id);
+                            }
+                        }
+                        Intent intent = new Intent(getApplicationContext(), act_lista_recetas_inicio.class);
+                        intent.putExtra("idRecetas", idRecetas);
+                        intent.putExtra("buscado", "Almuerzo");
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) { }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) { }
+                });
+
+                idRecetas.clear();
             }
         });
 
         txtCatCena.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                databaseReference.child("Receta").orderByChild("tiempo_comida").equalTo("Cena").addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
+                        for(DataSnapshot obtSnapshot : snapshot.getChildren()){
+                            if(obtSnapshot.getKey().equals("id")){
+                                String id = obtSnapshot.getValue().toString();
+                                idRecetas.add(id);
+                            }
+                        }
+                        Intent intent = new Intent(getApplicationContext(), act_lista_recetas_inicio.class);
+                        intent.putExtra("idRecetas", idRecetas);
+                        intent.putExtra("buscado", "Cena");
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
+
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) { }
+
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) { }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) { }
+                });
+
+                idRecetas.clear();
             }
         });
 
@@ -226,48 +338,6 @@ public class act_inicio extends AppCompatActivity {
 
             }
         });
-    }
-
-    public void bucarRecetasDesayuno(){
-
-              databaseReference.child("Receta").orderByChild("tiempo_comida").equalTo("Desayuno").addChildEventListener(new ChildEventListener() {
-
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                //Toast.makeText(getApplicationContext(), previousChildName, Toast.LENGTH_SHORT).show();
-                for(DataSnapshot obtSnapshot : snapshot.getChildren()){
-                    if(obtSnapshot.getKey().equals("id")){
-                        //Toast.makeText(getApplicationContext(), obtSnapshot.getValue().toString(), Toast.LENGTH_SHORT).show();
-
-                        String id = obtSnapshot.getValue().toString();
-
-                        idRecetas.add(id);
-                    }
-                }
-
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-
     }
 
     private void cerrarSesion(BD db) {

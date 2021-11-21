@@ -117,6 +117,7 @@ public class act_inicio extends AppCompatActivity {
         txtCatDesayuno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 databaseReference.child("Receta").orderByChild("tiempo_comida").equalTo("Desayuno").addChildEventListener(new ChildEventListener() {
                     @Override
                     public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
@@ -201,6 +202,7 @@ public class act_inicio extends AppCompatActivity {
                                 idRecetas.add(id);
                             }
                         }
+
                         Intent intent = new Intent(getApplicationContext(), act_lista_recetas_inicio.class);
                         intent.putExtra("idRecetas", idRecetas);
                         intent.putExtra("buscado", "Almuerzo");
@@ -339,6 +341,7 @@ public class act_inicio extends AppCompatActivity {
             }
         });
     }
+
 
     private void cerrarSesion(BD db) {
 

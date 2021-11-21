@@ -143,15 +143,8 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="99"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="Ingresa 3 ingredientes"
+                            android:text="Ingresa almenos 1 ingrediente"
                             android:textSize="14dp" />
-
-                        <ImageView
-                            android:id="@+id/imageView7"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            app:srcCompat="@drawable/ic_button_plus" />
 
                     </LinearLayout>
 
@@ -173,7 +166,7 @@
                             android:textSize="16dp" />
 
                         <EditText
-                            android:id="@+id/editTextTextPersonName6"
+                            android:id="@+id/txtIngrediente1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="90"
@@ -203,7 +196,37 @@
                             android:textSize="16dp" />
 
                         <EditText
-                            android:id="@+id/editTextTextPersonName6"
+                            android:id="@+id/txtIngrediente2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="90"
+                            android:background="@drawable/custom_input"
+                            android:ems="10"
+                            android:inputType="textPersonName"
+                            android:padding="5dp"
+                            android:textColor="@color/texto"
+                            android:textSize="16dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:paddingTop="10dp"
+                        android:weightSum="100">
+
+                        <TextView
+                            android:id="@+id/textView47"
+                            android:layout_width="10dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="10"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="3."
+                            android:textColor="@color/texto"
+                            android:textSize="16dp" />
+
+                        <EditText
+                            android:id="@+id/txtIngrediente3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="90"

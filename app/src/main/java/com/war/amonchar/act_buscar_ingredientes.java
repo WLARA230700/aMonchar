@@ -61,15 +61,10 @@ public class act_buscar_ingredientes extends AppCompatActivity {
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!txtIngrediente1.getText().toString().isEmpty()){
-                    Intent intent = new Intent(getApplicationContext(), act_lista_recetas.class);
-                    intent.putExtra("idRecetas", idRecetas);
-                    intent.putExtra("buscado", txtIngrediente1.getText().toString());
-                    startActivity(intent);
-                }else{
-                    Toast.makeText(getApplicationContext(), "Escriba la receta a buscar", Toast.LENGTH_SHORT).show();
-                }
-
+                Intent intent = new Intent(getApplicationContext(), act_lista_recetas.class);
+                intent.putExtra("idRecetas", idRecetas);
+                intent.putExtra("buscado", txtIngrediente1.getText().toString());
+                startActivity(intent);
             }
         });
 
@@ -88,11 +83,10 @@ public class act_buscar_ingredientes extends AppCompatActivity {
             public void afterTextChanged(Editable s) {
 
                 String texto = txtIngrediente1.getText().toString();
-
                 idRecetas.clear();
 
                 rellenarIdRecetas(texto);
-
+                Toast.makeText(getApplicationContext(), texto, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -105,23 +99,22 @@ public class act_buscar_ingredientes extends AppCompatActivity {
     }//fin inicializarFirebase
 
     public void rellenarIdRecetas(String texto) {
-        //databaseReference.child("Receta").orderByChild("ingredientes").startAt(texto).endAt(texto + "\uf8ff").addChildEventListener(new ChildEventListener() {
-            databaseReference.child("Receta").orderByChild("ingredientes").startAt(texto).addChildEventListener(new ChildEventListener() {
+        databaseReference.child("Receta").orderByChild("ingredientes").startAt(texto).endAt(texto + "\uf8ff").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Toast.makeText(getApplicationContext(), previousChildName, Toast.LENGTH_SHORT).show();
+               //Toast.makeText(getApplicationContext(), previousChildName, Toast.LENGTH_SHORT).show();
 
                 for (DataSnapshot obtSnapshot : snapshot.getChildren()) {
 
                     if (obtSnapshot.getKey().equals("id")) {
-                        Toast.makeText(getApplicationContext(), obtSnapshot.getValue().toString(), Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(getApplicationContext(), obtSnapshot.getValue().toString(), Toast.LENGTH_SHORT).show();
 
                         String id = obtSnapshot.getValue().toString();
 
                         idRecetas.add(id);
                     }
                 }
-                //Toast.makeText(getApplicationContext(), "idRecetas: "+idRecetas.toString(), Toast.LENGTH_SHORT).show();
+               Toast.makeText(getApplicationContext(), "idRecetas: "+idRecetas.toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override

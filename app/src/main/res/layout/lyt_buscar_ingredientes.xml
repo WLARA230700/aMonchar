@@ -143,7 +143,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="99"
                             android:fontFamily="@font/poppins_bold"
-                            android:text="Ingresa almenos 1 ingrediente"
+                            android:text="Ingresa al menos 1 ingrediente"
                             android:textSize="14dp" />
 
                     </LinearLayout>

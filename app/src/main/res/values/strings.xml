@@ -55,6 +55,7 @@
     <string name="lbl_subtitulo_autenticacion_fingerprint">Coloque su huella en el lector</string>
     <string name="lbl_subtitulo_autenticacion_pincode">Ingrese el pin de pantalla de bloqueo</string>
     <string name="lbl_titulo_alertDialog_cargar_fotografia">¿Cómo desea cargar su fotografía?</string>
+    <string name="lbl_container_plan_semanal">Nada registrado</string>
 
     <!-- BOTONES -->
     <string name="btn_registrarse">Registrarse</string>
@@ -62,7 +63,9 @@
     <string name="btn_guardar">Guardar</string>
     <string name="btn_cambiar_fotografia">Cambiar Fotografía</string>
     <string name="btn_buscar">Buscar</string>
-    <string name="btn_aniadir_a_plan_semanal">Añadir a mi plan semanal</string>
+    <string name="btn_expandir_plan_semanal">Añadir a plan semanal</string>
+    <string name="btn_aniadir_a_plan_semanal">Añadir</string>
+    <string name="btn_actualizar_a_plan_semanal">Actualizar</string>
     <string name="btn_cancelar_autenticacion">Cancelar</string>
     <string name="btn_capturar_Fotografia_camara">Cámara</string>
     <string name="btn_capturar_Fotografia_galeria">Galería</string>
@@ -74,6 +77,11 @@
     <string name="msg_agregado_correctamente">Agregado correctamente</string>
     <string name="msg_agregado_incorrectamente">Ha ocurrido un error al agregar</string>
     <string name="msg_error_upload_fotografia">Ha ocurrido un error al guardar la fotografía</string>
+    <string name="msg_seleccionar_tiempo_comida_plan_semanal">Debe seleccionar un tiempo de comida</string>
+    <string name="msg_seleccionar_dia_plan_semanal">Debe seleccionar un día de la semana</string>
+    <string name="msg_agregado_plan_semanal">Agregado correctamente a tu plan semanal</string>
+    <string name="msg_actualizado_plan_semanal">Plan semanal actualizado</string>
+    <string name="msg_error_seleccionar_dia_plan_semanal">Error al guardar. Vuelve a intentar</string>
 
     <!-- ARRAY DE TIEMPOS DE COMIDA -->
     <string-array name="array_tiempos_comida">

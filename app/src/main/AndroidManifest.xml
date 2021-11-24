@@ -26,6 +26,10 @@
             android:name=".act_lista_recetas_inicio"
             android:exported="true" />
         <activity
+            android:name=".act_lista_recetas_tiempoComida"
+            android:exported="true"
+            android:noHistory="true"/>
+        <activity
             android:name=".act_buscar_ingredientes"
             android:exported="true" />
         <activity
@@ -42,7 +46,8 @@
             android:exported="true" />
         <activity
             android:name=".act_plan_semanal"
-            android:exported="true" />
+            android:exported="true"
+            android:noHistory="true"/>
         <activity
             android:name=".act_agregar_receta"
             android:exported="true" />

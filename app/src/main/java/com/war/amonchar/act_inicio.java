@@ -281,7 +281,6 @@ public class act_inicio extends AppCompatActivity {
 
                     GenericTypeIndicator<ArrayList<String>> indicator = new GenericTypeIndicator<ArrayList<String>>(){};
 
-
                     String id = obtSnapshot.child("id").getValue(String.class);
                     int tiempo_preparacion = obtSnapshot.child("tiempo_preparacion").getValue(int.class);
                     String medida_tiempo_preparacion = obtSnapshot.child("medida_tiempo_preparacion").getValue(String.class);

@@ -30,9 +30,6 @@ public class act_lista_recetas extends AppCompatActivity {
     ArrayList<String> idRecetas;
     String buscado = "";
     TextView txtBuscado;
-
-
-
     GridLayout gridRecetas;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -50,15 +47,13 @@ public class act_lista_recetas extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         gridRecetas = findViewById(R.id.gridRecetas);
         txtBuscado = findViewById(R.id.txtBuscado);
-
-
         idRecetas = getIntent().getStringArrayListExtra("idRecetas");
         //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
 
         buscado = getIntent().getStringExtra("buscado");
 
         txtBuscado.setText("\"" + buscado + "\"");
-
+      
         inicializarFirebase();
         cargarRecetas();
 

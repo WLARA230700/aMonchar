@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -72,7 +73,6 @@ public class AdapterRecetas extends BaseAdapter {
         TextView lbTituloPS = view.findViewById(R.id.lbTituloPS);
         TextView lbTiempoPreparacion = view.findViewById(R.id.lbTiempoPreparacion);
         ImageView imgReceta = view.findViewById(R.id.imgReceta);
-        ImageView bgTimer = view.findViewById(R.id.bgTimer);
         ImageView imgTimer = view.findViewById(R.id.imgTimer);
 
         StorageReference imageRef = storageReference.child("Fotografia_Recetas/"+lista.get(i).getNombre_receta()+"_"+lista.get(i).getId());
@@ -95,9 +95,7 @@ public class AdapterRecetas extends BaseAdapter {
         });
 
         lbTituloPS.setText(lista.get(i).getNombre_receta());
-        lbTiempoPreparacion.setText(lista.get(i).getTiempo_preparacion()+" min");
-        //imgReceta.setImageResource(R.drawable.custom_foto_inicio);
-        bgTimer.setImageResource(R.drawable.timer_background);
+        lbTiempoPreparacion.setText(lista.get(i).getTiempo_preparacion()+" " + lista.get(i).getMedida_tiempo_preparacion());
         imgTimer.setImageResource(R.drawable.ic_clock_regular);
 
         return view;

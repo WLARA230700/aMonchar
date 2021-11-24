@@ -103,7 +103,7 @@
                                 app:srcCompat="@drawable/ic_clock_regular" />
 
                             <TextView
-                                android:id="@+id/textView48"
+                                android:id="@+id/lblTiempoPreparacion"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="right|center_vertical"

@@ -23,6 +23,10 @@
             android:name=".act_lista_recetas"
             android:exported="true" />
         <activity
+            android:name=".act_lista_recetas_tiempoComida"
+            android:exported="true"
+            android:noHistory="true"/>
+        <activity
             android:name=".act_buscar_ingredientes"
             android:exported="true" />
         <activity

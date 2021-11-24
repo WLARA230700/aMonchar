@@ -83,7 +83,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins"
-                android:text="@user01"
                 android:textColor="#191919"
                 android:textSize="8dp"
                 android:visibility="gone" />

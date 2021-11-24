@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="@Marian0911"
+                android:text="@string/app_name"
                 android:textAlignment="textEnd"
                 android:textColor="#1A1A1A" />
 
@@ -307,7 +307,6 @@
                                 app:srcCompat="@drawable/mar" />
 
                             <TextView
-                                android:id="@+id/txtCatDesayuno"
                                 android:id="@+id/txtMar"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

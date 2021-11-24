@@ -1,15 +1,14 @@
 package com.war.amonchar;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -23,7 +22,7 @@ import com.war.amonchar.Modelo.Receta;
 
 import java.util.ArrayList;
 
-public class act_lista_recetas extends AppCompatActivity {
+public class act_lista_recetas_tiempoComida extends AppCompatActivity {
 
     ImageView btnBack;
     ArrayList<String> idRecetas;
@@ -61,6 +60,9 @@ public class act_lista_recetas extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), act_buscar_general.class);
+                startActivity(intent);
+
                 finish();
             }
         });

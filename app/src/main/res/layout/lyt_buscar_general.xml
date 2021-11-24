@@ -201,7 +201,7 @@
                             </LinearLayout>
 
                             <TextView
-                                android:id="@+id/textView21"
+                                android:id="@+id/txtBuscado"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -265,14 +265,14 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/vegetariano" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtCatDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"
@@ -300,14 +300,14 @@
                             android:background="@color/fondo">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/mar" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtCatDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"
@@ -344,14 +344,14 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/carnes_rojas" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtCatDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"
@@ -378,14 +378,14 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/carnes_blancas" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtCatDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"
@@ -422,14 +422,14 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/postres" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtCatDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"
@@ -456,14 +456,14 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/bebidas" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtCatDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"

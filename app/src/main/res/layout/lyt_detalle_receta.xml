@@ -168,7 +168,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/lunes" />
+                                    android:text="@string/lunes"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/martes"
@@ -176,7 +177,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/martes" />
+                                    android:text="@string/martes"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/miercoles"
@@ -184,7 +186,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/miercoles" />
+                                    android:text="@string/miercoles"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/jueves"
@@ -192,7 +195,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/jueves" />
+                                    android:text="@string/jueves"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/viernes"
@@ -200,7 +204,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/viernes" />
+                                    android:text="@string/viernes"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/sabado"
@@ -208,7 +213,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/sabado" />
+                                    android:text="@string/sabado"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/domingo"
@@ -216,7 +222,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/domingo" />
+                                    android:text="@string/domingo"
+                                    android:textColor="@color/texto" />
 
                             </LinearLayout>
 
@@ -235,7 +242,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="Desayuno" />
+                                    android:text="Desayuno"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/merienda1"
@@ -243,7 +251,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/tc_merienda1" />
+                                    android:text="@string/tc_merienda1"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/almuerzo"
@@ -251,7 +260,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/tc_almuerzos" />
+                                    android:text="@string/tc_almuerzos"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/merienda2"
@@ -259,7 +269,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/tc_merienda2" />
+                                    android:text="@string/tc_merienda2"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/cena"
@@ -267,7 +278,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/tc_cenas" />
+                                    android:text="@string/tc_cenas"
+                                    android:textColor="@color/texto" />
 
                                 <CheckBox
                                     android:id="@+id/merienda3"
@@ -275,7 +287,8 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="1"
                                     android:buttonTint="#F9B334"
-                                    android:text="@string/tc_merienda3" />
+                                    android:text="@string/tc_merienda3"
+                                    android:textColor="@color/texto" />
 
                                 <Button
                                     android:id="@+id/btnAgregarPlanSemanal"

@@ -144,6 +144,7 @@
                             android:layout_weight="99"
                             android:fontFamily="@font/poppins_bold"
                             android:text="Ingresa al menos 1 ingrediente"
+                            android:textColor="@color/texto"
                             android:textSize="14dp" />
 
                     </LinearLayout>

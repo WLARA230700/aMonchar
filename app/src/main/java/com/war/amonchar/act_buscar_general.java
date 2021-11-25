@@ -23,6 +23,7 @@ import com.war.amonchar.Modelo.GlobalVariables;
 import com.war.amonchar.Modelo.Receta;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class act_buscar_general extends AppCompatActivity {
 
@@ -77,7 +78,7 @@ public class act_buscar_general extends AppCompatActivity {
             public void onClick(View v) {
                 if(!txtBuscarReceta.getText().toString().isEmpty()){
 
-                    String texto = txtBuscarReceta.getText().toString();
+                    String texto = txtBuscarReceta.getText().toString().toLowerCase(Locale.ROOT);
 
                     idRecetas.clear();
 

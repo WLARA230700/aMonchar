@@ -1,13 +1,10 @@
 package com.war.amonchar;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,14 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.GenericTypeIndicator;
 import com.google.firebase.database.ValueEventListener;
-import com.war.amonchar.Modelo.AdapterRecetas;
+import com.war.amonchar.Modelo.GlobalVariables;
 import com.war.amonchar.Modelo.Receta;
 
 import java.util.ArrayList;
@@ -32,7 +28,7 @@ public class act_buscar_general extends AppCompatActivity {
 
     ImageView icInicio, icListaCompra;
     Button btnBuscarIngredientes, btnBuscarTexto, btnDesayuno, btnAlmuerzo, btnCena, btnMerienda;
-    TextView txtVegetariano, txtMar, txtCarnesRojas, txtCarnesBlancas, txtPostres, txtBebidas;
+    TextView txtVegetariano, txtMar, txtCarnesRojas, txtCarnesBlancas, txtPostres, txtBebidas, txtUser;
     EditText txtBuscarReceta;
 
     FirebaseDatabase firebaseDatabase;
@@ -64,44 +60,29 @@ public class act_buscar_general extends AppCompatActivity {
         txtCarnesBlancas = findViewById(R.id.txtCarnesBlancas);
         txtPostres = findViewById(R.id.txtPostres);
         txtBebidas = findViewById(R.id.txtBebidas);
+        txtUser = findViewById(R.id.txtUser);
+
+        txtUser.setText(((GlobalVariables) getApplication()).getUsuarioLogueado().getNombreUsuario());
 
         getSupportActionBar().hide();
-
-        inicializarFirebase();
-        cargarRecetas();
 
         idRecetas = new ArrayList<>();
         todasLasResetas  = new ArrayList<>();
 
-        txtBuscarReceta.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(!txtBuscarReceta.getText().toString().isEmpty()){
-                    String texto = txtBuscarReceta.getText().toString();
-
-                    idRecetas.clear();
-
-                    rellenarIdRecetas(texto);
-                }else{
-                    Toast.makeText(getApplicationContext(), "Escriba la receta a buscar", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        inicializarFirebase();
+        cargarRecetas();
 
         btnBuscarTexto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(!txtBuscarReceta.getText().toString().isEmpty()){
+
+                    String texto = txtBuscarReceta.getText().toString();
+
+                    idRecetas.clear();
+
+                    rellenarIdRecetas(texto);
+
                     Intent intent = new Intent(getApplicationContext(), act_lista_recetas.class);
                     intent.putExtra("idRecetas", idRecetas);
                     intent.putExtra("buscado", txtBuscarReceta.getText().toString());
@@ -143,12 +124,10 @@ public class act_buscar_general extends AppCompatActivity {
                 idRecetas.clear();
                 for (int i = 0; i < todasLasResetas.size(); i++) {
                     if(todasLasResetas.get(i).getTiempo_comida().equals("Desayuno")){
-                        //Toast.makeText(getApplicationContext(), todasLasResetas.get(i).toString(), Toast.LENGTH_SHORT).show();
 
                         String id = todasLasResetas.get(i).getId().toString();
 
                         idRecetas.add(id);
-                        //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -166,12 +145,10 @@ public class act_buscar_general extends AppCompatActivity {
                 idRecetas.clear();
                 for (int i = 0; i < todasLasResetas.size(); i++) {
                     if(todasLasResetas.get(i).getTiempo_comida().equals("Almuerzo")){
-                        //Toast.makeText(getApplicationContext(), todasLasResetas.get(i).toString(), Toast.LENGTH_SHORT).show();
 
                         String id = todasLasResetas.get(i).getId().toString();
 
                         idRecetas.add(id);
-                        //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -189,12 +166,10 @@ public class act_buscar_general extends AppCompatActivity {
                 idRecetas.clear();
                 for (int i = 0; i < todasLasResetas.size(); i++) {
                     if(todasLasResetas.get(i).getTiempo_comida().equals("Cena")){
-                        //Toast.makeText(getApplicationContext(), todasLasResetas.get(i).toString(), Toast.LENGTH_SHORT).show();
 
                         String id = todasLasResetas.get(i).getId().toString();
 
                         idRecetas.add(id);
-                        //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -211,12 +186,10 @@ public class act_buscar_general extends AppCompatActivity {
                 idRecetas.clear();
                 for (int i = 0; i < todasLasResetas.size(); i++) {
                     if(todasLasResetas.get(i).getTiempo_comida().matches(".*Merienda.*")){
-                        //Toast.makeText(getApplicationContext(), todasLasResetas.get(i).toString(), Toast.LENGTH_SHORT).show();
 
                         String id = todasLasResetas.get(i).getId().toString();
 
                         idRecetas.add(id);
-                        //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
                     }
                 }
 
@@ -235,15 +208,12 @@ public class act_buscar_general extends AppCompatActivity {
                 idRecetas.clear();
                 for (int i = 0; i < todasLasResetas.size(); i++) {
                     for (int c = 0; c < todasLasResetas.get(i).getCategorias().size(); c++) {
-                        //Toast.makeText(getApplicationContext(), todasLasResetas.get(c).toString(), Toast.LENGTH_SHORT).show();
 
                         if(todasLasResetas.get(i).getCategorias().get(c).equals("Vegetariano")){
-                            Toast.makeText(getApplicationContext(), todasLasResetas.get(i).getCategorias().get(c).toString(), Toast.LENGTH_SHORT).show();
 
                             String id = todasLasResetas.get(i).getId();
 
                             idRecetas.add(id);
-                            //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -263,15 +233,12 @@ public class act_buscar_general extends AppCompatActivity {
                 idRecetas.clear();
                 for (int i = 0; i < todasLasResetas.size(); i++) {
                     for (int c = 0; c < todasLasResetas.get(i).getCategorias().size(); c++) {
-                        //Toast.makeText(getApplicationContext(), todasLasResetas.get(c).toString(), Toast.LENGTH_SHORT).show();
 
                         if(todasLasResetas.get(i).getCategorias().get(c).equals("Mar")){
-                            Toast.makeText(getApplicationContext(), todasLasResetas.get(i).getCategorias().get(c).toString(), Toast.LENGTH_SHORT).show();
 
                             String id = todasLasResetas.get(i).getId();
 
                             idRecetas.add(id);
-                            //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -291,15 +258,12 @@ public class act_buscar_general extends AppCompatActivity {
                 idRecetas.clear();
                 for (int i = 0; i < todasLasResetas.size(); i++) {
                     for (int c = 0; c < todasLasResetas.get(i).getCategorias().size(); c++) {
-                        //Toast.makeText(getApplicationContext(), todasLasResetas.get(c).toString(), Toast.LENGTH_SHORT).show();
 
                         if(todasLasResetas.get(i).getCategorias().get(c).equals("Carnes Rojas")){
-                            Toast.makeText(getApplicationContext(), todasLasResetas.get(i).getCategorias().get(c).toString(), Toast.LENGTH_SHORT).show();
 
                             String id = todasLasResetas.get(i).getId();
 
                             idRecetas.add(id);
-                            //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -319,15 +283,12 @@ public class act_buscar_general extends AppCompatActivity {
                 idRecetas.clear();
                 for (int i = 0; i < todasLasResetas.size(); i++) {
                     for (int c = 0; c < todasLasResetas.get(i).getCategorias().size(); c++) {
-                        //Toast.makeText(getApplicationContext(), todasLasResetas.get(c).toString(), Toast.LENGTH_SHORT).show();
 
                         if(todasLasResetas.get(i).getCategorias().get(c).equals("Carnes Blancas")){
-                            Toast.makeText(getApplicationContext(), todasLasResetas.get(i).getCategorias().get(c).toString(), Toast.LENGTH_SHORT).show();
 
                             String id = todasLasResetas.get(i).getId();
 
                             idRecetas.add(id);
-                            //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -347,15 +308,12 @@ public class act_buscar_general extends AppCompatActivity {
                 idRecetas.clear();
                 for (int i = 0; i < todasLasResetas.size(); i++) {
                     for (int c = 0; c < todasLasResetas.get(i).getCategorias().size(); c++) {
-                        //Toast.makeText(getApplicationContext(), todasLasResetas.get(c).toString(), Toast.LENGTH_SHORT).show();
 
                         if(todasLasResetas.get(i).getCategorias().get(c).equals("Postres")){
-                            Toast.makeText(getApplicationContext(), todasLasResetas.get(i).getCategorias().get(c).toString(), Toast.LENGTH_SHORT).show();
 
                             String id = todasLasResetas.get(i).getId();
 
                             idRecetas.add(id);
-                            //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -375,15 +333,12 @@ public class act_buscar_general extends AppCompatActivity {
                 idRecetas.clear();
                 for (int i = 0; i < todasLasResetas.size(); i++) {
                     for (int c = 0; c < todasLasResetas.get(i).getCategorias().size(); c++) {
-                        //Toast.makeText(getApplicationContext(), todasLasResetas.get(c).toString(), Toast.LENGTH_SHORT).show();
 
                         if(todasLasResetas.get(i).getCategorias().get(c).equals("Bebidas")){
-                            Toast.makeText(getApplicationContext(), todasLasResetas.get(i).getCategorias().get(c).toString(), Toast.LENGTH_SHORT).show();
 
                             String id = todasLasResetas.get(i).getId();
 
                             idRecetas.add(id);
-                            //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
 
@@ -406,7 +361,13 @@ public class act_buscar_general extends AppCompatActivity {
     }//fin inicializarFirebase
 
     public void rellenarIdRecetas(String texto){
-        databaseReference.child("Receta").orderByChild("nombre_receta").startAt(texto).endAt(texto+"\uf8ff").addChildEventListener(new ChildEventListener() {
+        for(int i = 0; i < todasLasResetas.size(); i++){
+            if(todasLasResetas.get(i).getNombre_receta().toLowerCase().matches(".*" + texto + ".*")){
+                idRecetas.add(todasLasResetas.get(i).getId());
+            }
+        }
+
+        /*databaseReference.child("Receta").orderByChild("nombre_receta").startAt(texto).endAt(texto+"\uf8ff").addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
@@ -445,7 +406,7 @@ public class act_buscar_general extends AppCompatActivity {
 
             }
 
-        });
+        });*/
     }
 
     public void cargarRecetas(){

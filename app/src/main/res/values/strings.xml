@@ -56,9 +56,11 @@
     <string name="lbl_subtitulo_autenticacion_pincode">Ingrese el pin de pantalla de bloqueo</string>
     <string name="lbl_titulo_alertDialog_cargar_fotografia">¿Cómo desea cargar su fotografía?</string>
     <string name="lbl_container_plan_semanal">Nada registrado</string>
+    <string name="lbl_no_tienes_cuenta">¿No tienes una cuenta?</string>
 
     <!-- BOTONES -->
     <string name="btn_registrarse">Registrarse</string>
+    <string name="btn_iniciar_sesion">Iniciar sesión</string>
     <string name="btn_agregar">Agregar</string>
     <string name="btn_guardar">Guardar</string>
     <string name="btn_cambiar_fotografia">Cambiar Fotografía</string>

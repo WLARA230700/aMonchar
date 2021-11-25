@@ -105,9 +105,9 @@ public class act_buscar_ingredientes extends AppCompatActivity {
 
                 if(!txtIngrediente1.getText().toString().isEmpty()){
                     txtIngrediente2.setEnabled(true);
-                    if(!txtIngrediente1.getText().toString().matches("[a-zA-Z][a-zA-Z]*")){
+                    if(!txtIngrediente1.getText().toString().matches("[a-zA-ZÀ-ÿñÑ][a-zA-ZÀ-ÿñÑ]*")){
 
-                        Toast.makeText(getApplicationContext(), "No incluya caracteres especiales ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "No incluya caracteres especiales", Toast.LENGTH_SHORT).show();
 
                     }else{
 
@@ -137,9 +137,9 @@ public class act_buscar_ingredientes extends AppCompatActivity {
 
                 if(!txtIngrediente2.getText().toString().isEmpty()){
                     txtIngrediente3.setEnabled(true);
-                    if(!txtIngrediente2.getText().toString().matches("[a-zA-Z][a-zA-Z]*")){
+                    if(!txtIngrediente2.getText().toString().matches("[a-zA-ZÀ-ÿñÑ][a-zA-ZÀ-ÿñÑ]*")){
 
-                        Toast.makeText(getApplicationContext(), "No incluya caracteres especiales ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "No incluya caracteres especiales", Toast.LENGTH_SHORT).show();
 
                     }else{
 
@@ -166,9 +166,9 @@ public class act_buscar_ingredientes extends AppCompatActivity {
                 idCampo3.clear();
 
                 if(!txtIngrediente3.getText().toString().isEmpty()){
-                    if(!txtIngrediente3.getText().toString().matches("[a-zA-Z][a-zA-Z]*")){
+                    if(!txtIngrediente3.getText().toString().matches("[a-zA-ZÀ-ÿñÑ][a-zA-ZÀ-ÿñÑ]*")){
 
-                        Toast.makeText(getApplicationContext(), "No incluya caracteres especiales ", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "No incluya caracteres especiales", Toast.LENGTH_SHORT).show();
 
                     }else{
 

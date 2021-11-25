@@ -9,14 +9,12 @@
         android:layout_height="match_parent"
         android:orientation="horizontal"
         android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:weightSum="10">
+        android:paddingBottom="10dp">
 
         <TextView
             android:id="@+id/lblNumeroIngrediente"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
             android:ems="1"
             android:fontFamily="@font/poppins_bold"
             android:text="1."
@@ -25,21 +23,19 @@
 
         <EditText
             android:id="@+id/txtCantidadIngrediente1"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="41dp"
             android:layout_marginRight="5dp"
-            android:layout_weight="2"
             android:background="@drawable/custom_input"
             android:inputType="textPersonName"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"/>
+            android:paddingRight="10dp" />
 
         <EditText
             android:id="@+id/txtDescripcionIngrediente1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="41dp"
             android:layout_marginLeft="5dp"
-            android:layout_weight="7.5"
             android:background="@drawable/custom_input"
             android:inputType="textPersonName"
             android:paddingLeft="10dp"

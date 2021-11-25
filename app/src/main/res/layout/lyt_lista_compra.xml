@@ -205,7 +205,9 @@
                 <ListView
                     android:id="@+id/listaCompra"
                     android:layout_width="match_parent"
-                    android:layout_height="535dp" />
+                    android:layout_height="535dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp" />
 
             </LinearLayout>
         </ScrollView>

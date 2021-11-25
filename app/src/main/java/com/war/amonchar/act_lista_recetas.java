@@ -6,7 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -123,6 +126,12 @@ public class act_lista_recetas extends AppCompatActivity {
 
                 for(int i = contador; i < recetas.size(); i++){
                     View view = adapterRecetas.getView(i, null, gridRecetas);
+
+                    DisplayMetrics displayMetrics = new DisplayMetrics();
+                    getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+                    int screenWidth = displayMetrics.widthPixels;
+                    int marginDP =  (int) (30 * ((float) getApplicationContext().getResources().getDisplayMetrics().densityDpi / DisplayMetrics.DENSITY_DEFAULT));
+                    view.setLayoutParams(new FrameLayout.LayoutParams((screenWidth - marginDP)/2, ViewGroup.LayoutParams.WRAP_CONTENT));
 
                     int posReceta = i;
                     view.setOnClickListener(new View.OnClickListener() {

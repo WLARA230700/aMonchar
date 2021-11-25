@@ -51,7 +51,7 @@ public class act_lista_compra extends AppCompatActivity {
         adapterIngredientes = new AdapterIngredientes(getApplicationContext(), ingredientes);
         listaCompra.setAdapter(adapterIngredientes);
 
-        Toast.makeText(getApplicationContext(), "Cantidad de ingredientes: " + db.getIngredientes().size(), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getApplicationContext(), "Cantidad de ingredientes: " + db.getIngredientes().size(), Toast.LENGTH_SHORT).show();
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

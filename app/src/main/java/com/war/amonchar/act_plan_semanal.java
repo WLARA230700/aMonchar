@@ -5,12 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -35,6 +38,7 @@ import com.war.amonchar.Modelo.PlanSemanal;
 import com.war.amonchar.Modelo.Receta;
 import com.war.amonchar.Modelo.RecetaPlanSemanal;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class act_plan_semanal extends AppCompatActivity {
@@ -342,9 +346,15 @@ public class act_plan_semanal extends AppCompatActivity {
                         recetasLunes.remove(posReceta);
 
                         if(gridLunes.getChildCount() == 0){
-                            TextView txt = msgVacio;
+                            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            TextView txt = new TextView(getApplicationContext());
+                            txt.setLayoutParams(params);
+                            txt.setText("Nada Registrado");
+                            txt.setTextColor(getColor(R.color.amarilloBase));
+                            txt.setTypeface(msgVacio.getTypeface());
                             txt.setVisibility(View.VISIBLE);
-                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            txt.setTextAlignment(msgVacio.getTextAlignment());
+                            txt.setId(View.generateViewId());
                             gridLunes.addView(txt);
                         }
 
@@ -383,9 +393,15 @@ public class act_plan_semanal extends AppCompatActivity {
                         recetasMartes.remove(posReceta);
 
                         if(gridMartes.getChildCount() == 0){
-                            TextView txt = msgVacio;
+                            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            TextView txt = new TextView(getApplicationContext());
+                            txt.setLayoutParams(params);
+                            txt.setText("Nada Registrado");
+                            txt.setTextColor(getColor(R.color.amarilloBase));
+                            txt.setTypeface(msgVacio.getTypeface());
                             txt.setVisibility(View.VISIBLE);
-                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            txt.setTextAlignment(msgVacio.getTextAlignment());
+                            txt.setId(View.generateViewId());
                             gridMartes.addView(txt);
                         }
 
@@ -424,9 +440,15 @@ public class act_plan_semanal extends AppCompatActivity {
                         recetasMiercoles.remove(posReceta);
 
                         if(gridMiercoles.getChildCount() == 0){
-                            TextView txt = msgVacio;
+                            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            TextView txt = new TextView(getApplicationContext());
+                            txt.setLayoutParams(params);
+                            txt.setText("Nada Registrado");
+                            txt.setTextColor(getColor(R.color.amarilloBase));
+                            txt.setTypeface(msgVacio.getTypeface());
                             txt.setVisibility(View.VISIBLE);
-                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            txt.setTextAlignment(msgVacio.getTextAlignment());
+                            txt.setId(View.generateViewId());
                             gridMiercoles.addView(txt);
                         }
 
@@ -465,9 +487,15 @@ public class act_plan_semanal extends AppCompatActivity {
                         recetasJueves.remove(posReceta);
 
                         if(gridJueves.getChildCount() == 0){
-                            TextView txt = msgVacio;
+                            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            TextView txt = new TextView(getApplicationContext());
+                            txt.setLayoutParams(params);
+                            txt.setText("Nada Registrado");
+                            txt.setTextColor(getColor(R.color.amarilloBase));
+                            txt.setTypeface(msgVacio.getTypeface());
                             txt.setVisibility(View.VISIBLE);
-                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            txt.setTextAlignment(msgVacio.getTextAlignment());
+                            txt.setId(View.generateViewId());
                             gridJueves.addView(txt);
                         }
 
@@ -506,9 +534,15 @@ public class act_plan_semanal extends AppCompatActivity {
                         recetasViernes.remove(posReceta);
 
                         if(gridViernes.getChildCount() == 0){
-                            TextView txt = msgVacio;
+                            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            TextView txt = new TextView(getApplicationContext());
+                            txt.setLayoutParams(params);
+                            txt.setText("Nada Registrado");
+                            txt.setTextColor(getColor(R.color.amarilloBase));
+                            txt.setTypeface(msgVacio.getTypeface());
                             txt.setVisibility(View.VISIBLE);
-                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            txt.setTextAlignment(msgVacio.getTextAlignment());
+                            txt.setId(View.generateViewId());
                             gridViernes.addView(txt);
                         }
 
@@ -547,9 +581,15 @@ public class act_plan_semanal extends AppCompatActivity {
                         recetasSabado.remove(posReceta);
 
                         if(gridSabado.getChildCount() == 0){
-                            TextView txt = msgVacio;
+                            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            TextView txt = new TextView(getApplicationContext());
+                            txt.setLayoutParams(params);
+                            txt.setText("Nada Registrado");
+                            txt.setTextColor(getColor(R.color.amarilloBase));
+                            txt.setTypeface(msgVacio.getTypeface());
                             txt.setVisibility(View.VISIBLE);
-                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            txt.setTextAlignment(msgVacio.getTextAlignment());
+                            txt.setId(View.generateViewId());
                             gridSabado.addView(txt);
                         }
 
@@ -584,13 +624,19 @@ public class act_plan_semanal extends AppCompatActivity {
                     @Override
                     public boolean onLongClick(View view) {
                         eliminarDePlanSemanal(recetasDomingo.get(posReceta).getIdPlanSemanal());
-                        gridLunes.removeView(view);
+                        gridDomingo.removeView(view);
                         recetasDomingo.remove(posReceta);
 
                         if(gridDomingo.getChildCount() == 0){
-                            TextView txt = msgVacio;
+                            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            TextView txt = new TextView(getApplicationContext());
+                            txt.setLayoutParams(params);
+                            txt.setText("Nada Registrado");
+                            txt.setTextColor(getColor(R.color.amarilloBase));
+                            txt.setTypeface(msgVacio.getTypeface());
                             txt.setVisibility(View.VISIBLE);
-                            ((ViewGroup) txt.getParent()).removeView(txt);
+                            txt.setTextAlignment(msgVacio.getTextAlignment());
+                            txt.setId(View.generateViewId());
                             gridDomingo.addView(txt);
                         }
 

@@ -24,6 +24,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -119,6 +120,8 @@ public class act_agregar_receta extends AppCompatActivity {
 
     private int contadorPasos = 1;
 
+    private int contadorCategoriasSeleccionadas = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -168,6 +171,7 @@ public class act_agregar_receta extends AppCompatActivity {
 
         // Inicializa la conexión con la base de datos guardando en la variable databaseReference
         inicializarFirebase();
+        verificarCategorias();
 
         // Declaración de eventos onClick
         btnBack.setOnClickListener(new View.OnClickListener() {
@@ -208,6 +212,8 @@ public class act_agregar_receta extends AppCompatActivity {
             }
         });
 
+
+
     }// Fin método onCreate
 
     public void crearProgressDialog(){
@@ -227,6 +233,27 @@ public class act_agregar_receta extends AppCompatActivity {
         listaCategorias.add(catBebidas);
 
     }//Fin método guardarCategorias
+
+    public void verificarCategorias(){
+        for(int i = 0; i < listaCategorias.size(); i++){
+            int cont = i;
+            listaCategorias.get(i).setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if(contadorCategoriasSeleccionadas < 3 && isChecked){
+                        listaCategorias.get(cont).setChecked(true);
+                        contadorCategoriasSeleccionadas++;
+                    }else{
+                        listaCategorias.get(cont).setChecked(false);
+                    }
+
+                    if(!isChecked){
+                        contadorCategoriasSeleccionadas--;
+                    }
+                }
+            });
+        }
+    }
 
     public void obtenerFotografía(){
 
@@ -526,7 +553,7 @@ public class act_agregar_receta extends AppCompatActivity {
         if(txtTiempoPreparacion.getText().toString().isEmpty() ||
                 getCategoriasSeleccionadas().isEmpty() ||
                 txtNombreReceta.getText().toString().isEmpty() ||
-                imgRecetaTemp == Uri.EMPTY ||
+                imgRecetaTemp == null ||
                 listaIngredientes.isEmpty() ||
                 listaPasos.isEmpty()){
             return false;
@@ -676,13 +703,13 @@ public class act_agregar_receta extends AppCompatActivity {
                     imgRecetaTemp = resultUri;
                     //set Image
                     imgReceta.setImageURI(imgRecetaTemp);
-                    Toast.makeText(this, ""+imgReceta, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, ""+imgReceta, Toast.LENGTH_SHORT).show();
 
                 }else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
 
                     //ERROR
                     Exception error = result.getError();
-                    Toast.makeText(this, ""+error, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, ""+error, Toast.LENGTH_SHORT).show();
 
                 }
 

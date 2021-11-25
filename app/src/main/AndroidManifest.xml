@@ -3,6 +3,7 @@
     package="com.war.amonchar">
     <!-- PERMISOS DE CAMARA -->
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <!-- PERMISOS DE HUELLA -->
@@ -25,10 +26,6 @@
         <activity
             android:name=".act_lista_recetas_inicio"
             android:exported="true" />
-        <activity
-            android:name=".act_lista_recetas_tiempoComida"
-            android:exported="true"
-            android:noHistory="true"/>
         <activity
             android:name=".act_buscar_ingredientes"
             android:exported="true" />

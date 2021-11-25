@@ -81,12 +81,17 @@ public class act_buscar_general extends AppCompatActivity {
 
                     idRecetas.clear();
 
-                    rellenarIdRecetas(texto);
+                    if(!txtBuscarReceta.getText().toString().matches("[a-zA-ZÀ-ÿñÑ][a-zA-ZÀ-ÿñÑ]*")){
+                        Toast.makeText(getApplicationContext(), "No utilice caracteres especiales", Toast.LENGTH_SHORT).show();
+                    }else{
+                        rellenarIdRecetas(texto);
 
-                    Intent intent = new Intent(getApplicationContext(), act_lista_recetas.class);
-                    intent.putExtra("idRecetas", idRecetas);
-                    intent.putExtra("buscado", txtBuscarReceta.getText().toString());
-                    startActivity(intent);
+                        Intent intent = new Intent(getApplicationContext(), act_lista_recetas.class);
+                        intent.putExtra("idRecetas", idRecetas);
+                        intent.putExtra("buscado", txtBuscarReceta.getText().toString());
+                        startActivity(intent);
+                    }
+
                 }else{
                     Toast.makeText(getApplicationContext(), "Escriba la receta a buscar", Toast.LENGTH_SHORT).show();
                 }

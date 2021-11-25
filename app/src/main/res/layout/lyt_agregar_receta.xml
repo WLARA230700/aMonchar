@@ -521,38 +521,6 @@
 
                     </LinearLayout>
 
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-                        <TableRow
-                            android:layout_weight="1"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:paddingRight="5dp">
-                            <EditText
-                                android:id="@+id/txtCantidadIngrediente1"
-                                android:layout_width="match_parent"
-                                android:layout_height="41dp"
-                                android:background="@drawable/custom_input"
-                                android:inputType="textPersonName"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:layout_weight=".2"
-                                android:layout_marginRight="5dp"/>
-
-                            <EditText
-                                android:id="@+id/txtDescripcionIngrediente1"
-                                android:layout_width="match_parent"
-                                android:layout_height="41dp"
-                                android:background="@drawable/custom_input"
-                                android:inputType="textShortMessage"
-                                android:paddingLeft="10dp"
-                                android:paddingRight="10dp"
-                                android:layout_weight=".8"
-                                android:layout_marginLeft="5dp"/>
-                        </TableRow>
-                    </TableLayout>
-
                     <!--<LinearLayout
                         android:id="@+id/itemsIngredientes"
                         android:layout_width="match_parent"
@@ -602,6 +570,32 @@
                         </LinearLayout>
 
                     </LinearLayout>-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/txtCantidadIngrediente1"
+                            android:layout_width="100dp"
+                            android:layout_height="41dp"
+                            android:layout_marginRight="5dp"
+                            android:background="@drawable/custom_input"
+                            android:inputType="textPersonName"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp" />
+
+                        <EditText
+                            android:id="@+id/txtDescripcionIngrediente1"
+                            android:layout_width="match_parent"
+                            android:layout_height="41dp"
+                            android:layout_marginLeft="5dp"
+                            android:background="@drawable/custom_input"
+                            android:inputType="textShortMessage"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp" />
+                    </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"

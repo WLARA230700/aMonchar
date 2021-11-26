@@ -3,7 +3,6 @@ package com.war.amonchar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,8 +15,8 @@ import com.war.amonchar.Modelo.Usuario;
 public class act_bienvenida extends AppCompatActivity {
 
     //Variables
-    Button btnUsarCorreo;
-    TextView txtIniciarSesion;
+    Button btnIniciarSesion;
+    TextView btnUsarCorreo;
     Usuario usuarioLog;
 
     private BD db;
@@ -39,22 +38,22 @@ public class act_bienvenida extends AppCompatActivity {
             startActivity(intent);
         }else{
             setContentView(R.layout.lyt_bienvenida);
+            this.btnIniciarSesion = findViewById(R.id.btnIniciarSesion);
             this.btnUsarCorreo = findViewById(R.id.btnUsarCorreo);
-            this.txtIniciarSesion = findViewById(R.id.txtIniciarSesion);
 
+//--------------------------------------------------------------------------------------------------
+            btnIniciarSesion.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getApplicationContext(), act_inicio_sesion.class);
+                    startActivity(intent);
+                }
+            });
 //--------------------------------------------------------------------------------------------------
             btnUsarCorreo.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(getApplicationContext(), act_registro_usuario.class);
-                    startActivity(intent);
-                }
-            });
-//--------------------------------------------------------------------------------------------------
-            txtIniciarSesion.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(getApplicationContext(), act_inicio_sesion.class);
                     startActivity(intent);
                 }
             });

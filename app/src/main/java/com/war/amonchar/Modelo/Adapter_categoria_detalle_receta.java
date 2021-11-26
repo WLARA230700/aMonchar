@@ -5,25 +5,29 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.war.amonchar.R;
 
 import java.util.ArrayList;
 
-public class AdapterPreparacion extends BaseAdapter {
+public class Adapter_categoria_detalle_receta extends BaseAdapter {
 
     Context context;
-    ArrayList<PasoPreparacion> lista;
+    ArrayList<String> lista;
 
-    public AdapterPreparacion(Context context, ArrayList<PasoPreparacion> lista) {
+    public Adapter_categoria_detalle_receta(Context context, ArrayList<String> lista) {
         this.context = context;
         this.lista = lista;
     }
 
     @Override
     public int getCount() {
-        return lista.size();
+        if (lista != null){
+            return lista.size();
+        }
+        return 0;
     }
 
     @Override
@@ -41,14 +45,13 @@ public class AdapterPreparacion extends BaseAdapter {
 
         if (view == null){
             LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(context.LAYOUT_INFLATER_SERVICE);
-            view = layoutInflater.inflate(R.layout.item_pasos_preparacion, null);
+            view = layoutInflater.inflate(R.layout.item_categoria_detalle_receta, null);
         }
 
-        TextView lblNumeroPaso = view.findViewById(R.id.lblNumeroPaso);
-        TextView lblDescripcion = view.findViewById(R.id.lblDescripcion);
+        Button btnCategoria = view.findViewById(R.id.btn_categoria);
 
-        lblNumeroPaso.setText(lista.get(i).getNumero()+"");
-        lblDescripcion.setText(lista.get(i).getDescripcion());
+        btnCategoria.setText(lista.get(i));
+
 
         return view;
     }

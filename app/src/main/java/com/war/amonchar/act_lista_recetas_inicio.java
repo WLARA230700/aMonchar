@@ -1,11 +1,7 @@
 package com.war.amonchar;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,7 +9,9 @@ import android.widget.FrameLayout;
 import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.database.DataSnapshot;
@@ -27,12 +25,15 @@ import com.war.amonchar.Modelo.Receta;
 
 import java.util.ArrayList;
 
-public class act_lista_recetas extends AppCompatActivity {
+public class act_lista_recetas_inicio extends AppCompatActivity {
 
     ImageView btnBack;
     ArrayList<String> idRecetas;
     String buscado = "";
     TextView txtBuscado;
+
+
+
     GridLayout gridRecetas;
     FirebaseDatabase firebaseDatabase;
     DatabaseReference databaseReference;
@@ -50,24 +51,32 @@ public class act_lista_recetas extends AppCompatActivity {
         btnBack = findViewById(R.id.btnBack);
         gridRecetas = findViewById(R.id.gridRecetas);
         txtBuscado = findViewById(R.id.txtBuscado);
+
+
         idRecetas = getIntent().getStringArrayListExtra("idRecetas");
         //Toast.makeText(getApplicationContext(), idRecetas.toString(), Toast.LENGTH_SHORT).show();
 
         buscado = getIntent().getStringExtra("buscado");
 
         txtBuscado.setText("\"" + buscado + "\"");
-      
+
         inicializarFirebase();
         cargarRecetas();
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), act_inicio.class);
+                startActivity(intent);
+               /* idRecetas.clear();
+                gridRecetas.removeAllViews();*/
                 finish();
             }
         });
 
     }// Fin OnCreate
+
+    @Override public void onBackPressed(){ Intent intent = new Intent(this, act_inicio.class); startActivity(intent); }
 
     private void inicializarFirebase() {
         FirebaseApp.initializeApp(this);
@@ -154,5 +163,4 @@ public class act_lista_recetas extends AppCompatActivity {
             }
         });
     }
-
 }

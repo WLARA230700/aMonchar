@@ -369,12 +369,12 @@ public class act_editar_perfil extends AppCompatActivity{
                     fotoTemp = resultUri;
                     //set Image
                     imgUsuario.setImageURI(fotoTemp);
-                    Toast.makeText(this, ""+imgUsuario, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, ""+imgUsuario, Toast.LENGTH_SHORT).show();
                 }
                 else if (resultCode == CropImage.CROP_IMAGE_ACTIVITY_RESULT_ERROR_CODE){
                     //ERROR
                     Exception error = result.getError();
-                    Toast.makeText(this, ""+error, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, ""+error, Toast.LENGTH_SHORT).show();
                 }
 
             }

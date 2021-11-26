@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
-        android:text="¿Ya tienes una cuenta?"
+        android:text="@string/lbl_no_tienes_cuenta"
         android:textColor="#666666"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -63,12 +63,12 @@
         app:layout_constraintVertical_bias="0.926" />
 
     <TextView
-        android:id="@+id/txtIniciarSesion"
+        android:id="@+id/btnUsarCorreo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
         android:paddingLeft="5dp"
-        android:text="Iniciar Sesión"
+        android:text="@string/btn_registrarse"
         android:textColor="#fbb231"
         android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,36 +79,15 @@
         app:layout_constraintVertical_bias="0.926" />
 
     <Button
-        android:id="@+id/btnUsarCorreo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#F5F5F5"
-        android:fontFamily="@font/poppins"
-        android:paddingLeft="60dp"
-        android:paddingRight="60dp"
-        android:text="Usar correo"
-        android:textAllCaps="false"
-        android:textColor="#cccccc"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.759"
-        app:strokeColor="#CCCCCC"
-        app:strokeWidth="1dp" />
-
-    <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnIniciarSesion"
         android:layout_width="335dp"
         android:layout_height="55dp"
         android:backgroundTint="#fbb231"
         android:fontFamily="@font/poppins"
         android:paddingLeft="60dp"
         android:paddingRight="60dp"
-        android:text="Continuar con Facebook"
-        android:textAllCaps="false"
+        android:text="@string/btn_iniciar_sesion"
+        android:textAllCaps="true"
         android:textColor="#ffffff"
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"

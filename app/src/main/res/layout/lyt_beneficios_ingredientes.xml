@@ -43,498 +43,91 @@
 
         </LinearLayout>
 
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/header"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingLeft="25sp"
+                android:paddingRight="25sp"
+                android:paddingBottom="10dp">
 
                 <LinearLayout
-                    android:id="@+id/header"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:paddingLeft="25sp"
-                    android:paddingRight="25sp"
-                    android:paddingBottom="10dp">
+                    android:orientation="horizontal"
+                    android:weightSum="100">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="horizontal"
-                        android:weightSum="100">
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="100"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/txtBuscado"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/poppins_bold"
+                            android:text="¡Aprende sobre tus"
+                            android:textColor="#1A1A1A"
+                            android:textSize="19sp" />
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="100"
-                            android:orientation="vertical">
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/textView21"
+                                android:id="@+id/textView24"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:fontFamily="@font/poppins_bold"
-                                android:text="¡Aprende sobre tus"
-                                android:textColor="#1A1A1A"
+                                android:text="ingredientes "
+                                android:textColor="@color/amarilloBase"
                                 android:textSize="19sp" />
 
-                            <LinearLayout
+                            <TextView
+                                android:id="@+id/textView29"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/textView24"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:text="ingredientes "
-                                    android:textColor="@color/amarilloBase"
-                                    android:textSize="19sp" />
-
-                                <TextView
-                                    android:id="@+id/textView29"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_weight="1"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:text="favoritos!"
-                                    android:textColor="#1A1A1A"
-                                    android:textSize="19sp" />
-
-                            </LinearLayout>
+                                android:fontFamily="@font/poppins_bold"
+                                android:text="favoritos!"
+                                android:textColor="#1A1A1A"
+                                android:textSize="19sp" />
 
                         </LinearLayout>
 
-                        <ImageView
-                            android:id="@+id/imageView8"
-                            android:layout_width="65sp"
-                            android:layout_height="65sp"
-                            android:layout_weight="1"
-                            android:paddingLeft="15sp"
-                            android:paddingTop="7sp"
-                            android:paddingBottom="7sp"
-                            app:srcCompat="@drawable/ic_hot_pepper" />
                     </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/imageView8"
+                        android:layout_width="65sp"
+                        android:layout_height="65sp"
+                        android:layout_weight="1"
+                        android:paddingLeft="15sp"
+                        android:paddingTop="7sp"
+                        android:paddingBottom="7sp"
+                        app:srcCompat="@drawable/ic_hot_pepper" />
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:paddingLeft="20dp"
-                    android:paddingTop="20dp"
-                    android:paddingRight="20dp">
-
-                    <HorizontalScrollView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="30dp">
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal">
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/imgTiemposComida"
-                                    android:layout_width="200dp"
-                                    android:layout_height="70dp"
-                                    android:layout_marginRight="5dp"
-                                    app:srcCompat="@drawable/custom_foto_inicio" />
-
-                                <TextView
-                                    android:id="@+id/textView14"
-                                    android:layout_width="200dp"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:padding="22dp"
-                                    android:text="@string/cat_vegetariano"
-                                    android:textAlignment="center"
-                                    android:textAllCaps="true"
-                                    android:textColor="#f5f5f5"
-                                    android:textSize="15dp" />
-                            </FrameLayout>
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/imgTiemposComida"
-                                    android:layout_width="200dp"
-                                    android:layout_height="70dp"
-                                    android:layout_marginRight="5dp"
-                                    app:srcCompat="@drawable/custom_foto_inicio" />
-
-                                <TextView
-                                    android:id="@+id/textView14"
-                                    android:layout_width="200dp"
-                                    android:layout_height="match_parent"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:padding="22dp"
-                                    android:text="@string/cat_mar"
-                                    android:textAlignment="center"
-                                    android:textAllCaps="true"
-                                    android:textColor="#f5f5f5"
-                                    android:textSize="15dp" />
-                            </FrameLayout>
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/imgTiemposComida"
-                                    android:layout_width="200dp"
-                                    android:layout_height="70dp"
-                                    android:layout_marginRight="5dp"
-                                    app:srcCompat="@drawable/custom_foto_inicio" />
-
-                                <TextView
-                                    android:id="@+id/textView14"
-                                    android:layout_width="200dp"
-                                    android:layout_height="match_parent"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:padding="22dp"
-                                    android:text="@string/cat_carnes_rojas"
-                                    android:textAlignment="center"
-                                    android:textAllCaps="true"
-                                    android:textColor="#f5f5f5"
-                                    android:textSize="15dp" />
-
-                            </FrameLayout>
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/imgTiemposComida"
-                                    android:layout_width="200dp"
-                                    android:layout_height="70dp"
-                                    android:layout_marginRight="5dp"
-                                    app:srcCompat="@drawable/custom_foto_inicio" />
-
-                                <TextView
-                                    android:id="@+id/textView14"
-                                    android:layout_width="200dp"
-                                    android:layout_height="match_parent"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:padding="22dp"
-                                    android:text="@string/cat_carnes_blancas"
-                                    android:textAlignment="center"
-                                    android:textAllCaps="true"
-                                    android:textColor="#f5f5f5"
-                                    android:textSize="15dp" />
-                            </FrameLayout>
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/imgTiemposComida"
-                                    android:layout_width="200dp"
-                                    android:layout_height="70dp"
-                                    android:layout_marginRight="5dp"
-                                    app:srcCompat="@drawable/custom_foto_inicio" />
-
-                                <TextView
-                                    android:id="@+id/textView14"
-                                    android:layout_width="200dp"
-                                    android:layout_height="match_parent"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:padding="22dp"
-                                    android:text="@string/cat_postres"
-                                    android:textAlignment="center"
-                                    android:textAllCaps="true"
-                                    android:textColor="#f5f5f5"
-                                    android:textSize="15dp" />
-                            </FrameLayout>
-
-                            <FrameLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent">
-
-                                <ImageView
-                                    android:id="@+id/imgTiemposComida"
-                                    android:layout_width="200dp"
-                                    android:layout_height="70dp"
-                                    android:layout_marginRight="5dp"
-                                    app:srcCompat="@drawable/custom_foto_inicio" />
-
-                                <TextView
-                                    android:id="@+id/textView14"
-                                    android:layout_width="200dp"
-                                    android:layout_height="match_parent"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:padding="22dp"
-                                    android:text="@string/cat_bebidas"
-                                    android:textAlignment="center"
-                                    android:textAllCaps="true"
-                                    android:textColor="#f5f5f5"
-                                    android:textSize="15dp" />
-                            </FrameLayout>
-
-                        </LinearLayout>
-                    </HorizontalScrollView>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:padding="15dp">
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="20dp"
-                        app:cardBackgroundColor="@color/gris"
-                        app:cardCornerRadius="30dp"
-                        app:cardElevation="0dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/imageView11"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_margin="15dp"
-                                app:srcCompat="@drawable/custom_foto_inicio" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="15dp">
-
-                                <TextView
-                                    android:id="@+id/textView31"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:text="Zanahoria"
-                                    android:textColor="@color/amarilloBase"
-                                    android:textSize="14dp" />
-
-                                <TextView
-                                    android:id="@+id/textView32"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Lorem ipsum dolor sit amet, consectetueradipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes"
-                                    android:textColor="@color/texto"
-                                    android:textSize="12sp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="20dp"
-                        app:cardBackgroundColor="@color/gris"
-                        app:cardCornerRadius="30dp"
-                        app:cardElevation="0dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/imageView11"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_margin="15dp"
-                                app:srcCompat="@drawable/custom_foto_inicio" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="15dp">
-
-                                <TextView
-                                    android:id="@+id/textView31"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:text="Zanahoria"
-                                    android:textColor="@color/amarilloBase"
-                                    android:textSize="14dp" />
-
-                                <TextView
-                                    android:id="@+id/textView32"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Lorem ipsum dolor sit amet, consectetueradipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes"
-                                    android:textColor="@color/texto"
-                                    android:textSize="12sp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="20dp"
-                        app:cardBackgroundColor="@color/gris"
-                        app:cardCornerRadius="30dp"
-                        app:cardElevation="0dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/imageView11"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_margin="15dp"
-                                app:srcCompat="@drawable/custom_foto_inicio" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="15dp">
-
-                                <TextView
-                                    android:id="@+id/textView31"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:text="Zanahoria"
-                                    android:textColor="@color/amarilloBase"
-                                    android:textSize="14dp" />
-
-                                <TextView
-                                    android:id="@+id/textView32"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Lorem ipsum dolor sit amet, consectetueradipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes"
-                                    android:textColor="@color/texto"
-                                    android:textSize="12sp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginBottom="20dp"
-                        app:cardBackgroundColor="@color/gris"
-                        app:cardCornerRadius="30dp"
-                        app:cardElevation="0dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/imageView11"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_margin="15dp"
-                                app:srcCompat="@drawable/custom_foto_inicio" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="15dp">
-
-                                <TextView
-                                    android:id="@+id/textView31"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:text="Zanahoria"
-                                    android:textColor="@color/amarilloBase"
-                                    android:textSize="14dp" />
-
-                                <TextView
-                                    android:id="@+id/textView32"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Lorem ipsum dolor sit amet, consectetueradipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes"
-                                    android:textColor="@color/texto"
-                                    android:textSize="12sp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginBottom="20dp"
-                        app:cardBackgroundColor="@color/gris"
-                        app:cardCornerRadius="30dp"
-                        app:cardElevation="0dp">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-
-                            <ImageView
-                                android:id="@+id/imageView11"
-                                android:layout_width="100dp"
-                                android:layout_height="100dp"
-                                android:layout_margin="15dp"
-                                app:srcCompat="@drawable/custom_foto_inicio" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="vertical"
-                                android:padding="15dp">
-
-                                <TextView
-                                    android:id="@+id/textView31"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/poppins_bold"
-                                    android:text="Zanahoria"
-                                    android:textColor="@color/amarilloBase"
-                                    android:textSize="14dp" />
-
-                                <TextView
-                                    android:id="@+id/textView32"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:text="Lorem ipsum dolor sit amet, consectetueradipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.Cum sociis natoque penatibus et magnis dis parturient montes"
-                                    android:textColor="@color/texto"
-                                    android:textSize="12sp" />
-                            </LinearLayout>
-                        </LinearLayout>
-
-                    </androidx.cardview.widget.CardView>
-                </LinearLayout>
-
             </LinearLayout>
-        </ScrollView>
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/listaBeneficios"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

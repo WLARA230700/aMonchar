@@ -27,12 +27,12 @@
                 app:srcCompat="@drawable/ic_amonchar" />
 
             <TextView
-                android:id="@+id/textView12"
+                android:id="@+id/txtUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/poppins_bold"
-                android:text="@Marian0911"
+                android:text="@string/app_name"
                 android:textAlignment="textEnd"
                 android:textColor="#1A1A1A" />
 
@@ -62,7 +62,7 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button6"
+                        android:id="@+id/btnDesayuno"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
@@ -76,7 +76,7 @@
                         app:cornerRadius="20dp" />
 
                     <Button
-                        android:id="@+id/button5"
+                        android:id="@+id/btnAlmuerzo"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
@@ -90,7 +90,7 @@
                         app:cornerRadius="20dp" />
 
                     <Button
-                        android:id="@+id/button4"
+                        android:id="@+id/btnCena"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
@@ -104,7 +104,7 @@
                         app:cornerRadius="20dp" />
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/btnMerienda"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginRight="5dp"
@@ -118,24 +118,40 @@
                         app:cornerRadius="20dp" />
                 </LinearLayout>
 
-                <EditText
-                    android:id="@+id/txtBuscarReceta"
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="15dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/background_item_light_gray"
-                    android:drawableLeft="@drawable/ic_buscar_gris"
-                    android:drawablePadding="15dp"
-                    android:ems="10"
-                    android:fontFamily="@font/poppins"
-                    android:hint="Buscar receta"
-                    android:inputType="textPersonName"
-                    android:padding="15dp"
-                    android:textColor="@color/texto"
-                    android:textColorHint="@color/texto"
-                    android:textSize="16sp" />
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <EditText
+                        android:id="@+id/txtBuscarReceta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="90"
+                        android:background="@drawable/background_item_light_gray"
+                        android:drawablePadding="15dp"
+                        android:ems="10"
+                        android:fontFamily="@font/poppins"
+                        android:hint="Buscar receta"
+                        android:inputType="textPersonName"
+                        android:padding="15dp"
+                        android:textColor="@color/texto"
+                        android:textColorHint="@color/texto"
+                        android:textSize="16sp" />
+
+                    <Button
+                        android:id="@+id/btnBuscarTexto"
+                        android:layout_width="65dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:layout_weight="10"
+                        android:drawableRight="@drawable/ic_buscar_gris"
+                        android:gravity="center_vertical" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/header"
@@ -185,7 +201,7 @@
                             </LinearLayout>
 
                             <TextView
-                                android:id="@+id/textView21"
+                                android:id="@+id/txtBuscado"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
@@ -249,14 +265,14 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/vegetariano" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtVegetariano"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"
@@ -284,14 +300,14 @@
                             android:background="@color/fondo">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/mar" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtMar"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"
@@ -328,14 +344,14 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/carnes_rojas" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtCarnesRojas"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"
@@ -362,14 +378,14 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/carnes_blancas" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtCarnesBlancas"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"
@@ -406,14 +422,14 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/postres" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtPostres"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"
@@ -440,14 +456,14 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imgTiemposComida"
+                                android:id="@+id/imgDesayuno"
                                 android:layout_width="match_parent"
                                 android:layout_height="90dp"
                                 android:scaleType="centerCrop"
                                 app:srcCompat="@drawable/bebidas" />
 
                             <TextView
-                                android:id="@+id/textView14"
+                                android:id="@+id/txtBebidas"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="#99000000"

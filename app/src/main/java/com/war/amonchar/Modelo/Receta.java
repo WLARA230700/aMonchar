@@ -1,0 +1,156 @@
+package com.war.amonchar.Modelo;
+
+import android.net.Uri;
+
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Receta {
+
+    private String id;
+    private int tiempo_preparacion;
+    private String medida_tiempo_preparacion;
+    private String tiempo_comida;
+    private ArrayList<String> categorias;
+    private String nombre_receta;
+    private String imagen;
+    private ArrayList<String> cantidad_ingredientes;
+    private ArrayList<String> ingredientes;
+    private ArrayList<String> pasos;
+
+    public Receta(String id, int tiempo_preparacion, String medida_tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, String imagen, ArrayList<String> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
+        this.id = id;
+        this.tiempo_preparacion = tiempo_preparacion;
+        this.medida_tiempo_preparacion = medida_tiempo_preparacion;
+        this.tiempo_comida = tiempo_comida;
+        this.categorias = categorias;
+        this.nombre_receta = nombre_receta;
+        this.imagen = imagen;
+        this.cantidad_ingredientes = cantidad_ingredientes;
+        this.ingredientes = ingredientes;
+        this.pasos = pasos;
+    }
+
+    public Receta(String id, int tiempo_preparacion, String medida_tiempo_preparacion, String tiempo_comida, ArrayList<String> categorias, String nombre_receta, ArrayList<String> cantidad_ingredientes, ArrayList<String> ingredientes, ArrayList<String> pasos) {
+        this.id = id;
+        this.tiempo_preparacion = tiempo_preparacion;
+        this.medida_tiempo_preparacion = medida_tiempo_preparacion;
+        this.tiempo_comida = tiempo_comida;
+        this.categorias = categorias;
+        this.nombre_receta = nombre_receta;
+        this.cantidad_ingredientes = cantidad_ingredientes;
+        this.ingredientes = ingredientes;
+        this.pasos = pasos;
+    }
+
+    public Receta() {
+        this.id = "";
+        this.tiempo_preparacion = 0;
+        this.medida_tiempo_preparacion = "";
+        this.tiempo_comida = "";
+        this.categorias = null;
+        this.nombre_receta = "";
+        this.imagen = "";
+        this.cantidad_ingredientes = null;
+        this.ingredientes = null;
+        this.pasos = null;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public int getTiempo_preparacion() {
+        return tiempo_preparacion;
+    }
+
+    public void setTiempo_preparacion(int tiempo_preparacion) {
+        this.tiempo_preparacion = tiempo_preparacion;
+    }
+
+    public String getMedida_tiempo_preparacion() {
+        return medida_tiempo_preparacion;
+    }
+
+    public void setMedida_tiempo_preparacion(String medida_tiempo_preparacion) {
+        this.medida_tiempo_preparacion = medida_tiempo_preparacion;
+    }
+
+    public String getTiempo_comida() {
+        return tiempo_comida;
+    }
+
+    public void setTiempo_comida(String tiempo_comida) {
+        this.tiempo_comida = tiempo_comida;
+    }
+
+    public ArrayList<String> getCategorias() {
+        return categorias;
+    }
+
+    public void setCategorias(ArrayList<String> categorias) {
+        this.categorias = categorias;
+    }
+
+    public String getNombre_receta() {
+        return nombre_receta;
+    }
+
+    public void setNombre_receta(String nombre_receta) {
+        this.nombre_receta = nombre_receta;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public ArrayList<String> getCantidad_ingredientes() {
+        return cantidad_ingredientes;
+    }
+
+    public void setCantidad_ingredientes(ArrayList<String> cantidad_ingredientes) {
+        this.cantidad_ingredientes = cantidad_ingredientes;
+    }
+
+    public ArrayList<String> getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(ArrayList<String> ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
+    public ArrayList<String> getPasos() {
+        return pasos;
+    }
+
+    public void setPasos(ArrayList<String> pasos) {
+        this.pasos = pasos;
+    }
+
+    @Override
+    public String toString() {
+        return "Receta{" +
+                "id='" + id + '\'' +
+                ", tiempo_preparacion=" + tiempo_preparacion +
+                ", medida_tiempo_preparacion='" + medida_tiempo_preparacion + '\'' +
+                ", tiempo_comida='" + tiempo_comida + '\'' +
+                ", categorias=" + categorias +
+                ", nombre_receta='" + nombre_receta + '\'' +
+                ", imagen='" + imagen + '\'' +
+                ", cantidad_ingredientes=" + cantidad_ingredientes +
+                ", ingredientes=" + ingredientes +
+                ", pasos=" + pasos +
+                '}';
+    }
+}
+
